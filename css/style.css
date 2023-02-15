@@ -1,0 +1,327 @@
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+ 
+    
+ 
+    /*========== Font family ==========*/
+    --raleway: 'Raleway', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+
+
+    /*========== Color theme ==========*/
+    --white: #F9F9F9;
+    --black: #1F1F1F;
+    --green: #58D7AD;
+    --green-dark: linear-gradient(90deg, #58D7AD 0%, #1F1F1F 100%);
+
+    
+    
+}
+
+/*==================== BASE ====================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,h2, h3, h4 {
+    font-family: var(--raleway);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: 1.5px solid var(--green);
+}
+
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+.container {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.section {
+  padding: 100px 200px;
+}
+
+
+
+
+
+
+/*==================== CSS CLASSES ====================*/
+
+
+/*====== NAV BAR =======*/
+.nav__header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--black);
+  
+}
+.nav__header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  margin-right: 457px;
+  font-family: var(--raleway);
+  font-weight: 900;
+  color: var(--green);
+  font-size: 40px;
+}
+
+.nav__links a {
+  font-family: var(--poppins);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+}
+
+/*====== HEADER =======*/
+header {
+  background: linear-gradient(90deg, #000000 0%, #1F1F1F 55.71%, #58D7AD 209.72%);
+  display: flex;
+  padding-top: 90px;
+}
+.header__subtitle {
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-size: 54px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.header__title span {
+  color: var(--green);
+}
+
+.header__separation1 {
+  width: 200px;
+}
+
+.header__text {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--white);
+  margin-top: 10px;
+  margin-bottom: 38px;
+  max-width: 600px;
+}
+
+.header__cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--raleway);
+  font-weight: 700;
+}
+
+.header__cta-title {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.header__cta-subtitle {
+  font-size: 12px;
+  color: var(--green);
+}
+
+/*====== TEAM =======*/
+#team{
+  background: linear-gradient(90deg, #000000 -10%, #1F1F1F 55.71%, #58D7AD 209.72%);
+}
+
+.team__subtitle {
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.team__title {
+  font-size: 45px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.team__title span {
+  color: var(--green);
+}
+
+.team__separation {
+  width: 100px;
+}
+
+
+.team__text {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--white);
+  margin-top: 10px;
+  margin-bottom: 38px;
+  max-width: 1040px;
+}
+
+/*====== CARTES =======*/
+
+.carousel {
+  padding: 20px;
+  perspective: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('../img/planette_full.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+.carousel > * {
+  flex: 0 0 auto;
+}
+.carousel figure {
+  margin: 0;
+  width: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  transform-origin: 50% 50% -482.8427124746px;
+}
+.carousel figure img {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px;
+  opacity: 0.9;
+  background: linear-gradient(to top, #000000 0.1%, #1F1F1F -20%, #58D7AD );
+  border-radius: 1.5em;
+  border-style: solid;
+  border-top-color: var(--green);
+  border-right-color: #1F1F1F;
+  border-left-color: #1F1F1F;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.carousel figure img:not(:first-of-type) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 50% -482.8427124746px;
+}
+.carousel figure img:nth-child(2) {
+  transform: rotateY(0.7853981634rad);
+}
+.carousel figure img:nth-child(3) {
+  transform: rotateY(1.5707963268rad);
+}
+.carousel figure img:nth-child(4) {
+  transform: rotateY(2.3561944902rad);
+}
+.carousel figure img:nth-child(5) {
+  transform: rotateY(3.1415926536rad);
+}
+.carousel figure img:nth-child(6) {
+  transform: rotateY(3.926990817rad);
+}
+.carousel figure img:nth-child(7) {
+  transform: rotateY(4.7123889804rad);
+}
+.carousel figure img:nth-child(8) {
+  transform: rotateY(5.4977871438rad);
+}
+.carousel nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 0;
+}
+.carousel nav button {
+  flex: 0 0 auto;
+  margin: 0 5px;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: 1px solid;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+
+
+.card__content{
+  background-color: #1F1F1F;
+  max-height: 238px;
+  padding: 2em;
+  border-bottom-left-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
+}
+
+.card__separation {
+  width: 80.8px;
+}
+
+.card__subtitle {
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.card__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.card__title span {
+  color: var(--green);
+}
+
+.card__text {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--white);
+  margin-top: 10px;
+  margin-bottom: 38px;
+  max-width: 1040px;
+}
+
+
+/*====== PORTFOLIO =======*/
+
+/*====== A PROPOS =======*/
+
+/*====== CONTACT =======*/
