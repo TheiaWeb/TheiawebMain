@@ -66,6 +66,30 @@ hr {
   padding: 100px 200px;
 }
 
+.section__title {
+  font-size: 45px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.section__title span {
+  color: var(--green);
+}
+
+.section__subtitle {
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.section__text {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--white);
+}
 
 
 
@@ -162,24 +186,6 @@ header {
 /*====== TEAM =======*/
 #team{
   background: linear-gradient(90deg, #000000 -10%, #1F1F1F 55.71%, #58D7AD 209.72%);
-}
-
-.team__subtitle {
-  font-family: var(--montserrat);
-  font-weight: 700;
-  color: var(--green);
-  text-transform: uppercase;
-}
-
-.team__title {
-  font-size: 45px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-.team__title span {
-  color: var(--green);
 }
 
 .team__separation {
@@ -320,9 +326,14 @@ header {
   max-width: 1040px;
 }
 
+/*====== SERVICES =======*/
+#services {
+  background-color: var(--black);
+  display: flex;
+}
 
-/*====== PORTFOLIO =======*/
+/*====== BESOINS =======*/
 
-/*====== A PROPOS =======*/
+/*====== CONFIANCE =======*/
 
 /*====== CONTACT =======*/
