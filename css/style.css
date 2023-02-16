@@ -58,12 +58,12 @@ hr {
 /*==================== REUSABLE CSS CLASSES ====================*/
 
 .container {
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 330px;
+  padding-right: 330px;
 }
 
 .section {
-  padding: 100px 200px;
+  padding: 100px 330px;
 }
 
 .section__title {
@@ -128,9 +128,10 @@ hr {
 
 /*====== HEADER =======*/
 header {
-  background: linear-gradient(90deg, #000000 0%, #1F1F1F 55.71%, #58D7AD 209.72%);
+  background: url(../img/black-space.png);
   display: flex;
-  padding-top: 90px;
+  padding-top: 223px;
+  padding-bottom: 223px;
 }
 .header__subtitle {
   font-family: var(--montserrat);
@@ -333,7 +334,21 @@ header {
 }
 
 /*====== BESOINS =======*/
+#besoins {
+  background: url(../img/besoins_bgc.png);
+}
 
 /*====== CONFIANCE =======*/
+#confiance {
+  background-color: var(--black);
+}
+
 
 /*====== CONTACT =======*/
+#contact {
+  background: url(../img/contact_bgc.png);
+}
+
+footer {
+  background-color: var(--black);
+}
