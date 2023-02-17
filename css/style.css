@@ -112,13 +112,12 @@ hr {
 
 
 /*====== NAV BAR =======*/
-.nav__header {
+.nav__menu {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: var(--black);
-  
 }
-.nav__header ul {
+.nav__menu ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -139,6 +138,9 @@ hr {
   color: var(--white);
 }
 
+.active-link {
+  color: var(--green);
+}
 /*====== HEADER =======*/
 header {
   background: url(../img/black-space.png);
@@ -480,8 +482,29 @@ header {
   background: url(../img/contact_bgc.png);
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.contact__content {
+  margin: 0 400px 39px;
+  
+}
+
+.contact__content h2.section__title,
+.contact__content p.section__text {
+  text-align: center;
+}
+
+.contact__content h2.section__title span,
+.contact__content p.section__text span {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.contact__separation {
+  width: 200px;
+  margin: 10px auto;
 }
 form{
   font-family: var(--raleway  );
@@ -534,6 +557,7 @@ textarea {
 .contact__footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .contact__footer button {
   font-family: var(--raleway);
@@ -550,9 +574,18 @@ textarea {
   font-weight: 400;
   font-size: 10px;
   text-align: center;
+  margin-top: 5px;
 }
 
+.contact__green-star {
+  color: var(--green);
+  font-size: 20px;
+}
 
+.contact__footer-star-txt {
+  color: var(--green);
+  font-weight: 400;
+}
 
 
 

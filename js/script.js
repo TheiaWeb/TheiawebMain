@@ -1,3 +1,6 @@
+// -----------------CARROUSSEL------------------- //
+
+
 var
 	carousel = document.querySelector('.carousel'),
 	figure = carousel.querySelector('figure'),
