@@ -242,7 +242,7 @@ header {
   transform-style: preserve-3d;
   transition: transform 0.5s;
   transform-origin: 50% 50% -482.8427124746px;
-  
+  margin-bottom: 3em;
 }
 .carousel figure img {
   width: 100%;
@@ -258,28 +258,28 @@ header {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.carousel figure img:not(:first-of-type) {
+.carousel figure .card:not(:first-of-type) {
   position: absolute;
   left: 0;
   top: 0;
   transform-origin: 50% 50% -482.8427124746px;
 }
-.carousel figure img:nth-child(2) {
+.carousel figure .card:nth-child(2) {
   transform: rotateY(0.7853981634rad);
 }
-.carousel figure img:nth-child(3) {
+.carousel figure .card:nth-child(3) {
   transform: rotateY(1.5707963268rad);
 }
-.carousel figure img:nth-child(4) {
+.carousel figure .card:nth-child(4) {
   transform: rotateY(2.3561944902rad);
 }
-.carousel figure img:nth-child(5) {
+.carousel figure .card:nth-child(5) {
   transform: rotateY(3.1415926536rad);
 }
-.carousel figure img:nth-child(6) {
+.carousel figure .card:nth-child(6) {
   transform: rotateY(3.926990817rad);
 }
-.carousel figure img:nth-child(7) {
+.carousel figure .card:nth-child(7) {
   transform: rotateY(4.7123889804rad);
 }
 
@@ -299,6 +299,14 @@ header {
   padding: 5px 10px;
 }
 /*====== CARTES =======*/
+.card{
+  max-height: 560px;
+  max-width: 400px;
+}
+
+.card img{
+ max-height: 324px;
+}
 
 .card__content{
   background-color: #1F1F1F;
@@ -344,6 +352,7 @@ header {
   background-color: var(--black);
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .services__separation {
@@ -359,6 +368,7 @@ header {
   margin-top: 2em;
   margin-bottom: 2em;
   max-width: 1040px;
+  display: flex;
 }
 
 .services__content{
@@ -401,6 +411,8 @@ header {
   background-repeat: no-repeat;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 0;
+  height: 727px;
 }
 
 .besoins__separation{
@@ -408,6 +420,8 @@ header {
 }
 
 .besoins__cards{
+  overflow: hidden;
+  position: relative; 
   margin: 2em;
   align-items: center;
   justify-content: center;
@@ -421,6 +435,10 @@ header {
   width: 457px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
+}
+
+.besoins__cards:hover{
+    transform: scale(1.06);
 }
 
 .besoins__title{
