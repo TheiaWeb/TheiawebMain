@@ -82,6 +82,7 @@ hr {
   font-weight: 700;
   color: var(--green);
   text-transform: uppercase;
+  font-size: 15px;
 }
 
 .section__text {
@@ -349,18 +350,6 @@ header {
   width: 80.8px;
 }
 
-.services__subtitle {
-  font-family: var(--montserrat);
-  font-weight: 700;
-  color: var(--green);
-  text-transform: uppercase;
-}
-
-.services__title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--white);
-}
 
 .services__text {
   font-family: var(--poppins);
@@ -476,18 +465,79 @@ header {
   align-items: center;
   justify-content: center;
 }
-.gradient{
-  padding: 0.5em;
-  border-radius: 30px;
-  background: linear-gradient(0deg, #0C0C0C 5%, #1F1F1F 20%,#58D7AD 125%);;
-}
 form{
-  width: 1044px;
-  font-family: var(--poppins);
+  font-family: var(--raleway  );
+  font-weight: 700;
+  font-size: 17px;
   color: #F9F9F9;
-  border-radius: 30px;
-  background: linear-gradient(#1F1F1F 150%, #0C0C0C 5%);
+  background: linear-gradient(180.15deg, #1F1F1F 0.13%, #0C0C0C 99.62%);
+  box-shadow: -8px -8px 29px -18px rgba(249, 249, 249, 0.5), 1px 1px 21px rgba(88, 215, 173, 0.1), inset 0px -4px 0px #58D7AD, inset 0px 4px 0px #58D7AD;  border-radius: 35px;
+  padding: 39px 172px;
+  margin: 0 130px;
 }
+
+
+
+
+.contact__inputs-name {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact__inputs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.contact__input-small {
+  width: 320px;
+}
+
+input,
+textarea {
+  border: none;
+  resize: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  padding: 5px 20px;
+  height: 30px;
+  margin: 15px 0;
+}
+.contact__inputs-large-text{
+  margin-top: 55px;
+}
+#msg {
+  height: 120px;
+}
+
+.contact__footer {
+  display: flex;
+  justify-content: space-between;
+}
+.contact__footer button {
+  font-family: var(--raleway);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+  padding: 16px 14px;
+  background-color: var(--green);
+  box-shadow: inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px #F9F9F9, inset 0px 0px 20px rgba(1, 43, 12, 0.25);
+  border-radius: 5px;
+}
+.contact__footer-btn-under{
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+}
+
+
+
+
+
 
 footer {
   display: flex;
