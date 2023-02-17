@@ -68,13 +68,22 @@
                         <hr class="card__separation">
                         <p class="card__text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
                 </div>         
-            
+        </figure>   
+        <figure>
             <img src="img\pauline_mila_alonso.png" alt="">
+            <div class="card__content">
+                <p class="card__subtitle">Projet Manager</p>
+                <h1 class="card__title">Maxime Taunais</h1>
+                <hr class="card__separation">
+                <p class="card__text" id="pauline"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
+            </div>         
+
         </figure>
-            <nav>
-                <button class="nav prev">Prev</button>
+
+        <nav>
+                <button class="nav prev" input onclick="changeText()" value="Hide Result" id="btn">Prev</button>
                 <button class="nav next">Next</button>
-            </nav>
+        </nav>
         </div>
     
     </div>
@@ -85,29 +94,154 @@
     <div class="services__content">
         <p class="section__subtitle">Nos services</p>
         <h2 class="section__title">Nos <span>Propositions</span></h2>
-        <hr class="services__separation">
+        <hr class="header__separation1">
         <p class="section__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         <button> Voir plus
-        </button>
+        </button>        
     </div>
     <div class="services__cards">
-
+        <div class="services__content__green">
+            <img src="img/chrono.png" alt="">
+            <h3 class="services__title">Performants</h3>
+            <p class="services__text" > Nos sites sont rapides, performants sécurisés et adaptés aux règles de référencement de Google.</p>
+        </div>    
+        <div class="services__content__black">
+            <img src="img/logo2.png" alt="">
+            <h3 class="services__title">Design Unique</h3>
+            <p class="services__text" >  Nos sites vitrines sont développés par nos équipes avec un design unique et sur mesure.</p>
+        </div>    
+    </div>
+    <div class="services__cards_2">
+        <div class="services__content__black">
+            <img src="img/logo3.png" alt="">
+            <h3 class="services__title">Responsive </h3>
+            <p class="services__text" > Nos sites vitrines sur-mesure sont parfaitement adaptés aux PC, smartphone et tablettes.</p>
+        </div>    
+        <div class="services__content__green" style ="background:linear-gradient(0deg, #0C0C0C , #1F1F1F ,#58D7AD );
+        display: flex;">
+            <img src="img/logo4.png" alt="">
+            <h3 class="services__title">Engageant</h3>
+            <p class="services__text" > Nos sites conçus pour les visiteurs permettent de générer de nouveaux contacts et de la conversion.</p>
+        </div>    
     </div>
 </section>
 
 <section id="besoins" class="section">
-
+        <p class="section__subtitle">Et vous</p>
+        <h2 class="section__title">de quoi avez vous <span> besoins ?</span></h2>
+        <hr class="besoins__separation">
+    <div class="row">
+        <div class="besoins__cards">
+            <h3 class="besoins__title">Creation de Site Vitrine</h3>
+        </div>  
+        <div class="besoins__cards">
+            <h3 class="besoins__title">Refonte de site internet</h3>
+        </div>  
+    </div>
 </section>
 
 <section id="confiance" class="section">
-
-</section>
-
+        <p class="section__subtitle">a propos</p>
+        <h2 class="section__title">Votre confiance passe par <br> notre <span>creativité</span>.</h2>
+        <hr class="header__separation1">
+        <p class="confiance__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi incidunt dolor adipisci voluptatum assumenda numquam in aperiam recusandae eius perspiciatis, vitae veniam optio minus, similique impedit veritatis maiores sunt quae.</p>
+        <div class="row">
+            <div class="row">
+            <img src="img\clean_code.png" alt="">
+            <div class="col">                
+                <h3 class="section__subtitle">Code Propre</h3>
+                <p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A</p>
+            </div>
+            </div>
+            <div class="row">
+                <img src="img\clean_code.png" alt="">
+                <div class="col">                
+                    <h3 class="section__subtitle">Code Propre</h3>
+                    <p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+            </div>
+            <div class="row">
+                <img src="img\clean_code.png" alt="">
+                <div class="col">                
+                    <h3 class="section__subtitle">Code Propre</h3>
+                    <p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="confiance__cards">
+            <img src="img\projects_done.png" alt="">
+            <h3 class="section__title"><span>50+</span></h3>
+            <p class="section__subtitle" style="color: white;">Projets Terminés</p>
+        </div> 
+        <div class="confiance__cards">
+            <img src="img\projects_done.png" alt="">
+            <h3 class="section__title"><span>50+</span></h3>
+            <p class="section__subtitle" style="color: white;">Clients Satisfaits</p>
+        </div> 
+        <div class="confiance__cards">
+            <img src="img\projects_done.png" alt="">
+            <h3 class="section__title"><span>50+</span></h3>
+            <p class="section__subtitle" style="color: white;">Top Commentaires</p>
+        </div> 
+    </div>
+    </section >
 <section id="contact" class="section">
+<div class="gradient">
+    <form action="/ma-page-de-traitement" method="post">
+        <div>
+            <label for="name">Nom et Prénom:</label>
+            <input type="text" id="name" name="user_name">
+        </div>
+        <div>
+            <label for="mail">e-mail:</label>
+            <input type="email" id="mail" name="user_mail">
+            <label for="tel">Téléphone :</label>
+            <input id="tel" name="user_tel"></input>
 
+        </div>
+        <div>
+            <label for="company">Votre entrprise ou association :</label>
+            <textarea id="company" name="company"></textarea>
+            <label for="tel">Votre Projet concerne : </label>
+            <input id="tel" name="user_tel"></input>
+        </div>
+        <div>
+            <label for="msg">Expliqué nous votre projet :</label>
+            <textarea id="msg" name="user_message"></textarea>
+        </div>
+        
+    </form>
+</div>
 </section>
 
 <footer>
+<div class="row">
+    <div class="col">
+        <h2 class="section__subtitle">Nous contacter </h2>
+        <hr class="card__separation">
+        <button> 06 XX XX XX XX</button>
+        <p class="section__text"> contact.theiaweb@gmail.com</p>
+        <button>Demander un Devis</button>
+
+    </div>
+    <div class="col">
+        <h2 class="section__subtitle">Informations</h2>
+        <hr class="card__separation">
+
+    </div>
+
+    <div class="col">
+        <h2 class="section__subtitle">Prestations</h2>
+        <hr class="card__separation">
+        <p class="section__text">Creation de site Internet</p>
+        <p class="section__text">Refonte de site Internet</p>
+        <p class="section__text">Creation de page google</p>
+
+    </div>
+</div>
+<p class="section__text">Conditions Général d'utilisaions</p>
+<p class="section__text">Mentions Legales et Politiques de confidentialité</p>
 
 </footer>
 

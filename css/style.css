@@ -91,9 +91,21 @@ hr {
   color: var(--white);
 }
 
+.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 3em;
+  justify-content: center
+}
 
-
-
+.col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5em;
+  justify-content: center
+}
 
 /*==================== CSS CLASSES ====================*/
 
@@ -206,6 +218,7 @@ header {
 
 /*====== CAROUSEL =======*/
 
+
 .carousel {
   padding: 20px;
   perspective: 500px;
@@ -226,8 +239,9 @@ header {
   margin: 0;
   width: 400px;
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  transition: transform 0.5s;
   transform-origin: 50% 50% -482.8427124746px;
+  
 }
 .carousel figure img {
   width: 100%;
@@ -267,9 +281,7 @@ header {
 .carousel figure img:nth-child(7) {
   transform: rotateY(4.7123889804rad);
 }
-.carousel figure img:nth-child(8) {
-  transform: rotateY(5.4977871438rad);
-}
+
 .carousel nav {
   display: flex;
   justify-content: center;
@@ -279,13 +291,12 @@ header {
   flex: 0 0 auto;
   margin: 0 5px;
   cursor: pointer;
-  color: white;
+  color: #333;
   background: none;
   border: 1px solid;
   letter-spacing: 1px;
   padding: 5px 10px;
 }
-
 /*====== CARTES =======*/
 
 .card__content{
@@ -331,24 +342,157 @@ header {
 #services {
   background-color: var(--black);
   display: flex;
+  flex-direction: row;
 }
 
+.services__separation {
+  width: 80.8px;
+}
+
+.services__subtitle {
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.services__title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.services__text {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--white);
+  margin-top: 2em;
+  margin-bottom: 2em;
+  max-width: 1040px;
+}
+
+.services__content{
+  max-width: 704px;
+  padding: 2em;
+  margin-right: 6em;
+}
+
+.services__content__green{
+  background: linear-gradient( #0C0C0C 5%, #1F1F1F 20%,#58D7AD 125%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.5em;  
+}
+
+.services__content__black{
+  background: linear-gradient( #0C0C0C 5%,#1F1F1F 30%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.5em;;
+}
+
+.services__cards{
+  max-width: 240px;
+  
+}
+
+.services__cards_2{
+  margin-top: -1.5em;
+  max-width: 240px;
+  justify-content: center;
+
+}
 /*====== BESOINS =======*/
 #besoins {
+  display: flex;
   background: url(../img/besoins_bgc.png);
+  background-repeat: no-repeat;
+  flex-direction: column;
+  align-items: center;
 }
 
+.besoins__separation{
+  width: 375px;
+}
+
+.besoins__cards{
+  margin: 2em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(0deg, #0C0C0C 5%, #1F1F1F 20%,#58D7AD 125%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 353px;
+  width: 457px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.besoins__title{
+  font-size: 32px;
+  font-weight: 358;
+  color: var(--white);
+}
 /*====== CONFIANCE =======*/
 #confiance {
   background-color: var(--black);
+}
+
+.confiance__text{
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--white);
+  width: 1040px;
+}
+
+.confiance__cards{
+  margin: 2em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(0deg, #0C0C0C 5%, #1F1F1F 20%,#58D7AD 125%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  width:230px;
+  border-radius: 30px;
 }
 
 
 /*====== CONTACT =======*/
 #contact {
   background: url(../img/contact_bgc.png);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gradient{
+  padding: 0.5em;
+  border-radius: 30px;
+  background: linear-gradient(0deg, #0C0C0C 5%, #1F1F1F 20%,#58D7AD 125%);;
+}
+form{
+  width: 1044px;
+  font-family: var(--poppins);
+  color: #F9F9F9;
+  border-radius: 30px;
+  background: linear-gradient(#1F1F1F 150%, #0C0C0C 5%);
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   background-color: var(--black);
+  align-items: center;
 }

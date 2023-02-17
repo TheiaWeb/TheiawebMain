@@ -3,7 +3,7 @@ var
 	figure = carousel.querySelector('figure'),
 	nav = carousel.querySelector('nav'),
 	numImages = figure.childElementCount,
-	theta =  2 * Math.PI / numImages,
+	theta =  2 * Math.PI / 4,
 	currImage = 0
 ;
 	
@@ -25,3 +25,13 @@ function onClick(e) {
 	
 	figure.style.transform = `rotateY(${currImage * -theta}rad)`;
 }
+
+
+	const introPara = document.getElementById("pauline");
+	// Récupère le contenu HTML du paragraphe
+	let contenu = introPara.innerHTML; //Je suis un <strong>joli</strong> paragraphe !
+
+	// Remplacer le contenu HTML du paragraphe
+	introPara.innerHTML = "Je suis un <em>nouveau</em> paragraphe !";
+	// <p>Je suis un <em>nouveau</em> paragraphe !</p>
+
