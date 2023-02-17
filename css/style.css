@@ -29,6 +29,10 @@
     margin: 0;
 }
 
+body {
+  width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -94,13 +98,19 @@ hr {
   color: var(--white);
 }
 
-.row{
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*.row{
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 3em;
   justify-content: center
-}
+}*/
 
 .col{
   display: flex;
@@ -607,6 +617,7 @@ footer {
   justify-content: space-around;
   background-color: var(--black);
   align-items: center;
+  
 }
 
 
@@ -629,7 +640,23 @@ footer {
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
 @media screen and (max-width: 350px){
+  .container {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  
+  .section {
+    padding: 8% 8%;
+  }
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
 
+  #services {
+    flex-direction: column;
+  }
 }
 
 /* For medium devices */
