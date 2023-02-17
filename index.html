@@ -70,7 +70,7 @@
                         <p class="card__subtitle">Projet Manager</p>
                         <h1 class="card__title">Maxime Taunais</h1>
                         <hr class="card__separation">
-                        <p class="card__text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
+                        <p class="card__text" id="maxime"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
                 </div>
             </div> 
             <div class="card"></div>
@@ -92,7 +92,17 @@
                 <hr class="card__separation">
                 <p class="card__text" id="pauline"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
             </div>  
-        </div>        
+        </div>   
+        <div class="card"></div>
+        <div class="card">        
+            <img src="img\pauline_mila_alonso.png" alt="">
+            <div class="card__content">
+                <p class="card__subtitle">Projet Manager</p>
+                <h1 class="card__title">Maxime Taunais</h1>
+                <hr class="card__separation">
+                <p class="card__text" id="pauline"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nobis quas rerum laboriosam dolor itaque aliquid doloremque excepturi reprehenderit deleniti repudiandae vitae maxime, dolores sapiente omnis voluptas provident consectetur. Necessitatibus.</p>
+            </div>  
+        </div>         
 
         </figure>
 
@@ -212,7 +222,7 @@
     <p class="section__text">N'hésitez pas à nous soumettre <span>vos questions</span> et <span>vos projets</span> directement par mail, 
         nous serons ravis de pouvoir échanger avec vous !</p>
 </div>
-    <form action="/ma-page-de-traitement" method="post">
+    <form action="contact.php" method="post">
         <div class="contact__inputs-name">
             <label for="name">Votre Nom et Prénom <span class="contact__green-star">&#42;</span></label>
             <input type="text" id="name" name="user_name">
@@ -250,14 +260,13 @@
         <div class="contact__footer">
             <p class="contact__footer-star-txt"><span class="contact__green-star">&#42;</span> Champs obligatoires</p>
             <div>
-                <button>Envoyer le Message</button>
+                <button type="submit" value="Send">Envoyer le Message</button>
                 <p class="contact__footer-btn-under">Réponse sous 48h</p>
             </div>
             
         </div>
         
     </form>
-
 </section>
 
 <footer>
@@ -265,7 +274,7 @@
     <div class="col">
         <h2 class="section__subtitle">Nous contacter </h2>
         <hr class="card__separation">
-        <button> 06 XX XX XX XX</button>
+        <button class="button__tel"> 06 XX XX XX XX</button>
         <p class="section__text"> contact.theiaweb@gmail.com</p>
         <button>Demander un Devis</button>
 
@@ -295,7 +304,8 @@
 
 
 
-
+    
     <script src="js/script.js"></script>
+
 </body>
 </html>
