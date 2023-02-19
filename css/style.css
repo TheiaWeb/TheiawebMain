@@ -118,6 +118,17 @@ hr {
   justify-content: center
 }
 
+.green_btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+  box-shadow: 0px 0px 10px -1px #58D7AD, inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px #F9F9F9, inset 0px 0px 20px rgba(1, 43, 12, 0.25);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.green_btn:focus {
+  color: var(--green);
+}
+
 /*==================== CSS CLASSES ====================*/
 
 
@@ -151,7 +162,6 @@ hr {
 
 .nav__links a:hover{
   color: var(--green);
-  font-size: larger;
 }
 
 /*====== HEADER =======*/
@@ -514,9 +524,26 @@ header img:hover{
   background: url(../img/contact_bgc.png);
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+.contact__content h2,
+.contact__content p {
+  text-align: center;
+  padding: 0 400px;
+}
+
+.contact__separation {
+  width: 200px;
+  margin: auto;
+}
+
+.contact__content p {
+  margin: 10px 0 40px;
+}
+
 
 form{
   font-family: var(--raleway  );
@@ -576,12 +603,15 @@ textarea {
   background-color: var(--green);
   box-shadow: inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px #F9F9F9, inset 0px 0px 20px rgba(1, 43, 12, 0.25);
   border-radius: 5px;
+  border: none;
 }
+
 .contact__footer-btn-under{
   font-family: var(--poppins);
   font-weight: 400;
   font-size: 10px;
   text-align: center;
+  margin-top: 10px;
 }
 footer {
   font-size: larger;
@@ -601,6 +631,7 @@ footer button{
   padding-left : 1.5em;
   padding-right:  1.5em;
   background-color: var(--green);
+  border: none;
 }
 
 footer button:hover{
@@ -608,7 +639,7 @@ footer button:hover{
 }
 .button__tel{
   background-color: var(--black);
-  border-color: var(--white);
+  border: 1px solid var(--white);
   color: var(--white);
 }
 .button__tel:hover{
