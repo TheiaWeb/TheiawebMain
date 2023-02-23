@@ -6,55 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theia Web</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     
-<nav class="nav__menu container">
-    <ul>
-        <li class="nav__logo">
-            LOGO
-        </li>
-        <li class="nav__links">
-            <a href="">Accueil</a>
-        </li>
-        <li class="nav__links">
-            <a href="#team">Équipe</a>
-        </li>
-        <li class="nav__links">
-            <a href="#service">Services</a>
-        </li>
-        <li class="nav__links">
-            <a href="#confince">Portfolio</a>
-        </li>
-        <li class="nav__links">
-            <a href="#contact">Contact</a>
-        </li>
-    </ul>
-</nav>
 
-<header class="container">
-    <div class="header__content">
-        <p class="header__subtitle">Agence Digitale</p>
-        <h1 class="header__title">Nous sommes des <span>Web Designers</span></h1>
-        <hr class="header__separation1">
-        <p class="header__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="" class="nav__logo">Logo</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list grid">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link active-link">
+                        <i class="uil uil-estate nav__icon"></i> Accueil
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">
+                        <i class="uil uil-user nav__icon"></i> Équipe
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link">
+                        <i class="uil uil-file-alt nav__icon"></i> Services
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#services" class="nav__link">
+                        <i class="uil uil-graduation-cap nav__icon"></i> Portfolio
+                    </a>
+                </li>
+                <!--<li class="nav__item">
+                    <a href="#portfolio" class="nav__link">
+                        <i class="uil uil-scenery nav__icon"></i> Boutique
+                    </a>
+                </li>-->
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class="uil uil-message nav__icon"></i> Contact
+                    </a>
+                </li>
+            </ul>
+            <i class="uil uil-times nav__close" id="nav-close"></i>
+        </div>
+
+        <div class="nav__btns">
+                
+               
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="uil uil-apps"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<section class="home container">
+    <div class="home__content">
+        <p class="home__subtitle">Agence Digitale</p>
+        <h1 class="home__title">Nous sommes des <span>Web Designers</span></h1>
+        <hr class="home__separation1">
+        <p class="home__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         
-        <div class="header__cta">
+        <div class="home__cta">
             <img src="img/header__cta__img.png" alt="">
             <div>
-                <p class="header__cta-title">A propos</p>
-                <hr class="header__separation2">
-                <p class="header__cta-subtitle">L'agence</p>
+                <p class="home__cta-title">A propos</p>
+                <hr class="home__separation2">
+                <p class="home__cta-subtitle">L'agence</p>
             </div>
         </div>
     </div>
    
 
     
-</header>
+</section>
 
 <section id="team" class="section">
     <div class="Team__content">
