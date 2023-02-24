@@ -1,0 +1,172 @@
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+ 
+    
+ 
+    /*========== Font family ==========*/
+    --raleway: 'Raleway', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+
+
+    /*========== Color theme ==========*/
+    --white: #F9F9F9;
+    --black: #1F1F1F;
+    --green: #58D7AD;
+    --bgc-black: #0C0C0C;
+    --green-dark: linear-gradient(90deg, #58D7AD 0%, #1F1F1F 100%);
+
+     /*========== Font Size ==========*/
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    
+    
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+
+}
+
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*==================== BASE ====================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,h2, h3, h4 {
+    font-family: var(--raleway);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: 1.5px solid var(--green);
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+
+.main__title, 
+.section__title {
+    font-size: var(--h2-font-size);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  
+  h2 span {
+    color: var(--green);
+  }
+  
+  .section__subtitle {
+    font-family: var(--montserrat);
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    font-size: var(--normal-font-size);
+  }
+  
+  .section__text {
+    font-family: var(--poppins);
+    font-weight: 400;
+    font-size: var(--small-font-size);
+    color: var(--white);
+  }
+  
+ 
+
+  .green_btn:hover {
+    background-color: var(--black);
+    color: var(--white);
+    box-shadow: 0px 0px 10px -1px #58D7AD, inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px #F9F9F9, inset 0px 0px 20px rgba(1, 43, 12, 0.25);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .green_btn:focus {
+    color: var(--green);
+  }
+
+  /*==================== LAYOUT ====================*/
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .container {
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+  
+  .section {
+    padding: 2rem 3rem;
+  }
+
+  
+  /*==================== HOME ====================*/
+
+  .main__title {
+    font-size: var(--big-font-size);
+  }
+
+
+    /*==================== CARROUSSEL ====================*/
+
+    

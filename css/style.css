@@ -234,7 +234,7 @@ hr {
 
 /* Active link */
 .active-link{
-  color: var(--green);
+  color: var(--black);
 }
 
 /* Change background header */
