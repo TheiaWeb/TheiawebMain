@@ -866,7 +866,15 @@ footer button:hover{
 }
 
 
+@media screen and (max-width: 765px) {
 
+  .section {
+    padding: 80px 170px;
+  }
+  #services {
+    flex-direction: column;
+  }
+}
 
 /*==================== test  ====================*/
 
