@@ -72,7 +72,6 @@
 
 body {
   width: 100%;
-  background-color: #091A14;
 }
 
 html {
@@ -91,6 +90,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 img {
@@ -106,15 +106,20 @@ li{
   align-items: center;
 }
 
+
 /*==================== REUSABLE CSS CLASSES ====================*/
 
+.main__title{
+  text-shadow: 1em 1em  rgba(255, 255, 255, 0.5), -1px -1px 0 rgba(255, 255, 255, 0.5),
+  1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
+  0px 0px 2px rgba(0, 0, 0, 1);
+}
 
 .main__title, 
 .section__title {
     font-size: var(--h2-font-size);
     font-weight: 800;
     text-transform: uppercase;
-    color: var(--white);
   }
   
   h2 span {
@@ -133,14 +138,12 @@ li{
     font-family: var(--poppins);
     font-weight: 400;
     font-size: var(--small-font-size);
-    color: var(--white);
   }
   
  
 
   .green_btn:hover {
     background-color: var(--black);
-    color: var(--white);
     box-shadow: 0px 0px 10px -1px #58D7AD, inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px #F9F9F9, inset 0px 0px 20px rgba(1, 43, 12, 0.25);
     cursor: pointer;
     transition: 0.3s;
@@ -168,66 +171,174 @@ li{
   
   /*====================NAVBAR====================*/
   
-  header{
-    background-color: #091A14;
-    color:#F9F9F9;
-    height: 126px;
-    border: #000000 solid 1px;
-  }
-  a {
-    color: #F9F9F9;
-  }
-  .nav__content{
-    margin-right:10em ;
-    margin-left: 10em;
+  nav{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    height: 126px;
+
+    background: rgba(251, 251, 251, 0.3);
+    box-shadow: 0px 4px 34px -18px #FCADE7;
   }
 
-  .nav__logo{
-    padding-right: 15em;
-    height: auto;
+
+  .nav__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 500px;
+    
+    width: 1865px;
+    height: 100px;
   }
 
   .nav__menu{
     display: flex;
     flex-direction: row;
-    width: 50%;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+    padding: 0px;
+    gap: 42px;
+    
+    width: 1030px;
+    height: 90px; 
   }
-  
-.search-container {
-  float: right;
-}
 
 .nav__menu input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border-radius:20px;
-  padding-left: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 0px 12px 10px;
+    gap: 10px;
+    
+    width: 313px;
+    height: 49px;
+    
+    background: rgba(137, 255, 253, 0.4);
+    /* blue */
+    
+    border: 1.5px solid #89FFFD;
+    /* néomorphisme */
+    
+    box-shadow: inset -0.3px -0.3px 1px #0C0C0C, inset 0.3px 0.3px 1px rgba(249, 249, 249, 0.2);
+    border-radius: 20px;
 }
 
-
-@media screen and (max-width: 640px){
-  
-  .nav__menu {
-    visibility: collapse;
-  }
-  
+input{
+  background-color: #89FFFD;
 }
+
+#basket{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
+
+  width: 69px;
+  height: 43px;
+}
+
   /*==================== HOME ====================*/
+
+  #home{
+    margin-top: 10em;
+    margin-left: 5em;
+    margin-right: 5em;
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;
+  }
+
+.home__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  width: 640.7px;
+}
+  
 
   .main__title {
     font-size: var(--big-font-size);
   }
 
+  #home__content{
+    margin-top: 2em;
+    margin-bottom : 2em;
+  }
 
+  .btn__pink{
+    border: #FCADE7;
+    background-color: #FCADE7;
+    border-radius: 25em;
+    height: 3em;
+    width:12em;
+  }
+  .btn__pink a {
+    color:white;
+  }
+  .btn__white{
+    color:black;
+    border: 0.2em solid pink;
+    background-color: white;
+    border-radius: 25em;
+    height: 3em;
+    width:12em;
+  }
+  .btn__white a {
+    color: pink;
+  }
 
+    /*==================== POURQUOI NOUS? ====================*/
 
-    /*==================== CARROUSSEL ====================*/
+#why__us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  margin-left: 5em;
+  margin-right: 5em;
+  margin-top: 15em;
+}
 
-    
+#why__us__content{
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  width: 640.7px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+    /*==================== SERVICES ====================*/
+
+#services{
+  color: black;
+}
+
+.services__content{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 25px;
+width: 919px;
+}
+
+    /*==================== ROADMAP ====================*/
+
+#roadmap{
+  display: flex;
+  justify-content: center;
+}    
+
+.roadmap__header {
+  background: linear-gradient(104.49deg, rgba(255, 255, 255, 0.7) 1.76%, rgba(255, 255, 255, 0.56) 137.27%), url(https://s3-alpha-sig.figma.com/img/f0c7/0b3b/2f6b5369d3820a1c66a5bd0ac1105626?Expires=1682294400&Signature=C0hBCsvxdP284Wse9ZwIiCPuRd4nhlqRhaX1iyNXulTRL2bQFmpqQB8hV5qCAudIaSOZ6PAaYHU95dfsMD5pywwzlw0MP90I3TLLnqHgBTvmJNbLLDcFqVVOc~3TZi0vFWJpwq4pg1LgY1EPfw55-cY2y44tYRhzcROT60XgbW-f4bG1o1l2rwH0KxL5nwuX7Dv~Oo4IobZwZX-ndNJ7JRSGogl8QXuVHKU-k2yMytHyXyjF-1rJK5hfRKwFXSfZAfEMCp2dthIjRsSN0crCme8ZBzGh5or6zVfpZunmxjOjDgNSCJtvhgDfpKRcdqtK8SdLtuPknmLI9UmfDHcpBg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  /* box-shadow: inset 0px 0px 39px 26px #FFFFFF; */
+}
