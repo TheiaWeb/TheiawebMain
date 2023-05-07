@@ -41,5 +41,3 @@ function onClick(e) {
 	// <p>Je suis un <em>nouveau</em> paragraphe !</p>
 
 
-
-
