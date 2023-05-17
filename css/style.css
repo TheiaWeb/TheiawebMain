@@ -21,9 +21,9 @@
     --container-color: #fff; 
 
      /*========== Font Size ==========*/
-    --h1-font-size: 6rem;
-    --h2-font-size: 4rem;
-    --h3-font-size: 2.25rem;
+    --h1-font-size: 4.5rem;
+    --h2-font-size: 3rem;
+    --h3-font-size: 2rem;
     --normal-font-size: 1.5rem;
     --small-font-size: 1.25rem;
     --smaller-font-size: 1rem;
@@ -97,7 +97,7 @@ a {
 }
 
 img {
-  height: auto;
+  width: 100%;
 }
 
 li{
@@ -147,53 +147,55 @@ li{
 
   /*==================== LAYOUT ====================*/
 
-  .grid {
+  .grid-base {
     display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 1.5rem;
   }
-
-  .container {
-    
+  @media screen and (max-width: 745px) {
+    .grid-base { grid-template-columns: 1fr;
+    }
   }
+
   
   .section {
-    padding: 2rem 3rem;
+    padding: 50px 13%;
   }
 
   
   /*====================NAVBAR====================*/
   
   nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     box-shadow: 0px 4px 34px -18px #FCADE7;
+    padding: 1rem 13%;
   }
 
 
-  .nav__content{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 500px;
-    
-    width: 1865px;
-    height: 100px;
-  }
-
+  .nav__content,
   .nav__menu{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0px;
-    gap: 42px;
-    
-    width: 1030px;
-    height: 90px; 
+    justify-content: space-between;  
   }
+
+  .nav__menu {
+    font-family: var(--roboto);
+    text-transform: uppercase;
+    gap: 2rem;
+  }
+
+  .nav__menu li {
+    
+    line-height: 20px;
+  }
+
+  .nav__menu-btn {
+    padding: 20px 40px;
+    background-color: rgba(252, 173, 231, 0.4);
+    border: 2px solid #FCADE7;
+    border-radius: 89px;
+  }
+
 
 .nav__menu input[type=text] {
     display: flex;
@@ -203,7 +205,6 @@ li{
     gap: 10px;
     
     width: 313px;
-    height: 49px;
     
     background: rgba(137, 255, 253, 0.4);
     /* blue */
@@ -233,22 +234,10 @@ input{
 
   /*==================== HOME ====================*/
 
-  #home{
-    margin-top: 10em;
-    margin-left: 5em;
-    margin-right: 5em;
-    display: flex;
-    flex-direction: row;  
-    justify-content: space-between;
-  }
-
 .home__content{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0px;
-  width: 640.7px;
+  
 }
   
 
