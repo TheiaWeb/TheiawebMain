@@ -215,6 +215,17 @@ li{
     }
   }
 
+  .grid-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media screen and (max-width: 900px) {
+    .grid-trio { grid-template-columns: 1fr;
+    }
+  }
+
+
   
   .section {
     padding: 50px 13%;
@@ -330,9 +341,61 @@ li{
 }
   
 
-    /*==================== SERVICES ====================*/
+/*==================== SERVICES ====================*/
 
 
 
-    /*==================== ROADMAP ====================*/
+/*==================== ROADMAP ====================*/
+
+
+
+
+/*==================== FOOTER ====================*/
+
+.footer__column-title {
+  font-family: var(--lato);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-bold);
+  color: var(--black);
+}
+
+.footer__separation {
+  width: 80px;
+  border: 3px solid var(--blue);
+  margin: auto;
+  margin-top: 10px;
+}
+
+.footer__column {
+display: flex;
+flex-direction: column;
+gap: 30px;
+align-items: center;
+}
+
+.footer__contact-phone {
+  display: flex;
+  gap: 20px;
+  border: 2px solid var(--black);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.footer__contact-phone img {
+  max-width: 27px;
+}
+footer p {
+  font-family: var(--roboto);
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  color: var(--black);
+}
+
+.footer__down {
+  padding-top: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
 
