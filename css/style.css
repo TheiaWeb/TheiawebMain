@@ -27,6 +27,7 @@
     --normal-font-size: 1.5rem;
     --small-font-size: 1.25rem;
     --smaller-font-size: 1rem;
+    --footer-font-size: 0.825rem;
 
     
     
@@ -351,6 +352,9 @@ li{
 
 
 /*==================== FOOTER ====================*/
+footer {
+  background: linear-gradient(175deg, #FCADE7 14.39%, #89FFFD 86.07%);
+}
 
 .footer__column-title {
   font-family: var(--lato);
@@ -387,8 +391,28 @@ align-items: center;
 footer p {
   font-family: var(--roboto);
   font-weight: var(--font-bold);
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
   color: var(--black);
+  line-height: 23px;
+}
+
+.footer__button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+.footer__button:hover {
+  cursor: pointer;
+}
+
+.footer__logo {
+  max-width: 160px;
+}
+
+.footer__infos {
+  text-align: center;
 }
 
 .footer__down {
@@ -398,4 +422,17 @@ footer p {
   flex-direction: column;
 }
 
+.footer__down a,
+.footer__down span {
+ font-family: var(--roboto); 
+ font-weight: var(--font-regular);
+ font-size: var(--footer-font-size);
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.footer__down a {
+  text-decoration-line: underline;
+
+}
 
