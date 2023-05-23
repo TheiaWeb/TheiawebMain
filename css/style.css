@@ -350,6 +350,30 @@ li{
 
 
 
+/*==================== CONTACT ====================*/
+.contact__category {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__label {
+  font-family: var(--roboto);
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  color: var(--black);
+}
+
+.contact__star {
+  color: #FF41CC;
+}
+
+.contact__input-small {
+  border: none;
+  border-bottom: 1px solid var(--black);
+}
+
+
 
 /*==================== FOOTER ====================*/
 footer {
