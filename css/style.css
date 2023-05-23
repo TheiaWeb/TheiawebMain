@@ -19,6 +19,7 @@
     --pink-blue-gradient: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
     --input-color:rgba(0, 0, 0, 0.6);
     --container-color: #fff; 
+    --bright-pink: #FF41CC;
 
      /*========== Font Size ==========*/
     --h1-font-size: 5rem;
@@ -73,7 +74,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /*box-shadow: 0 0 0 3px  red inset;*/
+    box-shadow: 0 0 0 3px  red inset;
 }
 
 body {
@@ -351,10 +352,32 @@ li{
 
 
 /*==================== CONTACT ====================*/
+.contact__header {
+text-align: center;
+}
+
+
+.contact__titlebox {
+  display: flex;
+
+}
+
+.form__content {
+  padding: 25px 110px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
+  border: 3px solid var(--pink);
+  margin-top: 50px;
+
+
+}
+
 .contact__category {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 .contact__label {
@@ -365,12 +388,92 @@ li{
 }
 
 .contact__star {
-  color: #FF41CC;
+  color: var(--bright-pink);
 }
 
 .contact__input-small {
   border: none;
   border-bottom: 1px solid var(--black);
+  padding-bottom: 10px;
+  outline: none;
+  font-size: var(--small-font-size);
+}
+
+.contact__input-small::placeholder,
+.contact__input-large::placeholder {
+  font-family: var(--roboto);
+  font-size: var(--smaller-font-size);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.contact__msg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.contact__input-large {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: var(--small-font-size);
+  resize: none;
+}
+
+.contact__footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 900px) {
+  .contact__footer-top {
+    flex-direction: column;
+  }
+}
+
+.contact__footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.contact__footer-cgucheck label,
+.contact__footer-bottom {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
+}
+
+.contact__footer-cgucheck label{
+  margin-left: 10px;
+
+}
+.contact__footer-cgucheck label a {
+  font-weight: var(--font-bold);
+  color: var(--black);
+}
+
+.contact__footer-top p {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--bright-pink)
+}
+
+.contact__footer-bottom button {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(252, 173, 231, 0.6) 14.39%, rgba(137, 255, 253, 0.6) 86.07%);
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
 }
 
 

@@ -111,12 +111,15 @@
 </section>
 
 <section id="contact" class="section">
-    <div>
-        <div class="section-titlebox"> 
-            <p class="section__title-back back-last">NOUS CONTACTER</p>
-            <p class="section__title-back back-middle">NOUS CONTACTER</p>
-            <h2 class="section__title">NOUS CONTACTER</h2>
+    <div class="contact__header">
+        <div class="test">
+            <div class="section-titlebox contact__titlebox"> 
+                <p class="section__title-back back-last">NOUS CONTACTER</p>
+                <p class="section__title-back back-middle">NOUS CONTACTER</p>
+                <h2 class="section__title">NOUS CONTACTER</h2>
+            </div>
         </div>
+        
         <p class="section__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </p>
     </div>
 
@@ -128,56 +131,57 @@
                     <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
                     <input class="contact__input-small" type="text" id="name" name="user_name" placeholder="Jean">    
                 </div>
-                <div>
+                <div class="contact__category">
                     <label class="contact__label" for="name">Nom <span class="contact__star">&#42;</span></label>
-                    <input type="text" id="name" name="user_surname" placeholder="Dupuis">    
+                    <input class="contact__input-small" type="text" id="name" name="user_surname" placeholder="Dupuis">    
                 </div>
             </div>
             <div class="grid-base">
-                <div>
+                <div class="contact__category">
                     <label class="contact__label" for="name">Mail <span class="contact__star">&#42;</span></label>
-                    <input type="mail" id="email" name="user_mail" placeholder="email@exemple.fr">    
+                    <input class="contact__input-small" type="mail" id="email" name="user_mail" placeholder="email@exemple.fr">    
                 </div>
-                <div>
+                <div class="contact__category">
                     <label class="contact__label" for="name">Téléphone</label>
-                    <input type="text" id="name" name="user_tel" placeholder="Apo">    
+                    <input class="contact__input-small" type="text" id="name" name="user_tel" placeholder="Apo">    
                 </div>
             </div>
             
             <div class="grid-base">
-                <div>
+                <div class="contact__category">
                     <label class="contact__label" for="name">Société</label>
-                    <input type="text" id="name" name="user_company" placeholder="Apo">    
+                    <input class="contact__input-small" type="text" id="name" name="user_company" placeholder="Apo">    
                 </div>
-                <div>
+                <div class="contact__category">
                     <label class="contact__label" for="name">Sujet <span class="contact__star">&#42;</span></label>
-                    <input type="text" id="name" name="user_subject" placeholder="Apo">    
+                    <input class="contact__input-small" type="text" id="name" name="user_subject" placeholder="Apo">    
                 </div>
             </div>
-            
-            
-            
-        </div>
-        <div class="">
-            <label class="contact__label" for="msg">Expliquez nous votre projet <span class="contact__-star">&#42;</span></label>
-            <textarea id="msg" name="user_message" placeholder="Message..."></textarea>
-        </div>
-        <div>
-            <div>
-                <input type="checkbox" id="cgu-check" name="cgu">
-                <label for="horns">J'accepte les  <span><a href="">Conditions Générales d'Utilisation</a></span><span class="contact__-star">&#42;</span></label>    
+            <div class="contact__msg">
+                <label class="contact__label" for="msg">Expliquez nous votre projet <span class="contact__star">&#42;</span></label>
+                <textarea class="contact__input-large" id="msg" name="user_message" placeholder="Message..."></textarea>
             </div>
-            <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
-
-          </div>
-          <div class="contact__footer">
-            <div>
-                <button class="green_btn" type="submit" value="Send">Envoyer le Message</button>
-                <p class="contact__footer-btn-under">Réponse sous 48h</p>
-            </div>
+            <div class="contact__footer-top">
+                <div class="contact__footer-cgucheck">
+                    <input type="checkbox" id="cgu-check" name="cgu">
+                    <label for="horns">J'accepte les  <span><a href="">Conditions Générales d'Utilisation </a></span><span class="contact__star">&#42;</span></label>    
+                </div>
+                <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
+    
+              </div>
+              
+                <div class="contact__footer-bottom">
+                    <button class="green_btn" type="submit" value="Send">Envoyer le Message</button>
+                    <p class="contact__footer-btn-under">Réponse sous 48h</p>
+                </div>
+                
+            
+    
+            
+            
             
         </div>
-
+        
         
     </form>
     
