@@ -352,6 +352,17 @@ li{
 
 
 /*==================== CONTACT ====================*/
+#contact {
+  position: relative;
+}
+
+#contact img {
+  max-width: 531px;
+  position: absolute;
+  right: 0;
+  
+}
+
 .contact__header {
 text-align: center;
 }
