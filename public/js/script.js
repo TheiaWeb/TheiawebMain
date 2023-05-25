@@ -40,9 +40,6 @@ function onClick(e) {
 	introPara.innerHTML = "Je suis un <em>nouveau</em> paragraphe !";
 	// <p>Je suis un <em>nouveau</em> paragraphe !</p>
 
-<<<<<<< Updated upstream
-=======
 // -----------------FORM------------------- //
 
->>>>>>> Stashed changes
 
