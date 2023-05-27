@@ -296,24 +296,33 @@ li{
 .team-po {
   bottom: -10px;
   right: 25px;
+  background: url(../img/team__card-pauline.png);
+
 }
 
 .team-max {
   bottom: -80px;
   left: 25px;
+  background: url(../img/team__card-maxime.png);
+
 }
 
 .team-vinc {
   top: -20px;
   left: 80px;
+  background: url(../img/team__card-vincent.png);
+
 }
 
 .team__content-left-card {
   position: absolute;
-    background: var(--pink-blue-gradient);
-  padding-right: 58px;
-  padding-top: 10px;
+  padding-right: 11px;
+  padding-top: 18px;
+  width: 236px;
+  height: 288px;
 }
+
+
 
 .team__content-left-card p,
 .team__content-left-card h4 {
@@ -326,14 +335,18 @@ li{
 .team__content-left-card p {
   color: var(--blue);
   font-size: var(--smaller-font-size);
-
 }
 
 .team__content-left-card h4 {
   color: var(--white);
   font-size: var(--small-font-size);
-
 }
+
+.team__content-left-card h4,
+.team__content-left-card p {
+  text-align: right;
+}
+
 
 .team__content-right {
   display: flex;
@@ -343,8 +356,62 @@ li{
 }
   
 
-/*==================== SERVICES ====================*/
+/*==================== EXPERTISES ====================*/
+.expertises__content {
+  margin-bottom: 95px;
+}
 
+.expertises__carrousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+}
+
+.expertises__carrousel-card {
+  display: flex;
+  justify-content: center;
+  margin-bottom: auto;
+}
+
+.expertises__carrousel-card h4 {
+  display: flex;
+  align-items: center;
+  font-family: var(--roboto);
+  font-style: var(--font-regular);
+  font-weight: var(--font-bold);
+  font-size: var(--normal-font-size);
+  line-height: 35px;
+}
+
+.card-one {
+  width: 355px;
+  height: 473px;
+  background: url(../img/expertises-card1.png) no-repeat;
+  background-size: contain;
+}
+
+.card-two {
+  width: 520px;
+  height: 473px;
+  background: url(../img/expertises-card2.png) no-repeat;
+  background-size: contain;
+}
+
+.card-three {
+  width: 461px;
+  height: 473px;
+  background: url(../img/expertises-card3.png) no-repeat;
+  background-size: contain;
+}
+
+.card-four {
+  width: 329px;
+  height: 473px;
+  background: url(../img/expertises-card4.png) no-repeat;
+  background-size: contain;
+}
 
 
 /*==================== ROADMAP ====================*/
@@ -360,6 +427,7 @@ li{
   max-width: 531px;
   position: absolute;
   right: 0;
+  top: 200px;
   
 }
 
@@ -379,7 +447,7 @@ text-align: center;
   box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.25);
   border-radius: 35px;
   border: 3px solid var(--pink);
-  margin-top: 50px;
+  margin: 50px 120px;
 
 
 }
@@ -574,3 +642,16 @@ footer p {
 
 }
 
+.okiwoki {
+  height: 300px;
+    background: red;
+    position: relative;
+}
+.okiwoki:before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  border-bottom: 80px solid white;
+  border-left: 80px solid red;
+  width: 0;
+}
