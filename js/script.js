@@ -1,44 +1,23 @@
 
+// -----------------TOGGLE MENU------------------- //
 
-// -----------------CARROUSSEL------------------- //
+var menuOpen = false;
 
+function toggleMenu() {
+  var menu = document.getElementById('menu');
+  var icon = document.getElementById('iconImage');
 
-var
-	carousel = document.querySelector('.carousel'),
-	figure = carousel.querySelector('figure'),
-	nav = carousel.querySelector('nav'),
-	numImages = figure.childElementCount,
-	theta =  2 * Math.PI / 4,
-	currImage = 0
-;
-	
-nav.addEventListener('click', onClick, true);
-
-function onClick(e) {
-	e.stopPropagation();
-	
-	var t = e.target;
-	if (t.tagName.toUpperCase() != 'BUTTON')
-		return;
-	
-	if (t.classList.contains('next')) {
-		currImage++;
-	}
-	else {
-		currImage--;
-	}
-	
-	figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+  if (!menuOpen) {
+    menu.classList.add('menu-open');
+    icon.src = '../img/navbar-close.png';
+    menuOpen = true;
+  } else {
+    menu.classList.remove('menu-open');
+    icon.src = '../img/navbar-burger.png';
+    menuOpen = false;
+  }
 }
 
-
-	const introPara = document.getElementById("pauline");
-	// Récupère le contenu HTML du paragraphe
-	let contenu = introPara.innerHTML; //Je suis un <strong>joli</strong> paragraphe !
-
-	// Remplacer le contenu HTML du paragraphe
-	introPara.innerHTML = "Je suis un <em>nouveau</em> paragraphe !";
-	// <p>Je suis un <em>nouveau</em> paragraphe !</p>
 
 
 
