@@ -55,12 +55,29 @@
 
 }
 
+@media screen and (max-width: 1750px) {
+  :root {
+      --h1-font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  :root {
+      --h1-font-size: 2.9rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  :root {
+      --h1-font-size: 2rem;
+  }
+}
+
 
 /* Font size for small devices */
 @media screen and (max-width: 745px) {
     :root {
-        --big-font-size: 3rem;
-        --h1-font-size: 2.25rem;
+        --big-font-size: 4rem;
         --h2-font-size: 1.5rem;
         --h3-font-size: 1.25rem;
         --normal-font-size: 1rem;
@@ -69,12 +86,14 @@
     }
 }
 
+
+
 /*==================== BASE ====================*/
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    box-shadow: 0 0 0 3px  red inset;
+    /*box-shadow: 0 0 0 3px  red inset;*/
 }
 
 body {
@@ -123,6 +142,12 @@ li{
   position: relative;
   height: 100px ;
 }
+@media screen and (max-width: 430px) {
+  .section-titlebox {
+    height: 50px ;
+  }
+}
+
 .back-middle {
   color: var(--pink);
   text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
@@ -233,6 +258,12 @@ li{
     padding: 50px 13%;
   }
 
+  @media screen and (max-width: 550px) {
+    .section {
+      padding: 50px 5%;
+    }
+  }
+
   /*====================NAVBAR====================*/
   
   nav{
@@ -268,7 +299,7 @@ li{
 .home__content-left {
   display: flex;
   flex-direction: column;
-  gap: 2.19rem;
+  gap: 45px;
   justify-content: center;
 }
 .home__content-left p.section__text {
@@ -284,6 +315,12 @@ li{
   display: flex;
   justify-content: center;
   align-items: center
+}
+
+.home__cta {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
 }
 
     /*==================== TEAM ====================*/
