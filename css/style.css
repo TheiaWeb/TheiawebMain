@@ -508,7 +508,7 @@ border-radius: 60px 60px 0px 0px;
 text-align: center;
 }
 
-.expertises__carrousel-card-btn p {
+.expertises__carrousel-card-btn span {
 color: var(--black);
 font-family: var(--lato);
 font-weight: var(--font-regular);
@@ -567,6 +567,18 @@ margin-bottom: 5px;
   justify-content: center;
   overflow: none;
 } 
+
+
+
+.tabs__content {
+  display: none;
+}
+
+
+
+.is-active {
+  display: block;
+}
 
 
 /*==================== ROADMAP ====================*/
