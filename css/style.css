@@ -71,7 +71,7 @@
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 530px) {
   :root {
       --h1-font-size: 2rem;
       --h2-font-size: 1.5rem;
@@ -599,7 +599,12 @@ margin-bottom: 5px;
 }
 
 
-
+.test  {
+  display: flex;
+  flex-direction: column;
+    padding-right: 30%;
+    padding-left: 30%
+}
 
 
 
@@ -806,6 +811,18 @@ footer p {
 
 /*==================== MEDIA QUERIES ====================*/
 
+@media only screen and (max-width: 430px) {
+  .test  {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+@media only screen and (min-width: 430px) {
+  .test  {
+    padding-right: 20%;
+    padding-left: 20%;
+  }
+}
 
 
  /* Extra small devices (phones, 600px and down) */
@@ -818,13 +835,19 @@ footer p {
   .btn__white {
    padding: 15px 25px;
     }
+    
  
 
   
   
-
-  
 }
+@media only screen and (min-width: 600px) {
+ .test  {
+  padding-right: 20%;
+  padding-left: 30%
+} 
+}
+
 
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
@@ -851,7 +874,9 @@ gap: 15px;
   .team__content-right {
     gap: 25px;
   }
+ 
 }
+
 
 
 @media screen and (min-width: 768px) {
@@ -862,6 +887,8 @@ gap: 15px;
   .grid-expertises {
     grid-template-columns: 1fr 1fr ;
   }
+  
+
   
  }
 
