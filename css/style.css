@@ -771,6 +771,10 @@ footer p {
   cursor: pointer;
 }
 
+.footer__button a {
+  color: var(--black);
+}
+
 .footer__logo {
   max-width: 160px;
 }
@@ -810,6 +814,11 @@ footer p {
   .section-titlebox {
     height: 50px ;
   }
+  .btn__pink,
+  .btn__white {
+   padding: 15px 25px;
+    }
+ 
 
   
   
@@ -819,6 +828,7 @@ footer p {
 
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
+  
   .navbar__pc {
     display: none;
   }
@@ -829,13 +839,18 @@ footer p {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+ .home__content-left {
+gap: 15px;
+ }
   .home__content-right {
     display: none;
   }
   .grid-expertises {
     grid-template-columns: 1fr;
   }
-
+  .team__content-right {
+    gap: 25px;
+  }
 }
 
 
