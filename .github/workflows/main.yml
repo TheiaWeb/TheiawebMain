@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -21,10 +24,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build # Replace with your build command
-
       - name: Deploy to Firebase
-        run: npm run deploy # Replace with your deploy command
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
