@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "deploy": "firebase deploy",
-    "build": "webpack"
+    "build": "webpack --config prod.config.js"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
