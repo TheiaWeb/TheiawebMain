@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
             <a href="#" ><img class="nav__content-logo" src=img/logo.png alt=""></a>
           <ul class="nav__menu">
             <li><a href="#expertises">Expertises</a></li>
-            <!--  <li><a href="#">Tarifs</a></li>-->
+           <!--  <li><a href="#">Tarifs</a></li>-->
             <li class="nav__menu-btn"><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -38,7 +38,7 @@
             <div class="navbar__mobile-content" id="menu">
             <ul>
                 <li><a href="#expertises">Expertises</a></li>
-            <!--  <li><a href="#">Tarifs</a></li>-->
+           <!--  <li><a href="#">Tarifs</a></li>-->
             <li><a href="#contact">Contact</a></li>
             </ul>
     
@@ -62,7 +62,7 @@
                     <button class="btn__white"><a href="#contact">NOUS CONTACTER</a></button>
                 </div>
             </div>
-        <div class="home__content-right">
+        <div class="wow home__content-right animate__fadeInRight">
             <img src="img/big-elipse.png" alt="">
         </div>
       </section>
@@ -280,7 +280,7 @@
     <div class="contact__footer-top">
       <div class="contact__footer-cgucheck">
         <input type="checkbox" id="cgu-check" name="cgu"  required>
-        <label for="cgu-check">J'accepte les  <span><a href="">Conditions Générales d'Utilisation </a></span><span class="contact__star">&#42;</span></label>
+        <label for="cgu-check">J'accepte les  <span><a href="legal\cgu.html">Conditions Générales d'Utilisation </a></span><span class="contact__star">&#42;</span></label>
       </div>
       <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
     </div>
@@ -333,9 +333,9 @@
     </div>
 </div>
 <div class="footer__down">
-    <a href="">Conditions générales d'utilisation</a>
+    <a href="legal\cgu.html">Conditions générales d'utilisation</a>
     <div>
-        <a href="">Mention légales</a><span> et </span><a href="">politique de confidentialité</a>
+        <a href="legal\mentions-legales.html">Mention légales</a><span> et </span><a href="legal\politique-confidentialité.html">politique de confidentialité</a>
 
     </div>
 </div>
@@ -416,42 +416,5 @@
           });
         });
       </script>
-      <!-- <script>
-        // JavaScript code goes here
-        // Set a boolean variable to control the pop-up display
-        var showPopup = false;
-    
-        // Function to display a pop-up
-        function displayPopup(message) {
-          var popup = document.createElement('div');
-          popup.className = 'popup';
-          popup.innerHTML = message;
-    
-          var closeBtn = document.createElement('button');
-          closeBtn.innerHTML = 'Close';
-          closeBtn.onclick = function() {
-            document.body.removeChild(popup);
-          };
-    
-          popup.appendChild(closeBtn);
-          document.body.appendChild(popup);
-        }
-    
-        // Function to toggle the pop-up
-        function togglePopup() {
-          showPopup = !showPopup; // Toggle the boolean value
-    
-          if (showPopup) {
-            displayPopup('Pop-up activated!');
-          }
-        }
-    
-        // Example console logs
-        console.log('This is a console log message.');
-    
-        // Toggle the pop-up
-        togglePopup();
-      </script> -->
-      
 </body>
 </html>
