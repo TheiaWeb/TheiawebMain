@@ -1,0 +1,30 @@
+name: Firebase Deploy
+
+on:
+  push:
+    branches:
+      - main # Replace with your branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build # Replace with your build command
+
+      - name: Deploy to Firebase
+        run: npm run deploy # Replace with your deploy command
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
