@@ -2,7 +2,8 @@
   "name": "formtheia",
   "version": "1.0.0",
   "scripts": {
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "build": "webpack"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
