@@ -2,5 +2,9 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "firebase": "^9.22.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "deploy": "firebase deploy"
   }
 }
