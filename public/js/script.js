@@ -1,4 +1,3 @@
-
 // -----------------TOGGLE MENU------------------- //
 
 var menuOpen = false;
@@ -36,5 +35,42 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
     });
 });
 
+/*==================== TEST ANIMATION ====================*/
+
+// wow = new WOW(
+//   {
+//   boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
+//   animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
+//   offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
+//                             // When the user scrolls and reach this distance the hidden box is revealed.
+//   mobile:       true,       // Turn on/off wow.js on mobile devices.
+//   live:         true        // consatantly check for new WOW elements on the page.
+// }
+// )
+// wow.init();
+
+/*==================== PopUp ====================*/
+function closePopup() {
+  var element = document.getElementById("popup");
+  element.classList.remove("modal-active");
+}
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  var popup = document.getElementById("popup");
+  var acceptButton = document.getElementById("acceptButton");
+
+  acceptButton.addEventListener("click", function() {
+    popup.style.display = "none";
+    // Enregistre le consentement donné
+    localStorage.setItem("consentGiven", true);
+  });
+
+  // Vérifie si le consentement a déjà été donné
+  var consentGiven = localStorage.getItem("consentGiven");
+
+  if (!consentGiven) {
+    popup.style.display = "block";
+  }
+});
