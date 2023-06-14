@@ -50,13 +50,6 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
 // wow.init();
 
 /*==================== PopUp ====================*/
-function closePopup() {
-  var element = document.getElementById("popup");
-  element.classList.remove("modal-active");
-}
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
   var popup = document.getElementById("popup");
   var acceptButton = document.getElementById("acceptButton");
@@ -71,6 +64,21 @@ document.addEventListener("DOMContentLoaded", function() {
   var consentGiven = localStorage.getItem("consentGiven");
 
   if (!consentGiven) {
+    centerPopup();
     popup.style.display = "block";
   }
+
+  function centerPopup() {
+    var windowHeight = window.innerHeight;
+    var popupHeight = popup.offsetHeight;
+
+    if (popupHeight < windowHeight) {
+      var topOffset = (windowHeight - popupHeight) / 2;
+      popup.style.top = topOffset + "px";
+    } else {
+      popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
+    }
+  }
+
+  window.addEventListener("resize", centerPopup);
 });
