@@ -802,7 +802,8 @@ margin-bottom: 5px;
 
 /*==================== FOOTER ====================*/
 footer {
-  background: linear-gradient(175deg, #FCADE7 14.39%, #89FFFD 86.07%);
+  background: linear-gradient(180deg, #FCFDF2 0%, rgba(252, 173, 231, 0.4) 100%);
+  box-shadow: 0px 1px 15px 5px rgba(252, 173, 231, 0.4);
 }
 
 .footer__column-title {
@@ -861,6 +862,21 @@ footer p {
 
 .footer__button a {
   color: var(--black);
+}
+
+.footer__links-rs {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__links-rs a i {
+  color: var(--black);
+  font-size: 20px;
+}
+
+.footer__links-rs a i:hover,
+.footer__links-rs a i:focus {
+  color: var(--pink);
 }
 
 .footer__logo {
