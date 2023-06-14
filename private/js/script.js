@@ -49,3 +49,8 @@ wow = new WOW(
 )
 wow.init();
 
+/*==================== PopUp ====================*/
+function closePopup() {
+  var element = document.getElementById("popup");
+  element.classList.remove("modal-active");
+}
