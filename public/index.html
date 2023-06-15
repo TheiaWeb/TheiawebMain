@@ -376,7 +376,10 @@
     <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.</p>
     <button id="acceptButton">J'accepte</button>
   </div>
-</div><!-- <form id="newsletterForm">
+</div>
+
+
+<!-- <form id="newsletterForm">
   <input type="email" id="emailInput" placeholder="Enter your email" required>
   <button type="submit">Subscribe</button>
 </form>
@@ -480,13 +483,13 @@
       <script>
       /*==================== PopUp CONTACT FORM====================*/       
       function closePopup() {
-    var popup = document.getElementById('popupFORM');
-    popup.style.display = 'none';
+    var popupFORM = document.getElementById('popupFORM');
+    popupFORM.style.display = 'none';
   }
 
   function openPopup() {
-    var popup = document.getElementById('popupFORM');
-    popup.style.display = 'block';
+    var popupFORM = document.getElementById('popupFORM');
+    popupFORM.style.display = 'block';
   }
 
   var submitBtn = document.querySelector('.green_btn');
@@ -495,7 +498,9 @@
     console.log("Form submitted successfully!");
     openPopup();
   });
-/*==================== PopUp RGPD===================*/ 
+
+      /*==================== PopUp RGPD====================*/       
+
   document.addEventListener("DOMContentLoaded", function() {
     var popupRGPD = document.getElementById("popupRGPD");
     var acceptButton = document.getElementById("acceptButton");
@@ -509,23 +514,11 @@
     var consentGiven = localStorage.getItem("consentGiven");
 
     if (!consentGiven) {
-      centerPopupRGPD();
       popupRGPD.style.display = "block";
+    } else {
+      var popupFORM = document.getElementById('popupFORM');
+      popupFORM.style.display = 'none';
     }
-
-    function centerPopupRGPD() {
-      var windowHeight = window.innerHeight;
-      var popupHeight = popupRGPD.offsetHeight;
-
-      if (popupHeight < windowHeight) {
-        var topOffset = (windowHeight - popupHeight) / 2;
-        popupRGPD.style.top = topOffset + "px";
-      } else {
-        popupRGPD.style.top = "20px";
-      }
-    }
-
-    window.addEventListener("resize", centerPopupRGPD);
   });
         </script>
 </body>
