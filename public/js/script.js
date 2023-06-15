@@ -49,3 +49,42 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
 // )
 // wow.init();
 
+/*==================== PopUp CONTACT FORM====================*/       
+function closePopup() {
+  var popupFORM = document.getElementById('popupFORM');
+  popupFORM.style.display = 'none';
+}
+
+function openPopup() {
+  var popupFORM = document.getElementById('popupFORM');
+  popupFORM.style.display = 'block';
+}
+
+var submitBtn = document.querySelector('.green_btn');
+submitBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  console.log("Form submitted successfully!");
+  openPopup();
+});
+
+    /*==================== PopUp RGPD====================*/       
+
+document.addEventListener("DOMContentLoaded", function() {
+  var popupRGPD = document.getElementById("popupRGPD");
+  var acceptButton = document.getElementById("acceptButton");
+
+  acceptButton.addEventListener("click", function() {
+    popupRGPD.style.display = "none";
+    // Save the given consent
+    localStorage.setItem("consentGiven", true);
+  });
+
+  var consentGiven = localStorage.getItem("consentGiven");
+
+  if (!consentGiven) {
+    popupRGPD.style.display = "block";
+  } else {
+    var popupFORM = document.getElementById('popupFORM');
+    popupFORM.style.display = 'none';
+  }
+});

@@ -416,7 +416,7 @@
       <script>
         // Handle form submission
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent form from submitting and page refresh
+          // event.preventDefault(); // Prevent form from submitting and page refresh
       
           // Get form values
           var surname = document.getElementById('surname').value;
@@ -481,45 +481,7 @@
       new WOW().init();
       </script>
       <script>
-      /*==================== PopUp CONTACT FORM====================*/       
-      function closePopup() {
-    var popupFORM = document.getElementById('popupFORM');
-    popupFORM.style.display = 'none';
-  }
-
-  function openPopup() {
-    var popupFORM = document.getElementById('popupFORM');
-    popupFORM.style.display = 'block';
-  }
-
-  var submitBtn = document.querySelector('.green_btn');
-  submitBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    console.log("Form submitted successfully!");
-    openPopup();
-  });
-
-      /*==================== PopUp RGPD====================*/       
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var popupRGPD = document.getElementById("popupRGPD");
-    var acceptButton = document.getElementById("acceptButton");
-
-    acceptButton.addEventListener("click", function() {
-      popupRGPD.style.display = "none";
-      // Save the given consent
-      localStorage.setItem("consentGiven", true);
-    });
-
-    var consentGiven = localStorage.getItem("consentGiven");
-
-    if (!consentGiven) {
-      popupRGPD.style.display = "block";
-    } else {
-      var popupFORM = document.getElementById('popupFORM');
-      popupFORM.style.display = 'none';
-    }
-  });
+      
         </script>
 </body>
 </html>
