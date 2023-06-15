@@ -57,9 +57,11 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
   
       acceptButton.addEventListener("click", function() {
       popupRGPD.style.display = "none";
+      popupRGPD.style.position = "null";
+      popupRGPD.style.opacity = "100%";
       });
     });
-    
+
 /*==================== PopUp CONTACT FORM====================*/       
       function closePopup() {
     var popupFORM = document.getElementById('popupFORM');
