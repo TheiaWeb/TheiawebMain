@@ -49,6 +49,17 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
 // )
 // wow.init();
 
+     /*==================== PopUp RGPD====================*/       
+
+     document.addEventListener("DOMContentLoaded", function() {
+      var popupRGPD = document.getElementById("popupRGPD");
+      var acceptButton = document.getElementById("acceptButton");
+  
+      acceptButton.addEventListener("click", function() {
+      popupRGPD.style.display = "none";
+      });
+    });
+    
 /*==================== PopUp CONTACT FORM====================*/       
       function closePopup() {
     var popupFORM = document.getElementById('popupFORM');
@@ -67,25 +78,4 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
     openPopup();
   });
 
-      /*==================== PopUp RGPD====================*/       
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var popupRGPD = document.getElementById("popupRGPD");
-    var acceptButton = document.getElementById("acceptButton");
-
-    acceptButton.addEventListener("click", function() {
-      popupRGPD.style.display = "none";
-      // Save the given consent
-      localStorage.setItem("consentGiven", true);
-    });
-
-    var consentGiven = localStorage.getItem("consentGiven");
-
-    if (!consentGiven) {
-      popupRGPD.style.display = "block";
-    } else {
-      var popupFORM = document.getElementById('popupRGPD');
-      popupFORM.style.display = 'none';
-    }
-    
-  });
+ 
