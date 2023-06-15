@@ -357,22 +357,27 @@
 
 <!--ZONE DE TEST-->
 
-<div class="popup" >
+<div class="popupFORM">
   <div class="toast modal-active" id="popup">
-  
     <div class="toast-content">
       <i class="fas fa-solid fa-check check"></i>
-  
       <div class="message">
         <span class="text text-1">Succès</span>
         <span class="text text-2">Votre message a bien été envoyé !</span>
       </div>
     </div>
     <i class="fa-solid fa-xmark close" onclick="closePopup()"></i>
-</div>
+  </div>
 </div>
 
-<form id="newsletterForm">
+<div id="popupRGPD">
+  <div class="content">
+    <h2>Consentement RGPD</h2>
+    <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.</p>
+    <button id="acceptButton">J'accepte</button>
+  </div>
+</div>
+<!-- <form id="newsletterForm">
   <input type="email" id="emailInput" placeholder="Enter your email" required>
   <button type="submit">Subscribe</button>
 </form>
@@ -381,11 +386,11 @@
       <span class="close"><img src="img/navbar-close.png" alt=""></span>
       <p id="modalText">Message envoyé</p>
     </div>
-  </div>
+  </div> -->
 
 
 
-    <script src="js/script.js"></script>
+    <script src="js\script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
     <script>
@@ -446,7 +451,7 @@
           });
         });
       </script>
-<script>
+<!-- <script>
   // Handle newsletter subscription
   document.getElementById('newsletterForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from submitting and page refresh
@@ -468,10 +473,69 @@
       console.error('Error adding newsletter subscription:', error);
     });
   });
-</script>
+</script> -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
       <script>
       new WOW().init();
       </script>
+      <script>
+      /*==================== PopUp CONTACT FORM====================*/       
+      function closePopup() {
+    var popup = document.getElementById('popupFORM');
+    popup.style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var submitBtn = document.querySelector('.green_btn');
+
+    submitBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      console.log("Form submitted successfully!");
+      var popup = document.getElementById('popupFORM');
+      popup.style.display = 'block';
+    });
+
+    var closeBtn = document.querySelector('.close');
+    closeBtn.addEventListener('click', function() {
+      closePopup();
+    });
+  });
+        </script>
+        <script>
+          /*==================== PopUp RGPD====================*/
+document.addEventListener("DOMContentLoaded", function() {
+  var popup = document.getElementById("popupRGPD");
+  var acceptButton = document.getElementById("acceptButton");
+
+  acceptButton.addEventListener("click", function() {
+    popup.style.display = "none";
+    // Enregistre le consentement donné
+    localStorage.setItem("consentGiven", true);
+  });
+
+  // Vérifie si le consentement a déjà été donné
+  var consentGiven = localStorage.getItem("consentGiven");
+
+  if (!consentGiven) {
+    centerPopup();
+    popup.style.display = "block";
+  }
+
+  function centerPopup() {
+    var windowHeight = window.innerHeight;
+    var popupHeight = popup.offsetHeight;
+
+    if (popupHeight < windowHeight) {
+      var topOffset = (windowHeight - popupHeight) / 2;
+      popup.style.top = topOffset + "px";
+    } else {
+      popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
+    }
+  }
+
+  window.addEventListener("resize", centerPopup);
+});
+
+        </script>
 </body>
 </html>

@@ -37,20 +37,15 @@ let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
 
 /*==================== TEST ANIMATION ====================*/
 
-wow = new WOW(
-  {
-  boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
-  animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
-  offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
-                            // When the user scrolls and reach this distance the hidden box is revealed.
-  mobile:       true,       // Turn on/off wow.js on mobile devices.
-  live:         true        // consatantly check for new WOW elements on the page.
-}
-)
-wow.init();
+// wow = new WOW(
+//   {
+//   boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
+//   animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
+//   offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
+//                             // When the user scrolls and reach this distance the hidden box is revealed.
+//   mobile:       true,       // Turn on/off wow.js on mobile devices.
+//   live:         true        // consatantly check for new WOW elements on the page.
+// }
+// )
+// wow.init();
 
-/*==================== PopUp ====================*/
-function closePopup() {
-  var element = document.getElementById("popup");
-  element.classList.remove("modal-active");
-}

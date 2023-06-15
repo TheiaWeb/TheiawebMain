@@ -1170,17 +1170,12 @@ gap: 15px;
   right: 30px;
   border-radius: 12px;
   background: #fff;
+  transform: translate(-50%, -50%);
   padding: 20px 35px 20px 25px;
   box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: none;
- 
 }
-
-.modal-active {
-  display: block;
-}
-
 
 .toast .toast-content {
   display: flex;
@@ -1197,7 +1192,6 @@ gap: 15px;
   color: #fff;
   font-size: 20px;
   border-radius: 50%;
-  
 }
 
 .toast-content .message {
@@ -1229,4 +1223,38 @@ gap: 15px;
 
 .toast .close:hover {
   opacity: 1;
+}
+
+
+
+#popupRGPD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+#popupRGPD button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#popupRGPD button:hover {
+  background-color: #0056b3;
 }
