@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,41 +10,44 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <script src="https://kit.fontawesome.com/746151b356.js" crossorigin="anonymous"></script>
+
+  </head>
 <body>
     
 
 
+  <nav class="navbar__pc">
+    <div class="nav__content">
+        <a href="#index.html" ><img class="nav__content-logo" src=img/logo.png alt=""></a>
+      <ul class="nav__menu">
+        <li><a href="#expertises">Expertises</a></li>
+       <!--  <li><a href="#">Tarifs</a></li>-->
+        <li class="nav__menu-btn"><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="navbar__mobile">
+    <div class="navbar__mobile-head section">
+        <img class="navbar__mobile-logo" src="img/logo.png" alt="">
+        <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt="" id="menuIcon" onclick="toggleMenu()">
+      </div>
     
+        <div class="navbar__mobile-content" id="menu">
+        <ul>
+            <li><a href="#expertises">Expertises</a></li>
+       <!--  <li><a href="#">Tarifs</a></li>-->
+        <li><a href="#contact">Contact</a></li>
+        </ul>
+
+      </div>
+    
+</div>  
 
 <header class="header" id="header">
-    <nav class="navbar__pc">
-        <div class="nav__content">
-            <a href="#" ><img class="nav__content-logo" src=img/logo.png alt=""></a>
-          <ul class="nav__menu">
-            <li><a href="#expertises">Expertises</a></li>
-            <!--  <li><a href="#">Tarifs</a></li>-->
-            <li class="nav__menu-btn"><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="navbar__mobile">
-        <div class="navbar__mobile-head section">
-            <img class="navbar__mobile-logo" src="img/logo.png" alt="">
-            <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt="" id="menuIcon" onclick="toggleMenu()">
-          </div>
-        
-            <div class="navbar__mobile-content" id="menu">
-            <ul>
-                <li><a href="#expertises">Expertises</a></li>
-            <!--  <li><a href="#">Tarifs</a></li>-->
-            <li><a href="#contact">Contact</a></li>
-            </ul>
     
-          </div>
-        
-    </div>
 
       <section id="home" class=" section grid-base">
         <div class="home__content-left">
@@ -62,14 +65,14 @@
                     <button class="btn__white"><a href="#contact">NOUS CONTACTER</a></button>
                 </div>
             </div>
-        <div class="home__content-right">
+        <div class="wow home__content-right animate__fadeInRight">
             <img src="img/big-elipse.png" alt="">
         </div>
       </section>
 </header>
 
-<section id="team" class="section grid-base">
-    <div class="team__content-left">
+<section id="team" class="wow section grid-base" data-wow-offset="1">
+    <div class="team__content-left wow animate__animated animate__backInLeft ">
         <img class="team__content-left-bg" src="img/team-fingerprint.png" alt="">
         <div class="team__content-left-card team-po">
             <p>Frontend</p>
@@ -87,7 +90,7 @@
     </div>
     
     
-    <div class="team__content-right">
+    <div class="team__content-right wow animate__animated animate__fadeIn">
         <div class="section-titlebox"> 
             <p class="section__title-back back-last">POURQUOI NOUS CHOISIR ?</p>
             <p class="section__title-back back-middle">POURQUOI NOUS CHOISIR ?</p>
@@ -118,8 +121,8 @@
 </section>
 
 <section id="expertises" class="section">
-    <div class="expertises__content">
-        <div class="section-titlebox"> 
+    <div class="expertises__content wow animate__animated animate__fadeIn">
+        <div class="section-titlebox "> 
             <p class="section__title-back back-last">Nos Expertises</p>
             <p class="section__title-back back-middle">Nos Expertises</p>
             <h2 class="section__title">Nos expertises</h2>
@@ -127,7 +130,7 @@
         <h3 class="section__subtitle">Vous souhaitez booster la croissance de votre entreprise ? La solution se trouve ici</h3>
         <p class="section__text">Que vous souhaitiez développer une présence en ligne percutante ou optimiser votre site web actuel pour une meilleure visibilité, notre équipe est prête à relever tous les défis. Nous sommes passionnés par la réussite de nos clients et nous nous engageons à les accompagner tout au long de leur trensition numérique, en leur offrant un soutien constant et des conseils avisés.</p>
     </div>
-    <div class="expertises__carrousel grid-expertises">
+    <div class="expertises__carrousel grid-expertises animate__animated animate__fadeInUp" data-wow-offset="3">
         <div class="expertises__carrousel-card">
             <div class="expertises__cards card-one">
                 <h4>Design UX/UI</h4>
@@ -225,7 +228,7 @@
     </div>
 </section>-->
 
-<section id="contact" class="section">
+<section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
     <div class="contact__header">
         <div class="test">
             <div class="section-titlebox contact__titlebox"> 
@@ -280,7 +283,7 @@
     <div class="contact__footer-top">
       <div class="contact__footer-cgucheck">
         <input type="checkbox" id="cgu-check" name="cgu"  required>
-        <label for="cgu-check">J'accepte les  <span><a href="">Conditions Générales d'Utilisation </a></span><span class="contact__star">&#42;</span></label>
+        <label for="cgu-check">J'accepte les  <span><a href="legal\cgu.html">Conditions Générales d'Utilisation </a></span><span class="contact__star">&#42;</span></label>
       </div>
       <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
     </div>
@@ -312,6 +315,14 @@
         </div>
         <p>email@theiaweb.fr</p>
         <p class="footer__button"><a href="#contact">Demander un devis</a></p>
+        <div class="footer__links-rs">
+          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <!--<a href="" target="_blank"> <i class="fa-brands fa-instagram"></i></a>-->
+          <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+       <!--<a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>-->  
+
+        </div>
     </div>
     <div class="footer__column">
         <div>
@@ -333,9 +344,9 @@
     </div>
 </div>
 <div class="footer__down">
-    <a href="">Conditions générales d'utilisation</a>
+    <a href="legal\cgu.html">Conditions générales d'utilisation</a>
     <div>
-        <a href="">Mention légales</a><span> et </span><a href="">politique de confidentialité</a>
+        <a href="legal\mentions-legales.html">Mention légales</a><span> et </span><a href="legal\politique-confidentialité.html">politique de confidentialité</a>
 
     </div>
 </div>
@@ -346,29 +357,53 @@
 
 <!--ZONE DE TEST-->
 
+<div class="popupFORM">
+  <div class="toast modal-active" id="popupFORM">
+    <div class="toast-content">
+      <i class="fas fa-solid fa-check check"></i>
+      <div class="message">
+        <span class="text text-1">Succès</span>
+        <span class="text text-2">Votre message a bien été envoyé !</span>
+      </div>
+    </div>
+    <i class="fa-solid fa-xmark close" onclick="closePopup()"></i>
+  </div>
+</div>
 
+<div id="popupRGPD">
+  <div class="content">
+    <h2>Consentement RGPD</h2>
+    <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.</p>
+    <button id="acceptButton">J'accepte</button>
+  </div>
+</div>
+<!-- <form id="newsletterForm">
+  <input type="email" id="emailInput" placeholder="Enter your email" required>
+  <button type="submit">Subscribe</button>
+</form>
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close"><img src="img/navbar-close.png" alt=""></span>
       <p id="modalText">Message envoyé</p>
     </div>
-  </div>
+  </div> -->
 
 
 
-    <script src="js/script.js"></script>
+    <script src="js\script.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
     <script>
         // Replace with your Firebase project's config object
         var firebaseConfig = {
-            apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-            authDomain: "formtheia.firebaseapp.com",
-            databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "formtheia",
-            storageBucket: "formtheia.appspot.com",
-            messagingSenderId: "335132907653",
-            appId: "1:335132907653:web:d4620962ca0a24131571ec"        };
+          apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
+          authDomain: "formtheia.firebaseapp.com",
+          databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "formtheia",
+          storageBucket: "formtheia.appspot.com",
+          messagingSenderId: "335132907653",
+          appId: "1:335132907653:web:2dfef81a7293c2551571ec"        
+        };
       
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -416,42 +451,91 @@
           });
         });
       </script>
-      <!-- <script>
-        // JavaScript code goes here
-        // Set a boolean variable to control the pop-up display
-        var showPopup = false;
-    
-        // Function to display a pop-up
-        function displayPopup(message) {
-          var popup = document.createElement('div');
-          popup.className = 'popup';
-          popup.innerHTML = message;
-    
-          var closeBtn = document.createElement('button');
-          closeBtn.innerHTML = 'Close';
-          closeBtn.onclick = function() {
-            document.body.removeChild(popup);
-          };
-    
-          popup.appendChild(closeBtn);
-          document.body.appendChild(popup);
-        }
-    
-        // Function to toggle the pop-up
-        function togglePopup() {
-          showPopup = !showPopup; // Toggle the boolean value
-    
-          if (showPopup) {
-            displayPopup('Pop-up activated!');
-          }
-        }
-    
-        // Example console logs
-        console.log('This is a console log message.');
-    
-        // Toggle the pop-up
-        togglePopup();
-      </script> -->
-      
+<!-- <script>
+  // Handle newsletter subscription
+  document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting and page refresh
+
+    // Get the email input value
+    var email = document.getElementById('newsletterEmail').value;
+
+    // Save the email to the Firestore database
+    db.collection('subscribers').add({
+      email: email,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(function(docRef) {
+      console.log('Newsletter subscription added successfully!');
+      // Reset email input field
+      document.getElementById('newsletterEmail').value = '';
+    })
+    .catch(function(error) {
+      console.error('Error adding newsletter subscription:', error);
+    });
+  });
+</script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+      <script>
+      new WOW().init();
+      </script>
+      <script>
+      /*==================== PopUp CONTACT FORM====================*/       
+      function closePopup() {
+    var popup = document.getElementById('popupFORM');
+    popup.style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var submitBtn = document.querySelector('.green_btn');
+
+    submitBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      console.log("Form submitted successfully!");
+      var popup = document.getElementById('popupFORM');
+      popup.style.display = 'block';
+    });
+
+    var closeBtn = document.querySelector('.close');
+    closeBtn.addEventListener('click', function() {
+      closePopup();
+    });
+  });
+        </script>
+        <script>
+          /*==================== PopUp RGPD====================*/
+document.addEventListener("DOMContentLoaded", function() {
+  var popup = document.getElementById("popupRGPD");
+  var acceptButton = document.getElementById("acceptButton");
+
+  acceptButton.addEventListener("click", function() {
+    popup.style.display = "none";
+    // Enregistre le consentement donné
+    localStorage.setItem("consentGiven", true);
+  });
+
+  // Vérifie si le consentement a déjà été donné
+  var consentGiven = localStorage.getItem("consentGiven");
+
+  if (!consentGiven) {
+    centerPopup();
+    popup.style.display = "block";
+  }
+
+  function centerPopup() {
+    var windowHeight = window.innerHeight;
+    var popupHeight = popup.offsetHeight;
+
+    if (popupHeight < windowHeight) {
+      var topOffset = (windowHeight - popupHeight) / 2;
+      popup.style.top = topOffset + "px";
+    } else {
+      popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
+    }
+  }
+
+  window.addEventListener("resize", centerPopup);
+});
+
+        </script>
 </body>
 </html>
