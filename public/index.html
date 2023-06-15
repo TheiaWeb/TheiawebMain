@@ -376,8 +376,7 @@
     <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre politique de confidentialité.</p>
     <button id="acceptButton">J'accepte</button>
   </div>
-</div>
-<!-- <form id="newsletterForm">
+</div><!-- <form id="newsletterForm">
   <input type="email" id="emailInput" placeholder="Enter your email" required>
   <button type="submit">Subscribe</button>
 </form>
@@ -496,47 +495,38 @@
     console.log("Form submitted successfully!");
     openPopup();
   });
+/*==================== PopUp RGPD===================*/ 
+  document.addEventListener("DOMContentLoaded", function() {
+    var popupRGPD = document.getElementById("popupRGPD");
+    var acceptButton = document.getElementById("acceptButton");
 
-  var closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function() {
-    closePopup();
-  });
-        </script>
-        <script>
-          /*==================== PopUp RGPD====================*/
-document.addEventListener("DOMContentLoaded", function() {
-  var popup = document.getElementById("popupRGPD");
-  var acceptButton = document.getElementById("acceptButton");
+    acceptButton.addEventListener("click", function() {
+      popupRGPD.style.display = "none";
+      // Save the given consent
+      localStorage.setItem("consentGiven", true);
+    });
 
-  acceptButton.addEventListener("click", function() {
-    popup.style.display = "none";
-    // Enregistre le consentement donné
-    localStorage.setItem("consentGiven", true);
-  });
+    var consentGiven = localStorage.getItem("consentGiven");
 
-  // Vérifie si le consentement a déjà été donné
-  var consentGiven = localStorage.getItem("consentGiven");
-
-  if (!consentGiven) {
-    centerPopup();
-    popup.style.display = "block";
-  }
-
-  function centerPopup() {
-    var windowHeight = window.innerHeight;
-    var popupHeight = popup.offsetHeight;
-
-    if (popupHeight < windowHeight) {
-      var topOffset = (windowHeight - popupHeight) / 2;
-      popup.style.top = topOffset + "px";
-    } else {
-      popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
+    if (!consentGiven) {
+      centerPopupRGPD();
+      popupRGPD.style.display = "block";
     }
-  }
 
-  window.addEventListener("resize", centerPopup);
-});
+    function centerPopupRGPD() {
+      var windowHeight = window.innerHeight;
+      var popupHeight = popupRGPD.offsetHeight;
 
+      if (popupHeight < windowHeight) {
+        var topOffset = (windowHeight - popupHeight) / 2;
+        popupRGPD.style.top = topOffset + "px";
+      } else {
+        popupRGPD.style.top = "20px";
+      }
+    }
+
+    window.addEventListener("resize", centerPopupRGPD);
+  });
         </script>
 </body>
 </html>
