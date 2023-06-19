@@ -1,11 +1,12 @@
 /*==================== VARIABLES CSS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 :root {
  
     
  
     /*========== Font family ==========*/
-    --kanit: 'Kanit', sans-serif;
+    --audiowide: 'Audiowide', cursive;
     --lato: 'Lato', sans-serif;
     --roboto: 'Roboto', sans-serif;
 
@@ -15,6 +16,7 @@
     --black: #171717;
     --blue: #89FFFD;
     --pink: #FCADE7;
+    --pink-0-4: rgba(252, 173, 231, 0.4);
     --purple: #6F2BAE;
     --pink-blue-gradient: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
     --input-color:rgba(0, 0, 0, 0.6);
@@ -97,7 +99,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /*box-shadow: 0 0 0 3px  red inset;*/
+    box-shadow: 0 0 0 3px  red inset;
 }
 
 body {
@@ -113,7 +115,7 @@ html {
 }
 
 h1,h2 {
-    font-family: var(--kanit);
+    font-family: var(--audiowide);
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -185,7 +187,7 @@ li{
 .section__title-back {
     font-weight: var(--font-bold);
     text-transform: uppercase;
-    font-family: var(--kanit);
+    font-family: var(--audiowide);
     position: absolute;
   }
  
@@ -457,13 +459,42 @@ transform: scale(1.2);
   width: 236px;
   height: 288px;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 
 
+.team__rs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: url('../img/team__rs-bg.png') center no-repeat;
+  background-size: contain;
+  margin-top: 15px;
+}
+
+.team__rs a i {
+  color: var(--white);
+}
+
+.team__rs-one {
+  margin-right: 25px;
+}
+
+.team__rs-two {
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
+
 .team__content-left-card p,
 .team__content-left-card h4 {
-  font-family: var(--kanit);
+  font-family: var(--audiowide);
   font-weight: var(--font-bold);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -625,7 +656,7 @@ margin-bottom: 5px;
 }
 
 .tabs__content-title {
-  font-family: var(--kanit);
+  font-family: var(--audiowide);
   font-weight: var(--font-bold) ;
   font-size: var(--h3-font-size);
   color: var(--black);
@@ -676,7 +707,7 @@ margin-bottom: 5px;
 .form__content {
   padding: 25px 110px;
   background: #FFFFFF;
-  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.15);
   border-radius: 35px;
   border: 3px solid var(--pink);
   margin: 50px 120px;
@@ -1257,4 +1288,32 @@ gap: 15px;
 
 #popupRGPD button:hover {
   background-color: #0056b3;
+}
+
+
+
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+}
+
+.btn-top {
+  padding: 5px 8px;
+  border-radius: 60px;
+  border: 2px solid var(--pink);
+  background-color: var(--pink);
+  color: var(--white);
+  
+}
+
+.btn-top:hover {
+  scale: 1.2;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
