@@ -70,3 +70,62 @@ function topFunction() {
 // )
 // wow.init();
 
+
+ /*==================== PopUp CONTACT FORM====================*/       
+
+function closePopup() {
+  var popup = document.getElementById('popupFORM');
+  popup.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var submitBtn = document.querySelector('.green_btn');
+
+  submitBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log("Form submitted successfully!");
+    var popup = document.getElementById('popupFORM');
+    popup.style.display = 'block';
+  });
+
+  var closeBtn = document.querySelector('.close');
+  closeBtn.addEventListener('click', function() {
+    closePopup();
+  });
+});
+
+          /*==================== PopUp RGPD====================*/
+          document.addEventListener("DOMContentLoaded", function() {
+            var popup = document.getElementById("popupRGPD");
+            var acceptButton = document.getElementById("acceptButton");
+          
+            acceptButton.addEventListener("click", function() {
+              popup.style.display = "none";
+              // Enregistre le consentement donné
+              localStorage.setItem("consentGiven", true);
+            });
+          
+            // Vérifie si le consentement a déjà été donné
+            var consentGiven = localStorage.getItem("consentGiven");
+          
+            if (!consentGiven) {
+              centerPopup();
+              popup.style.display = "block";
+            }
+          
+            function centerPopup() {
+              var windowHeight = window.innerHeight;
+              var popupHeight = popup.offsetHeight;
+          
+              if (popupHeight < windowHeight) {
+                var topOffset = (windowHeight - popupHeight) / 2;
+                popup.style.top = topOffset + "px";
+              } else {
+                popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
+              }
+            }
+          
+            window.addEventListener("resize", centerPopup);
+          });
+          
+          
