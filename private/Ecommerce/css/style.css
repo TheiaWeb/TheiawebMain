@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #products-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-card {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-card h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .product-card p {
+    margin: 0;
+  }
+  

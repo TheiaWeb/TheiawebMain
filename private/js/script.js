@@ -106,23 +106,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!consentGiven) {
     centerPopup();
-    popup.style.display = 'block';
   }
 
   function centerPopup() {
     const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
     const popupHeight = popup.offsetHeight;
+    const popupWidth = popup.offsetWidth;
 
-    if (popupHeight < windowHeight) {
-      const topOffset = (windowHeight - popupHeight) / 2;
-      popup.style.top = topOffset + 'px';
-    } else {
-      popup.style.top = '20px';
-    }
+    const topOffset = (windowHeight - popupHeight) / 2;
+    const leftOffset = (windowWidth - popupWidth) / 2;
+
+    popup.style.top = topOffset + 'px';
+    popup.style.left = leftOffset + 'px';
   }
 
-  window.addEventListener('resize', centerPopup);
+  window.addEventListener('resize', centerPopup);  
 });
+
 //===========Generateur de Citations (PAGE 404)==========//
 const pcCitations = [
   "Les ordinateurs sont comme des dieux de l'Ancien Testament ; plein de règles et sans pitié.",
@@ -185,3 +186,38 @@ displayRandomCitation();
 //       console.error('Error adding newsletter subscription:', error);
 //     });
 //   });
+
+
+//===========TWITCH API==========//
+
+// function fetchAndDisplayVideos() {
+//   //YOUR_USER_ID == l'id du compte twitch 
+//   fetch('https://api.twitch.tv/helix/videos?user_id=YOUR_USER_ID', {
+//     headers: {
+//       // Client ID == Id a recupere via le portail de developpeur de twitch
+//       'Client-ID': 'YOUR_CLIENT_ID',
+//       // Access token == required for authentification 
+//       // Pas nescessaire dans tout les cas 
+//       'Authorization': 'Bearer YOUR_ACCESS_TOKEN' 
+//     }
+//   })
+//     .then(response => response.json())
+//     .then(data => {
+//       const videos = data.data; // Array of video objects
+//       const embedCodes = videos.map(video => `
+//         <iframe
+//           src="https://player.twitch.tv/?video=${video.id}"
+//           height="480"
+//           width="720"
+//           allowfullscreen="true">
+//         </iframe>
+//       `);
+//       const videoContainer = document.getElementById('video-container');
+//       videoContainer.innerHTML = embedCodes.join('');
+//     })
+//     .catch(error => {
+//       console.error('Error retrieving video data:', error);
+//     });
+// }
+
+// fetchAndDisplayVideos();
