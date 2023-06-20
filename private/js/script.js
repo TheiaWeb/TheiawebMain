@@ -1,10 +1,10 @@
 // -----------------TOGGLE MENU------------------- //
 
-var menuOpen = false;
+let menuOpen = false;
 
 function toggleMenu() {
-  var menu = document.getElementById('menu');
-  var icon = document.getElementById('iconImage');
+  const menu = document.getElementById('menu');
+  const icon = document.getElementById('iconImage');
 
   if (!menuOpen) {
     menu.classList.add('menu-open');
@@ -19,43 +19,41 @@ function toggleMenu() {
 
 
 /*==================== TOGGLE TABS ====================*/
-let tabsPortfolio = document.querySelectorAll('.tabs__toggle'),
-    contents = document.querySelectorAll('.tabs__content');
+const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
+const contents = document.querySelectorAll('.tabs__content');
 
-    tabsPortfolio.forEach((tab, index) => {
-    tab.addEventListener('click', () => {
-        contents.forEach((content) => {
-            content.classList.remove('is-active');
-        });
-        tabsPortfolio.forEach((tab) => {
-            tab.classList.remove('is-active');
-        });
-        contents[index].classList.add('is-active');
-        tabsPortfolio[index].classList.add('is-active');
+tabsPortfolio.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    contents.forEach((content) => {
+      content.classList.remove('is-active');
     });
+    tabsPortfolio.forEach((tab) => {
+      tab.classList.remove('is-active');
+    });
+    contents[index].classList.add('is-active');
+    tabsPortfolio[index].classList.add('is-active');
+  });
 });
-
 /*==================== GO TOP BTN ====================*/
-//Get the button:
-mybutton = document.getElementById("myBtn");
+// Go Top Button
+const mybutton = document.getElementById('myBtn');
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction();
+};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+    mybutton.style.display = 'block';
   } else {
-    mybutton.style.display = "none";
+    mybutton.style.display = 'none';
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
-
 /*==================== TEST ANIMATION ====================*/
 
 // wow = new WOW(
@@ -71,61 +69,119 @@ function topFunction() {
 // wow.init();
 
 
- /*==================== PopUp CONTACT FORM====================*/       
+/*==================== PopUp CONTACT FORM====================*/
 
 function closePopup() {
-  var popup = document.getElementById('popupFORM');
+  const popup = document.getElementById('popupFORM');
   popup.style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var submitBtn = document.querySelector('.green_btn');
+document.addEventListener('DOMContentLoaded', function () {
+  const submitBtn = document.querySelector('.green_btn');
 
-  submitBtn.addEventListener('click', function(event) {
+  submitBtn.addEventListener('click', function (event) {
     event.preventDefault();
     console.log("Form submitted successfully!");
-    var popup = document.getElementById('popupFORM');
+    const popup = document.getElementById('popupFORM');
     popup.style.display = 'block';
   });
 
-  var closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function() {
+  const closeBtn = document.querySelector('.close');
+  closeBtn.addEventListener('click', function () {
     closePopup();
   });
 });
 
-          /*==================== PopUp RGPD====================*/
-          document.addEventListener("DOMContentLoaded", function() {
-            var popup = document.getElementById("popupRGPD");
-            var acceptButton = document.getElementById("acceptButton");
-          
-            acceptButton.addEventListener("click", function() {
-              popup.style.display = "none";
-              // Enregistre le consentement donné
-              localStorage.setItem("consentGiven", true);
-            });
-          
-            // Vérifie si le consentement a déjà été donné
-            var consentGiven = localStorage.getItem("consentGiven");
-          
-            if (!consentGiven) {
-              centerPopup();
-              popup.style.display = "block";
-            }
-          
-            function centerPopup() {
-              var windowHeight = window.innerHeight;
-              var popupHeight = popup.offsetHeight;
-          
-              if (popupHeight < windowHeight) {
-                var topOffset = (windowHeight - popupHeight) / 2;
-                popup.style.top = topOffset + "px";
-              } else {
-                popup.style.top = "20px"; // Ajoutez une marge supérieure fixe si la fenêtre pop-up est plus haute que la fenêtre.
-              }
-            }
-          
-            window.addEventListener("resize", centerPopup);
-          });
-          
-          
+/*==================== PopUp RGPD====================*/
+document.addEventListener('DOMContentLoaded', function () {
+  const popup = document.getElementById('popupRGPD');
+  const acceptButton = document.getElementById('acceptButton');
+
+  acceptButton.addEventListener('click', function () {
+    popup.style.display = 'none';
+    localStorage.setItem('consentGiven', true);
+  });
+
+  const consentGiven = localStorage.getItem('consentGiven');
+
+  if (!consentGiven) {
+    centerPopup();
+    popup.style.display = 'block';
+  }
+
+  function centerPopup() {
+    const windowHeight = window.innerHeight;
+    const popupHeight = popup.offsetHeight;
+
+    if (popupHeight < windowHeight) {
+      const topOffset = (windowHeight - popupHeight) / 2;
+      popup.style.top = topOffset + 'px';
+    } else {
+      popup.style.top = '20px';
+    }
+  }
+
+  window.addEventListener('resize', centerPopup);
+});
+//===========Generateur de Citations (PAGE 404)==========//
+const pcCitations = [
+  "Les ordinateurs sont comme des dieux de l'Ancien Testament ; plein de règles et sans pitié.",
+  "L'ordinateur est né pour résoudre des problèmes qui n'existaient pas auparavant.",
+  "N'importe quel idiot peut utiliser un ordinateur. Et beaucoup le font.",
+  "La meilleure chose à propos d'un ordinateur, c'est qu'il est prévisible ; il ne blâme jamais ses erreurs sur vous.",
+  "L'ordinateur est un crétin.",
+];
+
+const iaCitations = [
+  "L'intelligence artificielle ne fait pas le poids face à la stupidité naturelle.",
+  "L'IA est comme une rock star qui joue une musique sans faute, mais qui détruit des chambres d'hôtel.",
+  "L'IA est le nouvel électricité.",
+  "La question n'est pas de savoir si l'IA dépassera l'intelligence humaine, mais quand et comment.",
+  "L'IA n'est pas une baguette magique ; c'est un outil pour augmenter les capacités humaines.",
+];
+
+const webCitations = [
+  "Le web tel que je l'ai envisagé, nous ne l'avons pas encore vu. L'avenir est encore bien plus grand que le passé.",
+  "La bonne nouvelle à propos des ordinateurs, c'est qu'ils font ce que vous leur dites de faire. La mauvaise nouvelle, c'est qu'ils font ce que vous leur dites de faire.",
+  "Le web est davantage une création sociale qu'une création technique. Je l'ai conçu pour un effet social, pour aider les gens à travailler ensemble, et non comme un jouet technique.",
+  "Internet pourrait être une étape très positive vers l'éducation, l'organisation et la participation à une société significative.",
+  "Internet devient la place du village global de demain.",
+];
+
+function getRandomCitation(citations) {
+  const randomIndex = Math.floor(Math.random() * citations.length);
+  return citations[randomIndex];
+}
+
+function displayRandomCitation() {
+  const citationElement = document.getElementById("citation");
+  const randomCitation = getRandomCitation([...pcCitations, ...iaCitations, ...webCitations]);
+  citationElement.textContent = randomCitation;
+}
+
+// Affiche une citation aléatoire lorsque la page se charge ou se rafraîchit
+displayRandomCitation();
+
+
+// //===========NEWSLETTER SUBSCRIPTION==========//
+//   // Handle newsletter subscription
+//   document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevent form from submitting and page refresh
+
+//     // Get the email input value
+//     var email = document.getElementById('newsletterEmail').value;
+
+//     // Save the email to the Firestore database
+//     db.collection('subscribers').add({
+//       email: email,
+//       timestamp: firebase.firestore.FieldValue.serverTimestamp()
+//     })
+//     .then(function(docRef) {
+//       console.log('Newsletter subscription added successfully!');
+//       // Reset email input field
+//       document.getElementById('newsletterEmail').value = '';
+//     })
+//     .catch(function(error) {
+//       console.error('Error adding newsletter subscription:', error);
+//     });
+//   });
