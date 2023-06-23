@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //   const citationElement = document.getElementById("citation");
 //   const randomCitation = getRandomCitation([...pcCitations, ...iaCitations, ...webCitations]);
 //   citationElement = randomCitation;
+
 // }
 
 // // Affiche une citation aléatoire lorsque la page se charge ou se rafraîchit
