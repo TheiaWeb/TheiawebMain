@@ -151,6 +151,7 @@ li{
 }
 .section-titlebox {
   position: relative;
+  width: 800px;
   height: 100px ;
 }
 
