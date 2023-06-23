@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitBtn = document.querySelector('.green_btn');
 
   submitBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log("Form submitted successfully!");
     const popup = document.getElementById('popupFORM');
     popup.style.display = 'block';
   });
