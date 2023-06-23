@@ -4,7 +4,7 @@ const cors = require('cors')({ origin: true });
 
 exports.sendEmailToUser = functions.firestore
   .document('contacts/{contactId}')
-  .onCreate((snapshot, context) => {
+  .onCreate(async(snapshot, context) => {
     const contactData = snapshot.data();
 
     // Configure the email transport
