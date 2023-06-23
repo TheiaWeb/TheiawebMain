@@ -37,13 +37,33 @@ exports.sendEmailToUser = functions.firestore
     const sendMailToUser = transporter.sendMail(mailOptions);
     const sendMailToAdmin = transporter.sendMail(mailAdmin);
 
+    // Set cache-control headers to prevent caching
+    const headers = {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    };
+
+    const response = {
+      status: 'success',
+      message: 'Emails sent successfully'
+    };
+
     return Promise.all([sendMailToUser, sendMailToAdmin])
       .then(() => {
         console.log('Emails sent successfully');
-        return null;
+        return {
+          headers,
+          statusCode: 200,
+          body: JSON.stringify(response)
+        };
       })
       .catch((error) => {
         console.error('Error sending emails:', error);
-        return null;
+        return {
+          headers,
+          statusCode: 500,
+          body: JSON.stringify({ error: 'Failed to send emails' })
+        };
       });
   });
