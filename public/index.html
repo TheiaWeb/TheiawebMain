@@ -468,29 +468,28 @@
 
   <script src="js\script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-  <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
   <script>
     // Replace with your Firebase project's config object
     var firebaseConfig = {
       apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-      authDomain: "formtheia.firebaseapp.com",
-      databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "formtheia",
-      storageBucket: "formtheia.appspot.com",
-      messagingSenderId: "335132907653",
-      appId: "1:335132907653:web:2dfef81a7293c2551571ec"
+    authDomain: "formtheia.firebaseapp.com",
+    databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "formtheia",
+    storageBucket: "formtheia.appspot.com",
+    messagingSenderId: "335132907653",
+    appId: "1:335132907653:web:2dfef81a7293c2551571ec"
     };
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
     // Get a reference to the Firestore database
     var db = firebase.firestore();
-  </script>
-  <!-- SUBMIT FORM USER + ADMIN -->
-  <script>
+ 
+  // SUBMIT FORM USER + ADMIN
+
     // Handle form submission
     document.addEventListener('DOMContentLoaded', function (event) {
 
@@ -514,7 +513,6 @@
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
         .then(function (docRef) {
-          console.log('Form submitted successfully!');
           // Reset form fields
           document.getElementById('surname').value = '';
           document.getElementById('name').value = '';
