@@ -15,6 +15,7 @@
     --white: #FCFDF2;
     --black: #171717;
     --blue: #89FFFD;
+    --blue-0-4: rgba(137, 255, 253, 0.4);
     --pink: #FCADE7;
     --pink-0-4: rgba(252, 173, 231, 0.4);
     --purple: #6F2BAE;
@@ -99,8 +100,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
-  }
+    box-shadow: 0 0 0 3px  red inset;
+}
 
 body {
   width: 100%;
@@ -151,7 +152,6 @@ li{
 }
 .section-titlebox {
   position: relative;
-  width: 800px;
   height: 100px ;
 }
 
@@ -828,7 +828,6 @@ margin-bottom: 5px;
 .contact__input-small:focus,
 .contact__input-large:focus {
   border-color: #ff80ab;
-  transform: scale(1.05);
   
 }
 
@@ -1272,23 +1271,41 @@ gap: 15px;
   z-index: 9999;
 }
 
-.content {
+.popupRGPD__content {
   background-color: #fff;
+  border-radius: 15px;
   padding: 20px;
   max-width: 400px;
   text-align: center;
+  color: var(--black);
 }
 
-#popupRGPD button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+.popupRGPD__content p,
+.btn__rgpd {
+  font-family: var(--roboto);
+}
+
+.popupRGPD__content p a {
+  color: var(--black);
+}
+
+
+.btn__rgpd {
+  background-color: var(--pink-0-4);
+  color: var(--black);
+  border: 2px solid var(--pink);
+  border-radius: 89px;
   padding: 10px 20px;
+  margin-top: 20px;
   cursor: pointer;
+  transition: 0.3s;
+  font-weight: 700;
+  color: var(--black);
 }
 
-#popupRGPD button:hover {
-  background-color: #0056b3;
+.btn__rgpd:hover {
+  background-color: var(--pink);
+  color: var(--white);
 }
 
 
