@@ -1,5 +1,7 @@
 const functions = require('firebase-functions');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
+<<<<<<< Updated upstream
 const cors = require('cors')({ origin: true });
 
 exports.sendEmailToUser = functions.firestore
@@ -8,6 +10,43 @@ exports.sendEmailToUser = functions.firestore
     const contactData = snapshot.data();
 
     // Configure the email transport
+=======
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+const corsHandler = cors({ origin: true });
+const body = req.method === 'POST' ? JSON.parse(req.body) : req.body;
+
+// Firebase Function to handle form submission
+exports.sendEmailAndSaveToFirestore = functions.https.onRequest(async (req, res) => {
+  // Use the cors middleware before processing the request
+  corsHandler(req, res, async () => {
+  try {
+    // Extract form data from the request body
+    const {
+      surname,
+      name,
+      email,
+      phone,
+      company,
+      subject,
+      message,
+      cgu
+    } = body;
+
+    // Save form data to Firestore
+    const formData = {
+      surname,
+      name,
+      email,
+      phone,
+      company,
+      subject,
+      message,
+      cgu,
+      timestamp: admin.firestore.FieldValue.serverTimestamp()
+    };
+>>>>>>> Stashed changes
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -15,8 +54,18 @@ exports.sendEmailToUser = functions.firestore
         pass: 'cwsmnseyqepnqplf'
       }
     });
+<<<<<<< Updated upstream
 
     const mailOptions = {
+=======
+    
+    const firestore = admin.firestore();
+    const formSnapshot = await firestore.collection('formSubmissions').add(formData);
+    console.log('Form data saved to Firestore:', formSnapshot.id);
+
+    // Send email to the user
+    const userMailOptions = {
+>>>>>>> Stashed changes
       from: 'theiaweb.contact@gmail.com',
       to: contactData.email,
       subject: 'Merci pour votre prise de contact',
@@ -37,6 +86,7 @@ exports.sendEmailToUser = functions.firestore
     const sendMailToUser = transporter.sendMail(mailOptions);
     const sendMailToAdmin = transporter.sendMail(mailAdmin);
 
+<<<<<<< Updated upstream
     // Set cache-control headers to prevent caching
     const headers = {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -67,3 +117,14 @@ exports.sendEmailToUser = functions.firestore
         };
       });
   });
+=======
+    // Send a response indicating success
+    res.status(200).send('Emails sent and data saved successfully');
+  } catch (error) {
+    console.error('Error sending emails and saving data:', error);
+    // Send a response indicating failure
+    res.status(500).send('Error sending emails and saving data');
+  }
+});
+});
+>>>>>>> Stashed changes
