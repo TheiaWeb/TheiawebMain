@@ -71,26 +71,32 @@ function topFunction() {
 
 /*==================== PopUp CONTACT FORM====================*/
 
-function closePopup() {
-  const popup = document.getElementById('popupFORM');
-  popup.style.display = 'none';
-}
+const form = document.getElementById('contactForm');
 
-document.addEventListener('DOMContentLoaded', function () {
-  const submitBtn = document.querySelector('.green_btn');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-  submitBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log("Form submitted successfully!");
-    const popup = document.getElementById('popupFORM');
-    popup.style.display = 'block';
+  // Make an HTTP request to your Firebase Function
+  const response = await fetch('https://us-central1-formtheia.cloudfunctions.net/sendEmailAndSaveToFirestore', {
+    method: 'POST',
+    body: new FormData(form)
   });
 
-  const closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function () {
-    closePopup();
-  });
+  if (response.ok) {
+    // Show the success pop-up message
+    const popupForm = document.getElementById('popupFORM');
+    popupForm.classList.add('modal-active');
+  } else {
+    // Handle error case
+    console.error('Error submitting form');
+  }
 });
+
+function closePopup() {
+  // Hide the pop-up message
+  const popupForm = document.getElementById('popupFORM');
+  popupForm.classList.remove('modal-active');
+}
 
 /*==================== PopUp RGPD====================*/
 document.addEventListener('DOMContentLoaded', function () {
