@@ -86,35 +86,32 @@
         <p>Frontend</p>
         <h4>Pauline</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
         <div class="team__rs team__rs-two">
           <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
 
         </div>
-      </div>
-      <div class="team__content-left-card team-vinc">
+    </div>
+    <div class="team__content-left-card team-vinc">
         <p>Backend</p>
         <h4>Vincent</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
-      </div>
-      <div class="team__content-left-card team-max">
+    </div>
+    <div class="team__content-left-card team-max">
         <p>Communication</p>
         <h4>Maxime</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
-      </div>
-
     </div>
+
+</div>
 
 
     <div class="team__content-right wow animate__animated animate__fadeIn">
@@ -134,35 +131,32 @@
     <div class="team__content-mobile">
       <img class="team__content-left-bg" src="img/team-fingerprint.png" alt="">
       <div class="team__content-left-card team-po">
-        <p>Frontend</p>
-        <h4>Pauline</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Frontend</p>
+          <h4>Pauline</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
-        <div class="team__rs team__rs-two">
-          <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
+          </div>
+          <div class="team__rs team__rs-two">
+            <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
 
-        </div>
+          </div>
       </div>
       <div class="team__content-left-card team-vinc">
-        <p>Backend</p>
-        <h4>Vincent</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Backend</p>
+          <h4>Vincent</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
+          </div>
       </div>
       <div class="team__content-left-card team-max">
-        <p>Communication</p>
-        <h4>Maxime</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Communication</p>
+          <h4>Maxime</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
+          </div>
       </div>
 
     </div>
@@ -467,14 +461,14 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
   <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
   <script>
-    const form = document.getElementById('contactForm');
+    const contactform = document.getElementById('contactForm');
     const popup = document.getElementById('popupFORM');
 
-    form.addEventListener('submit', async (event) => {
+    contactform.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       // Perform form validation
-      if (!form.checkValidity()) {
+      if (!contactform.checkValidity()) {
         // Form is not valid, show error messages or handle the invalid case
         console.log('Form is not valid');
         return;
@@ -483,7 +477,7 @@
       // Make an HTTP request to your Firebase Function
       const response = await fetch('https://us-central1-formtheia.cloudfunctions.net/sendEmailAndSaveToFirestore', {
         method: 'POST',
-        body: new FormData(form)
+        body: new FormData(contactform)
       });
 
       if (response.ok) {
@@ -492,7 +486,7 @@
         popup.style.display = 'block';
 
         // Optional: Reset the form
-        form.reset();
+        contactform.reset();
       } else {
         // Form submission failed
         // Handle the error case
