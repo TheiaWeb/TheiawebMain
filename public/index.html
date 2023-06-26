@@ -309,7 +309,7 @@
         <div class="grid-base">
           <div class="contact__category">
             <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="surname" name="surname" placeholder="Dupuis" required>
+            <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
           </div>
           <div class="contact__category">
             <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
@@ -334,15 +334,15 @@
           </div>
           <div class="contact__category">
             <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message"required>
+            <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message"
+              required>
           </div>
         </div>
         <div class="contact__msg">
           <label class="contact__label" for="message">Expliquez nous votre projet <span
               class="contact__star">&#42;</span></label>
-          <textarea class="contact__input-large" id="message" name="message" placeholder="Message..." required>
-
-          </textarea>
+          <textarea class="contact__input-large" id="message" name="message" placeholder="Message..."
+            required></textarea>
         </div>
         <div class="contact__footer-top">
           <div class="contact__footer-cgucheck">
@@ -468,30 +468,32 @@
 
   <script src="js\script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
   <script>
     // Replace with your Firebase project's config object
     var firebaseConfig = {
       apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-    authDomain: "formtheia.firebaseapp.com",
-    databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "formtheia",
-    storageBucket: "formtheia.appspot.com",
-    messagingSenderId: "335132907653",
-    appId: "1:335132907653:web:2dfef81a7293c2551571ec"
+      authDomain: "formtheia.firebaseapp.com",
+      databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "formtheia",
+      storageBucket: "formtheia.appspot.com",
+      messagingSenderId: "335132907653",
+      appId: "1:335132907653:web:2dfef81a7293c2551571ec"
     };
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
     // Get a reference to the Firestore database
     var db = firebase.firestore();
- 
-  // SUBMIT FORM USER + ADMIN
-
+  </script>
+  <!-- SUBMIT FORM USER + ADMIN -->
+  <script>
     // Handle form submission
-    document.addEventListener('DOMContentLoaded', function (event) {
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form from submitting and page refresh
 
       // Get form values
       var surname = document.getElementById('surname').value;
@@ -513,6 +515,7 @@
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
         .then(function (docRef) {
+          console.log('Form submitted successfully!');
           // Reset form fields
           document.getElementById('surname').value = '';
           document.getElementById('name').value = '';
