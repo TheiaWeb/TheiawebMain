@@ -357,7 +357,7 @@
             <span class="text text-2">Votre message a bien été envoyé !</span>
           </div>
         </div>
-        <i class="fa-solid fa-xmark close" onclick="closePopup()"></i>
+        <i class="fa-solid fa-xmark close"></i>
       </div>
     </div>
   
@@ -469,51 +469,54 @@
     appId: "1:335132907653:web:2dfef81a7293c2551571ec"
   };
   firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
-  function closePopup() {
-    document.getElementById('popupFORM').style.display = 'none';
-  }
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var surname = document.getElementById('surname').value;
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var company = document.getElementById('company').value;
-    var subject = document.getElementById('subject').value;
-    var message = document.getElementById('message').value;
-    db.collection('contacts').add({
-      surname: surname,
-      name: name,
-      email: email,
-      CompagnyInfos: {
-        phone: phone,
-        company: company,
-        subject: subject,
-        message: message,
-      },
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then(function(docRef) {
-      console.log('Form submitted successfully!');
-      document.getElementById('surname').value = '';
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('phone').value = '';
-      document.getElementById('company').value = '';
-      document.getElementById('subject').value = '';
-      document.getElementById('message').value = '';
-    })
-    .catch(function(error) {
-      console.error('Error submitting form:', error);
-    });
-    firebase.firestore().collection('contacts').doc('formId').onSnapshot(function(snapshot) {
+var db = firebase.firestore();
+
+function closePopup() {
+  document.getElementById('popupFORM').style.display = 'none';
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var surname = document.getElementById('surname').value;
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var company = document.getElementById('company').value;
+  var subject = document.getElementById('subject').value;
+  var message = document.getElementById('message').value;
+
+  db.collection('contacts').add({
+    surname: surname,
+    name: name,
+    email: email,
+    CompagnyInfos: {
+      phone: phone,
+      company: company,
+      subject: subject,
+      message: message,
+    },
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(function(docRef) {
+    document.getElementById('surname').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('subject').value = '';
+    document.getElementById('message').value = '';
+
+    firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
       const formData = snapshot.data();
       if (formData && formData.saved) {
         document.getElementById('popupFORM').style.display = 'block';
       }
     });
+  })
+  .catch(function(error) {
+    console.error('Error submitting form:', error);
   });
+});
 </script>  
 </body>
 

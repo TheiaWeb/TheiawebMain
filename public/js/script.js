@@ -66,7 +66,6 @@ function topFunction() {
 // }
 // )
 // wow.init();
-
 /*==================== CONTACT FORM====================*/
 /*==================== PopUp CONTACT FORM====================*/
 
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
     closePopup();
   });
 });
-
 /*==================== PopUp RGPD====================*/
 document.addEventListener('DOMContentLoaded', function() {
   const popup = document.getElementById('popupRGPD');
