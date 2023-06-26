@@ -17,7 +17,6 @@ function toggleMenu() {
   }
 }
 
-
 /*==================== TOGGLE TABS ====================*/
 const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
 const contents = document.querySelectorAll('.tabs__content');
@@ -68,42 +67,34 @@ function topFunction() {
 // )
 // wow.init();
 
-
+/*==================== CONTACT FORM====================*/
 /*==================== PopUp CONTACT FORM====================*/
 
-const form = document.getElementById('contactForm');
-
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  // Make an HTTP request to your Firebase Function
-  const response = await fetch('https://us-central1-formtheia.cloudfunctions.net/sendEmailAndSaveToFirestore', {
-    method: 'POST',
-    body: new FormData(form)
-  });
-
-  if (response.ok) {
-    // Show the success pop-up message
-    const popupForm = document.getElementById('popupFORM');
-    popupForm.classList.add('modal-active');
-  } else {
-    // Handle error case
-    console.error('Error submitting form');
-  }
-});
-
 function closePopup() {
-  // Hide the pop-up message
-  const popupForm = document.getElementById('popupFORM');
-  popupForm.classList.remove('modal-active');
+  const popup = document.getElementById('popupFORM');
+  popup.style.display = 'none';
 }
 
-/*==================== PopUp RGPD====================*/
 document.addEventListener('DOMContentLoaded', function () {
+  const submitBtn = document.querySelector('.green_btn');
+
+  submitBtn.addEventListener('click', function (event) {
+    const popup = document.getElementById('popupFORM');
+    popup.style.display = 'block';
+  });
+
+  const closeBtn = document.querySelector('.close');
+  closeBtn.addEventListener('click', function () {
+    closePopup();
+  });
+});
+
+/*==================== PopUp RGPD====================*/
+document.addEventListener('DOMContentLoaded', function() {
   const popup = document.getElementById('popupRGPD');
   const acceptButton = document.getElementById('acceptButton');
 
-  acceptButton.addEventListener('click', function () {
+  acceptButton.addEventListener('click', function() {
     popup.style.display = 'none';
     localStorage.setItem('consentGiven', true);
   });
@@ -112,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!consentGiven) {
     centerPopup();
+  } else {
+    popup.style.display = 'none';
   }
 
   function centerPopup() {
@@ -127,8 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
     popup.style.left = leftOffset + 'px';
   }
 
-  window.addEventListener('resize', centerPopup);  
+  window.addEventListener('resize', centerPopup);
 });
+
 
 //===========Generateur de Citations (PAGE 404)==========//
 // const pcCitations = [
