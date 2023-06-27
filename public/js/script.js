@@ -68,44 +68,66 @@ function topFunction() {
 // wow.init();
 /*==================== CONTACT FORM====================*/
 /*==================== PopUp CONTACT FORM====================*/
+var form = document.getElementById('contactForm');
 
-function closePopup() {
-  const popup = document.getElementById('popupFORM');
-  popup.style.display = 'none';
-}
+    // Add a submit event listener to the form
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
 
-document.addEventListener('DOMContentLoaded', function () {
-  const submitBtn = document.querySelector('.green_btn');
+      // Perform your form submission logic here, such as sending the data to the server
 
-  submitBtn.addEventListener('click', function (event) {
-    const popup = document.getElementById('popupFORM');
-    popup.style.display = 'block';
-  });
+      // Display the popup
+      showPopup();
+    });
 
-  const closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function () {
-    closePopup();
-  });
-});
+    // Function to display the popup
+    function showPopup() {
+      // Get the popup element
+      var popup = document.getElementById('popupFORM');
+
+      // Add a class to make the popup visible
+      popup.classList.add('modal-active');
+    }
+
+    // Get the close button element
+    var closeButton = document.getElementById('closeButton');
+
+    // Add a click event listener to the close button
+    closeButton.addEventListener('click', function() {
+      // Hide the popup
+      hidePopup();
+    });
+
+    // Function to hide the popup
+    function hidePopup() {
+      // Get the popup element
+      var popup = document.getElementById('popupFORM');
+
+      // Remove the class to hide the popup
+      popup.classList.remove('modal-active');
+    }
+
 /*==================== PopUp RGPD====================*/
 document.addEventListener('DOMContentLoaded', function() {
-  const popup = document.getElementById('popupRGPD');
+  const rgpdPopup = document.getElementById('popupRGPD');
   const acceptButton = document.getElementById('acceptButton');
 
   acceptButton.addEventListener('click', function() {
-    popup.style.display = 'none';
+    hidePopup(rgpdPopup);
     localStorage.setItem('consentGiven', true);
   });
 
   const consentGiven = localStorage.getItem('consentGiven');
 
   if (!consentGiven) {
-    centerPopup();
+    showPopup(rgpdPopup);
+    centerPopup(rgpdPopup);
   } else {
-    popup.style.display = 'none';
+    hidePopup(rgpdPopup);
   }
 
-  function centerPopup() {
+  function centerPopup(popup) {
     const windowHeight = window.innerHeight;
     const windowWidth = window.innerWidth;
     const popupHeight = popup.offsetHeight;
@@ -118,8 +140,19 @@ document.addEventListener('DOMContentLoaded', function() {
     popup.style.left = leftOffset + 'px';
   }
 
-  window.addEventListener('resize', centerPopup);
+  function showPopup(popup) {
+    popup.style.display = 'block';
+  }
+
+  function hidePopup(popup) {
+    popup.style.display = 'none';
+  }
+
+  window.addEventListener('resize', function() {
+    centerPopup(rgpdPopup);
+  });
 });
+
 
 
 //===========Generateur de Citations (PAGE 404)==========//

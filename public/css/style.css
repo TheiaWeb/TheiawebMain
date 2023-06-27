@@ -1232,6 +1232,11 @@ gap: 15px;
   font-family: var(--roboto);
 }
 
+ /* Additional CSS styles for the popup */
+ .modal-active {
+  display: block; /* Make the popup visible */
+}
+
 .message .text {
   font-size: 16px;
   font-weight: 400;

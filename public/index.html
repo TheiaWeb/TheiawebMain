@@ -349,7 +349,7 @@
     </form>
 
     <div class="popupFORM">
-      <div class="toast modal-active" id="popupFORM">
+      <div class="toast" id="popupFORM">
         <div class="toast-content">
           <i class="fas fa-solid fa-check check"></i>
           <div class="message">
@@ -357,7 +357,7 @@
             <span class="text text-2">Votre message a bien été envoyé !</span>
           </div>
         </div>
-        <i class="fa-solid fa-xmark close"></i>
+        <i class="fa-solid fa-xmark close" id = "closeButton"></i>
       </div>
     </div>
   
@@ -471,10 +471,6 @@
   firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-function closePopup() {
-  document.getElementById('popupFORM').style.display = 'none';
-}
-
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault();
   var surname = document.getElementById('surname').value;
@@ -509,7 +505,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
       const formData = snapshot.data();
       if (formData && formData.saved) {
-        document.getElementById('popupFORM').style.display = 'block';
+        console.log("Data Saved !!")
       }
     });
   })
@@ -518,6 +514,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   });
 });
 </script>  
+
 </body>
 
 </html>
