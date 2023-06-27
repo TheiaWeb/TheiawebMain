@@ -106,9 +106,7 @@
 body {
   width: 100%;
   background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+
 }
 
 html {
@@ -273,7 +271,7 @@ li{
 
   
   .section {
-    padding: 2% 13%;
+    padding: 5% 13%;
   }
 
 
@@ -388,6 +386,12 @@ transform: scale(1.2);
 
 
   /*==================== HOME ====================*/
+header {
+  display: flex;
+  align-items: center;
+  padding-top: 7%;
+  padding-bottom: 7%;
+}
 .home__content-left {
   display: flex;
   flex-direction: column;
@@ -420,6 +424,17 @@ transform: scale(1.2);
   position: relative;
   max-width: 613px;
 
+}
+
+#team {
+  position: relative;
+}
+
+.body__bg-team {
+  position: absolute;
+  width: 500px;
+  top: -150px;
+  left: -103px;
 }
 
 
@@ -532,6 +547,19 @@ transform: scale(1.2);
 }
 
 /*==================== EXPERTISES ====================*/
+
+#expertises {
+  position: relative;
+}
+
+.body__bg-expertises {
+  position: absolute;
+  width: 216px;
+  top: -75px;
+  right: 126px;
+}
+
+
 .expertises__content {
   margin-bottom: 95px;
 }
@@ -696,6 +724,20 @@ margin-bottom: 5px;
 
 #contact {
   position: relative;
+}
+
+.body__bg-contact {
+  position: absolute;
+  width: 316px;
+  bottom: 42px;
+  left: -106px;
+}
+
+.body__bg-contact-2 {
+  position: absolute;
+  width: 80px;
+  top: -32px;
+  right: -13px;
 }
 
 
@@ -989,7 +1031,7 @@ footer p {
     display: none;
   }
   .section {
-    padding: 50px 5%;
+    padding: 100px 5%;
   }
   .navbar__mobile-head {
     padding-top: 10px;
@@ -1082,8 +1124,12 @@ gap: 15px;
   #team {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-    grid-gap: 20px;  
+    grid-gap: 20px;
   }
+
+
+
+
   .team__content-mobile {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
@@ -1104,9 +1150,10 @@ gap: 15px;
     width: 164px;
     height: 200px;
   }
-  #contact img {
+  .body__bg {
     display: none;
   }
+
   .form__content {
     padding: 25px 10%;
     margin: 50px 0px;
@@ -1130,7 +1177,7 @@ gap: 15px;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
   }
 
-  #contact img {
+  #contact img.contact__img {
     max-width: 381px;
     position: absolute;
     right: 20px;
@@ -1150,7 +1197,7 @@ gap: 15px;
     position: relative;
   }
   
-  #contact img {
+  #contact img.contact__img {
     max-width: 531px;
     position: absolute;
     right: 0;
