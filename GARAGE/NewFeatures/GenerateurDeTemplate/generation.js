@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
     const imageInput = document.getElementById('imageUpload');
   
+    imageDropArea.addEventListener('dragenter', handleDragEnter);
     imageDropArea.addEventListener('dragover', handleDragOver);
     imageDropArea.addEventListener('dragleave', handleDragLeave);
     imageDropArea.addEventListener('drop', handleDrop);
     imageInput.addEventListener('change', handleInputChange);
   
+    function handleDragEnter(event) {
+      event.preventDefault();
+      imageDropArea.classList.add('highlight');
+    }
+  
     function handleDragOver(event) {
       event.preventDefault();
+      event.dataTransfer.dropEffect = 'copy';
       imageDropArea.classList.add('highlight');
     }
   
@@ -50,23 +57,31 @@ document.addEventListener('DOMContentLoaded', function() {
       const previewItem = document.createElement('div');
       previewItem.classList.add('preview-item');
   
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add('preview-image-container');
+  
       const img = document.createElement('img');
       img.src = imageURL;
       img.addEventListener('click', function(event) {
-        openImageInFullScale(event.target.src, fileName, previewItem);
+        openImageInFullScale(imageURL, fileName, previewItem);
       });
   
       const removeIcon = document.createElement('div');
       removeIcon.classList.add('remove-icon');
       removeIcon.innerHTML = '&#x2716;';
       removeIcon.addEventListener('click', function() {
-        previewItem.remove();
+        removePreviewItem(previewItem);
       });
   
-      previewItem.appendChild(img);
+      imgContainer.appendChild(img);
+      previewItem.appendChild(imgContainer);
       previewItem.appendChild(removeIcon);
   
       return previewItem;
+    }
+  
+    function removePreviewItem(previewItem) {
+      previewItem.remove();
     }
   
     function openImageInFullScale(src, fileName, previewItem) {
@@ -173,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-  
+    
 //#region CreateAnOutputFolderLocally
 // const fs = require('fs');
 // const path = require('path');
