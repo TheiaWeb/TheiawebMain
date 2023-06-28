@@ -291,26 +291,27 @@
 
   <section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
     <div class="contact__header">
-      <div class="test">
         <div class="section-titlebox contact__titlebox">
           <p class="section__title-back back-last">NOUS CONTACTER</p>
           <p class="section__title-back back-middle">NOUS CONTACTER</p>
           <h2 class="section__title">NOUS CONTACTER</h2>
         </div>
-      </div>
 
 
 
-      <p class="section__text">Une question, un projet ? N'hésitez pas à nous contacter, nous serons ravis d'échanger
-        avec vous.</p>
+      <p class="section__text">
+        Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
+        <br><br>N'hésitez pas à nous contacter via le formulaire ci-dessous ou à utiliser nos coordonnées pour nous joindre directement. Nous sommes impatients de travailler avec vous pour concrétiser vos ambitions numériques.</p>
     </div>
     <img src="img/contact-elipse.png" class="contact__img" alt="">
     <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
     <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
+    <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
+
 
     <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
       <div class="form__content">
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
             <input class="contact__input-small" type="text" id="surname" name="surname" placeholder="Dupuis" required>
@@ -320,7 +321,7 @@
             <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
           </div>
         </div>
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
             <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr" required>
@@ -330,7 +331,7 @@
             <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
           </div>
         </div>
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="company">Société</label>
             <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
@@ -342,7 +343,7 @@
         </div>
         <div class="contact__msg">
           <label class="contact__label" for="message">Expliquez nous votre projet <span class="contact__star">&#42;</span></label>
-          <textarea class="contact__input-large" id="message" name="message" placeholder="Message..." required></textarea>
+          <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..." required></textarea>
         </div>
         <div class="contact__footer-top">
           <div class="contact__footer-cgucheck">
