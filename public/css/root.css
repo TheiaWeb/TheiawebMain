@@ -14,8 +14,10 @@
     /*========== Color theme ==========*/
     --white: #FCFDF2;
     --black: #171717;
+    --black-0-6: rgb(23, 23, 23, 0.6);
     --blue: #89FFFD;
     --blue-0-4: rgba(137, 255, 253, 0.4);
+    --blue-0-8: rgba(137, 255, 253, 0.8);
     --pink: #FCADE7;
     --pink-0-4: rgba(252, 173, 231, 0.4);
     --purple: #6F2BAE;
@@ -213,6 +215,7 @@
       font-family: var(--roboto);
       font-weight: var(--font-regular);
       font-size: var(--normal-font-size);
+      text-align: justify;
     }  
    
   
@@ -245,6 +248,7 @@
       .btn__white:hover {
         transform: scale(1.05);
         cursor: pointer;
+        transition: 0.3s ease-in-out;
       }
   
   
@@ -327,6 +331,7 @@
     }
     .nav__menu li a:hover {
       color: var(--pink);
+      transition: 0.3s ease-in-out;
     }
   
     .nav__menu li a:focus {
@@ -362,6 +367,7 @@
   .navbar__mobile-menuIcon:hover {
   cursor: pointer;
   transform: scale(1.2);
+  transition: 0.3s ease-in-out;
   }
   
   .navbar__mobile-content {
@@ -432,6 +438,7 @@ footer {
     border: 2px solid var(--black);
     padding: 10px 20px;
     border-radius: 8px;
+    align-items: center;
   }
   
   .footer__contact-phone img {
@@ -457,6 +464,7 @@ footer {
   .footer__button:hover {
     cursor: pointer;
     background-color: var(--blue);
+    transition: 0.3s ease-in-out;
   }
   
   .footer__button a {
@@ -476,6 +484,7 @@ footer {
   .footer__links-rs a i:hover,
   .footer__links-rs a i:focus {
     color: var(--pink);
+    transition: 0.3s ease-in-out;
   }
   
   .footer__logo {
@@ -666,6 +675,7 @@ footer {
   .btn__rgpd:hover {
     background-color: var(--pink);
     color: var(--white);
+    transition: 0.3s ease-in-out;
   }
   
   
@@ -694,5 +704,5 @@ footer {
   .btn-top:hover {
     scale: 1.2;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
   }

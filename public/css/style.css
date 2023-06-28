@@ -109,7 +109,7 @@ header {
   justify-content: center;
 }
 .home__content-left p.section__text {
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .home__title span {
@@ -204,6 +204,8 @@ header {
   background-size: contain;
   transform: scale(1.2);
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+
 }
 
 .team__rs a i {
@@ -254,6 +256,8 @@ header {
   
 .team__content-left-card:hover {
   transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+
 }
 
 /*==================== EXPERTISES ====================*/
@@ -294,36 +298,42 @@ header {
 .expertises__carrousel-card:hover {
   background: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
 box-shadow: 0px 0px 5px #89FFFD;
-transition: 0.3s;
+transition: 0.3s ease-in-out;
 }
 
 .expertises__carrousel-card h4 {
 text-align: center;  font-family: var(--roboto);
-  font-style: var(--font-regular);
-  font-weight: var(--font-bold);
-  font-size: var(--normal-font-size);
-  line-height: 35px;
-  opacity: 1;
+text-align: center;
+font-family: var(--roboto);
+font-style: var(--font-regular);
+font-weight: var(--font-bold);
+font-size: var(--h3-font-size);
+line-height: 35px;
+opacity: 1;
+color: var(--pink);
+text-shadow: 1px 1px 0px var(--blue-0-8);
 }
 
 .expertises__carrousel-card-btn {
  position: absolute;
  bottom: -100%;
  width: 100%;
- background: rgba(255, 255, 255, 0.9);
+ background: rgb(255, 255, 255);
  border: 2px solid #FFFFFF;
 box-shadow: inset 0px -3px 10px #FCADE7;
 border-radius: 60px 60px 0px 0px;
 text-align: center;
+padding: 5px;
 }
 
 .expertises__carrousel-card-btn span {
-color: var(--black);
-font-family: var(--lato);
-font-weight: var(--font-regular);
+color: var(--black-0-6);
+font-family: var(--roboto);
+font-weight: var(--font-bold);
 font-size: var(--normal-font-size);
 margin-top: 5px;
 margin-bottom: 5px;
+text-shadow: 1px 1px 25px #666666;
 }
 
 .expertises__carrousel-card:hover .expertises__carrousel-card-btn {
@@ -423,6 +433,7 @@ margin-bottom: 5px;
 
 .expertises__cards:hover {
   transform: scale(1.05);
+  transition: 0.3s ease-in-out;
 }
 
 
@@ -579,7 +590,7 @@ margin-bottom: 5px;
 .contact__footer-bottom button:hover {
   cursor: pointer;
   background: linear-gradient(135deg, rgba(137, 255, 253, 0.6) 14.39%, rgba(252, 173, 231, 0.6) 86.07%);
-
+  transition: 0.3s ease-in-out;
 }
 
 .contact__input-small:focus,
@@ -641,7 +652,9 @@ gap: 15px;
 
 @media screen and (min-width: 768px) {
   
-  
+  .grid-expertises {
+    grid-template-columns: 1fr 1fr;
+  }
   
 
   
@@ -729,6 +742,8 @@ gap: 15px;
   
   
   }
+
+
   
   
 }
@@ -873,6 +888,7 @@ gap: 15px;
 
 .toast .close:hover {
   opacity: 1;
+  transition: 0.3s ease-in-out;
 }
 
 
