@@ -120,11 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const consentGiven = localStorage.getItem('consentGiven');
 
-  if (!consentGiven) {
+  if (consentGiven) {
+    hidePopup(rgpdPopup);
+  } else {
     showPopup(rgpdPopup);
     centerPopup(rgpdPopup);
-  } else {
-    hidePopup(rgpdPopup);
   }
 
   function centerPopup(popup) {

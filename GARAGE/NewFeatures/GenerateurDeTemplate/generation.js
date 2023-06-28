@@ -12,9 +12,21 @@ function generateHTMLFile(data, outputPath) {
 
     // Replace the placeholders with actual values
     let html = template
-      .replace('{{pageTitle}}', data.pageTitle)
-      .replace('{{projectTitle}}', data.projectTitle)
-      .replace('{{projectDescription}}', data.projectDescription);
+      .replace('{{SiteWebTitle}}', data.pageTitle)
+      .replace('{{Home}}', data.MenuFirstItem)
+      .replace('{{About}}', data.MenuSecondItem)
+      .replace('{{Projects}}', data.MenuThirdItem)
+      .replace('{{Contact}}', data.MenuForthItem)
+      .replace('{{HeaderTitle}}', data.HeaderTitle)
+      .replace('{{AboutMe}}', data.AboutMe)
+      .replace('{{project1Title}}', data.project1Title)
+      .replace('{{project2Title}}', data.project2Title)
+      .replace('{{project3Title}}', data.project3Title)
+      .replace('{{project1Description}}', data.project1Description)
+      .replace('{{project2Description}}', data.project2Description)
+      .replace('{{project3Description}}', data.project3Description)
+      .replace('{{Contact}}', data.Contact)
+
 
     // Generate the output file path
     const htmlFilename = 'index.html';
@@ -118,9 +130,7 @@ function generateOutputFolder(data) {
 //========================DATA Builder=================//
 
 const data = {
-  pageTitle: 'My Portfolio',
-  projectTitle: 'Project 1',
-  projectDescription: 'Description of Project 1',
+ 
 };
 
 generateOutputFolder(data);
