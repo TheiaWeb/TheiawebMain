@@ -13,6 +13,7 @@
 
     /*========== Color theme ==========*/
     --white: #FCFDF2;
+    --grey : #8E8E8E;
     --black: #171717;
     --black-0-6: rgb(23, 23, 23, 0.6);
     --blue: #89FFFD;
@@ -78,7 +79,7 @@
     }
   }
   
-  @media screen and (max-width: 530px) {
+  @media screen and (max-width: 612px) {
     :root {
         --h1-font-size: 2rem;
         --h2-font-size: 1.5rem;
@@ -285,6 +286,12 @@
     @media screen and (max-width: 768px) {
       .grid-trio { grid-template-columns: 1fr;
       }
+    }
+
+    .grid-auto-3 {
+      display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-gap: 20px;
     }
   
   
@@ -536,16 +543,12 @@ footer {
     .btn__white {
      padding: 15px 25px;
       }
-      
-   
-  
-    
-    
   }
+
+
   @media only screen and (min-width: 600px) {
     
   }
-  
   
   /* Medium devices (landscape tablets, 768px and down) */
   @media only screen and (max-width: 768px) {
@@ -554,29 +557,19 @@ footer {
       display: none;
     }
     .section {
-      padding: 100px 5%;
+      padding: 5% 5%;
     }
     .navbar__mobile-head {
       padding-top: 10px;
       padding-bottom: 10px;
   }
-
-
-   
   }
-  
-  
-  
   
   @media screen and (min-width: 768px) {
     
     .navbar__mobile {
       display: none;
     }
-    
-    
-  
-    
    }
   
   

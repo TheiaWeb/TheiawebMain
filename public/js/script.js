@@ -17,7 +17,7 @@ function toggleMenu() {
   }
 }
 
-/*==================== TOGGLE TABS ====================*/
+/*==================== TOGGLE TABS EXPERTISES ====================*/
 const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
 const contents = document.querySelectorAll('.tabs__content');
 
@@ -33,6 +33,25 @@ tabsPortfolio.forEach((tab, index) => {
     tabsPortfolio[index].classList.add('is-active');
   });
 });
+
+/*==================== TOGGLE TABS PRICE ====================*/
+const tabsPrice = document.querySelectorAll('.price__toggle');
+const package = document.querySelectorAll('.price__content');
+
+tabsPrice.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    package.forEach((content) => {
+      content.classList.remove('is-active');
+    });
+    tabsPrice.forEach((tab) => {
+      tab.classList.remove('is-active');
+    });
+    package[index].classList.add('is-active');
+    tabsPrice[index].classList.add('is-active');
+  });
+});
+
+
 /*==================== GO TOP BTN ====================*/
 // Go Top Button
 const mybutton = document.getElementById('myBtn');
@@ -252,3 +271,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // }
 
 // fetchAndDisplayVideos();
+
+
