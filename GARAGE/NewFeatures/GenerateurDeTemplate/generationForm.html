@@ -8,20 +8,56 @@
 
 <body>
   <form id="websiteForm">
-    <label for="pageTitle">Site Web Title:</label>
+    <div class="tooltip">
+      <label for="pageTitle">
+        Site Web Title
+        <span class="info-icon">i</span>
+      </label>
+      <span class="tooltiptext">Enter the title for your website. Make it descriptive and catchy.</span>
+    </div>
     <input type="text" id="pageTitle" name="pageTitle" required><br><br>
+      <section class="project-parameters">
+      <h2>Project Parameters</h2>
+      <div class="form-group">
+        <label for="Projects">Project Title:</label>
+        <input type="text" id="Projects" name="Projects" required><br><br>
 
-    <label for="MenuFirstItem">Menu First Item:</label>
-    <input type="text" id="MenuFirstItem" name="MenuFirstItem" required><br><br>
+        <label for="project1Title">Project 1 Title:</label>
+        <input type="text" id="project1Title" name="project1Title" required><br><br>
 
-    <label for="MenuSecondItem">Menu Second Item:</label>
-    <input type="text" id="MenuSecondItem" name="MenuSecondItem" required><br><br>
+        <label for="project2Title">Project 2 Title:</label>
+        <input type="text" id="project2Title" name="project2Title" required><br><br>
 
-    <label for="MenuThirdItem">Menu Third Item:</label>
-    <input type="text" id="MenuThirdItem" name="MenuThirdItem" required><br><br>
+        <label for="project3Title">Project 3 Title:</label>
+        <input type="text" id="project3Title" name="project3Title" required><br><br>
 
-    <label for="MenuForthItem">Menu Forth Item:</label>
-    <input type="text" id="MenuForthItem" name="MenuForthItem" required><br><br>
+        <label for="project1Description">Project 1 Description:</label>
+        <input type="text" id="project1Description" name="project1Description" required><br><br>
+
+        <label for="project2Description">Project 2 Description:</label>
+        <input type="text" id="project2Description" name="project2Description" required><br><br>
+
+        <label for="project3Description">Project 3 Description:</label>
+        <input type="text" id="project3Description" name="project3Description" required><br><br>
+      </div>
+    </section>
+
+    <section class="menu">
+      <h2>Menu</h2>
+      <div class="form-group">
+        <label for="MenuFirstItem">Menu First Item:</label>
+        <input type="text" id="MenuFirstItem" name="MenuFirstItem" required><br><br>
+
+        <label for="MenuSecondItem">Menu Second Item:</label>
+        <input type="text" id="MenuSecondItem" name="MenuSecondItem" required><br><br>
+
+        <label for="MenuThirdItem">Menu Third Item:</label>
+        <input type="text" id="MenuThirdItem" name="MenuThirdItem" required><br><br>
+
+        <label for="MenuForthItem">Menu Forth Item:</label>
+        <input type="text" id="MenuForthItem" name="MenuForthItem" required><br><br>
+      </div>
+    </section>
 
     <label for="HeaderTitle">Header Title:</label>
     <input type="text" id="HeaderTitle" name="HeaderTitle" required><br><br>
@@ -29,36 +65,18 @@
     <label for="AboutMe">About Me:</label>
     <input type="text" id="AboutMe" name="AboutMe" required><br><br>
 
-    <label for="Projects">Project Title:</label>
-    <input type="text" id="Projects" name="Projects" required><br><br>
+    <section class="contact">
+      <h2>Contact with Images</h2>
+      <label for="Contact">Contact:</label>
+      <input type="text" id="Contact" name="Contact" required><br><br>
 
-    <label for="project1Title">Project 1 Title:</label>
-    <input type="text" id="project1Title" name="project1Title" required><br><br>
-
-    <label for="project2Title">Project 2 Title:</label>
-    <input type="text" id="project2Title" name="project2Title" required><br><br>
-
-    <label for="project3Title">Project 3 Title:</label>
-    <input type="text" id="project3Title" name="project3Title" required><br><br>
-
-    <label for="project1Description">Project 1 Description:</label>
-    <input type="text" id="project1Description" name="project1Description" required><br><br>
-
-    <label for="project2Description">Project 2 Description:</label>
-    <input type="text" id="project2Description" name="project2Description" required><br><br>
-
-    <label for="project3Description">Project 3 Description:</label>
-    <input type="text" id="project3Description" name="project3Description" required><br><br>
-
-    <label for="Contact">Contact:</label>
-    <input type="text" id="Contact" name="Contact" required><br><br>
-
-    <label for="imageUpload">Upload Images:</label>
-    <div id="imageDropArea" class="drop-area">
-      <span>Drag and drop images here</span>
-      <input type="file" id="imageUpload" accept="image/*" multiple required>
-    </div>
-    <div id="imagePreviewContainer" class="preview-container"></div>
+      <label for="imageUpload">Upload Images:</label>
+      <div id="imageDropArea" class="drop-area">
+        <span>Drag and drop images here</span>
+        <input type="file" id="imageUpload" accept="image/*" multiple required>
+      </div>
+      <div id="imagePreviewContainer" class="preview-container"></div>
+    </section>
 
     <label for="logoUpload">Upload Logo:</label>
     <div id="logoDropArea" class="drop-area">
@@ -69,6 +87,8 @@
 
     <input type="submit" value="Generate Website">
   </form>
+</body>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
