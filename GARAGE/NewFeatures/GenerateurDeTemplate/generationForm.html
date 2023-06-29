@@ -65,7 +65,7 @@
       <span>Drag and drop logo here</span>
       <input type="file" id="logoUpload" accept="image/*" required>
     </div>
-    <div id="imagePreviewContainer" class="preview-container"></div>
+    <div id="LogoPreviewContainer" class="preview-container"></div>
 
     <input type="submit" value="Generate Website">
   </form>
@@ -124,8 +124,7 @@
     });
     function generateOutputFolder(data) {
       const templateFolderPath = './TemplateFolder';
-      const outputFolderPath = `OutputFolder_${new Date().getTime()}`;
-
+      const outputFolderPath = `NewProject${new Date().getTime()}`;
       const zip = new JSZip();
       const imgFolderPath = `${outputFolderPath}/img`;
 

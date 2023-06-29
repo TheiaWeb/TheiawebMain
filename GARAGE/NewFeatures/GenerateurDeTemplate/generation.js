@@ -1,7 +1,6 @@
-//#region ZIP download function
+//#region CreateAnOutputFolderViaHtmlCode
 document.addEventListener('DOMContentLoaded', function() {
     const imageDropArea = document.getElementById('imageDropArea');
-    const imagePreviewContainer = document.getElementById('imagePreviewContainer');
     const imageInput = document.getElementById('imageUpload');
   
     imageDropArea.addEventListener('dragenter', handleDragEnter);
@@ -12,47 +11,85 @@ document.addEventListener('DOMContentLoaded', function() {
   
     function handleDragEnter(event) {
       event.preventDefault();
-      imageDropArea.classList.add('highlight');
+      this.classList.add('highlight');
     }
   
     function handleDragOver(event) {
       event.preventDefault();
       event.dataTransfer.dropEffect = 'copy';
-      imageDropArea.classList.add('highlight');
+      this.classList.add('highlight');
     }
   
     function handleDragLeave(event) {
       event.preventDefault();
-      imageDropArea.classList.remove('highlight');
+      this.classList.remove('highlight');
     }
   
     function handleDrop(event) {
       event.preventDefault();
-      imageDropArea.classList.remove('highlight');
+      this.classList.remove('highlight');
   
       const files = event.dataTransfer.files;
-      previewImages(files);
+      const panel = prompt('Enter the carousel panel number (1, 2, or 3) for the uploaded images:');
+      if (panel) {
+        processFiles(files, parseInt(panel));
+      }
     }
   
     function handleInputChange(event) {
       const files = event.target.files;
-      previewImages(files);
+      const panel = prompt('Enter the carousel panel number (1, 2, or 3) for the uploaded images:');
+      if (panel) {
+        processFiles(files, parseInt(panel));
+      }
     }
+
+    function processFiles(files, panel) {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          // Perform the necessary actions with the file and the selected carousel panel
+          console.log(`File '${file.name}' is uploaded for carousel panel ${panel}`);
+        }
+      }
+
+    function updateImageDropAreaText(index) {
+        const imageDropArea = document.getElementById('imageDropArea');
+        const spanElement = imageDropArea.querySelector('span');
+        const message = `This image is the image for the ${ordinalSuffix(index)} carousel panel`;
+        spanElement.textContent = `Drag and drop images here (${message})`;
+      }
   
-    function previewImages(files) {
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+      function previewImages(files) {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const reader = new FileReader();
+      
+          reader.onload = function (event) {
+            const imageURL = event.target.result;
+            const previewItem = createPreviewItem(imageURL, file.name, i + 1);
+            imagePreviewContainer.appendChild(previewItem);
+            updateImageInputValue(file.name, i + 1); // Call the function for each image
+            updateImageDropAreaText(i + 1);
+          };
+      
+          reader.readAsDataURL(file);
+        }
+      }
+
+    function previewLogo(files) {
+        const file = files[0];
         const reader = new FileReader();
-  
+      
         reader.onload = function(event) {
           const imageURL = event.target.result;
           const previewItem = createPreviewItem(imageURL, file.name);
-          imagePreviewContainer.appendChild(previewItem);
+          logoPreviewContainer.innerHTML = ''; // Clear previous logo preview
+          logoPreviewContainer.appendChild(previewItem);
+          updateLogoInputValue(file.name);
         }
-  
+      
         reader.readAsDataURL(file);
       }
-    }
   
     function createPreviewItem(imageURL, fileName) {
       const previewItem = document.createElement('div');
@@ -188,9 +225,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
     }
+  
+    function updateImageInputValue(filenames) {
+        const imageDropArea = document.getElementById('imageDropArea');
+        const spanElement = imageDropArea.querySelector('span');
+      
+        if (Array.isArray(filenames) && filenames.length > 0) {
+          let message = '';
+          for (let i = 0; i < filenames.length; i++) {
+            const imageName = filenames[i];
+            const panelIndex = i + 1;
+            const panelInfo = `This image (${imageName}) is the image for the ${ordinalSuffix(panelIndex)} carousel panel\n`;
+            message += panelInfo;
+          }
+          spanElement.textContent = message;
+        } else {
+          spanElement.textContent = 'Drag and drop images here';
+        }
+      }
+      
+      
+      function updateLogoInputValue(filename) {
+        const logoDropArea = document.getElementById('logoDropArea');
+        const spanElement = logoDropArea.querySelector('span');
+        if (filename) {
+          spanElement.textContent = 'Logo uploaded: ' + filename + ' is used as the website logo!';
+        } else {
+          spanElement.textContent = 'Drag and drop logo here';
+        }
+      }
+
+      function ordinalSuffix(number) {
+        const suffixes = ['st', 'nd', 'rd'];
+        const remainder = number % 10;
+        const suffix = suffixes[remainder - 1] || 'th';
+        return number + suffix;
+      }
   });
-//#endregion
-//#region CreateAnOutputFolderLocally
+//#endregion      
+//#region CreateAnOutputFolderLocallyViaNodeJs
 // const fs = require('fs');
 // const path = require('path');
 

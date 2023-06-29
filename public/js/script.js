@@ -1,5 +1,4 @@
-// -----------------TOGGLE MENU------------------- //
-
+//#region TOGGLE MENU
 let menuOpen = false;
 
 function toggleMenu() {
@@ -16,8 +15,8 @@ function toggleMenu() {
     menuOpen = false;
   }
 }
-
-/*==================== TOGGLE TABS EXPERTISES ====================*/
+//#endregion
+//#region TOGGLE TABS
 const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
 const contents = document.querySelectorAll('.tabs__content');
 
@@ -33,8 +32,8 @@ tabsPortfolio.forEach((tab, index) => {
     tabsPortfolio[index].classList.add('is-active');
   });
 });
-
-/*==================== TOGGLE TABS PRICE ====================*/
+//#endregion
+//#region TOGGLE TABS PRICE
 const tabsPrice = document.querySelectorAll('.price__toggle');
 const package = document.querySelectorAll('.price__content');
 
@@ -50,10 +49,8 @@ tabsPrice.forEach((tab, index) => {
     tabsPrice[index].classList.add('is-active');
   });
 });
-
-
-/*==================== GO TOP BTN ====================*/
-// Go Top Button
+//#endregion
+//#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
 window.onscroll = function () {
@@ -72,21 +69,8 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-/*==================== TEST ANIMATION ====================*/
-
-// wow = new WOW(
-//   {
-//   boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
-//   animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
-//   offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
-//                             // When the user scrolls and reach this distance the hidden box is revealed.
-//   mobile:       true,       // Turn on/off wow.js on mobile devices.
-//   live:         true        // consatantly check for new WOW elements on the page.
-// }
-// )
-// wow.init();
-/*==================== CONTACT FORM====================*/
-/*==================== PopUp CONTACT FORM====================*/
+//#endregion
+//#region PopUp CONTACT FORM
 var form = document.getElementById('contactForm');
 
     // Add a submit event listener to the form
@@ -126,8 +110,8 @@ var form = document.getElementById('contactForm');
       // Remove the class to hide the popup
       popup.classList.remove('modal-active');
     }
-
-/*==================== PopUp RGPD====================*/
+//#endregion
+//#region PopUp RGPD
 document.addEventListener('DOMContentLoaded', function() {
   const rgpdPopup = document.getElementById('popupRGPD');
   const acceptButton = document.getElementById('acceptButton');
@@ -171,7 +155,21 @@ document.addEventListener('DOMContentLoaded', function() {
     centerPopup(rgpdPopup);
   });
 });
+//#endregion
+//#region TEST FEATURES 
+/*==================== TEST ANIMATION ====================*/
 
+// wow = new WOW(
+//   {
+//   boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
+//   animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
+//   offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
+//                             // When the user scrolls and reach this distance the hidden box is revealed.
+//   mobile:       true,       // Turn on/off wow.js on mobile devices.
+//   live:         true        // consatantly check for new WOW elements on the page.
+// }
+// )
+// wow.init();
 
 
 //===========Generateur de Citations (PAGE 404)==========//
@@ -272,4 +270,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // fetchAndDisplayVideos();
 
-
+//#endregion
