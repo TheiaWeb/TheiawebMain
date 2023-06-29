@@ -1,3 +1,4 @@
+//#region ZIP download function
 document.addEventListener('DOMContentLoaded', function() {
     const imageDropArea = document.getElementById('imageDropArea');
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
@@ -188,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-    
+//#endregion
 //#region CreateAnOutputFolderLocally
 // const fs = require('fs');
 // const path = require('path');

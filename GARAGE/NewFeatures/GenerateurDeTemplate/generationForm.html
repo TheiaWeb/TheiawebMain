@@ -1,244 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Website Generation</title>
-    <link rel="stylesheet" type="text/css" href="generation.css">
-  </head>
 
-  <body>
-    <form id="websiteForm">
-      <label for="pageTitle">Site Web Title:</label>
-      <input type="text" id="pageTitle" name="pageTitle" required><br><br>
+<head>
+  <title>Website Generation</title>
+  <link rel="stylesheet" type="text/css" href="generation.css">
+</head>
 
-      <label for="MenuFirstItem">Menu First Item:</label>
-      <input type="text" id="MenuFirstItem" name="MenuFirstItem" required><br><br>
+<body>
+  <form id="websiteForm">
+    <label for="pageTitle">Site Web Title:</label>
+    <input type="text" id="pageTitle" name="pageTitle" required><br><br>
 
-      <label for="MenuSecondItem">Menu Second Item:</label>
-      <input type="text" id="MenuSecondItem" name="MenuSecondItem" required><br><br>
+    <label for="MenuFirstItem">Menu First Item:</label>
+    <input type="text" id="MenuFirstItem" name="MenuFirstItem" required><br><br>
 
-      <label for="MenuThirdItem">Menu Third Item:</label>
-      <input type="text" id="MenuThirdItem" name="MenuThirdItem" required><br><br>
+    <label for="MenuSecondItem">Menu Second Item:</label>
+    <input type="text" id="MenuSecondItem" name="MenuSecondItem" required><br><br>
 
-      <label for="MenuForthItem">Menu Forth Item:</label>
-      <input type="text" id="MenuForthItem" name="MenuForthItem" required><br><br>
+    <label for="MenuThirdItem">Menu Third Item:</label>
+    <input type="text" id="MenuThirdItem" name="MenuThirdItem" required><br><br>
 
-      <label for="HeaderTitle">Header Title:</label>
-      <input type="text" id="HeaderTitle" name="HeaderTitle" required><br><br>
+    <label for="MenuForthItem">Menu Forth Item:</label>
+    <input type="text" id="MenuForthItem" name="MenuForthItem" required><br><br>
 
-      <label for="AboutMe">About Me:</label>
-      <input type="text" id="AboutMe" name="AboutMe" required><br><br>
+    <label for="HeaderTitle">Header Title:</label>
+    <input type="text" id="HeaderTitle" name="HeaderTitle" required><br><br>
 
-      <label for="Projects">Project Title:</label>
-      <input type="text" id="Projects" name="Projects" required><br><br>
+    <label for="AboutMe">About Me:</label>
+    <input type="text" id="AboutMe" name="AboutMe" required><br><br>
 
-      <label for="project1Title">Project 1 Title:</label>
-      <input type="text" id="project1Title" name="project1Title" required><br><br>
+    <label for="Projects">Project Title:</label>
+    <input type="text" id="Projects" name="Projects" required><br><br>
 
-      <label for="project2Title">Project 2 Title:</label>
-      <input type="text" id="project2Title" name="project2Title" required><br><br>
+    <label for="project1Title">Project 1 Title:</label>
+    <input type="text" id="project1Title" name="project1Title" required><br><br>
 
-      <label for="project3Title">Project 3 Title:</label>
-      <input type="text" id="project3Title" name="project3Title" required><br><br>
+    <label for="project2Title">Project 2 Title:</label>
+    <input type="text" id="project2Title" name="project2Title" required><br><br>
 
-      <label for="project1Description">Project 1 Description:</label>
-      <input type="text" id="project1Description" name="project1Description" required><br><br>
+    <label for="project3Title">Project 3 Title:</label>
+    <input type="text" id="project3Title" name="project3Title" required><br><br>
 
-      <label for="project2Description">Project 2 Description:</label>
-      <input type="text" id="project2Description" name="project2Description" required><br><br>
+    <label for="project1Description">Project 1 Description:</label>
+    <input type="text" id="project1Description" name="project1Description" required><br><br>
 
-      <label for="project3Description">Project 3 Description:</label>
-      <input type="text" id="project3Description" name="project3Description" required><br><br>
+    <label for="project2Description">Project 2 Description:</label>
+    <input type="text" id="project2Description" name="project2Description" required><br><br>
 
-      <label for="Contact">Contact:</label>
-      <input type="text" id="Contact" name="Contact" required><br><br>
+    <label for="project3Description">Project 3 Description:</label>
+    <input type="text" id="project3Description" name="project3Description" required><br><br>
 
-      <label for="imageUpload">Upload Images:</label>
-      <div id="imageDropArea" class="drop-area">
-        <span>Drag and drop images here</span>
-        <input type="file" id="imageUpload" accept="image/*" multiple required>
-      </div>
-      <div id="imagePreviewContainer" class="preview-container"></div>
+    <label for="Contact">Contact:</label>
+    <input type="text" id="Contact" name="Contact" required><br><br>
 
-      <label for="logoUpload">Upload Logo:</label>
-      <div id="logoDropArea" class="drop-area">
-        <span>Drag and drop logo here</span>
-        <input type="file" id="logoUpload" accept="image/*" required>
-      </div>
-      <div id="logoPreviewContainer" class="preview-container"></div>
+    <label for="imageUpload">Upload Images:</label>
+    <div id="imageDropArea" class="drop-area">
+      <span>Drag and drop images here</span>
+      <input type="file" id="imageUpload" accept="image/*" multiple required>
+    </div>
+    <div id="imagePreviewContainer" class="preview-container"></div>
 
-      <input type="submit" value="Generate Website">
-    </form>
+    <label for="logoUpload">Upload Logo:</label>
+    <div id="logoDropArea" class="drop-area">
+      <span>Drag and drop logo here</span>
+      <input type="file" id="logoUpload" accept="image/*" required>
+    </div>
+    <div id="imagePreviewContainer" class="preview-container"></div>
 
-    
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-  <script src="generation.js"></script>
-  <script>
+    <input type="submit" value="Generate Website">
+  </form>
 
-    //============FIREBASE SAVE ON CLOUD STORAGE============/
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-      authDomain: "formtheia.firebaseapp.com",
-      databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "formtheia",
-      storageBucket: "formtheia.appspot.com",
-      messagingSenderId: "335132907653",
-      appId: "1:335132907653:web:2dfef81a7293c2551571ec"
-    };
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+<script src="generation.js"></script>
+<script>
+//#region Download on firebase not allowed yet i have to add the storage function 
+    //in the script read by firebase
+    // //============FIREBASE SAVE ON CLOUD STORAGE============/
 
-    firebase.initializeApp(firebaseConfig);
+    // const firebaseConfig = {
+    //   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
+    //   authDomain: "formtheia.firebaseapp.com",
+    //   databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+    //   projectId: "formtheia",
+    //   storageBucket: "formtheia.appspot.com",
+    //   messagingSenderId: "335132907653",
+    //   appId: "1:335132907653:web:2dfef81a7293c2551571ec"
+    // };
 
-    // Function to save the zip folder to Firebase Cloud Storage
-    function saveZipFolderToStorage(zipFolder) {
-      const storageRef = firebase.storage().ref();
+    // firebase.initializeApp(firebaseConfig);
 
-      // Generate a unique file name for the zip folder
-      const fileName = `zip_folder_${new Date().getTime()}.zip`;
+    // // Function to save the zip folder to Firebase Cloud Storage
+    // function saveZipFolderToStorage(zipFolder) {
+    //   const storageRef = firebase.storage().ref();
 
-      const uploadTask = storageRef.child(fileName).put(zipFolder);
+    //   // Generate a unique file name for the zip folder
+    //   const fileName = `zip_folder_${new Date().getTime()}.zip`;
 
-      uploadTask
-        .then(snapshot => {
-          console.log('Zip folder uploaded successfully.');
-          // Additional logic or handling after successful upload
-        })
-        .catch(error => {
-          console.error('Error uploading zip folder:', error);
-          // Error handling
-        });
-    }
+    //   const uploadTask = storageRef.child(fileName).put(zipFolder);
 
-//========= GENERATION OF THE FOLDER============/
+    //   uploadTask
+    //     .then(snapshot => {
+    //       console.log('Zip folder uploaded successfully.');
+    //       // Additional logic or handling after successful upload
+    //     })
+    //     .catch(error => {
+    //       console.error('Error uploading zip folder:', error);
+    //       // Error handling
+    //     });
+    // }
+    //#endregion
+//========= GENERATION OF THE FOLDER============/  
+//#region GENERATION ZIP FOLDER 
+        // Modify the existing code to generate the zip folder
 
-    // Modify the existing code to generate the zip folder
-    document.getElementById("websiteForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    generateOutputFolder(data);
-  });
-
-  function generateOutputFolder(data) {
-    const templateFolderPath = './TemplateFolder';
-    const outputFolderPath = `OutputFolder_${new Date().getTime()}`;
-
-    const zip = new JSZip();
-    const imgFolderPath = `${outputFolderPath}/img`;
-
-    // Read the HTML template file
-    fetch(`${templateFolderPath}/index.html`)
-      .then(response => response.text())
-      .then(template => {
-        let html = template
-          .replace('{{SiteWebTitle}}', data.pageTitle)
-          .replace('{{Home}}', data.MenuFirstItem)
-          .replace('{{About}}', data.MenuSecondItem)
-          .replace('{{Projects}}', data.MenuThirdItem)
-          .replace('{{Contact}}', data.MenuForthItem)
-          .replace('{{HeaderTitle}}', data.HeaderTitle)
-          .replace('{{AboutMe}}', data.AboutMe)
-          .replace('{{project1Title}}', data.project1Title)
-          .replace('{{project2Title}}', data.project2Title)
-          .replace('{{project3Title}}', data.project3Title)
-          .replace('{{project1Description}}', data.project1Description)
-          .replace('{{project2Description}}', data.project2Description)
-          .replace('{{project3Description}}', data.project3Description)
-          .replace('{{Contact}}', data.Contact);
-
-        // Add the modified HTML to the zip folder
-        zip.file(`${outputFolderPath}/index.html`, html);
-
-        // Read the CSS template file
-        fetch(`${templateFolderPath}/style.css`)
-          .then(response => response.text())
-          .then(cssContent => {
-            // Add the CSS content to the zip folder
-            zip.file(`${outputFolderPath}/style.css`, cssContent);
-
-            // Read the JS template file
-            fetch(`${templateFolderPath}/script.js`)
-              .then(response => response.text())
-              .then(jsContent => {
-                // Add the JS content to the zip folder
-                zip.file(`${outputFolderPath}/script.js`, jsContent);
-
-                // Get user-uploaded images
-                const uploadedImages = document.getElementById('imageUpload').files;
-                const logoImage = document.getElementById('logoUpload').files[0];
-
-                // Get template image names
-                const templateImageNames = ['project1.png', 'project2.png', 'project3.png', 'about-image.jpg', 'contact-image.png'];
-                
-                // Check the logo image size
-                const MAX_LOGO_SIZE = 1024 * 1024; // 1MB
-                if (logoImage.size > MAX_LOGO_SIZE) {
-                  console.error('Logo image size exceeds the limit.');
-                  return;
-                }
-
-                // Rename and add user-uploaded images to the zip folder
-                const promises = Array.from(uploadedImages).map((image, index) => {
-                  const templateImageName = templateImageNames[index];
-                  const imgDest = `${imgFolderPath}/${templateImageName}`;
-
-                  return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = function() {
-                      const imageData = reader.result;
-                      zip.file(imgDest, imageData);
-                      resolve();
-                    };
-                    reader.onerror = function(error) {
-                      reject(error);
-                    };
-                    reader.readAsArrayBuffer(image);
-                  });
-                });
-
-                // Wait for all image files to be added to the zip folder
-                Promise.all(promises)
-                  .then(() => {
-                    // Add the logo image to the zip folder
-                    const logoImgDest = `${imgFolderPath}/logo.png`;
-                    const reader = new FileReader();
-                    reader.onload = function() {
-                      const imageData = reader.result;
-                      zip.file(logoImgDest, imageData);
-
-                      // Generate the zip folder
-                      zip.generateAsync({ type: 'blob' })
-                        .then(content => {
-                          // Download the zip folder
-                          const element = document.createElement('a');
-                          element.setAttribute('href', URL.createObjectURL(content));
-                          element.setAttribute('download', `${outputFolderPath}.zip`);
-                          element.style.display = 'none';
-                          document.body.appendChild(element);
-                          element.click();
-                          document.body.removeChild(element);
-                        })
-                        .catch(error => console.error('Error generating zip folder:', error));
-                    };
-                    reader.onerror = function(error) {
-                      console.error('Error reading logo image:', error);
-                    };
-                    reader.readAsArrayBuffer(logoImage);
-                  })
-                  .catch(error => console.error('Error adding image files to zip folder:', error));
-              })
-              .catch(error => console.error('Error reading script.js:', error));
-          })
-          .catch(error => console.error('Error reading style.css:', error));
-      })
-      .catch(error => console.error('Error reading template:', error));
-  }
-  
-</script>
-
-  <!-- <script>  ZONE DE TEST -- DOWNLOAD DU PROJET VIA LE WEB
-    document.getElementById("websiteForm").addEventListener("submit", function(event) {
+    document.getElementById("websiteForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
       const formData = new FormData(event.target);
@@ -246,140 +122,12 @@
 
       generateOutputFolder(data);
     });
-
     function generateOutputFolder(data) {
       const templateFolderPath = './TemplateFolder';
-      const outputFolderPath = `./OutputFolder_${new Date().getTime()}`;
+      const outputFolderPath = `OutputFolder_${new Date().getTime()}`;
 
-      // Read the HTML template file
-      fetch(`${templateFolderPath}/index.html`)
-        .then(response => response.text())
-        .then(template => {
-          let html = template
-            .replace('{{SiteWebTitle}}', data.pageTitle)
-            .replace('{{Home}}', data.MenuFirstItem)
-            .replace('{{About}}', data.MenuSecondItem)
-            .replace('{{Projects}}', data.MenuThirdItem)
-            .replace('{{Contact}}', data.MenuForthItem)
-            .replace('{{HeaderTitle}}', data.HeaderTitle)
-            .replace('{{AboutMe}}', data.AboutMe)
-            .replace('{{project1Title}}', data.project1Title)
-            .replace('{{project2Title}}', data.project2Title)
-            .replace('{{project3Title}}', data.project3Title)
-            .replace('{{project1Description}}', data.project1Description)
-            .replace('{{project2Description}}', data.project2Description)
-            .replace('{{project3Description}}', data.project3Description)
-            .replace('{{Contact}}', data.Contact);
-
-          // Write the modified HTML to the output file
-          const htmlOutputFile = `${outputFolderPath}/index.html`;
-          writeFile(htmlOutputFile, html, () => {
-            console.log(`HTML file generated successfully: ${htmlOutputFile}`);
-          });
-        })
-        .catch(error => console.error('Error reading template:', error));
-
-      // Read the CSS template file
-      fetch(`${templateFolderPath}/style.css`)
-        .then(response => response.text())
-        .then(cssContent => {
-          // Write the CSS content to the output file
-          const cssOutputFile = `${outputFolderPath}/style.css`;
-          writeFile(cssOutputFile, cssContent, () => {
-            console.log(`CSS file generated successfully: ${cssOutputFile}`);
-          });
-        })
-        .catch(error => console.error('Error reading style.css:', error));
-
-      // Read the JS template file
-      fetch(`${templateFolderPath}/script.js`)
-        .then(response => response.text())
-        .then(jsContent => {
-          // Write the JS content to the output file
-          const jsOutputFile = `${outputFolderPath}/script.js`;
-          writeFile(jsOutputFile, jsContent, () => {
-            console.log(`JavaScript file generated successfully: ${jsOutputFile}`);
-          });
-        })
-        .catch(error => console.error('Error reading script.js:', error));
-
-      // Create the "img" folder in the output path
-      const imgFolderPath = `${outputFolderPath}/img`;
-      createFolder(imgFolderPath, () => {
-        const imgFiles = ['project1.png', 'project2.png', 'project3.png', 'about-image.jpg', 'contact-image.png'];
-        imgFiles.forEach(imgFile => {
-          const imgSrc = `${templateFolderPath}/img/${imgFile}`;
-          const imgDest = `${imgFolderPath}/${imgFile}`;
-          copyFile(imgSrc, imgDest, () => {
-            console.log(`Image file ${imgFile} copied successfully to ${imgDest}`);
-          });
-        });
-      });
-    }
-
-    function writeFile(filePath, content, callback) {
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
-      element.setAttribute('download', filePath);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
-      if (typeof callback === 'function') {
-        callback();
-      }
-    }
-
-    function createFolder(folderPath, callback) {
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(''));
-      element.setAttribute('download', folderPath);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
-      if (typeof callback === 'function') {
-        callback();
-      }
-    }
-
-    function copyFile(src, dest, callback) {
-      fetch(src)
-        .then(response => response.blob())
-        .then(blob => {
-          const element = document.createElement('a');
-          element.setAttribute('href', URL.createObjectURL(blob));
-          element.setAttribute('download', dest);
-          element.style.display = 'none';
-          document.body.appendChild(element);
-          element.click();
-          document.body.removeChild(element);
-          if (typeof callback === 'function') {
-            callback();
-          }
-        })
-        .catch(error => console.error(`Error copying image file ${src}:`, error));
-    }
-  </script> -->
-
-  <!-- DOWNLOAD EN ZIP DU PROJET -->
-  <!-- <script>
-    document.getElementById("websiteForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-  
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-  
-      generateOutputFolder(data);
-    });
-  
-    function generateOutputFolder(data) {
-      const templateFolderPath = './TemplateFolder';
-      const outputFolderName = `OutputFolder_${new Date().getTime()}`;
-  
       const zip = new JSZip();
-      const imgFolderName = 'img';
-      const imgFolderPath = `${outputFolderName}/${imgFolderName}`;
+      const imgFolderPath = `${outputFolderPath}/img`;
 
 //========================HTML template worker=================//
 
@@ -395,7 +143,6 @@
             .replace('{{Contact}}', data.MenuForthItem)
             .replace('{{HeaderTitle}}', data.HeaderTitle)
             .replace('{{AboutMe}}', data.AboutMe)
-            .replace('{{Projects}}', data.Projects)
             .replace('{{project1Title}}', data.project1Title)
             .replace('{{project2Title}}', data.project2Title)
             .replace('{{project3Title}}', data.project3Title)
@@ -403,10 +150,10 @@
             .replace('{{project2Description}}', data.project2Description)
             .replace('{{project3Description}}', data.project3Description)
             .replace('{{Contact}}', data.Contact);
-  
+
           // Add the modified HTML to the zip folder
-          zip.file(`${outputFolderName}/index.html`, html);
-  
+          zip.file(`${outputFolderPath}/index.html`, html);
+
 //========================CSS template worker=================//
 
           // Read the CSS template file
@@ -414,65 +161,220 @@
             .then(response => response.text())
             .then(cssContent => {
               // Add the CSS content to the zip folder
-              zip.file(`${outputFolderName}/style.css`, cssContent);
+              zip.file(`${outputFolderPath}/style.css`, cssContent);
 
-//========================CSS template worker=================//
+//========================JS template worker=================//
 
               // Read the JS template file
               fetch(`${templateFolderPath}/script.js`)
                 .then(response => response.text())
                 .then(jsContent => {
                   // Add the JS content to the zip folder
-                  zip.file(`${outputFolderName}/script.js`, jsContent);
-                  
+                  zip.file(`${outputFolderPath}/script.js`, jsContent);
+
 //========================IMG Folder template worker=================//
-  
-                  // Create the "img" folder in the output path
-                  const imgFiles = ['project1.png', 'project2.png', 'project3.png', 'about-image.jpg', 'contact-image.png'];
-                  const promises = imgFiles.map(imgFile => {
-                    const imgSrc = `${templateFolderPath}/img/${imgFile}`;
-                    const imgDest = `${imgFolderPath}/${imgFile}`;
-  
-                    return fetch(imgSrc)
-                      .then(response => response.blob())
-                      .then(blob => {
-                        // Add the image file to the zip folder
-                        zip.file(imgDest, blob);
-                      })
-                      .catch(error => console.error(`Error copying image file ${imgSrc}:`, error));
+
+                  // Get user-uploaded images
+                  const uploadedImages = document.getElementById('imageUpload').files;
+                  const logoImage = document.getElementById('logoUpload').files[0];
+
+                  // Get template image names
+                  const templateImageNames = ['project1.png', 'project2.png', 'project3.png', 'about-image.jpg', 'contact-image.png'];
+
+                  // Check the logo image size
+                  const MAX_LOGO_SIZE = 1024 * 1024; // 1MB
+                  if (logoImage.size > MAX_LOGO_SIZE) {
+                    console.error('Logo image size exceeds the limit.');
+                    return;
+                  }
+
+                  // Rename and add user-uploaded images to the zip folder
+                  const promises = Array.from(uploadedImages).map((image, index) => {
+                    const templateImageName = templateImageNames[index];
+                    const imgDest = `${imgFolderPath}/${templateImageName}`;
+
+                    return new Promise((resolve, reject) => {
+                      const reader = new FileReader();
+                      reader.onload = function () {
+                        const imageData = reader.result;
+                        zip.file(imgDest, imageData);
+                        resolve();
+                      };
+                      reader.onerror = function (error) {
+                        reject(error);
+                      };
+                      reader.readAsArrayBuffer(image);
+                    });
                   });
 
-//========================OutPut Folder worker=================//
-  
                   // Wait for all image files to be added to the zip folder
                   Promise.all(promises)
                     .then(() => {
-                      // Generate the zip folder
-                      zip.generateAsync({ type: 'blob' })
-                        .then(content => {
-                          // Download the zip folder
-                          const element = document.createElement('a');
-                          element.setAttribute('href', URL.createObjectURL(content));
-                          element.setAttribute('download', `${outputFolderName}.zip`);
-                          element.style.display = 'none';
-                          document.body.appendChild(element);
-                          element.click();
-                          document.body.removeChild(element);
-                        })
-                        .catch(error => console.error('Error generating zip folder:', error));
-                    });
+                      // Add the logo image to the zip folder
+                      const logoImgDest = `${imgFolderPath}/logo.png`;
+                      const reader = new FileReader();
+                      reader.onload = function () {
+                        const imageData = reader.result;
+                        zip.file(logoImgDest, imageData);
+
+//========================OutPut Folder worker=================//
+
+                        // Generate the zip folder
+                        zip.generateAsync({ type: 'blob' })
+                          .then(content => {
+                            // Download the zip folder
+                            const element = document.createElement('a');
+                            element.setAttribute('href', URL.createObjectURL(content));
+                            element.setAttribute('download', `${outputFolderPath}.zip`);
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+                          })
+                          .catch(error => console.error('Error generating zip folder:', error));
+                      };
+                      reader.onerror = function (error) {
+                        console.error('Error reading logo image:', error);
+                      };
+                      reader.readAsArrayBuffer(logoImage);
+                    })
+                    .catch(error => console.error('Error adding image files to zip folder:', error));
                 })
                 .catch(error => console.error('Error reading script.js:', error));
             })
             .catch(error => console.error('Error reading style.css:', error));
         })
         .catch(error => console.error('Error reading template:', error));
-    }
- </script> -->
+    } 
 
-  <!-- TEST DOWNLOAD VIA FIREBASE STORAGE FUNCTION -->
+//#endregion
+</script>
+<script>   
+//#region LOCAL FOLDER CREATION 
+    // document.getElementById("websiteForm").addEventListener("submit", function(event) {
+    //   event.preventDefault();
 
+    //   const formData = new FormData(event.target);
+    //   const data = Object.fromEntries(formData);
 
+    //   generateOutputFolder(data);
+    // });
+
+    // function generateOutputFolder(data) {
+    //   const templateFolderPath = './TemplateFolder';
+    //   const outputFolderPath = `./OutputFolder_${new Date().getTime()}`;
+
+    //   Read the HTML template file
+    //   fetch(`${templateFolderPath}/index.html`)
+    //     .then(response => response.text())
+    //     .then(template => {
+    //       let html = template
+    //         .replace('{{SiteWebTitle}}', data.pageTitle)
+    //         .replace('{{Home}}', data.MenuFirstItem)
+    //         .replace('{{About}}', data.MenuSecondItem)
+    //         .replace('{{Projects}}', data.MenuThirdItem)
+    //         .replace('{{Contact}}', data.MenuForthItem)
+    //         .replace('{{HeaderTitle}}', data.HeaderTitle)
+    //         .replace('{{AboutMe}}', data.AboutMe)
+    //         .replace('{{project1Title}}', data.project1Title)
+    //         .replace('{{project2Title}}', data.project2Title)
+    //         .replace('{{project3Title}}', data.project3Title)
+    //         .replace('{{project1Description}}', data.project1Description)
+    //         .replace('{{project2Description}}', data.project2Description)
+    //         .replace('{{project3Description}}', data.project3Description)
+    //         .replace('{{Contact}}', data.Contact);
+
+    //       Write the modified HTML to the output file
+    //       const htmlOutputFile = `${outputFolderPath}/index.html`;
+    //       writeFile(htmlOutputFile, html, () => {
+    //         console.log(`HTML file generated successfully: ${htmlOutputFile}`);
+    //       });
+    //     })
+    //     .catch(error => console.error('Error reading template:', error));
+
+    //   Read the CSS template file
+    //   fetch(`${templateFolderPath}/style.css`)
+    //     .then(response => response.text())
+    //     .then(cssContent => {
+    //       Write the CSS content to the output file
+    //       const cssOutputFile = `${outputFolderPath}/style.css`;
+    //       writeFile(cssOutputFile, cssContent, () => {
+    //         console.log(`CSS file generated successfully: ${cssOutputFile}`);
+    //       });
+    //     })
+    //     .catch(error => console.error('Error reading style.css:', error));
+
+    //   Read the JS template file
+    //   fetch(`${templateFolderPath}/script.js`)
+    //     .then(response => response.text())
+    //     .then(jsContent => {
+    //       Write the JS content to the output file
+    //       const jsOutputFile = `${outputFolderPath}/script.js`;
+    //       writeFile(jsOutputFile, jsContent, () => {
+    //         console.log(`JavaScript file generated successfully: ${jsOutputFile}`);
+    //       });
+    //     })
+    //     .catch(error => console.error('Error reading script.js:', error));
+
+    //   Create the "img" folder in the output path
+    //   const imgFolderPath = `${outputFolderPath}/img`;
+    //   createFolder(imgFolderPath, () => {
+    //     const imgFiles = ['project1.png', 'project2.png', 'project3.png', 'about-image.jpg', 'contact-image.png'];
+    //     imgFiles.forEach(imgFile => {
+    //       const imgSrc = `${templateFolderPath}/img/${imgFile}`;
+    //       const imgDest = `${imgFolderPath}/${imgFile}`;
+    //       copyFile(imgSrc, imgDest, () => {
+    //         console.log(`Image file ${imgFile} copied successfully to ${imgDest}`);
+    //       });
+    //     });
+    //   });
+    // }
+
+    // function writeFile(filePath, content, callback) {
+    //   const element = document.createElement('a');
+    //   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+    //   element.setAttribute('download', filePath);
+    //   element.style.display = 'none';
+    //   document.body.appendChild(element);
+    //   element.click();
+    //   document.body.removeChild(element);
+    //   if (typeof callback === 'function') {
+    //     callback();
+    //   }
+    // }
+
+    // function createFolder(folderPath, callback) {
+    //   const element = document.createElement('a');
+    //   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(''));
+    //   element.setAttribute('download', folderPath);
+    //   element.style.display = 'none';
+    //   document.body.appendChild(element);
+    //   element.click();
+    //   document.body.removeChild(element);
+    //   if (typeof callback === 'function') {
+    //     callback();
+    //   }
+    // }
+
+    // function copyFile(src, dest, callback) {
+    //   fetch(src)
+    //     .then(response => response.blob())
+    //     .then(blob => {
+    //       const element = document.createElement('a');
+    //       element.setAttribute('href', URL.createObjectURL(blob));
+    //       element.setAttribute('download', dest);
+    //       element.style.display = 'none';
+    //       document.body.appendChild(element);
+    //       element.click();
+    //       document.body.removeChild(element);
+    //       if (typeof callback === 'function') {
+    //         callback();
+    //       }
+    //     })
+    //     .catch(error => console.error(`Error copying image file ${src}:`, error));
+    // }
+    //#endregion
+</script> 
 </body>
 
 </html>
