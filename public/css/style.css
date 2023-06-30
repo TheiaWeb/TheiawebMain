@@ -262,18 +262,7 @@ header {
 
 /*==================== EXPERTISES ====================*/
 
-#expertises {
-  position: relative;
-}
-
-.body__bg-expertises {
-  position: absolute;
-  width: 216px;
-  top: -75px;
-  right: 126px;
-}
-
-
+/*==================== EXPERTISES ====================*/
 .expertises__content {
   margin-bottom: 95px;
 }
@@ -298,42 +287,37 @@ header {
 .expertises__carrousel-card:hover {
   background: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
 box-shadow: 0px 0px 5px #89FFFD;
-transition: 0.3s ease-in-out;
+transition: 0.3s;
 }
 
 .expertises__carrousel-card h4 {
 text-align: center;  font-family: var(--roboto);
-text-align: center;
-font-family: var(--roboto);
-font-style: var(--font-regular);
-font-weight: var(--font-bold);
-font-size: var(--h3-font-size);
-line-height: 35px;
-opacity: 1;
-color: var(--pink);
-text-shadow: 1px 1px 0px var(--blue-0-8);
+  font-style: var(--font-regular);
+  font-weight: var(--font-bold);
+  font-size: var(--normal-font-size);
+  line-height: 35px;
+  opacity: 1;
 }
 
 .expertises__carrousel-card-btn {
  position: absolute;
  bottom: -100%;
  width: 100%;
- background: rgb(255, 255, 255);
+ background: rgba(255, 255, 255, 0.9);
  border: 2px solid #FFFFFF;
 box-shadow: inset 0px -3px 10px #FCADE7;
 border-radius: 60px 60px 0px 0px;
 text-align: center;
-padding: 5px;
 }
 
 .expertises__carrousel-card-btn span {
-color: var(--black-0-6);
-font-family: var(--roboto);
-font-weight: var(--font-bold);
+color: var(--black);
+font-family: var(--lato);
+font-weight: var(--font-regular);
 font-size: var(--normal-font-size);
 margin-top: 5px;
 margin-bottom: 5px;
-text-shadow: 1px 1px 25px #666666;
+padding-bottom: 4px;
 }
 
 .expertises__carrousel-card:hover .expertises__carrousel-card-btn {
@@ -433,9 +417,7 @@ text-shadow: 1px 1px 25px #666666;
 
 .expertises__cards:hover {
   transform: scale(1.05);
-  transition: 0.3s ease-in-out;
 }
-
 
 /*==================== ROADMAP ====================*/
 
