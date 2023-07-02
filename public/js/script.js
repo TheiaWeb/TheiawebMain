@@ -129,20 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showPopup(rgpdPopup);
     centerPopup(rgpdPopup);
   }
-
-  function centerPopup(popup) {
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-    const popupHeight = popup.offsetHeight;
-    const popupWidth = popup.offsetWidth;
-
-    const topOffset = (windowHeight - popupHeight) / 2;
-    const leftOffset = (windowWidth - popupWidth) / 2;
-
-    popup.style.top = topOffset + 'px';
-    popup.style.left = leftOffset + 'px';
-  }
-
+  
   function showPopup(popup) {
     popup.style.display = 'block';
   }
@@ -151,9 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
     popup.style.display = 'none';
   }
 
-  window.addEventListener('resize', function() {
-    centerPopup(rgpdPopup);
-  });
 });
 //#endregion
 //#region TEST FEATURES 
@@ -173,43 +157,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //===========Generateur de Citations (PAGE 404)==========//
-const pcCitations = [
-  "Les ordinateurs sont comme des dieux de l'Ancien Testament ; plein de règles et sans pitié.",
-  "L'ordinateur est né pour résoudre des problèmes qui n'existaient pas auparavant.",
-  "N'importe quel idiot peut utiliser un ordinateur. Et beaucoup le font.",
-  "La meilleure chose à propos d'un ordinateur, c'est qu'il est prévisible ; il ne blâme jamais ses erreurs sur vous.",
-  "L'ordinateur est un crétin.",
-];
+// const pcCitations = [
+//   "Les ordinateurs sont comme des dieux de l'Ancien Testament ; plein de règles et sans pitié.",
+//   "L'ordinateur est né pour résoudre des problèmes qui n'existaient pas auparavant.",
+//   "N'importe quel idiot peut utiliser un ordinateur. Et beaucoup le font.",
+//   "La meilleure chose à propos d'un ordinateur, c'est qu'il est prévisible ; il ne blâme jamais ses erreurs sur vous.",
+//   "L'ordinateur est un crétin.",
+// ];
 
-const iaCitations = [
-  "L'intelligence artificielle ne fait pas le poids face à la stupidité naturelle.",
-  "L'IA est comme une rock star qui joue une musique sans faute, mais qui détruit des chambres d'hôtel.",
-  "L'IA est le nouvel électricité.",
-  "La question n'est pas de savoir si l'IA dépassera l'intelligence humaine, mais quand et comment.",
-  "L'IA n'est pas une baguette magique ; c'est un outil pour augmenter les capacités humaines.",
-];
+// const iaCitations = [
+//   "L'intelligence artificielle ne fait pas le poids face à la stupidité naturelle.",
+//   "L'IA est comme une rock star qui joue une musique sans faute, mais qui détruit des chambres d'hôtel.",
+//   "L'IA est le nouvel électricité.",
+//   "La question n'est pas de savoir si l'IA dépassera l'intelligence humaine, mais quand et comment.",
+//   "L'IA n'est pas une baguette magique ; c'est un outil pour augmenter les capacités humaines.",
+// ];
 
-const webCitations = [
-  "Le web tel que je l'ai envisagé, nous ne l'avons pas encore vu. L'avenir est encore bien plus grand que le passé.",
-  "La bonne nouvelle à propos des ordinateurs, c'est qu'ils font ce que vous leur dites de faire. La mauvaise nouvelle, c'est qu'ils font ce que vous leur dites de faire.",
-  "Le web est davantage une création sociale qu'une création technique. Je l'ai conçu pour un effet social, pour aider les gens à travailler ensemble, et non comme un jouet technique.",
-  "Internet pourrait être une étape très positive vers l'éducation, l'organisation et la participation à une société significative.",
-  "Internet devient la place du village global de demain.",
-];
+// const webCitations = [
+//   "Le web tel que je l'ai envisagé, nous ne l'avons pas encore vu. L'avenir est encore bien plus grand que le passé.",
+//   "La bonne nouvelle à propos des ordinateurs, c'est qu'ils font ce que vous leur dites de faire. La mauvaise nouvelle, c'est qu'ils font ce que vous leur dites de faire.",
+//   "Le web est davantage une création sociale qu'une création technique. Je l'ai conçu pour un effet social, pour aider les gens à travailler ensemble, et non comme un jouet technique.",
+//   "Internet pourrait être une étape très positive vers l'éducation, l'organisation et la participation à une société significative.",
+//   "Internet devient la place du village global de demain.",
+// ];
 
-function getRandomCitation(citations) {
-  const randomIndex = Math.floor(Math.random() * citations.length);
-  return citations[randomIndex];
-}
+// function getRandomCitation(citations) {
+//   const randomIndex = Math.floor(Math.random() * citations.length);
+//   return citations[randomIndex];
+// }
 
-function displayRandomCitation() {
-  const citationElement = document.getElementById("citation");
-  const randomCitation = getRandomCitation([...pcCitations, ...iaCitations, ...webCitations]);
-  citationElement.textContent = randomCitation;
-}
+// function displayRandomCitation() {
+//   const citationElement = document.getElementById("citation");
+//   const randomCitation = getRandomCitation([...pcCitations, ...iaCitations, ...webCitations]);
+//   citationElement.textContent = randomCitation;
+// }
 
-// Affiche une citation aléatoire lorsque la page se charge ou se rafraîchit
-displayRandomCitation();
+// // Affiche une citation aléatoire lorsque la page se charge ou se rafraîchit
+// displayRandomCitation();
 
 
 // //===========NEWSLETTER SUBSCRIPTION==========//
