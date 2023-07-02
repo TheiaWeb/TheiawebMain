@@ -1,5 +1,4 @@
-// -----------------TOGGLE MENU------------------- //
-
+//#region TOGGLE MENU
 let menuOpen = false;
 
 function toggleMenu() {
@@ -16,9 +15,8 @@ function toggleMenu() {
     menuOpen = false;
   }
 }
-
-
-/*==================== TOGGLE TABS ====================*/
+//#endregion
+//#region TOGGLE TABS
 const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
 const contents = document.querySelectorAll('.tabs__content');
 
@@ -34,8 +32,25 @@ tabsPortfolio.forEach((tab, index) => {
     tabsPortfolio[index].classList.add('is-active');
   });
 });
-/*==================== GO TOP BTN ====================*/
-// Go Top Button
+//#endregion
+//#region TOGGLE TABS PRICE
+const tabsPrice = document.querySelectorAll('.price__toggle');
+const package = document.querySelectorAll('.price__content');
+
+tabsPrice.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    package.forEach((content) => {
+      content.classList.remove('is-active');
+    });
+    tabsPrice.forEach((tab) => {
+      tab.classList.remove('is-active');
+    });
+    package[index].classList.add('is-active');
+    tabsPrice[index].classList.add('is-active');
+  });
+});
+//#endregion
+//#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
 window.onscroll = function () {
@@ -54,6 +69,94 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+//#endregion
+//#region PopUp CONTACT FORM
+var form = document.getElementById('contactForm');
+
+    // Add a submit event listener to the form
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Perform your form submission logic here, such as sending the data to the server
+
+      // Display the popup
+      showPopup();
+    });
+
+    // Function to display the popup
+    function showPopup() {
+      // Get the popup element
+      var popup = document.getElementById('popupFORM');
+
+      // Add a class to make the popup visible
+      popup.classList.add('modal-active');
+    }
+
+    // Get the close button element
+    var closeButton = document.getElementById('closeButton');
+
+    // Add a click event listener to the close button
+    closeButton.addEventListener('click', function() {
+      // Hide the popup
+      hidePopup();
+    });
+
+    // Function to hide the popup
+    function hidePopup() {
+      // Get the popup element
+      var popup = document.getElementById('popupFORM');
+
+      // Remove the class to hide the popup
+      popup.classList.remove('modal-active');
+    }
+//#endregion
+//#region PopUp RGPD
+document.addEventListener('DOMContentLoaded', function() {
+  const rgpdPopup = document.getElementById('popupRGPD');
+  const acceptButton = document.getElementById('acceptButton');
+
+  acceptButton.addEventListener('click', function() {
+    hidePopup(rgpdPopup);
+    localStorage.setItem('consentGiven', true);
+  });
+
+  const consentGiven = localStorage.getItem('consentGiven');
+
+  if (consentGiven) {
+    hidePopup(rgpdPopup);
+  } else {
+    showPopup(rgpdPopup);
+    centerPopup(rgpdPopup);
+  }
+
+  function centerPopup(popup) {
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+    const popupHeight = popup.offsetHeight;
+    const popupWidth = popup.offsetWidth;
+
+    const topOffset = (windowHeight - popupHeight) / 2;
+    const leftOffset = (windowWidth - popupWidth) / 2;
+
+    popup.style.top = topOffset + 'px';
+    popup.style.left = leftOffset + 'px';
+  }
+
+  function showPopup(popup) {
+    popup.style.display = 'block';
+  }
+
+  function hidePopup(popup) {
+    popup.style.display = 'none';
+  }
+
+  window.addEventListener('resize', function() {
+    centerPopup(rgpdPopup);
+  });
+});
+//#endregion
+//#region TEST FEATURES 
 /*==================== TEST ANIMATION ====================*/
 
 // wow = new WOW(
@@ -68,61 +171,6 @@ function topFunction() {
 // )
 // wow.init();
 
-
-/*==================== PopUp CONTACT FORM====================*/
-
-function closePopup() {
-  const popup = document.getElementById('popupFORM');
-  popup.style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const submitBtn = document.querySelector('.green_btn');
-
-  submitBtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log("Form submitted successfully!");
-    const popup = document.getElementById('popupFORM');
-    popup.style.display = 'block';
-  });
-
-  const closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function () {
-    closePopup();
-  });
-});
-
-/*==================== PopUp RGPD====================*/
-document.addEventListener('DOMContentLoaded', function () {
-  const popup = document.getElementById('popupRGPD');
-  const acceptButton = document.getElementById('acceptButton');
-
-  acceptButton.addEventListener('click', function () {
-    popup.style.display = 'none';
-    localStorage.setItem('consentGiven', true);
-  });
-
-  const consentGiven = localStorage.getItem('consentGiven');
-
-  if (!consentGiven) {
-    centerPopup();
-  }
-
-  function centerPopup() {
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-    const popupHeight = popup.offsetHeight;
-    const popupWidth = popup.offsetWidth;
-
-    const topOffset = (windowHeight - popupHeight) / 2;
-    const leftOffset = (windowWidth - popupWidth) / 2;
-
-    popup.style.top = topOffset + 'px';
-    popup.style.left = leftOffset + 'px';
-  }
-
-  window.addEventListener('resize', centerPopup);  
-});
 
 //===========Generateur de Citations (PAGE 404)==========//
 const pcCitations = [
@@ -221,3 +269,5 @@ displayRandomCitation();
 // }
 
 // fetchAndDisplayVideos();
+
+//#endregion

@@ -1,0 +1,210 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  overflow-x: auto;
+}
+
+.logo {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+section,
+.carousel-container,
+form {
+  margin: 0 3em;
+}
+
+#home {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding-top: 70px; /* Add padding to push content below the header */
+}
+
+#about {
+  background-color: #fff;
+  text-align: center;
+  padding-top: 70px; /* Add padding to push content below the header */
+}
+
+#projects {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding-top: 70px; /* Add padding to push content below the header */
+  display: flex;
+  justify-content: center; /* Center the carousel items horizontally */
+  align-items: center; /* Center the carousel items vertically */
+  flex-direction: column;
+}
+
+.carousel-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  margin-top: 20px; /* Add spacing between the carousel items */
+  margin-left: auto; /* Center the items horizontally */
+  margin-right: auto;
+}
+
+.carousel-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  margin-top: 20px; /* Add spacing between the carousel items */
+}
+
+
+.carousel-item {
+  width: 16em; /* Adjust the width as needed */
+  height: 24em; /* Adjust the height as needed */
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Add spacing between the carousel items and navigation */
+}
+
+.carousel-prev,
+.carousel-next {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px; /* Add spacing between the arrows */
+}
+
+#contact {
+  text-align: center;
+  padding: 50px 0;
+}
+
+#contact h2 {
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.form-container {
+  flex: 1;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #f1f6fe;
+}
+
+form h2 {
+  text-align: center;
+}
+
+form label {
+  margin-top: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  background-color: #fff;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 100%; /* Make the fields expand to the full width */
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  background-color: #d8e8f9;
+  transform: scale(1.02);
+}
+
+form input[type="submit"] {
+  background-color: #3676d7;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #1459b6;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 70px; /* Add spacing below the contact form */
+}

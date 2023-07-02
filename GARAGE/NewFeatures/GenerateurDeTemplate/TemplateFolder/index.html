@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{SiteWebTitle}}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">Portfolio</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#home">{{Home}}</a></li>
+        <li><a href="#about">{{About}}</a></li>
+        <li><a href="#projects">{{Projects}}</a></li>
+        <li><a href="#contact">{{Contact}}</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="home">
+    <h1>{{HeaderTitle}}</h1>
+    <p>This is a showcase of my work.</p>
+  </section>
+  
+  <section id="about">
+    <h2>{{AboutMe}}</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ipsum quis ante venenatis pellentesque. Aenean mattis lectus nec neque eleifend, id convallis risus tincidunt. Donec sem metus, consequat a volutpat id, aliquet nec odio.</p>
+  </section>
+  
+  <section id="projects">
+    <h2>{{Projects}}</h2>
+    <div class="carousel-container">
+      <div class="carousel-item active">
+        <h3>{{project1Title}}</h3>
+        <img src="img/project1.png" alt="Project 1">
+        <p>{{project1Description}}</p>
+      </div>
+      <div class="carousel-item blur">
+        <h3>{{project2Title}}</h3>
+        <img src="img/project2.png" alt="Project 2">
+        <p>{{project2Description}}</p>
+      </div>
+      <div class="carousel-item blur">
+        <h3>{{project3Title}}</h3>
+        <img src="img/project3.png" alt="Project 3">
+        <p>{{project3Description}}</p>
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <div class="carousel-prev">&lt;</div>
+      <div class="carousel-next">&gt;</div>
+    </div>
+  </section>
+    
+  
+  <section id="contact">
+    <div class="contact-container">
+     <div class="form-container">
+        <h2>{{Contact}}</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <input type="submit" value="Send Message">
+        </form>
+      </div>
+      </div>
+</div>  
+</section>
+    <p>&copy; 2023 My Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@
   <title>Theia Web | L'Agence Web 3.0</title>
   <link rel="icon" href="img/logo-meta.png" type="img/icon type">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/root.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,19 +24,21 @@
 <body>
 
 
+ <!--================NAVBAR=================-->
 
   <nav class="navbar__pc">
     <div class="nav__content">
-      <a href="#index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
+      <a href="index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
       <ul class="nav__menu">
-        <li><a href="#expertises">Expertises</a></li>
-        <!--  <li><a href="#">Tarifs</a></li>-->
-        <li class="nav__menu-btn"><a href="#contact">Contact</a></li>
+        <li><a href="index.html#expertises">Expertises</a></li>
+        <!--<li><a href="tarifs.html">Tarifs</a></li>-->
+        <li class="nav__menu-btn"><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
   <div class="navbar__mobile">
     <div class="navbar__mobile-head section">
+      
       <img class="navbar__mobile-logo" src="img/logo.png" alt="">
       <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt=""
         id="menuIcon" onclick="toggleMenu()">
@@ -43,19 +46,20 @@
 
     <div class="navbar__mobile-content" id="menu">
       <ul>
-        <li><a href="#expertises">Expertises</a></li>
-        <!--  <li><a href="#">Tarifs</a></li>-->
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html#expertises">Expertises</a></li>
+        <!--<li><a href="tarifs.html">Tarifs</a></li>-->
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
 
     </div>
 
   </div>
 
+
+<!--================CONTENT=================-->
+
   <header class="header" id="header">
-
-
-    <section id="home" class=" section grid-base">
+    <section id="home" class=" section grid-2-1">
       <div class="home__content-left">
         <div class="section-titlebox">
           <p class="home__title-back back-last">AGENCE WEB 3.0</p>
@@ -74,47 +78,48 @@
         </div>
       </div>
       <div class="wow home__content-right animate__fadeInRight">
-        <img src="img/big-elipse.png" alt="">
+        <img src="img/big-elipse.png" alt="" width="120%">
       </div>
     </section>
   </header>
 
   <section id="team" class="wow section grid-base" data-wow-offset="1">
+
+    <img src="img/body-bg-contact.png" class="body__bg-team body__bg" alt="">
+
+
     <div class="team__content-left wow animate__animated animate__backInLeft ">
       <img class="team__content-left-bg" src="img/team-fingerprint.png" alt="">
       <div class="team__content-left-card team-po">
         <p>Frontend</p>
         <h4>Pauline</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
         <div class="team__rs team__rs-two">
           <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
 
         </div>
-      </div>
-      <div class="team__content-left-card team-vinc">
+    </div>
+    <div class="team__content-left-card team-vinc">
         <p>Backend</p>
         <h4>Vincent</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
-      </div>
-      <div class="team__content-left-card team-max">
+    </div>
+    <div class="team__content-left-card team-max">
         <p>Communication</p>
         <h4>Maxime</h4>
         <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
         </div>
-      </div>
-
     </div>
+
+</div>
 
 
     <div class="team__content-right wow animate__animated animate__fadeIn">
@@ -132,37 +137,33 @@
         </div>-->
     </div>
     <div class="team__content-mobile">
-      <img class="team__content-left-bg" src="img/team-fingerprint.png" alt="">
       <div class="team__content-left-card team-po">
-        <p>Frontend</p>
-        <h4>Pauline</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Frontend</p>
+          <h4>Pauline</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
-        <div class="team__rs team__rs-two">
-          <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
+          </div>
+          <div class="team__rs team__rs-two">
+            <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
 
-        </div>
+          </div>
       </div>
       <div class="team__content-left-card team-vinc">
-        <p>Backend</p>
-        <h4>Vincent</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Backend</p>
+          <h4>Vincent</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
+          </div>
       </div>
       <div class="team__content-left-card team-max">
-        <p>Communication</p>
-        <h4>Maxime</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
+          <p>Communication</p>
+          <h4>Maxime</h4>
+          <div class="team__rs team__rs-one">
+            <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
 
-        </div>
+          </div>
       </div>
 
     </div>
@@ -289,24 +290,27 @@
 
   <section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
     <div class="contact__header">
-      <div class="test">
         <div class="section-titlebox contact__titlebox">
           <p class="section__title-back back-last">NOUS CONTACTER</p>
           <p class="section__title-back back-middle">NOUS CONTACTER</p>
           <h2 class="section__title">NOUS CONTACTER</h2>
         </div>
-      </div>
 
 
 
-      <p class="section__text">Une question, un projet ? N'hésitez pas à nous contacter, nous serons ravis d'échanger
-        avec vous.</p>
+      <p class="section__text">
+        Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
+        <br><br>N'hésitez pas à nous contacter via le formulaire ci-dessous ou à utiliser nos coordonnées pour nous joindre directement. Nous sommes impatients de travailler avec vous pour concrétiser vos ambitions numériques.</p>
     </div>
-    <img src="img/contact-elipse.png" alt="">
+    <img src="img/contact-elipse.png" class="contact__img" alt="">
+    <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
+    <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
+    <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
 
-    <form id="contactForm">
+
+    <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
       <div class="form__content">
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
             <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
@@ -316,39 +320,34 @@
             <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
           </div>
         </div>
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr"
-              required>
+            <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr" required>
           </div>
           <div class="contact__category">
             <label class="contact__label" for="phone">Téléphone</label>
             <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
           </div>
         </div>
-        <div class="grid-base">
+        <div class="grid-1-1">
           <div class="contact__category">
             <label class="contact__label" for="company">Société</label>
             <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
           </div>
           <div class="contact__category">
             <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message"
-              required>
+            <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message" required>
           </div>
         </div>
         <div class="contact__msg">
-          <label class="contact__label" for="message">Expliquez nous votre projet <span
-              class="contact__star">&#42;</span></label>
-          <textarea class="contact__input-large" id="message" name="message" placeholder="Message..."
-            required></textarea>
+          <label class="contact__label" for="message">Expliquez nous votre projet <span class="contact__star">&#42;</span></label>
+          <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..." required></textarea>
         </div>
         <div class="contact__footer-top">
           <div class="contact__footer-cgucheck">
             <input type="checkbox" id="cgu-check" name="cgu" required>
-            <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales d'Utilisation
-                </a></span><span class="contact__star">&#42;</span></label>
+            <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
           </div>
           <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
         </div>
@@ -359,8 +358,22 @@
       </div>
     </form>
 
-
+    <div class="popupFORM">
+      <div class="toast" id="popupFORM">
+        <div class="toast-content">
+          <i class="fas fa-solid fa-check check"></i>
+          <div class="message">
+            <span class="text text-1">Succès</span>
+            <span class="text text-2">Votre message a bien été envoyé !</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-xmark close" id = "closeButton"></i>
+      </div>
+    </div>
+  
   </section>
+
+  <!--================ FOOTER =================-->
 
 
   <footer id="footer" class="section">
@@ -370,19 +383,21 @@
           <h4 class="footer__column-title">Nous Contacter</h4>
           <hr class="footer__separation">
         </div>
-        <div class="footer__contact-phone">
-          <img src="img/footer-phone.png" alt="">
-          <p>06 50 45 56 67</p>
-        </div>
+        <a href="tel:0650455667">
+          <div class="footer__contact-phone">
+            <img src="img/footer-phone.png" alt="">
+           <p>06 50 45 56 67</p>
+          </div>
+        </a>
+        
         <p>email@theiaweb.fr</p>
-        <p class="footer__button"><a href="#contact">Demander un devis</a></p>
+        <p class="footer__button"><a href="index.html#contact">Demander un devis</a></p>
         <div class="footer__links-rs">
-          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i
-              class="fa-brands fa-linkedin-in"></i></a>
-          <!--<a href="" target="_blank"> <i class="fa-brands fa-instagram"></i></a>-->
+          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/theia_web/" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
           <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
           <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
-          <!--<a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>-->
+          <a href="https://www.youtube.com/channel/UCfcGY1-QuEB-cvku0epS7lw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
 
         </div>
       </div>
@@ -391,7 +406,7 @@
           <h4 class="footer__column-title">Informations</h4>
           <hr class="footer__separation">
         </div>
-        <img class="footer__logo" src="img/footer-logo.png" alt="">
+      <a href="index.html"> <img class="footer__logo" src="img/footer-logo.png" alt=""></a> 
         <p class="footer__infos">L'agence est ouverte du Lundi au Vendredi
           de 9H00 à 12H00 et de 14H00 à 18H00</p>
       </div>
@@ -415,6 +430,8 @@
     </div>
   </footer>
 
+    <!--================ TOP BTN =================-->
+
   <div class="" id="myBtn">
     <button class="btn-top" onclick="topFunction()" title="Go to top">
       <i class="fa-solid fa-arrow-up"></i>
@@ -425,25 +442,13 @@
   <!-- API TWITCH  -->
   <!-- <div id="video-container"></div> -->
 
-  <div class="popupFORM">
-    <div class="toast modal-active" id="popupFORM">
-      <div class="toast-content">
-        <i class="fas fa-solid fa-check check"></i>
-        <div class="message">
-          <span class="text text-1">Succès</span>
-          <span class="text text-2">Votre message a bien été envoyé !</span>
-        </div>
-      </div>
-      <i class="fa-solid fa-xmark close" onclick="closePopup()"></i>
-    </div>
-  </div>
 
-  <div id="popupRGPD">
-    <div class="content">
+  <div id="popupRGPD" >
+    <div class="popupRGPD__content">
       <h2>Consentement RGPD</h2>
       <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous
-        acceptez notre politique de confidentialité.</p>
-      <button id="acceptButton">J'accepte</button>
+        acceptez notre <span><a href="legal/politique-confidentialité.html" target="_blank">politique de confidentialité</a></span>.</p>
+      <button id="acceptButton" class="btn__rgpd">J'accepte</button>
     </div>
   </div>
 
@@ -463,73 +468,71 @@
   </div> 
 
 -->
-
-
-
-  <script src="js\script.js"></script>
+  <script src="js/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-  <!-- FIREBASE CONFIG DO NOT MOVE OR SUPRESS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
-    // Replace with your Firebase project's config object
-    var firebaseConfig = {
-      apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-      authDomain: "formtheia.firebaseapp.com",
-      databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "formtheia",
-      storageBucket: "formtheia.appspot.com",
-      messagingSenderId: "335132907653",
-      appId: "1:335132907653:web:2dfef81a7293c2551571ec"
-    };
+//#region FIREBASE CONFIG DO NOT MOVE
+  var firebase = window.firebase;
+  var firestore = window.firebase.firestore;
+  var firebaseConfig = {
+    apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
+    authDomain: "formtheia.firebaseapp.com",
+    databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "formtheia",
+    storageBucket: "formtheia.appspot.com",
+    messagingSenderId: "335132907653",
+    appId: "1:335132907653:web:2dfef81a7293c2551571ec"
+  };
+  firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var surname = document.getElementById('surname').value;
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var company = document.getElementById('company').value;
+  var subject = document.getElementById('subject').value;
+  var message = document.getElementById('message').value;
 
-    // Get a reference to the Firestore database
-    var db = firebase.firestore();
-  </script>
-  <!-- SUBMIT FORM USER + ADMIN -->
-  <script>
-    // Handle form submission
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent form from submitting and page refresh
+  db.collection('contacts').add({
+    surname: surname,
+    name: name,
+    email: email,
+    CompagnyInfos: {
+      phone: phone,
+      company: company,
+      subject: subject,
+      message: message,
+    },
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(function(docRef) {
+    document.getElementById('surname').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('subject').value = '';
+    document.getElementById('message').value = '';
 
-      // Get form values
-      var surname = document.getElementById('surname').value;
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var phone = document.getElementById('phone').value;
-      var company = document.getElementById('company').value;
-      var subject = document.getElementById('subject').value;
-      var message = document.getElementById('message').value;
-      // Save form data to Firestore
-      db.collection('contacts').add({
-        surname: surname,
-        name: name,
-        email: email,
-        phone: phone,
-        company: company,
-        subject: subject,
-        message: message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      })
-        .then(function (docRef) {
-          console.log('Form submitted successfully!');
-          // Reset form fields
-          document.getElementById('surname').value = '';
-          document.getElementById('name').value = '';
-          document.getElementById('email').value = '';
-          document.getElementById('phone').value = '';
-          document.getElementById('company').value = '';
-          document.getElementById('subject').value = '';
-          document.getElementById('message').value = '';
-        })
-        .catch(function (error) {
-          console.error('Error submitting form:', error);
-        });
+    firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
+      const formData = snapshot.data();
+      if (formData && formData.saved) {
+        console.log("Data Saved !!")
+      }
     });
-  </script>
+  })
+  .catch(function(error) {
+    console.error('Error submitting form:', error);
+  });
+});
+//#endregion
+</script>  
+
 </body>
 
 </html>
