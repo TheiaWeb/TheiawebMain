@@ -1,6 +1,9 @@
+//#region FIREBASE CONFIG
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
+const puppeteer = require('puppeteer');
+const cors = require('cors')({ origin: true });
 admin.initializeApp();
 
 // Create a Nodemailer transporter using the Gmail SMTP server
@@ -11,13 +14,13 @@ const transporter = nodemailer.createTransport({
     pass: 'ggiffkbxrjlofqmi',
   },
 });
-
+//#endregion
+//#region SEND EMAIL TO USER && ADMIN
 // Function to send emails
 exports.sendEmail = functions.firestore
   .document('contacts/{contactId}')
-  .onCreate(async (snapshot, context) => {
+  .onCreate(async (snapshot) => {
     const data = snapshot.data();
-    const contactId = context.params.contactId;
 
     try {
       // Send email to the user
@@ -56,7 +59,8 @@ exports.sendEmail = functions.firestore
       return null;
     }
   });
-
+//#endregion
+//#region SAVE DATA TO FIRESTORE 
 // Function to save form data to Firestore
 exports.saveFormData = functions.https.onRequest(async (req, res) => {
   try {
@@ -86,6 +90,33 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
     console.error('Error saving form data:', error);
     res.status(500).send('An error occurred while saving the form data.');
   }
+});
+//#endregion
+//#region REGION TEST 
+
+
+exports.generatePdf = functions.https.onRequest(async (req, res) => {
+  // Automatically set CORS headers
+  cors(req, res, async () => {
+    try {
+      const { template } = req.body; // Assuming the template HTML is passed in the request body
+
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+
+      await page.setContent(template);
+      const pdfBuffer = await page.pdf();
+
+      await browser.close();
+
+      res.set('Content-Type', 'application/pdf');
+      res.set('Content-Disposition', 'attachment; filename="output.pdf"');
+      res.send(pdfBuffer);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('An error occurred while generating the PDF.');
+    }
+  });
 });
 
 
@@ -284,3 +315,4 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
 //     res.status(500).send('Error sending emails and saving data');
 //   }
 // });
+//#endregion

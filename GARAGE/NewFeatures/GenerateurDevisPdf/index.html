@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Call Firebase Cloud Function</title>
+</head>
+<body>
+  <form id="templateForm">
+    <textarea id="templateInput" rows="10" cols="50"></textarea>
+    <button type="submit">Generate PDF</button>
+  </form>
+
+  <script>
+    document.getElementById('templateForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const template = document.getElementById('templateInput').value;
+
+      fetch('https://us-central1-formtheia.cloudfunctions.net/generatePdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ template })
+      })
+      .then(response => response.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'output.pdf';
+        a.click();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(error => {
+        console.error('An error occurred:', error);
+      });
+    });
+  </script>
+</body>
+</html>
