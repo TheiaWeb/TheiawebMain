@@ -221,3 +221,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 
 // fetchAndDisplayVideos();
+
+
+// Get the image element
+const image = document.getElementById('image');
+
+// Function to toggle the morph class on the image
+function toggleMorphAnimation() {
+  image.classList.toggle('morph');
+}
+
+// Add event listener to toggle animation on click
+image.addEventListener('click', toggleMorphAnimation);

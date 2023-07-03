@@ -1317,3 +1317,48 @@ gap: 15px;
   cursor: pointer;
   transition: 0.3s ease;
 }
+
+
+.home__content-right {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  perspective: 800px; /* Perspective value for 3D effect */
+}
+
+#image {
+  transition: all 1s; /* Transition duration */
+}
+
+/* Define the keyframes for the morphing effect */
+@keyframes morph-animation {
+  0% {
+    border-radius: 50%; /* Initial border radius */
+    transform: rotate(0deg) scale(1) skew(0deg); /* Initial rotation, scale, and skew */
+    filter: hue-rotate(0deg); /* Initial color rotation */
+    opacity: 1; /* Initial opacity */
+  }
+  33% {
+    border-radius: 0%; /* Intermediate border radius */
+    transform: rotate(180deg) scale(0.6) skew(-10deg); /* Intermediate rotation, scale, and skew */
+    filter: hue-rotate(180deg); /* Intermediate color rotation */
+    opacity: 0.5; /* Intermediate opacity */
+  }
+  66% {
+    border-radius: 50%; /* Final border radius */
+    transform: rotate(360deg) scale(0.8) skew(10deg); /* Final rotation, scale, and skew */
+    filter: hue-rotate(0deg); /* Final color rotation */
+    opacity: 1; /* Final opacity */
+  }
+  100% {
+    border-radius: 50%; /* Final border radius */
+    transform: rotate(0deg) scale(1) skew(0deg); /* Final rotation, scale, and skew */
+    filter: hue-rotate(0deg); /* Final color rotation */
+    opacity: 1; /* Final opacity */
+  }
+}
+
+/* Add a class to apply the morphing animation */
+#image.morph {
+  animation: morph-animation 4s;
+}
