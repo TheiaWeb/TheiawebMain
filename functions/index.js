@@ -1,4 +1,4 @@
-//#region FIREBASE CONFIG
+//#region CONSTANTES
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
@@ -94,28 +94,34 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
 //#endregion
 //#region REGION TEST 
 
+// Récupérez une référence à la collection "devis" dans Firestore
+var quotesCollection = firebase.firestore().collection("devis");
 
-exports.generatePdf = functions.https.onRequest(async (req, res) => {
-  // Automatically set CORS headers
-  cors(req, res, async () => {
-    try {
-      const { template } = req.body; // Assuming the template HTML is passed in the request body
+// Ajoutez un gestionnaire d'événement pour le formulaire de devis
+document.getElementById("quoteForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Empêche la soumission du formulaire par défaut
 
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
+  // Récupérez les valeurs des champs du formulaire
+  var clientName = document.getElementById("clientName").value;
+  var itemName = document.getElementById("itemName").value;
+  var itemPrice = document.getElementById("itemPrice").value;
 
-      await page.setContent(template);
-      const pdfBuffer = await page.pdf();
+  // Générez le devis en utilisant les valeurs du formulaire
+  var quote = "Devis pour " + clientName + ": " + itemName + " - " + itemPrice + "€";
 
-      await browser.close();
-
-      res.set('Content-Type', 'application/pdf');
-      res.set('Content-Disposition', 'attachment; filename="output.pdf"');
-      res.send(pdfBuffer);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('An error occurred while generating the PDF.');
-    }
+  // Enregistrez le devis dans la collection "devis" de Firestore
+  quotesCollection.add({
+    quote: quote
+  })
+  .then(function(docRef) {
+    console.log("Devis enregistré avec ID :", docRef.id);
+    // Réinitialisez les valeurs des champs du formulaire
+    document.getElementById("clientName").value = "";
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemPrice").value = "";
+  })
+  .catch(function(error) {
+    console.error("Erreur lors de l'enregistrement du devis :", error);
   });
 });
 

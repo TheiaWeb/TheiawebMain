@@ -1,39 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Call Firebase Cloud Function</title>
-</head>
+  <title>Quote Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.11.0/dist/pdf-lib.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-fill-form@5.0.0/dist/pdf-fill-form.js"></script>
+  </head>
 <body>
-  <form id="templateForm">
-    <textarea id="templateInput" rows="10" cols="50"></textarea>
-    <button type="submit">Generate PDF</button>
+  <h1>Quote Generator</h1>
+  <form id="quoteForm">
+    <label for="clientName">Client Name:</label>
+    <input type="text" id="clientName" required><br><br>
+
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" required><br><br>
+
+    <!-- Additional form fields as needed -->
+
+    <button type="submit">Generate Quote</button>
   </form>
 
   <script>
-    document.getElementById('templateForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const template = document.getElementById('templateInput').value;
+    
+    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
 
-      fetch('https://us-central1-formtheia.cloudfunctions.net/generatePdf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ template })
-      })
-      .then(response => response.blob())
-      .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'output.pdf';
-        a.click();
-        window.URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('An error occurred:', error);
+  // Get form values
+  var clientName = document.getElementById("clientName").value;
+  var projectName = document.getElementById("projectName").value;
+  // Retrieve additional form values as needed
+
+  // Calculate quote based on input (replace with your own logic)
+  var quoteAmount = calculateQuote(projectName); // Replace with your own calculation logic
+  // Additional calculations based on form values
+
+  // Load the PDF template
+  var templatePath = "quote_template.pdf";
+  fetch(templatePath)
+    .then(response => response.arrayBuffer())
+    .then(templateData => {
+      // Create a new PDFDocument instance
+      const pdfDoc = PDFLib.PDFDocument.load(templateData);
+
+      // Convert the array buffer to a Uint8Array
+      const uint8Array = new Uint8Array(templateData);
+
+      // Fill the form fields using pdf-fill-form
+      const filledPdfData = pdfform().transform(uint8Array, {
+        clientName: clientName,
+        projectName: projectName,
+        quoteAmount: quoteAmount.toFixed(2),
       });
+
+      // Create a Blob from the filled PDF data
+      const blob = new Blob([filledPdfData], { type: 'application/pdf' });
+
+      // Create a download link and trigger the download
+      const downloadLink = document.createElement('a');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = 'quote.pdf';
+      downloadLink.click();
+    })
+    .catch(error => {
+      console.error('Error generating the PDF:', error);
     });
-  </script>
+});
+
+// Function to calculate the quote based on the project name
+function calculateQuote(projectName) {
+  // Replace with your own logic to calculate the quote
+  // You can access the project name and perform the necessary calculations
+  // Return the calculated quote amount
+  return 1000;
+}
+
+
+</script>
 </body>
 </html>
