@@ -22,12 +22,13 @@
     text-transform: uppercase;
 }
 
+.refonte-title__main,
 .title__main {
     color: var(--white);
     text-shadow: 2px 0 var(--black), -2px 0 var(--black), 0 2px var(--black), 0 -2px var(--black),
     1px 1px var(--black), -1px -1px var(--black), 1px -1px var(--black), -1px 1px var(--black);
 }
-
+.refonte-title__mid,
 .title__mid {
     color: var(--pink);
     text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
@@ -35,7 +36,7 @@
     transform: translate(-4px, -65px);
 
 }
-
+.refonte-title__back,
 .title__back {
     color: var(--black);
     transform: translate(-6px, -119px);
@@ -95,6 +96,10 @@
 .price__content {
     display: none;
   }
+
+.freehand__price__content {
+    display: none;
+}
   
   
   .is-active {
@@ -140,6 +145,11 @@ justify-items: center
     font-weight: var(--font-semi-bold);
 }
 
+.card-price-month {
+    color: var(--grey);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-regular);
+}
 .card-price-x {
     color: var(--grey);
     font-size: var(--small-font-size);
@@ -202,11 +212,16 @@ justify-items: center
     margin-left: auto;
     margin-right: auto;
 }
+.card-btn:hover {
+cursor: pointer;
+  background: linear-gradient(135deg, rgba(137, 255, 253, 0.6) 14.39%, rgba(252, 173, 231, 0.6) 86.07%);
+  transition: 0.3s ease-in-out;
+}
 
 /*==================FREEHAND==================*/
 
 .freehand__box {
-    padding: 25px 40px;
+    padding: 35px 30px;
     align-items: center;
     gap: 30px;
     border-radius: 15px;
@@ -222,9 +237,6 @@ justify-items: center
     gap: 30px;
 }
 
-.freehand__price-banner-box {
-    display: flex;
-}
 
 .freehand__price-banner {
     display: flex;
@@ -263,6 +275,10 @@ justify-items: center
 .freehand__card-btn {
     margin-left: 0;
 }
+.freehand__card-img {
+    margin: auto;
+    width: 70%;
+}
 
 
 
@@ -271,12 +287,9 @@ justify-items: center
 @media screen and (max-width: 403px) {
     .title__mid {
         transform: translate(-4px, -67px);
-    
     }
-    
     .title__back {
         transform: translate(-6px, -124px);
-    
     }
 }
 
@@ -284,15 +297,31 @@ justify-items: center
 @media screen and (min-width: 404px) and (max-width: 768px) {
     .title__mid {
         transform: translate(-4px, -41px);
-    
     }
-    
     .title__back {
         transform: translate(-6px, -70px);
-    
-    }
-    
+    }    
 }
+
+@media screen and (max-width: 394px) {
+    .refonte-title__mid {
+        transform: translate(-4px, -67px);
+    }
+    .refonte-title__back {
+        transform: translate(-6px, -124px);
+    }
+}
+
+
+@media screen and (min-width: 395px) and (max-width: 768px) {
+    .refonte-title__mid {
+        transform: translate(-4px, -41px);
+    }
+    .refonte-title__back {
+        transform: translate(-6px, -70px);
+    }    
+}
+
 
 /*================== Screen size for phone=================== */
 @media screen and (max-width: 768px) {
@@ -318,6 +347,22 @@ justify-items: center
     .card-img {
         width: 70%;
     }
+    .freehand__card-img {
+        width: 55%;
+    }
+    .txt-indent {
+        padding-left: 0px;
+    }
+    .freehand__card-btn {
+        margin-left: auto;
+    }
+    .freehand__price-1 {
+        width: 120px;
+    }
+    
+    .freehand__price-x {
+        width: 120px;
+    }
     
 }
 
@@ -326,9 +371,11 @@ justify-items: center
 
 /*================== Screen size for tablet ==================*/
 @media screen and (min-width: 769px) and (max-width: 1023px) {
+    .refonte-title__mid,
     .title__mid {
         transform: translate(-4px, -54px);
     }
+    .refonte-title__back,
     .title__back {
         transform: translate(-6px, -97px);
     }
@@ -341,5 +388,8 @@ justify-items: center
     }
     .card-img {
         width: 50%;
+    }
+    .freehand__card-img {
+        width: 40%;
     }
 }

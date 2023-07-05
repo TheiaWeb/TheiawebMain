@@ -34,8 +34,8 @@ tabsPortfolio.forEach((tab, index) => {
 });
 //#endregion
 //#region TOGGLE TABS PRICE
-const tabsPrice = document.querySelectorAll('.price__toggle');
-const package = document.querySelectorAll('.price__content');
+const tabsPrice = document.querySelectorAll('.freehand__price__toggle');
+const package = document.querySelectorAll('.freehand__price__content');
 
 tabsPrice.forEach((tab, index) => {
   tab.addEventListener('click', () => {
@@ -52,6 +52,26 @@ tabsPrice.forEach((tab, index) => {
   });
 });
 //#endregion
+//#region TOGGLE TABS PRICE
+const freehandTabsPrice = document.querySelectorAll('.price__toggle');
+const freehandPackage = document.querySelectorAll('.price__content');
+
+freehandTabsPrice.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    freehandPackage.forEach((content) => {
+      content.classList.remove('is-active');
+    });
+    freehandTabsPrice.forEach((tab) => {
+      tab.classList.remove('is-active');
+      tab.classList.remove('price__banner-active');
+    });
+    freehandPackage[index].classList.add('is-active');
+    freehandTabsPrice[index].classList.add('is-active');
+    freehandTabsPrice[index].classList.add('price__banner-active');
+  });
+});
+//#endregion
+
 //#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
