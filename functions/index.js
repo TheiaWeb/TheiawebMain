@@ -94,37 +94,45 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
 //#endregion
 //#region REGION TEST 
 
-// Récupérez une référence à la collection "devis" dans Firestore
-var quotesCollection = firebase.firestore().collection("devis");
+exports.generatePDFQuote = functions.https.onRequest(async (req, res) => {
+  // Set CORS headers to allow requests from any domain
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET');
 
-// Ajoutez un gestionnaire d'événement pour le formulaire de devis
-document.getElementById("quoteForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Empêche la soumission du formulaire par défaut
+  const browser = await puppeteer.launch({ headless: "new" });
+  const page = await browser.newPage();
 
-  // Récupérez les valeurs des champs du formulaire
-  var clientName = document.getElementById("clientName").value;
-  var itemName = document.getElementById("itemName").value;
-  var itemPrice = document.getElementById("itemPrice").value;
+  const { clientName, address, email } = req.query;
 
-  // Générez le devis en utilisant les valeurs du formulaire
-  var quote = "Devis pour " + clientName + ": " + itemName + " - " + itemPrice + "€";
+  const htmlTemplate = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Quote</title>
+      </head>
+      <body>
+          <h1>Quote</h1>
 
-  // Enregistrez le devis dans la collection "devis" de Firestore
-  quotesCollection.add({
-    quote: quote
-  })
-  .then(function(docRef) {
-    console.log("Devis enregistré avec ID :", docRef.id);
-    // Réinitialisez les valeurs des champs du formulaire
-    document.getElementById("clientName").value = "";
-    document.getElementById("itemName").value = "";
-    document.getElementById("itemPrice").value = "";
-  })
-  .catch(function(error) {
-    console.error("Erreur lors de l'enregistrement du devis :", error);
-  });
+          <div>
+              <p><strong>Client Name:</strong> ${clientName}</p>
+              <p><strong>Address:</strong> ${address}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <!-- Add more fields as needed -->
+          </div>
+      </body>
+      </html>
+  `;
+
+  await page.setContent(htmlTemplate, { waitUntil: 'networkidle0' });
+
+  const pdfBuffer = await page.pdf({ format: 'A4' });
+
+  await browser.close();
+
+  res.set('Content-Type', 'application/pdf');
+  res.set('Content-Disposition', 'attachment; filename="quote.pdf"');
+  res.send(pdfBuffer);
 });
-
 
 // // Replace with your Firebase project's config object
 // var firebaseConfig = {
