@@ -74,6 +74,8 @@
     border: 1px solid var(--black);
     padding: 2% 10%;
     border-radius: 15px 0 0 15px;
+    display: flex;
+    align-items: center;
 }
 
 .price-x {
@@ -81,12 +83,14 @@
     padding: 2% 10%;
     border-left: none;
     border-radius: 0 15px 15px 0;
+    display: flex;
+    align-items: center;
 }
 
-/*.price-active {
+.price__banner-active {
     background-color: var(--blue);
     color: var(--black);
-}*/
+}
 
 .price__content {
     display: none;
@@ -104,14 +108,13 @@ justify-items: center
 }
 .package__card {
     display: flex;
-    padding: 60px 40px 25px 40px;
+    padding: 25px 30px;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
     border-radius: 15px;
     border: 1px solid rgba(23, 23, 23, 0.40);
     background: var(--white, #FCFDF2);
-    width: 380px;
 }
 
 .package__card-blue {
@@ -183,6 +186,8 @@ justify-items: center
 .txt-indent {
     padding-left: 35px;
 }
+
+
 
 .card-btn {
     color: var(--white);
@@ -292,12 +297,9 @@ justify-items: center
 /*================== Screen size for phone=================== */
 @media screen and (max-width: 768px) {
  
-    .card-img {
-        width: 80%;
-    }
+    
 
     .package__card {
-        width: 250px;
         padding: 40px 30px 15px 30px;
     }
 
@@ -306,12 +308,15 @@ justify-items: center
 }
 
     
-    .package__card-title-mid {
+    .card-title-mid {
         transform: translate(-4px, -25px);
     }
     
-    .package__card-title-back {
+    .card-title-back {
         transform: translate(-6px, -47px);
+    }
+    .card-img {
+        width: 70%;
     }
     
 }
@@ -333,5 +338,8 @@ justify-items: center
     }
     .card-title-back {
         transform: translate(-6px, -56px);
+    }
+    .card-img {
+        width: 50%;
     }
 }

@@ -336,11 +336,14 @@
       }
     }
 
+
+
+    /*Utiliser dans la page tarif*/
     .grid-auto-3 {
       display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 15px;
     }
 
     @media screen and (max-width: 768px) {

@@ -44,9 +44,11 @@ tabsPrice.forEach((tab, index) => {
     });
     tabsPrice.forEach((tab) => {
       tab.classList.remove('is-active');
+      tab.classList.remove('price__banner-active');
     });
     package[index].classList.add('is-active');
     tabsPrice[index].classList.add('is-active');
+    tabsPrice[index].classList.add('price__banner-active');
   });
 });
 //#endregion
