@@ -16,7 +16,7 @@
 
 .title__triple {
     font-size: var(--h2-font-size);
-    font-family: var(--audiowide);
+    font-family: var(--kanit);
     font-weight: var(--font-bold);
     text-align: center;
     text-transform: uppercase;
@@ -24,22 +24,15 @@
 
 .refonte-title__main,
 .title__main {
-    color: var(--white);
-    text-shadow: 2px 0 var(--black), -2px 0 var(--black), 0 2px var(--black), 0 -2px var(--black),
-    1px 1px var(--black), -1px -1px var(--black), 1px -1px var(--black), -1px 1px var(--black);
-}
-.refonte-title__mid,
-.title__mid {
     color: var(--pink);
     text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
     1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-    transform: translate(-4px, -65px);
-
 }
+
 .refonte-title__back,
 .title__back {
     color: var(--black);
-    transform: translate(-6px, -119px);
+    transform: translate(-2px, -72px);
 
 }
 
@@ -162,28 +155,20 @@ justify-items: center
 }
 .card-title {
     font-size: var(--normal-font-size);
-    font-family: var(--audiowide);
+    font-family: var(--kanit);
     font-weight: var(--font-bold);
     text-transform: uppercase;
 }
 
 .card-title-main {
-    color: var(--white);
-    text-shadow: 2px 0 var(--black), -2px 0 var(--black), 0 2px var(--black), 0 -2px var(--black),
-    1px 1px var(--black), -1px -1px var(--black), 1px -1px var(--black), -1px 1px var(--black);
-}
-
-.card-title-mid {
     color: var(--pink);
     text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
     1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-    transform: translate(-4px, -35px);
-
 }
 
 .card-title-back {
     color: var(--black);
-    transform: translate(-6px, -67px);
+    transform: translate(-2px, -67px);
 }
 
 .card-text {
@@ -284,41 +269,29 @@ cursor: pointer;
 
 
 /*================== Screen size spe title ==================*/
-@media screen and (max-width: 403px) {
-    .title__mid {
-        transform: translate(-4px, -67px);
-    }
+@media screen and (max-width: 316px) {
     .title__back {
-        transform: translate(-6px, -124px);
+        transform: translate(-2px, -74px);
     }
 }
 
 
-@media screen and (min-width: 404px) and (max-width: 768px) {
-    .title__mid {
-        transform: translate(-4px, -41px);
-    }
+@media screen and (min-width: 317px) and (max-width: 768px) {
     .title__back {
-        transform: translate(-6px, -70px);
+        transform: translate(-2px, -43px);
     }    
 }
 
-@media screen and (max-width: 394px) {
-    .refonte-title__mid {
-        transform: translate(-4px, -67px);
-    }
+@media screen and (max-width: 305px) {
     .refonte-title__back {
-        transform: translate(-6px, -124px);
+        transform: translate(-2px, -74px);
     }
 }
 
 
-@media screen and (min-width: 395px) and (max-width: 768px) {
-    .refonte-title__mid {
-        transform: translate(-4px, -41px);
-    }
+@media screen and (min-width: 306px) and (max-width: 768px) {
     .refonte-title__back {
-        transform: translate(-6px, -70px);
+        transform: translate(-2px, -43px);
     }    
 }
 
@@ -336,10 +309,6 @@ cursor: pointer;
     height: 20px;
 }
 
-    
-    .card-title-mid {
-        transform: translate(-4px, -25px);
-    }
     
     .card-title-back {
         transform: translate(-6px, -47px);
@@ -371,18 +340,11 @@ cursor: pointer;
 
 /*================== Screen size for tablet ==================*/
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .refonte-title__mid,
-    .title__mid {
-        transform: translate(-4px, -54px);
-    }
     .refonte-title__back,
     .title__back {
-        transform: translate(-6px, -97px);
+        transform: translate(-2px, -61px);
     }
 
-    .card-title-mid {
-        transform: translate(-4px, -28px);
-    }
     .card-title-back {
         transform: translate(-6px, -56px);
     }

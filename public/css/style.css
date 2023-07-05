@@ -1,99 +1,4 @@
 /*==================== VARIABLES CSS ====================*/
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-
-:root {
- 
-    
- 
-    /*========== Font family ==========*/
-    --audiowide: 'Audiowide', cursive;
-    --lato: 'Lato', sans-serif;
-    --roboto: 'Roboto', sans-serif;
-
-
-    /*========== Color theme ==========*/
-    --white: #FCFDF2;
-    --black: #171717;
-    --blue: #89FFFD;
-    --blue-0-4: rgba(137, 255, 253, 0.4);
-    --pink: #FCADE7;
-    --pink-0-4: rgba(252, 173, 231, 0.4);
-    --purple: #6F2BAE;
-    --pink-blue-gradient: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
-    --input-color:rgba(0, 0, 0, 0.6);
-    --container-color: #fff; 
-    --bright-pink: #FF41CC;
-
-     /*========== Font Size ==========*/
-    --h1-font-size: 5rem;
-    --h2-font-size: 3rem;
-    --h3-font-size: 2rem;
-    --normal-font-size: 1.5rem;
-    --small-font-size: 1.25rem;
-    --smaller-font-size: 1rem;
-    --footer-font-size: 0.825rem;
-
-    
-    
-    /*========== Font weight ==========*/
-    --font-regular: 400;
-    --font-medium: 500;
-    --font-semi-bold: 600;
-    --font-bold: 700;
-
-    /*========== Margenes Bottom ==========*/
-    --mb-0-25: .25rem;
-    --mb-0-5: .5rem;
-    --mb-0-75: .75rem;
-    --mb-1: 1rem;
-    --mb-1-5: 1.5rem;
-    --mb-2: 2rem;
-    --mb-2-5: 2.5rem;
-    --mb-3: 3rem;
-
-    /*========== z index ==========*/
-    --z-tooltip: 10;
-    --z-fixed: 100;
-    --z-modal: 1000;
-
-}
-
-@media screen and (max-width: 1750px) {
-  :root {
-      --h1-font-size: 4rem;
-      --h2-font-size: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 1420px) {
-  :root {
-      --h1-font-size: 2.9rem;
-      --h2-font-size: 2rem;
-      --normal-font-size: 1.25rem;
-      --small-font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 530px) {
-  :root {
-      --h1-font-size: 2rem;
-      --h2-font-size: 1.5rem;
-  }
-}
-
-
-/* Font size for small devices */
-@media screen and (max-width: 768px) {
-    :root {
-        --big-font-size: 4rem;
-        --h3-font-size: 1.25rem;
-        --normal-font-size: 1rem;
-        --small-font-size: .875rem;
-        --smaller-font-size: .813rem;
-    }
-}
-
-
 
 
   /*==================== HOME ====================*/
@@ -225,7 +130,7 @@ header {
 
 .team__content-left-card p,
 .team__content-left-card h4 {
-  font-family: var(--audiowide);
+  font-family: var(--kanit);
   font-weight: var(--font-bold);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -392,7 +297,7 @@ padding-bottom: 4px;
 }
 
 .tabs__content-title {
-  font-family: var(--audiowide);
+  font-family: var(--kanit);
   font-weight: var(--font-bold) ;
   font-size: var(--h3-font-size);
   color: var(--black);
