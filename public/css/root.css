@@ -27,14 +27,8 @@
     --container-color: #fff; 
     --bright-pink: #FF41CC;
 
-     /*========== Font Size ==========*/
-    --h1-font-size: 5rem;
-    --h2-font-size: 3rem;
-    --h3-font-size: 2rem;
-    --normal-font-size: 1.5rem;
-    --small-font-size: 1.25rem;
-    --smaller-font-size: 1rem;
-    --footer-font-size: 0.825rem;
+
+
 
     
     
@@ -63,7 +57,7 @@
 
 
 
-@media screen and (max-width: 1750px) {
+/*@media screen and (max-width: 1750px) {
     :root {
         --h1-font-size: 4rem;
         --h2-font-size: 2.5rem;
@@ -84,19 +78,51 @@
         --h1-font-size: 2rem;
         --h2-font-size: 1.5rem;
     }
-  }
+  }*/
   
   
-  /* Font size for small devices */
+  /* Font size for phone */
   @media screen and (max-width: 768px) {
       :root {
-          --big-font-size: 4rem;
+          --h1-font-size: 2rem;
+          --h2-font-size: 1.3rem;
           --h3-font-size: 1.25rem;
           --normal-font-size: 1rem;
           --small-font-size: .875rem;
           --smaller-font-size: .813rem;
+          --footer-font-size: .79rem;
       }
   }
+
+  /* Font size for tablet */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    :root {
+      --h1-font-size: 3.5rem;
+      --h2-font-size: 2rem;
+      --h3-font-size: 1.75rem;
+      --normal-font-size: 1.25rem;
+      --small-font-size: 1rem;
+      --smaller-font-size: .9rem;
+      --footer-font-size: .81rem;
+  }
+  }
+
+  /* Font size for desktop */
+  @media screen and (min-width: 1024px) {
+    
+    :root {
+     /*========== Font Size ==========*/
+          --h1-font-size: 5rem;
+          --h2-font-size: 2.5rem;
+          --h3-font-size: 2rem;
+          --normal-font-size: 1.5rem;
+          --small-font-size: 1.25rem;
+          --smaller-font-size: 1rem;
+          --footer-font-size: .825rem;
+    }
+
+  }
+  
   
   
   
@@ -277,6 +303,17 @@
       }
     }
 
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+      .grid-1-2 { grid-template-columns: 1fr;
+      }
+    }
+
     .grid-1-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -299,11 +336,14 @@
       }
     }
 
+
+
+    /*Utiliser dans la page tarif*/
     .grid-auto-3 {
       display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 15px;
     }
 
     @media screen and (max-width: 768px) {
@@ -312,8 +352,12 @@
       }
 
     }
+
+
   
   
+
+
     
     .section {
       padding: 5% 13%;
@@ -584,7 +628,7 @@ footer {
   }
   }
   
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     
     .navbar__mobile {
       display: none;
