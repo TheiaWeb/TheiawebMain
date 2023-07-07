@@ -840,5 +840,38 @@ gap: 15px;
   /*==========zone de test=========*/
    
 
+  .svg-container {
+    position: relative;
+    width: 120%;
+  }
   
-
+  #animated-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    animation: morphAnimation 4s linear infinite;
+  }
+  
+  @keyframes morphAnimation {
+    0% {
+      /* Initial state */
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    50% {
+      /* Intermediate state */
+      opacity: 0.5;
+      transform: rotate(180deg);
+    }
+    100% {
+      /* Final state */
+      opacity: 1;
+      transform: rotate(360deg);
+    }
+  }
+  
+  #animated-svg:hover {
+    animation-play-state: paused;
+  }
