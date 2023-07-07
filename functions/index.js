@@ -92,8 +92,7 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
   }
 });
 //#endregion
-//#region REGION TEST 
-
+//#region GENERATEUR DE DEVIS
 exports.generatePDFQuote = functions.https.onRequest(async (req, res) => {
   // Set CORS headers to allow requests from any domain
   res.set('Access-Control-Allow-Origin', '*');
@@ -129,11 +128,29 @@ exports.generatePDFQuote = functions.https.onRequest(async (req, res) => {
 
   await browser.close();
 
-  res.set('Content-Type', 'application/pdf');
-  res.set('Content-Disposition', 'attachment; filename="quote.pdf"');
-  res.send(pdfBuffer);
-});
+  // Generate a unique file name for the PDF
+  const fileName = `${Date.now()}_quote.pdf`;
 
+  // Store the PDF file in Firebase Storage
+  const bucket = admin.storage().bucket();
+  const file = bucket.file(fileName);
+  await file.save(pdfBuffer, {
+    metadata: {
+      contentType: 'application/pdf',
+      metadata: {
+        firebaseStorageDownloadTokens: Date.now(),
+      },
+    },
+  });
+
+  // Get the public URL of the stored PDF file
+  const downloadURL = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+
+  res.set('Content-Type', 'application/json');
+  res.send({ downloadURL });
+});
+//#endregion
+//#region TESTS
 // // Replace with your Firebase project's config object
 // var firebaseConfig = {
 //   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
