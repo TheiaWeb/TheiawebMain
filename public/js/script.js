@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //#endregion
 //#region TEST FEATURES 
-
+/*
 const svgContainer = document.getElementById('animated-svg');
 const svgImage = new Image();
 svgImage.src = 'img/17.svg';
@@ -184,7 +184,7 @@ function handleMouseMove(event) {
   svgImage.style.transformOrigin = 'center';
   svgImage.style.transformBox = 'fill-box';
   svgImage.style.transform = `translate(-50%, -50%) rotate(${angle}rad)`;
-}
+}*/
 
 /*==================== TEST ANIMATION ====================*/
 
