@@ -168,7 +168,7 @@ justify-items: center
 
 .card-title-back {
     color: var(--black);
-    transform: translate(-2px, -67px);
+    transform: translate(-2px, -37px);
 }
 
 .card-text {
@@ -311,13 +311,13 @@ cursor: pointer;
 
     
     .card-title-back {
-        transform: translate(-6px, -47px);
+        transform: translate(-2px, -25px);
     }
     .card-img {
         width: 70%;
     }
     .freehand__card-img {
-        width: 55%;
+        width: 35%;
     }
     .txt-indent {
         padding-left: 0px;
@@ -335,6 +335,12 @@ cursor: pointer;
     
 }
 
+@media screen and (max-width: 315px) {
+    .métamorphose-title-back {
+        transform: translate(-2px, -49px);
+    }
+}
+
 
 
 
@@ -346,12 +352,12 @@ cursor: pointer;
     }
 
     .card-title-back {
-        transform: translate(-6px, -56px);
+        transform: translate(-2px, -31px);
     }
     .card-img {
         width: 50%;
     }
     .freehand__card-img {
-        width: 40%;
+        width: 90%;
     }
 }
