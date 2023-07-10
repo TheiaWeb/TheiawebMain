@@ -1,12 +1,12 @@
 /*==================== VARIABLES CSS ====================*/
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
  
     
  
     /*========== Font family ==========*/
-    --audiowide: 'Audiowide', cursive;
+    --kanit: 'Kanit', cursive;
     --lato: 'Lato', sans-serif;
     --roboto: 'Roboto', sans-serif;
 
@@ -27,14 +27,8 @@
     --container-color: #fff; 
     --bright-pink: #FF41CC;
 
-     /*========== Font Size ==========*/
-    --h1-font-size: 5rem;
-    --h2-font-size: 3rem;
-    --h3-font-size: 2rem;
-    --normal-font-size: 1.5rem;
-    --small-font-size: 1.25rem;
-    --smaller-font-size: 1rem;
-    --footer-font-size: 0.825rem;
+
+
 
     
     
@@ -63,7 +57,7 @@
 
 
 
-@media screen and (max-width: 1750px) {
+/*@media screen and (max-width: 1750px) {
     :root {
         --h1-font-size: 4rem;
         --h2-font-size: 2.5rem;
@@ -84,19 +78,51 @@
         --h1-font-size: 2rem;
         --h2-font-size: 1.5rem;
     }
-  }
+  }*/
   
   
-  /* Font size for small devices */
+  /* Font size for phone */
   @media screen and (max-width: 768px) {
       :root {
-          --big-font-size: 4rem;
+          --h1-font-size: 2rem;
+          --h2-font-size: 1.3rem;
           --h3-font-size: 1.25rem;
           --normal-font-size: 1rem;
           --small-font-size: .875rem;
           --smaller-font-size: .813rem;
+          --footer-font-size: .79rem;
       }
   }
+
+  /* Font size for tablet */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    :root {
+      --h1-font-size: 3.5rem;
+      --h2-font-size: 2rem;
+      --h3-font-size: 1.75rem;
+      --normal-font-size: 1.25rem;
+      --small-font-size: 1rem;
+      --smaller-font-size: .9rem;
+      --footer-font-size: .81rem;
+  }
+  }
+
+  /* Font size for desktop */
+  @media screen and (min-width: 1024px) {
+    
+    :root {
+     /*========== Font Size ==========*/
+          --h1-font-size: 4rem;
+          --h2-font-size: 2.5rem;
+          --h3-font-size: 2rem;
+          --normal-font-size: 1.5rem;
+          --small-font-size: 1.25rem;
+          --smaller-font-size: 1rem;
+          --footer-font-size: .825rem;
+    }
+
+  }
+  
   
   
   
@@ -120,7 +146,7 @@
   }
   
   h1,h2 {
-      font-family: var(--audiowide);
+      font-family: var(--kanit);
       margin-top: 10px;
       margin-bottom: 10px;
   }
@@ -144,63 +170,93 @@
   
   
   /*==================== TITLES ====================*/
-  .home__title,
-  .home__title-back {
-    font-size: var(--h1-font-size);
+
+      /*====new titles=====*/
+  .section__title-box,
+  .home__title-box {
+      height: 100px;
+  }
+  .section__triple,
+  .home__triple {
     animation: fadeIn 1s forwards;
-  }
-  .section__title,
-  .section__title-back {
-    font-size: var(--h2-font-size);
-    animation: fadeIn 1s forwards;
-  }
-  .section-titlebox {
-    position: relative;
-    height: 100px ;
-  }
-  
-  
-  .back-middle {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-    position: absolute;
-    top: 11px;
-    left: 2px;
-  }
-  .back-last {
-    color: var(--white);
-    text-shadow: 2px 0 var(--black), -2px 0 var(--black), 0 2px var(--black), 0 -2px var(--black),
-    1px 1px var(--black), -1px -1px var(--black), 1px -1px var(--black), -1px 1px var(--black);
-    position: absolute;
-    top: 15px;
-    left: 8px;
-  }
-  
-  .home__tittle-back .back-middle {
-    top: 13px;
-    left: 3px;
-  }
-  .home__tittle-back .back-last {
-    top: 20px;
-    left: 10px;
-  }
-  
-  .home__title,
-  .section__title,
-  .home__title-back,
-  .section__title-back {
+      font-family: var(--kanit);
       font-weight: var(--font-bold);
+      text-align: left;
       text-transform: uppercase;
-      font-family: var(--audiowide);
-      position: absolute;
-    }
-   
-    .home__title,
-    .section__title {
-       color: var(--black);
-    }
+  }
+  .home__triple {
+    font-size: var(--h1-font-size);
+  }
+  .section__triple {
+    font-size: var(--h2-font-size);
+  }
+  .home__title-main {
+      color: var(--pink);
+      text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
+      1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
+  }
+  .home__title-back {
+      color: var(--black);
+      transform: translate(-2px, -107px);
+  }
+  .home__title-back span {
+    color: var(--blue);
+  }
+  .section__title-main {
+      color: var(--pink);
+      text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
+      1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
+  }
+  .section__title-back {
+      color: var(--black);
+      transform: translate(-2px, -72px);
+  }
   
+   /* title size for phone */
+   @media screen and (max-width: 768px) {
+    .home__title-back {
+      transform: translate(-2px, -60px);
+  }
+  .section__title-box,
+  .home__title-box {
+    height: 50px;
+  }
+  .section__title-back {
+    transform: translate(-2px, -42px);
+  }
+}
+
+/* title size for tablet */
+@media screen and (min-width: 769px) and (max-width: 914px) {
+  .home__title-back {
+    transform: translate(-2px, -180px);
+}
+.section__title-back {
+  transform: translate(-2px, -59px);
+}
+}
+/* title size for tablet */
+@media screen and (min-width: 915px) and (max-width: 1023px) {
+  .home__title-back {
+    transform: translate(-2px, -96px);
+}
+.section__title-back {
+  transform: translate(-2px, -59px);
+}
+}
+
+/* title size for tablet */
+@media screen and (min-width: 1121px) and (max-width: 1402px) {
+ 
+.team__title-back {
+  transform: translate(-2px, -132px);
+}
+}
+
+  
+  
+
+
     /*==================== REUSABLE CSS CLASSES ====================*/
   
   
@@ -277,9 +333,12 @@
       }
     }
 
+
+
     .grid-1-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      justify-content: center;
       gap: 2.5rem;
       align-items: center;
     }
@@ -299,10 +358,14 @@
       }
     }
 
+
+
+    /*Utiliser dans la page tarif*/
     .grid-auto-3 {
       display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
+    justify-content: center;
+    grid-gap: 15px;
     }
 
     @media screen and (max-width: 768px) {
@@ -311,8 +374,25 @@
       }
 
     }
+
+
+    .grid-1-2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+      .grid-1-2 { 
+        grid-template-columns: 1fr;
+      }
+    }
+    
+
   
   
+
+
     
     .section {
       padding: 5% 13%;
@@ -538,17 +618,11 @@ footer {
   
   .footer__down a {
     text-decoration-line: underline;
-  
   }
   
   /*==================== MEDIA QUERIES ====================*/
   
-  @media only screen and (max-width: 430px) {
-    
-  }
-  @media only screen and (min-width: 430px) {
-    
-  }
+
   
   
    /* Extra small devices (phones, 600px and down) */
@@ -564,9 +638,6 @@ footer {
   }
 
 
-  @media only screen and (min-width: 600px) {
-    
-  }
   
   /* Medium devices (landscape tablets, 768px and down) */
   @media only screen and (max-width: 768px) {
@@ -583,7 +654,7 @@ footer {
   }
   }
   
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     
     .navbar__mobile {
       display: none;
@@ -591,40 +662,15 @@ footer {
    }
   
   
-  /* Large devices (laptops/desktops, 992px and down) */
-  @media only screen and (max-width: 950px) {
-    .section-titlebox {
-      height: 80px ;
-    }
+/* title size for tablet */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+
+  .section {
+    padding: 5% 8%;
+  }
   
-   
 }
-  @media only screen and (min-width: 1120px) {
-      
-  }
-  
-  @media only screen and (max-width: 1120px) {
-  
-   
-  }
-  
-  
-  
-  @media only screen and (max-width: 1280px) {
-   
-    
-  }
-  
-  
-  @media only screen and (min-width: 1280px) {
-   
-    
-  }
-  
-  @media only screen and (min-width: 1530px) {
-   
-    
-  }
+
   
   
 

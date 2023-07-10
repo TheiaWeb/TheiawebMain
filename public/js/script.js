@@ -34,8 +34,8 @@ tabsPortfolio.forEach((tab, index) => {
 });
 //#endregion
 //#region TOGGLE TABS PRICE
-const tabsPrice = document.querySelectorAll('.price__toggle');
-const package = document.querySelectorAll('.price__content');
+const tabsPrice = document.querySelectorAll('.freehand__price__toggle');
+const package = document.querySelectorAll('.freehand__price__content');
 
 tabsPrice.forEach((tab, index) => {
   tab.addEventListener('click', () => {
@@ -44,12 +44,34 @@ tabsPrice.forEach((tab, index) => {
     });
     tabsPrice.forEach((tab) => {
       tab.classList.remove('is-active');
+      tab.classList.remove('price__banner-active');
     });
     package[index].classList.add('is-active');
     tabsPrice[index].classList.add('is-active');
+    tabsPrice[index].classList.add('price__banner-active');
   });
 });
 //#endregion
+//#region TOGGLE TABS PRICE
+const freehandTabsPrice = document.querySelectorAll('.price__toggle');
+const freehandPackage = document.querySelectorAll('.price__content');
+
+freehandTabsPrice.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    freehandPackage.forEach((content) => {
+      content.classList.remove('is-active');
+    });
+    freehandTabsPrice.forEach((tab) => {
+      tab.classList.remove('is-active');
+      tab.classList.remove('price__banner-active');
+    });
+    freehandPackage[index].classList.add('is-active');
+    freehandTabsPrice[index].classList.add('is-active');
+    freehandTabsPrice[index].classList.add('price__banner-active');
+  });
+});
+//#endregion
+
 //#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
@@ -141,6 +163,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //#endregion
 //#region TEST FEATURES 
+/*
+const svgContainer = document.getElementById('animated-svg');
+const svgImage = new Image();
+svgImage.src = 'img/17.svg';
+svgContainer.appendChild(svgImage);
+
+svgContainer.addEventListener('mousemove', handleMouseMove);
+
+function handleMouseMove(event) {
+  const containerRect = svgContainer.getBoundingClientRect();
+  const containerCenterX = containerRect.left + containerRect.width / 2;
+  const containerCenterY = containerRect.top + containerRect.height / 2;
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+
+  const angle = Math.atan2(mouseY - containerCenterY, mouseX - containerCenterX);
+  const distance = Math.sqrt(Math.pow(mouseX - containerCenterX, 2) + Math.pow(mouseY - containerCenterY, 2));
+
+  svgImage.style.transformOrigin = 'center';
+  svgImage.style.transformBox = 'fill-box';
+  svgImage.style.transform = `translate(-50%, -50%) rotate(${angle}rad)`;
+}*/
+
 /*==================== TEST ANIMATION ====================*/
 
 // wow = new WOW(
