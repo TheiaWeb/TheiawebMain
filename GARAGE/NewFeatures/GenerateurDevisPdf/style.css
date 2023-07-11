@@ -1,0 +1,15 @@
+.selected-service {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .selected-service .service-name {
+    margin-right: 10px;
+  }
+  
+  .selected-service .delete-service {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
