@@ -2,10 +2,17 @@
 
   
   .header__parallax {
-    transform-style: preserve-3d;
-    position: relative;
-    height: 600px;
+    height: 850px;
+    background: url('../img/header__parallax.png') ;
+
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -13,34 +20,27 @@
 
   
   .header__title {
-    text-align: center;
-    font-size: 4rem;
-    font-family: sans-serif;
     color: var(--black);
+    text-align: center;
+    font-family: var(--kanit);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
   }
 
-  
-  .header__parallax::after {
-    content: " ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateZ(-1px) scale(1.5);
-    background-size: 100%;
-    z-index: -1;
+  .header__title-blue {
+    background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: var(--kanit);
+    font-size: var(--big-font-size);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
   }
+
+
   
-  .header__bg::after {
-    background: url('../img/header__parallax.png') ;
-    background-size: cover;
-  }
+
   
-  @media screen and (min-width: 768px) {
-    .header__title {
-      font-size: 8rem;
-    }
    
-  }
-  
