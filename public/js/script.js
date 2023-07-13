@@ -209,15 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // });
 // //#endregion
 //#region TEST FEATURES 
-window.addEventListener("scroll", function() {
-  var navbar = document.querySelector("nav");
-  var scrollY = window.scrollY;
-  if (scrollY > 0) {
-    navbar.style.height = scrollY + "px";
-  } else {
-    navbar.style.height = "50px";
-  }
-});
+
 /*
 const svgContainer = document.getElementById('animated-svg');
 const svgImage = new Image();
