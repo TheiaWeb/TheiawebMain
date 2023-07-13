@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formulaire de contact</title>
+  <title>Formulaire de creation de devis</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 </head>
 <body>
-  <h1>Contactez-nous</h1>
+  <h1>Formulaire de creation de devis</h1>
   <form id="generationDevis">
-    <label for="name">Nom :</label>
+    <h2>Qui etes vous ?</h2><br>
+    <label for="name">name</label><br>
     <input type="text" id="name" name="name" required><br>
 
-    <label for="email">Adresse e-mail :</label>
+    <label for="email">Adresse e-mail :</label><br>
     <input type="email" id="email" name="email" required><br>
+    <label for="message"><h2>Quel est votre projet ?</h2></label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
-    <label for="message">Message :</label><br>
-    <textarea id="message" name="message" rows="4" required></textarea><br>
+    <label><h2>De quoi avez vous besoin ?</h2></label><br>
 
-    <label>Services :</label><br>
     <div id="servicesList"></div><br>
 
     <button type="submit">Générer le devis</button>
@@ -26,143 +27,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
-  <script>
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-  authDomain: "formtheia.firebaseapp.com",
-  databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "formtheia",
-  storageBucket: "formtheia.appspot.com",
-  messagingSenderId: "335132907653",
-  appId: "1:335132907653:web:d4620962ca0a24131571ec",
-  measurementId: "G-5F4K9SXY34"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-// Référence à la collection "clients"
-var clientsCollection = firebase.firestore().collection("clients");
-// Référence à la collection "prices"
-var pricesCollection = firebase.firestore().collection("prices");
-
-// Écouteur de soumission du formulaire
-document.getElementById("generationDevis").addEventListener("submit", function(event) {
-  event.preventDefault(); // Empêcher le rechargement de la page
-
-  // Récupérer les valeurs des champs du formulaire
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var message = document.getElementById("message").value;
-
-  // Récupérer les services sélectionnés par le client
-  var selectedServices = [];
-  var checkboxes = document.getElementsByName("services");
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      selectedServices.push({
-        name: checkboxes[i].getAttribute("data-name"),
-        price: parseFloat(checkboxes[i].getAttribute("data-price"))
-      });
-    }
-  }
-
-  // Créer un nouvel objet avec les données du client et du devis
-  var clientData = {
-    name: name,
-    email: email,
-    message: message,
-    services: selectedServices,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  };
-
-  // Générer le contenu du PDF avec pdfmake
-  var docDefinition = {
-    content: [
-      { text: 'Demande de devis', style: 'header' },
-      { text: 'Nom: ' + name },
-      { text: 'Adresse e-mail: ' + email },
-      { text: 'Message: ' + message },
-      { text: 'Services:', style: 'subheader' }
-    ],
-    styles: {
-      header: {
-        fontSize: 18,
-        bold: true,
-        margin: [0, 0, 0, 10]
-      },
-      subheader: {
-        fontSize: 16,
-        bold: true,
-        margin: [0, 10, 0, 5]
-      },
-      serviceItem: {
-        margin: [0, 5, 0, 0]
-      }
-    }
-  };
-
-  // Ajouter les services sélectionnés dans le contenu du devis
-  selectedServices.forEach(function(service) {
-    docDefinition.content.push({ text: service.name, style: 'serviceItem' });
-    // Vous pouvez ajouter d'autres champs ou personnaliser le formatage selon vos besoins
-  });
-
-  var pdfDocGenerator = pdfMake.createPdf(docDefinition);
-
-  // Générer le fichier PDF et sauvegarder le lien dans Firebase Firestore
-  pdfDocGenerator.getBlob(function(blob) {
-    var storageRef = firebase.storage().ref();
-    var pdfFileRef = storageRef.child('devis/' + Date.now() + '.pdf');
-
-    pdfFileRef.put(blob).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL();
-    }).then(function(downloadURL) {
-      // Ajouter le lien de téléchargement dans les données du client
-      clientData.pdfURL = downloadURL;
-
-      // Sauvegarder les données dans Firebase Firestore
-      return clientsCollection.add(clientData);
-    }).then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      // Afficher un message de réussite ou effectuer d'autres actions ici
-
-      // Rediriger ou afficher le lien de téléchargement pour le client
-      var downloadLink = document.createElement('a');
-      downloadLink.href = clientData.pdfURL;
-      downloadLink.target = '_blank'; // Ouvrir dans un nouvel onglet
-      downloadLink.innerText = 'Ouvrir le devis';
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-    }).catch(function(error) {
-      console.error("Error adding document: ", error);
-      // Gérer les erreurs ici
-    });
-  });
-});
-
-// Récupérer les prix des services depuis Firebase Firestore et afficher les options dans le formulaire
-pricesCollection.get().then(function(querySnapshot) {
-  querySnapshot.forEach(function(doc) {
-    var service = doc.data();
-    var checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = 'service' + doc.id;
-    checkbox.name = 'services';
-    checkbox.value = service.name;
-    checkbox.setAttribute('data-name', service.name);
-    checkbox.setAttribute('data-price', service.price);
-    var label = document.createElement('label');
-    label.htmlFor = 'service' + doc.id;
-    label.innerText = service.name + ' - ' + service.price + ' $';
-    document.getElementById('servicesList').appendChild(checkbox);
-    document.getElementById('servicesList').appendChild(label);
-    document.getElementById('servicesList').appendChild(document.createElement('br'));
-  });
-}).catch(function(error) {
-  console.error("Error getting prices: ", error);
-});
-</script>
+  <SCript src="generate_pdf.js"></SCript>
 </body>
 </html>
