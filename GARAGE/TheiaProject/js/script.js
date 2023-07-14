@@ -1,5 +1,4 @@
 //#region /*==================== TOGGLE MENU ====================*/
-
 let menuOpen = false;
 
 function toggleMenu() {
@@ -113,6 +112,10 @@ document.addEventListener('DOMContentLoaded', function () {
 //#endregion
 //#region REGION TEST
 /*==================== TEST ANIMATION ====================*/
+
+
+// Define variables
+
 
 // wow = new WOW(
 //   {

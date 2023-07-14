@@ -1,22 +1,4 @@
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-  authDomain: "formtheia.firebaseapp.com",
-  databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "formtheia",
-  storageBucket: "formtheia.appspot.com",
-  messagingSenderId: "335132907653",
-  appId: "1:335132907653:web:d4620962ca0a24131571ec",
-  measurementId: "G-5F4K9SXY34"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-var clientsCollection = firebase.firestore().collection("clients");
-var oneTimePurchaseRef = firebase.firestore().collection("prices").doc("One Time Purchase");
-var threeTimesPurchaseRef = firebase.firestore().collection("prices").doc("Three Times Purchase");
-var solutionMainsLibresRef = firebase.firestore().collection("prices").doc("Solution Main Libre");
-
 // Écouteur de soumission du formulaire
 document.getElementById("generationDevis").addEventListener("submit", function(event) {
   event.preventDefault(); // Empêcher le rechargement de la page
@@ -144,10 +126,28 @@ document.getElementById("generationDevis").addEventListener("submit", function(e
 });
 
 // Declare the variables outside the callback functions
-// Declare the variables outside the callback functions
 var oneTimePurchaseData;
 var threeTimesPurchaseData;
 var solutionMainsLibresData;
+var docDefinition = {
+  content: [],
+  styles: {
+    header: {
+      fontSize: 24,
+      bold: true,
+      alignment: 'center',
+      margin: [0, 0, 0, 20]
+    },
+    subheader: {
+      fontSize: 18,
+      bold: true,
+      margin: [0, 20, 0, 10]
+    },
+    serviceItem: {
+      margin: [0, 5, 0, 0]
+    }
+  }
+};
 
 // Récupérer les prix des services depuis Firebase Firestore et afficher les options dans le formulaire
 oneTimePurchaseRef.get().then(function(oneTimePurchaseSnapshot) {
@@ -155,7 +155,7 @@ oneTimePurchaseRef.get().then(function(oneTimePurchaseSnapshot) {
     oneTimePurchaseData = oneTimePurchaseSnapshot.data();
     // Access and use the data from oneTimePurchaseData
     console.log(oneTimePurchaseData);
-    // displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
+    displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id, docDefinition);
   } else {
     console.log("One Time Purchase document does not exist.");
   }
@@ -168,7 +168,7 @@ threeTimesPurchaseRef.get().then(function(threeTimesPurchaseSnapshot) {
     threeTimesPurchaseData = threeTimesPurchaseSnapshot.data();
     // Access and use the data from threeTimesPurchaseData
     console.log(threeTimesPurchaseData);
-    // displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
+    displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id, docDefinition);
   } else {
     console.log("Three Times Purchase document does not exist.");
   }
@@ -181,7 +181,7 @@ solutionMainsLibresRef.get().then(function(solutionMainsLibresSnapshot) {
     solutionMainsLibresData = solutionMainsLibresSnapshot.data();
     // Access and use the data from solutionMainsLibresData
     console.log(solutionMainsLibresData);
-    // displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+    displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id, docDefinition);
 
   } else {
     console.log("Solution Mains Libres document does not exist.");
@@ -191,8 +191,7 @@ solutionMainsLibresRef.get().then(function(solutionMainsLibresSnapshot) {
 });
 
 // Call the function to display the options for Solution Mains Libres
-
-function displayServicesOptions(pricesData, docId) {
+function displayServicesOptions(pricesData, docId, docDefinition) {
   var servicesList = document.getElementById('servicesList');
 
   // Add a heading for the document ID
@@ -240,6 +239,10 @@ function displayServicesOptions(pricesData, docId) {
     servicesList.appendChild(checkbox);
     servicesList.appendChild(label);
     servicesList.appendChild(document.createElement('br'));
+
+    // Add the service to docDefinition
+    var serviceText = serviceName + ' - ' + servicePrice + ' $';
+    docDefinition.content.push({ text: serviceText, style: 'serviceItem' });
   });
 }
 
@@ -252,10 +255,10 @@ oneTimePurchaseRadio.addEventListener("change", function() {
   servicesList.innerHTML = ''; // Remove all displayed services
 
   if (this.checked) {
-    displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
+    displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id, docDefinition);
   }
 
-  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id, docDefinition);
 });
 
 threeTimesPurchaseRadio.addEventListener("change", function() {
@@ -263,10 +266,8 @@ threeTimesPurchaseRadio.addEventListener("change", function() {
   servicesList.innerHTML = ''; // Remove all displayed services
 
   if (this.checked) {
-    displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
+    displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id, docDefinition);
   }
 
-  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id, docDefinition);
 });
-
-
