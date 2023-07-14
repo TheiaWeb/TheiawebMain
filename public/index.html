@@ -2,6 +2,17 @@
 <html lang="fr">
 
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C16RVCG990"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C16RVCG990');
+</script>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,8 +41,9 @@
     <div class="nav__content">
       <a href="index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
       <ul class="nav__menu">
-        <li><a href="index.html#expertises">Expertises</a></li>
+        <li><a id="menu" href="index.html#expertises">Expertises</a></li>
         <li><a href="tarifs.html">Tarifs</a></li>
+        <!-- <li><a href="agence.html">L'agence</a></li> -->
         <li class="nav__menu-btn"><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
@@ -48,6 +60,7 @@
       <ul>
         <li><a href="index.html#expertises">Expertises</a></li>
         <li><a href="tarifs.html">Tarifs</a></li>
+        <!-- <li><a href="agence.html">L'agence</a></li> -->
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
 
@@ -486,7 +499,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
-//#region FIREBASE CONFIG DO NOT MOVE
+//#region FIREBASE CONFIG + GET CLIENT DATA DO NOT MOVE
   var firebase = window.firebase;
   var firestore = window.firebase.firestore;
   var firebaseConfig = {
@@ -512,16 +525,16 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   var message = document.getElementById('message').value;
 
   db.collection('contacts').add({
-    surname: surname,
-    name: name,
-    email: email,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     CompagnyInfos: {
+      surname: surname,
+      name: name,
+      email: email,
       phone: phone,
       company: company,
       subject: subject,
       message: message,
     },
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
   })
   .then(function(docRef) {
     document.getElementById('surname').value = '';

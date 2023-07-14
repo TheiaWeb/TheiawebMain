@@ -4,7 +4,10 @@ const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const puppeteer = require('puppeteer');
 const cors = require('cors')({ origin: true });
+const { Storage } = require('@google-cloud/storage');
+const storage = new Storage();
 admin.initializeApp();
+
 const firebaseConfig = {
   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
   authDomain: "formtheia.firebaseapp.com",
@@ -102,64 +105,55 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
 });
 //#endregion
 //#region GENERATEUR DE DEVIS
-exports.generatePDFQuote = functions.https.onRequest(async (req, res) => {
-  // Set CORS headers to allow requests from any domain
-  res.set('Access-Control-Allow-Origin', '*');
-  res.set('Access-Control-Allow-Methods', 'GET');
-
-  const browser = await puppeteer.launch({ headless: "new" });
-  const page = await browser.newPage();
-
-  const { clientName, address, email } = req.query;
-
-  const htmlTemplate = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-          <title>Quote</title>
-      </head>
-      <body>
-          <h1>Quote</h1>
-
-          <div>
-              <p><strong>Client Name:</strong> ${clientName}</p>
-              <p><strong>Address:</strong> ${address}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <!-- Add more fields as needed -->
-          </div>
-      </body>
-      </html>
-  `;
-
-  await page.setContent(htmlTemplate, { waitUntil: 'networkidle0' });
-
-  const pdfBuffer = await page.pdf({ format: 'A4' });
-
-  await browser.close();
-
-  // Generate a unique file name for the PDF
-  const fileName = `${Date.now()}_quote.pdf`;
-
-  // Store the PDF file in Firebase Storage
-  const bucket = admin.storage().bucket();
-  const file = bucket.file(fileName);
-  await file.save(pdfBuffer, {
-    metadata: {
-      contentType: 'application/pdf',
-      metadata: {
-        firebaseStorageDownloadTokens: Date.now(),
-      },
-    },
-  });
-
-  // Get the public URL of the stored PDF file
-  const downloadURL = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
-
-  res.set('Content-Type', 'application/json');
-  res.send({ downloadURL });
-});
 //#endregion
 //#region TESTS
+
+// exports.generatePDF = functions.https.onRequest(async (req, res) => {
+//   const { clientName, address, email, phone } = req.body;
+
+//   // Create a new browser instance
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+
+//   // Generate the PDF content
+//   const pdfContent = `
+//     <h1>Client Details</h1>
+//     <p>Client Name: ${clientName}</p>
+//     <p>Address: ${address}</p>
+//     <p>Email: ${email}</p>
+//     <p>Phone: ${phone}</p>
+//     <!-- Add additional data from the services -->
+
+//     <!-- Add your custom content here -->
+//   `;
+
+//   // Set the content of the page
+//   await page.setContent(pdfContent, { waitUntil: 'networkidle0' });
+
+//   // Generate the PDF
+//   const pdfBuffer = await page.pdf({ format: 'A4' });
+
+//   // Generate a unique filename for the PDF
+//   const filename = `${Date.now()}.pdf`;
+
+//   // Save the PDF to Firebase storage
+//   const bucket = storage.bucket(); // Add your bucket name here
+//   const file = bucket.file(filename);
+//   await file.save(pdfBuffer, { contentType: 'application/pdf' });
+
+//   // Generate a signed URL for the PDF file
+//   const signedUrl = await file.getSignedUrl({
+//     action: 'read',
+//     expires: '03-09-2023', // Set an expiration date for the URL
+//   });
+
+//   // Close the browser
+//   await browser.close();
+
+//   // Send the signed URL back to the client
+//   res.send({ pdfUrl: signedUrl });
+// });
+
 // // Replace with your Firebase project's config object
 // var firebaseConfig = {
 //   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",

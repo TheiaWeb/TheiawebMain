@@ -71,7 +71,6 @@ freehandTabsPrice.forEach((tab, index) => {
   });
 });
 //#endregion
-
 //#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
@@ -162,7 +161,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 //#endregion
+// //#region GET CLIENT DATA FORM
+// var db = firebase.firestore();
+
+// document.getElementById('contactForm').addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   var surname = document.getElementById('surname').value;
+//   var name = document.getElementById('name').value;
+//   var email = document.getElementById('email').value;
+//   var phone = document.getElementById('phone').value;
+//   var company = document.getElementById('company').value;
+//   var subject = document.getElementById('subject').value;
+//   var message = document.getElementById('message').value;
+
+//   db.collection('contacts').add({
+//     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+//     CompagnyInfos: {
+//       surname: surname,
+//       name: name,
+//       email: email,
+//       phone: phone,
+//       company: company,
+//       subject: subject,
+//       message: message,
+//     },
+    
+//   })
+//   .then(function(docRef) {
+//     document.getElementById('surname').value = '';
+//     document.getElementById('name').value = '';
+//     document.getElementById('email').value = '';
+//     document.getElementById('phone').value = '';
+//     document.getElementById('company').value = '';
+//     document.getElementById('subject').value = '';
+//     document.getElementById('message').value = '';
+
+//     firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
+//       const formData = snapshot.data();
+//       if (formData && formData.saved) {
+//         console.log("Data Saved !!")
+//       }
+//     });
+//   })
+//   .catch(function(error) {
+//     console.error('Error submitting form:', error);
+//   });
+// });
+// //#endregion
 //#region TEST FEATURES 
+
 /*
 const svgContainer = document.getElementById('animated-svg');
 const svgImage = new Image();

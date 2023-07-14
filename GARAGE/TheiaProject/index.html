@@ -363,6 +363,26 @@
   </section>
 
 
+  <div id="scene">
+    <div id="parallax-item" data-depth="0.2"><img src="img\parralaximg.jpg" alt=""></div>
+    <div id="parallax-item" data-depth="0.8"><img src="img\logo.png" alt=""></div>
+  </div>
+  
+  <div id="twitch-embed"></div>
+  
+  <!-- Load the Twitch embed JavaScript file -->
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  
+  <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+  <script type="text/javascript">
+    new Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "theiaweb",
+    });
+  </script>
+  
+
   <footer id="footer" class="section">
     <div class="grid-trio">
       <div class="footer__column">
@@ -421,10 +441,6 @@
   </div>
 
 
-  <!--ZONE DE TEST-->
-  <!-- API TWITCH  -->
-  <!-- <div id="video-container"></div> -->
-
   <div class="popupFORM">
     <div class="toast modal-active" id="popupFORM">
       <div class="toast-content">
@@ -447,6 +463,12 @@
     </div>
   </div>
 
+
+  <!--ZONE DE TEST-->
+  <!-- API TWITCH  -->
+<!-- Add a placeholder for the Twitch embed -->
+
+
   <!-- 
     
     HTML FORM FOR NEWSLETTER SUBSCRIPTION + MODAL VALIDATION
@@ -467,9 +489,48 @@
 
 
   <script src="js\script.js"></script>
+  <script src="js/parallax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+  <script>
+    var scene = document.getElementById('scene');
+    var parallaxLayers = document.querySelectorAll('.parallax-layer');
+  
+    // Center the scene
+    scene.style.display = 'flex';
+    scene.style.justifyContent = 'center';
+    scene.style.alignItems = 'center';
+  
+    // Initialize the parallax instance
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true,
+      calibrateX: false,
+      calibrateY: true,
+      invertX: true,
+      invertY: true,
+      limitX: false,
+      limitY: false,
+      scalarX: 10.0,
+      scalarY: 10.0,
+      frictionX: 0.1,
+      frictionY: 0.1,
+      originX: 0.5,
+      originY: 0.5,
+      precision: 1,
+      selector: null,
+      pointerEvents: false,
+      onReady: null
+    });
+  
+    // Adjust the parallax layers
+    parallaxLayers.forEach(function(layer) {
+      layer.style.position = 'absolute';
+    });
+  </script>
+
 
 </body>
 
