@@ -155,7 +155,7 @@ oneTimePurchaseRef.get().then(function(oneTimePurchaseSnapshot) {
     oneTimePurchaseData = oneTimePurchaseSnapshot.data();
     // Access and use the data from oneTimePurchaseData
     console.log(oneTimePurchaseData);
-    // displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
+    displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
   } else {
     console.log("One Time Purchase document does not exist.");
   }
@@ -168,7 +168,7 @@ threeTimesPurchaseRef.get().then(function(threeTimesPurchaseSnapshot) {
     threeTimesPurchaseData = threeTimesPurchaseSnapshot.data();
     // Access and use the data from threeTimesPurchaseData
     console.log(threeTimesPurchaseData);
-    // displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
+    displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
   } else {
     console.log("Three Times Purchase document does not exist.");
   }
@@ -181,7 +181,7 @@ solutionMainsLibresRef.get().then(function(solutionMainsLibresSnapshot) {
     solutionMainsLibresData = solutionMainsLibresSnapshot.data();
     // Access and use the data from solutionMainsLibresData
     console.log(solutionMainsLibresData);
-    // displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+    displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
 
   } else {
     console.log("Solution Mains Libres document does not exist.");
