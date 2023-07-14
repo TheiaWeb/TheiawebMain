@@ -1,7 +1,6 @@
 
-
 const firebaseConfig = {
-    apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
+  apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
   authDomain: "formtheia.firebaseapp.com",
   databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "formtheia",
@@ -26,6 +25,16 @@ document.getElementById("generationDevis").addEventListener("submit", function(e
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("message").value;
+
+  // Récupérer le type d'achat sélectionné (One Time ou Three Times)
+  var purchaseType;
+  var purchaseTypeRadios = document.getElementsByName("purchaseType");
+  for (var i = 0; i < purchaseTypeRadios.length; i++) {
+    if (purchaseTypeRadios[i].checked) {
+      purchaseType = purchaseTypeRadios[i].value;
+      break;
+    }
+  }
 
   // Récupérer les services sélectionnés par le client
   var selectedServices = [];
@@ -74,12 +83,23 @@ document.getElementById("generationDevis").addEventListener("submit", function(e
       }
     }
   };
-  
+
   // Ajouter les services sélectionnés dans le contenu du devis avec les prix
-  selectedServices.forEach(function(service) {
+  var selectedServicesToDisplay;
+  if (purchaseType === "oneTime") {
+    selectedServicesToDisplay = selectedServices.filter(function(service) {
+      return service.name.startsWith("OneTime");
+      
+    });
+  } else if (purchaseType === "threeTimes") {
+    selectedServicesToDisplay = selectedServices.filter(function(service) {
+      return service.name.startsWith("ThreeTimes");
+    });
+  }
+
+  selectedServicesToDisplay.forEach(function(service) {
     var serviceText = service.name + ' - ' + service.price + ' $';
     docDefinition.content.push({ text: serviceText, style: 'serviceItem' });
-    // Vous pouvez ajouter d'autres champs ou personnaliser le formatage selon vos besoins
   });
 
   var pdfDocGenerator = pdfMake.createPdf(docDefinition);
@@ -123,12 +143,18 @@ document.getElementById("generationDevis").addEventListener("submit", function(e
   });
 });
 
+// Declare the variables outside the callback functions
+// Declare the variables outside the callback functions
+var oneTimePurchaseData;
+var threeTimesPurchaseData;
+var solutionMainsLibresData;
+
 // Récupérer les prix des services depuis Firebase Firestore et afficher les options dans le formulaire
 oneTimePurchaseRef.get().then(function(oneTimePurchaseSnapshot) {
   if (oneTimePurchaseSnapshot.exists) {
-    var oneTimePurchaseData = oneTimePurchaseSnapshot.data();
+    oneTimePurchaseData = oneTimePurchaseSnapshot.data();
     // Access and use the data from oneTimePurchaseData
-    // console.log(oneTimePurchaseData);
+    console.log(oneTimePurchaseData);
     displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
   } else {
     console.log("One Time Purchase document does not exist.");
@@ -139,9 +165,9 @@ oneTimePurchaseRef.get().then(function(oneTimePurchaseSnapshot) {
 
 threeTimesPurchaseRef.get().then(function(threeTimesPurchaseSnapshot) {
   if (threeTimesPurchaseSnapshot.exists) {
-    var threeTimesPurchaseData = threeTimesPurchaseSnapshot.data();
+    threeTimesPurchaseData = threeTimesPurchaseSnapshot.data();
     // Access and use the data from threeTimesPurchaseData
-    // console.log(threeTimesPurchaseData);
+    console.log(threeTimesPurchaseData);
     displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
   } else {
     console.log("Three Times Purchase document does not exist.");
@@ -152,16 +178,19 @@ threeTimesPurchaseRef.get().then(function(threeTimesPurchaseSnapshot) {
 
 solutionMainsLibresRef.get().then(function(solutionMainsLibresSnapshot) {
   if (solutionMainsLibresSnapshot.exists) {
-    var solutionMainsLibresData = solutionMainsLibresSnapshot.data();
+    solutionMainsLibresData = solutionMainsLibresSnapshot.data();
     // Access and use the data from solutionMainsLibresData
-    // console.log(solutionMainsLibresData);
+    console.log(solutionMainsLibresData);
     displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+
   } else {
     console.log("Solution Mains Libres document does not exist.");
   }
 }).catch(function(error) {
   console.error("Error getting Solution Mains Libres document: ", error);
 });
+
+// Call the function to display the options for Solution Mains Libres
 
 function displayServicesOptions(pricesData, docId) {
   var servicesList = document.getElementById('servicesList');
@@ -180,10 +209,10 @@ function displayServicesOptions(pricesData, docId) {
     }
   }
 
-  // Sort the services by data-name length
+  // Sort the services by name
   services.sort(function(a, b) {
-    var nameA = a.name.length;
-    var nameB = b.name.length;
+    var nameA = a.name.toLowerCase();
+    var nameB = b.name.toLowerCase();
     if (nameA < nameB) return -1;
     if (nameA > nameB) return 1;
     return 0;
@@ -213,4 +242,31 @@ function displayServicesOptions(pricesData, docId) {
     servicesList.appendChild(document.createElement('br'));
   });
 }
+
+// Ajouter des écouteurs d'événements pour les boutons radio
+var oneTimePurchaseRadio = document.getElementById("oneTimePurchaseRadio");
+var threeTimesPurchaseRadio = document.getElementById("threeTimesPurchaseRadio");
+
+oneTimePurchaseRadio.addEventListener("change", function() {
+  var servicesList = document.getElementById('servicesList');
+  servicesList.innerHTML = ''; // Remove all displayed services
+
+  if (this.checked) {
+    displayServicesOptions(oneTimePurchaseData, oneTimePurchaseRef.id);
+  }
+
+  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+});
+
+threeTimesPurchaseRadio.addEventListener("change", function() {
+  var servicesList = document.getElementById('servicesList');
+  servicesList.innerHTML = ''; // Remove all displayed services
+
+  if (this.checked) {
+    displayServicesOptions(threeTimesPurchaseData, threeTimesPurchaseRef.id);
+  }
+
+  displayServicesOptions(solutionMainsLibresData, solutionMainsLibresRef.id);
+});
+
 
