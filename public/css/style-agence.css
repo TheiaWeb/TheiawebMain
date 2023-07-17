@@ -132,8 +132,11 @@ position: relative;
 }
 
 .accompagnement__cards {
-  position: relative;
-  display: inline-block;
+  width: 300px;
+  height: 180px;
+}
+.accompagnement__cards-listing {
+  margin: 40px 5%;
 }
 
 .accompagnement__card {
@@ -178,5 +181,36 @@ position: relative;
   transition: 0.5s ease-in-out;
 
 }
-  
-   
+
+
+/*==================== SOLUTIONS ====================*/
+
+.solutions__text {
+  color: var(--black);
+  text-align: justify;
+  font-family: var(--roboto);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-regular);
+}
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+ .accompagnement__cards {
+  width: 250px;
+  height: 150px;
+}
+.accompagnement__cards-listing {
+  margin: 40px 0;
+}
+
+.accompagnement__card {
+  width: 250px;
+  height: 150px;
+} 
+}
+
+

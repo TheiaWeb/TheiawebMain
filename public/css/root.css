@@ -318,7 +318,8 @@ li{
     .grid-auto-3 {
       display: grid;
     grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
-    justify-content: center;
+    justify-content: center;  
+    justify-items: center;
     grid-gap: 15px;
     }
 
