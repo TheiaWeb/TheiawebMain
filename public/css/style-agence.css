@@ -32,7 +32,6 @@ header {
     font-size: var(--big-font-size);
     font-weight: var(--font-bold);
     text-transform: uppercase;
-    position: fixed;
 
   }
   .content {
