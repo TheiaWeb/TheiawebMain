@@ -111,6 +111,57 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //#endregion
 //#region REGION TEST
+
+firebase.initializeApp(firebaseConfig);
+
+        // Reference to the Firebase Realtime Database
+        const database = firebase.database();
+
+        // Function to handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const quoteInput = document.getElementById("quote-input").value.trim();
+
+            if (quoteInput === "") {
+                return; // Do not submit empty quotes
+            }
+
+            // Save the user-submitted quote to the database
+            const quotesRef = database.ref("user-quotes");
+            quotesRef.push({
+                quote: quoteInput
+            });
+
+            // Clear the input field after submission
+            document.getElementById("quote-input").value = "";
+        }
+
+        // Event listener for form submission
+        document.getElementById("quote-form").addEventListener("submit", handleSubmit);
+
+        // Function to display user-submitted quotes
+        function displayQuotes(snapshot) {
+            const userQuotesContainer = document.getElementById("user-quotes");
+            userQuotesContainer.innerHTML = ""; // Clear previous quotes
+
+            snapshot.forEach((childSnapshot) => {
+                const quoteData = childSnapshot.val();
+                const quote = quoteData.quote;
+
+                // Create a new quote element and append it to the container
+                const quoteElement = document.createElement("div");
+                quoteElement.textContent = quote;
+                userQuotesContainer.appendChild(quoteElement);
+            });
+        }
+
+        // Realtime listener to fetch user-submitted quotes
+        const quotesRef = database.ref("user-quotes");
+        quotesRef.on("value", (snapshot) => {
+            displayQuotes(snapshot);
+        });
+
+
 /*==================== TEST ANIMATION ====================*/
 
 

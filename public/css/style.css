@@ -327,6 +327,163 @@ padding-bottom: 4px;
 /*==================== ROADMAP ====================*/
 
 
+/*==================== CONTACT ====================*/
+
+#contact {
+  position: relative;
+}
+
+.body__bg-contact {
+  position: absolute;
+  width: 316px;
+  bottom: 42px;
+  left: -106px;
+}
+
+.body__bg-contact-2 {
+  position: absolute;
+  width: 80px;
+  top: -32px;
+  right: -13px;
+}
+
+.body__bg-contact-3 {
+  position: absolute;
+  width: 100px;
+  top: 236px;
+  left: -19px;
+}
+
+
+
+
+
+
+.form__content {
+  padding: 25px 110px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.15);
+  border-radius: 35px;
+  border: 3px solid var(--pink);
+  margin: 50px 120px;
+
+
+}
+
+.contact__category {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 25px;
+}
+
+.contact__label {
+  font-family: var(--roboto);
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  color: var(--black);
+  transition: transform 0.3s ease;
+}
+
+.contact__star {
+  color: var(--bright-pink);
+}
+
+.contact__input-small {
+  border: none;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 10px;
+  outline: none;
+  font-size: var(--small-font-size);
+  transition: border-color 0.3s ease;
+}
+
+.contact__input-small::placeholder,
+.contact__input-large::placeholder {
+  font-family: var(--roboto);
+  font-size: var(--smaller-font-size);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.contact__msg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.contact__input-large {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: var(--small-font-size);
+  resize: none;
+}
+
+.contact__footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
+.contact__footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.contact__footer-cgucheck label,
+.contact__footer-bottom {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
+}
+
+.contact__footer-cgucheck label{
+  margin-left: 10px;
+
+}
+.contact__footer-cgucheck label a {
+  font-weight: var(--font-bold);
+  color: var(--black);
+}
+
+.contact__footer-top p {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--bright-pink)
+}
+
+.contact__footer-bottom button {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(252, 173, 231, 0.6) 14.39%, rgba(137, 255, 253, 0.6) 86.07%);
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+  font-family: var(--roboto);
+  font-weight: var(--font-medium);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
+}
+
+
+
+.contact__footer-bottom button:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(137, 255, 253, 0.6) 14.39%, rgba(252, 173, 231, 0.6) 86.07%);
+  transition: 0.3s ease-in-out;
+}
+
+.contact__input-small:focus,
+.contact__input-large:focus {
+  border-color: #ff80ab;
+  
+}
 
 
 
@@ -483,6 +640,19 @@ gap: 15px;
     width: 234px;
     height: 288px;
   }
+
+  #contact {
+    position: relative;
+  }
+  
+  #contact img.contact__img {
+    max-width: 500px;
+    position: absolute;
+    right: 0;
+    top: 362px;
+    
+  }
+  
 }
 
 
@@ -513,65 +683,77 @@ gap: 15px;
 }
 
 
+/*========== Modal Contact Form =========*/  
 
-
-/*==================== MODAL RGPD ====================*/
-
-.modal {
-  display: none;
-   position: fixed;
-   z-index: 1;
-   width: 100%;
-   height: 100%;
-   overflow: auto;
- }
- 
- .modal-content {
-   background-color: #fefefe;
-   margin: 15% auto;
-   padding: 20px;
-   border: 1px solid #888;
-   border-radius: 8px;
-   width: 80%;
-   font-family: var(--lato);
- }
- 
- .close {
-   color: #aaa;
-   float: right;
- } 
- #popupRGPD {
-  display: none;
+  
+.toast {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-}
-
-.popupRGPD__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  bottom: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: none;
 }
 
-.popupRGPD__content h2 {
-  margin-top: 0;
+.toast .toast-content {
+  display: flex;
+  align-items: center;
 }
 
-.popupRGPD__content p {
-  margin-bottom: 10px;
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background-color: var(--pink);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
 }
 
-.popupRGPD__content button {
-  margin-top: 10px;
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  font-family: var(--roboto);
 }
+
+ /* Additional CSS styles for the popup */
+ .modal-active {
+  display: block; /* Make the popup visible */
+}
+
+.message .text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+.toast .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.toast .close:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+
 
   /*==========zone de test=========*/
    
