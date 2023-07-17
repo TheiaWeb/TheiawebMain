@@ -25,8 +25,8 @@ header {
   }
   .header__title-blue {
     background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
     font-family: var(--kanit);
     font-size: var(--big-font-size);
@@ -48,9 +48,135 @@ header {
 
 
   
+/*==================== ACCOMPAGNEMENT ====================*/
+
+.accompagnement {
+position: relative;
+}
+
+.accompagnement__text {
+  font-family: var(--roboto);
+  font-size: var(--small-font-size);
+  color: var(--black);
+  text-align: center;
+}
+
+.accompagnement__quotation-box {
+  display: flex;
+  gap: 130px;
+  margin: 40px 0;
+}
+
+.accompagnement__quotation-img {
+  width: 50px;
+  height: 40px;
+}
+
+.accompagnement__explanation-wrapper {
+  position: relative;
+}
+
+.accompagnement__explanation-box {
+  padding: 50px 120px;
+  margin: 0 120px 40px 120px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12.012px;
+  border: 1.602px dashed var(--black, #171717);
+  background: var(--white, #FCFDF2);
+  box-shadow: 0px 0px 3.2031943798065186px 0px rgba(0, 0, 0, 0.25);
+  z-index: 100;
 
 
+}
+
+.accompagnement__explanation {
+  background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: var(--kanit);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-bold);
+}
+
+.body-bg-1 {
+  position: absolute;
+  width: 36px;
+  top: 130px;
+  left: 163px;
+}
+
+.body-bg-2 {
+  position: absolute;
+  width: 67px;
+  top: -27px;
+  right: 93px;
+  z-index: -1;
+}
+
+.body-bg-3 {
+  position: absolute;
+  width: 197px;
+  top: 58px;
+  left: 26px;
+  z-index: -1;
+
+}
+
+.body-bg-4 {
+  position: absolute;
+  width: 36px;
+  bottom: 311px;
+  left: 215px;
+}
+
+.accompagnement__cards {
+  position: relative;
+  display: inline-block;
+}
+
+.accompagnement__card {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 180px;
+  padding: 8.235px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 25px;
+  box-shadow: 0px 3.2941176891326904px 8.235294342041016px 0px rgba(0, 0, 0, 0.25);
+  transition: z-index 0.3s; /
+}
+.accompagnement__card-front {
+  background: var(--linear-pink, linear-gradient(135deg, #FCADE7 0%, #89FFFD 100%));
+  color: var(--white);
+  font-family: var(--roboto);
+  font-size: var(--big-font-size);
+  font-weight: var(--extra-bold);
+  position: absolute;
+}
   
+.accompagnement__card-back {
+  background: var(--white);
+  color: var(--black);
+  text-align: center;
+  font-family: var(--roboto);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-regular);
+  border: 4px solid var(--pink);
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  
+}
 
+.accompagnement__cards:hover .accompagnement__card-back {
+  opacity: 1;
+  z-index: 1;
+  transition: 0.5s ease-in-out;
+
+}
   
    
