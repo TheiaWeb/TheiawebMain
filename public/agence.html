@@ -79,10 +79,12 @@
 
 <div class="content">
 
-  <section class="accompagnement">
-    <div class="accompagnement__title-box">
-      <h2>pour mieux vous accompagner</h2>
-      <p>pour mieux vous accompagner</p>
+  <!--==Accompagnement==-->
+
+  <section class="section accompagnement">
+    <div class="section__title-box title-center">
+      <h2 class="section__title-main section__triple">pour mieux vous accompagner</h2>
+      <p class="section__title-back section__triple">pour mieux vous accompagner</p>
     </div>
     <p>Theia web est ainsi fondée sur la base d'un constat simple :</p>
     <div class="accompagnement__quotation-box">
@@ -108,6 +110,123 @@
 
     </div>
   </section>
+
+
+<!--==Solutions==-->
+
+  <section class="section solutions">
+    <div class="section__title-box title-center">
+      <h2 class="section__title-main section__triple">on a la solution à vos problèmes</h2>
+      <p class="section__title-back section__triple">on a la solution à vos problèmes</p>
+    </div>
+
+
+  </section>
+
+<!--==Twitch==-->
+
+  <section class="section agence-twitch">
+    <section class="section solutions">
+      <div class="section__title-box title-center">
+        <h2 class="section__title-main section__triple">on s'invite dans vos ecrans</h2>
+        <p class="section__title-back section__triple">on s'invite dans vos ecrans</p>
+      </div>
+
+
+    </section>
+
+
+  </section>
+
+
+
+<!--==Contact==-->
+
+
+<section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
+  <div class="contact__header">
+    <div class="section__title-box title-center">
+      <h1 class="section__title-main section__triple">Nous contacter</h1>
+      <p class="section__title-back section__triple">Nous contacter</p>
+    </div>
+
+
+
+    <p class="section__text">
+      Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
+      <br><br>N'hésitez pas à nous contacter via le formulaire ci-dessous ou à utiliser nos coordonnées pour nous joindre directement. Nous sommes impatients de travailler avec vous pour concrétiser vos ambitions numériques.</p>
+  </div>
+  <img src="img/contact-elipse.png" class="contact__img" alt="">
+  <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
+  <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
+  <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
+
+
+  <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
+    <div class="form__content">
+      <div class="grid-1-1">
+        <div class="contact__category">
+          <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
+          <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
+        </div>
+        <div class="contact__category">
+          <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
+          <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
+        </div>
+      </div>
+      <div class="grid-1-1">
+        <div class="contact__category">
+          <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
+          <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr" required>
+        </div>
+        <div class="contact__category">
+          <label class="contact__label" for="phone">Téléphone</label>
+          <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
+        </div>
+      </div>
+      <div class="grid-1-1">
+        <div class="contact__category">
+          <label class="contact__label" for="company">Société</label>
+          <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
+        </div>
+        <div class="contact__category">
+          <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
+          <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message" required>
+        </div>
+      </div>
+      <div class="contact__msg">
+        <label class="contact__label" for="message">Expliquez nous votre projet <span class="contact__star">&#42;</span></label>
+        <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..." required></textarea>
+      </div>
+      <div class="contact__footer-top">
+        <div class="contact__footer-cgucheck">
+          <input type="checkbox" id="cgu-check" name="cgu" required>
+          <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
+        </div>
+        <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
+      </div>
+      <div class="contact__footer-bottom">
+        <button class="green_btn" type="submit">Envoyer le Message</button>
+        <p class="contact__footer-btn-under">Réponse sous 48h</p>
+      </div>
+    </div>
+  </form>
+
+  <div class="popupFORM">
+    <div class="toast" id="popupFORM">
+      <div class="toast-content">
+        <i class="fas fa-solid fa-check check"></i>
+        <div class="message">
+          <span class="text text-1">Succès</span>
+          <span class="text text-2">Votre message a bien été envoyé !</span>
+        </div>
+      </div>
+      <i class="fa-solid fa-xmark close" id = "closeButton"></i>
+    </div>
+  </div>
+
+</section>
+
 
 </div>
 

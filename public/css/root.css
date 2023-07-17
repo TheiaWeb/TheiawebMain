@@ -176,6 +176,12 @@ li{
     color: var(--black);
     transform: translate(-2px, -72px);
   }
+
+  .title-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
   
  /* title size for phone */
 @media screen and (max-width: 768px) {
