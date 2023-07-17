@@ -193,7 +193,11 @@ position: relative;
   font-weight: var(--font-regular);
 }
 
+/*==================== TWITCH ====================*/
 
+.twitch__img {
+  max-width: 500px;
+}
 
 
 

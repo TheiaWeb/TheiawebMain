@@ -287,6 +287,7 @@ li{
     grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
     align-items: center;
+    justify-items: center
   }
   @media screen and (max-width: 768px) {
     .grid-2-1 { grid-template-columns: 1fr;
@@ -298,6 +299,7 @@ li{
     justify-content: center;
     gap: 2.5rem;
     align-items: center;
+    justify-items: center
   }
   @media screen and (max-width: 768px) {
     .grid-1-1 { grid-template-columns: 1fr;
