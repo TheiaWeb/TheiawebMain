@@ -226,8 +226,10 @@
 
 
     </section>
-
-
+    <!-- Implementation du player twitch + chat linked si besoin que je les splits me le dire asap  -->
+    <div id="twitch-embed"></div>
+    <!-- Ne pas retirer le span c'est ce qui display la data des abonnés -->
+    <p>Subscriber Count: <span id="subscriberCount">Loading...</span></p> 
   </section>
 
 
@@ -395,5 +397,38 @@
   src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
 ></script>
 
+<!-- APi TWITCH  -->
+    <!-- Load the Twitch embed JavaScript file -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+    <script type="text/javascript">
+      new Twitch.Embed("twitch-embed", {
+        width: 854,
+        height: 480,
+        channel: "theiaweb",
+      });
+    </script>
+        <script>
+          const clientId = 'o5x6ltrt4jwhb6ybxm0kkpjcip5mk4';
+          const accessToken = '8rg8hftxr0k1y6pnk1zjf3vznd8f3d';
+          const channelId = 'theiaweb';
+      
+          fetch(`https://api.twitch.tv/helix/subscriptions?broadcaster_id=${channelId}`, {
+            headers: {
+              'Client-ID': clientId,
+              'Authorization': `Bearer ${accessToken}`
+              
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            const subscriberCount = data.total;
+            document.getElementById('subscriberCount').innerText = subscriberCount;
+          })
+          .catch(error => {
+            console.error('Error fetching subscriber count:', error);
+          });
+        </script>
 </body>
 </html>
