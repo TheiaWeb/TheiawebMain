@@ -299,7 +299,6 @@ li{
     justify-content: center;
     gap: 2.5rem;
     align-items: center;
-    justify-items: center
   }
   @media screen and (max-width: 768px) {
     .grid-1-1 { grid-template-columns: 1fr;
