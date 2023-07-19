@@ -388,6 +388,52 @@
 
 
 
+  <div id="google-reviews-container">
+    <!-- Les avis seront affichés ici -->
+</div>
+<script>
+  // Remplacez 'VOTRE_CLE_API' par votre clé API Google Places
+  const apiKey = 'AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g';
+  const placeId = 'RandomLieuDansLurlDeLaPageGoogleMaps'; // Remplacez par l'ID du lieu de votre agence
+
+  // Fonction pour charger les avis depuis l'API Google Places
+  function loadGoogleReviews() {
+      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
+
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              const reviews = data.result.reviews;
+
+              // Afficher les avis dans le conteneur
+              const reviewsContainer = document.getElementById('google-reviews-container');
+              reviews.forEach(review => {
+                  const reviewText = review.text;
+                  const reviewAuthor = review.author_name;
+                  const reviewRating = review.rating;
+
+                  const reviewElement = document.createElement('div');
+                  reviewElement.innerHTML = `
+                      <p><strong>${reviewAuthor}</strong></p>
+                      <p>Note : ${reviewRating} étoiles</p>
+                      <p>${reviewText}</p>
+                      <hr>
+                  `;
+
+                  reviewsContainer.appendChild(reviewElement);
+              });
+          })
+          .catch(error => {
+              console.error('Erreur lors du chargement des avis', error);
+          });
+  }
+
+  // Charger les avis lorsque la page a fini de se charger
+  document.addEventListener('DOMContentLoaded', loadGoogleReviews);
+</script>
+
+
+
   <footer id="footer" class="section">
     <div class="grid-trio">
       <div class="footer__column">
