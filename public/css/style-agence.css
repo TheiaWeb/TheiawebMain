@@ -298,7 +298,24 @@ position: relative;
   max-width: 500px;
 }
 
+.twitchStatus{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+#API_twitch {
+  margin-top: 5em;
+  position: relative; /* Make the parent container position relative */
+}
+
+#nextStreamInfo {
+  position: absolute;
+  top: 40%;
+  background-color: rgba(0, 0, 0, 0.7); /* Set a background color for visibility */
+  color: white; /* Set text color */
+  padding: 10px; /* Add padding for better readability */
+}
 
 
 @media only screen and (max-width: 768px) {
