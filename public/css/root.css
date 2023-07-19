@@ -55,7 +55,7 @@
         --big-font-size: 3rem;
           --h1-font-size: 2rem;
           --h2-font-size: 1.3rem;
-          --h3-font-size: 1.25rem;
+          --h3-font-size: 1.15rem;
           --normal-font-size: 1rem;
           --small-font-size: .875rem;
           --smaller-font-size: .813rem;
@@ -69,7 +69,7 @@
       --big-font-size: 6rem;
       --h1-font-size: 3.5rem;
       --h2-font-size: 2rem;
-      --h3-font-size: 1.75rem;
+      --h3-font-size: 1.5rem;
       --normal-font-size: 1.25rem;
       --small-font-size: 1rem;
       --smaller-font-size: .9rem;
@@ -847,3 +847,7 @@ footer {
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
+
+
+
+
