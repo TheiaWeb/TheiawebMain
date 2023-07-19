@@ -138,93 +138,29 @@ li{
   
   
 /*==================== TITLES ====================*/
-  .section__title-box,
-  .home__title-box {
-    height: 100px;
-  }
-  .section__triple,
-  .home__triple {
-    animation: fadeIn 1s forwards;
-    font-family: var(--kanit);
-    font-weight: var(--font-bold);
-    text-align: left;
-    text-transform: uppercase;
-  }
-  .home__triple {
-    font-size: var(--h1-font-size);
-  }
-  .section__triple {
-    font-size: var(--h2-font-size);
-  }
-  .home__title-main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-  }
-  .home__title-back {
-    color: var(--black);
-    transform: translate(-2px, -107px);
-  }
-  .home__title-back span {
-    color: var(--blue);
-  }
-  .section__title-main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-  }
-  .section__title-back {
-    color: var(--black);
-    transform: translate(-2px, -72px);
-  }
-
-  .title-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center
-  }
+.title {
+  font-family: var(--kanit);
+  color: var(--black);
+  font-weight: var(--font-bold);
+  text-shadow: 2px 2px var(--pink), 4px 4px var(--blue);
+  text-transform: uppercase;
+}
+.big-title {
+  font-size: var(--big-font-size);
+}
+.h1-title {
+  font-size: var(--h1-font-size);
+}
+.h2-title {
+  font-size: var(--h2-font-size);
+}
+.h3-title {
+  font-size: var(--h3-font-size);
+}
+.title-center {
+  text-align: center;
+}
   
- /* title size for phone */
-@media screen and (max-width: 768px) {
-  .home__title-back {
-    transform: translate(-2px, -60px);
-  }
-  .section__title-box,
-  .home__title-box {
-    height: 50px;
-  }
-  .section__title-back {
-    transform: translate(-2px, -42px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 769px) and (max-width: 914px) {
-  .home__title-back {
-    transform: translate(-2px, -180px);
-  }
-  .section__title-back {
-    transform: translate(-2px, -59px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 915px) and (max-width: 1023px) {
-  .home__title-back {
-    transform: translate(-2px, -96px);
-  }
-  .section__title-back {
-    transform: translate(-2px, -59px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 1121px) and (max-width: 1402px) {
-  .team__title-back {
-    transform: translate(-2px, -132px);
-  }
-}
-
 
 /*==================== REUSABLE CSS CLASSES ====================*/
   .section__subtitle {
@@ -396,7 +332,7 @@ li{
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .navbar__mobile-logo {
+  a img.navbar__mobile-logo {
     width: 99px;
   }
   .navbar__mobile-menuIcon {

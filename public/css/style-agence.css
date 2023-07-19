@@ -15,15 +15,7 @@ header {
     justify-content: center;
 
   }
-  .header__title {
-    color: var(--black);
-    text-align: center;
-    font-family: var(--kanit);
-    font-size: var(--h1-font-size);
-    font-weight: var(--font-bold);
-    text-transform: uppercase;
-    
-  }
+
   .header__title-blue {
     background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
     -webkit-background-clip: text;
@@ -236,13 +228,3 @@ position: relative;
   height: 150px;
 } 
 }
-
-
-
-
-.test {
-  font-family: var(--kanit);
-  font-weight: 700;
-  margin: 100px;
-  font-size: 100px;
-  text-shadow: 3px 4px #89FFFD, 2px 2px #FCADE7;}
