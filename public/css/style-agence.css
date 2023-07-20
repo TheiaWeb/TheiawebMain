@@ -169,7 +169,7 @@ position: relative;
   font-weight: var(--font-regular);
 }
 
-/*
+
 .carrousel {
   margin: 70px 8%;
   min-height: 280px;
@@ -290,7 +290,10 @@ position: relative;
   margin-right: 25px;
 }
 
-*/
+.carrousel__navigation-dot.active {
+  fill: var(--pink); /* Change the color to indicate the active dot */
+}
+
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
   .carrousel__mobile__right {
@@ -399,14 +402,74 @@ position: relative;
   .carrousel__mobile__rs-one {
     margin-right: 25px;
   }
+
   .carrousel__mobile-img {  
     transform: translateY(40px);
     width: fit-content;
   }
+
+  .carrousel__mobile__navigation-dot.active {
+    fill: var(--pink);
+  }
   
+  .carrousel__mobile__navigation-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
   
 }
 
+/* Hide web carousel on mobile */
+@media (max-width: 768px) {
+  .carrousel__web-section {
+    display: none;
+  }
+}
+
+/* Hide mobile carousel on web */
+@media (min-width: 769px) {
+  .carrousel__mobile-section {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .carrousel {
+    margin: 100px 8%;
+  }
+
+  .carrousel__content-box {
+    padding: 10vh 5vw 40vh 20vw;
+    transform: translate(0, -40%);
+  }
+
+  .carrousel__navigation-dot {
+    width: 2vw;
+  }
+
+  .carrousel__content-name {
+    font-size: 3vw;
+  }
+
+  .carrousel__content-job {
+    font-size: 2vw;
+  }
+
+  .carrousel__content-description {
+    font-size: 1.5vw;
+  }
+
+  .carrousel__rs {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .carrousel__rs i {
+    font-size: 4vw;
+  }
+}
 
 /*==================== TWITCH ====================*/
 .grid-agence {

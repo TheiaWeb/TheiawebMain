@@ -1362,3 +1362,53 @@ gap: 15px;
 #image.morph {
   animation: morph-animation 4s;
 }
+
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  min-width: 250px;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  position: relative; /* Enable relative positioning for the card */
+  display: none;
+}
+
+.card.active-card {
+  display: block; /* Display the active card */
+}
+
+.navigation-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  top: 10px; /* Adjust the top position to your preference */
+  right: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #999;
+  cursor: pointer;
+}
+
+.active-dot {
+  background-color: #333;
+}

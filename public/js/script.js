@@ -415,4 +415,7 @@ addBubbleEffectAnimation(bodyBgImages);
 
 //#endregion
 //#region TEST FEATURES 
+
+ // Get all the dots and cards
+
 //#endregion

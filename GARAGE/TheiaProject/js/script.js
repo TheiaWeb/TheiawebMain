@@ -112,54 +112,107 @@ document.addEventListener('DOMContentLoaded', function () {
 //#endregion
 //#region REGION TEST
 
-firebase.initializeApp(firebaseConfig);
+const carousel = document.querySelector(".carousel");
+const cards = document.querySelectorAll(".card");
+const navigationDotsContainer = document.querySelector(".navigation-dots");
 
-        // Reference to the Firebase Realtime Database
-        const database = firebase.database();
+let cardIndex = 0;
 
-        // Function to handle form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const quoteInput = document.getElementById("quote-input").value.trim();
+function updateActiveDot() {
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active-dot", index === cardIndex);
+  });
+}
 
-            if (quoteInput === "") {
-                return; // Do not submit empty quotes
-            }
+function hideAllCardsExceptSelected() {
+  cards.forEach((card, index) => {
+    card.classList.toggle("active-card", index === cardIndex);
+  });
+}
 
-            // Save the user-submitted quote to the database
-            const quotesRef = database.ref("user-quotes");
-            quotesRef.push({
-                quote: quoteInput
-            });
+function navigateToCard(index) {
+  cardIndex = index;
+  updateActiveDot();
+  hideAllCardsExceptSelected();
+  const offset = carousel.clientWidth * cardIndex;
+  carousel.scrollLeft = offset;
+}
 
-            // Clear the input field after submission
-            document.getElementById("quote-input").value = "";
-        }
+function handleDotClick(event) {
+  const index = parseInt(event.target.dataset.index);
+  navigateToCard(index);
+}
 
-        // Event listener for form submission
-        document.getElementById("quote-form").addEventListener("submit", handleSubmit);
+function createNavigationDots() {
+  for (let i = 0; i < cards.length; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.dataset.index = i;
+    dot.addEventListener("click", handleDotClick);
+    navigationDotsContainer.appendChild(dot);
+  }
+  updateActiveDot();
+}
 
-        // Function to display user-submitted quotes
-        function displayQuotes(snapshot) {
-            const userQuotesContainer = document.getElementById("user-quotes");
-            userQuotesContainer.innerHTML = ""; // Clear previous quotes
+carousel.addEventListener("scroll", () => {
+  const cardWidth = carousel.clientWidth;
+  cardIndex = Math.round(carousel.scrollLeft / cardWidth);
+  updateActiveDot();
+});
 
-            snapshot.forEach((childSnapshot) => {
-                const quoteData = childSnapshot.val();
-                const quote = quoteData.quote;
+createNavigationDots();
+hideAllCardsExceptSelected();
 
-                // Create a new quote element and append it to the container
-                const quoteElement = document.createElement("div");
-                quoteElement.textContent = quote;
-                userQuotesContainer.appendChild(quoteElement);
-            });
-        }
 
-        // Realtime listener to fetch user-submitted quotes
-        const quotesRef = database.ref("user-quotes");
-        quotesRef.on("value", (snapshot) => {
-            displayQuotes(snapshot);
-        });
+// firebase.initializeApp(firebaseConfig);
+
+//         // Reference to the Firebase Realtime Database
+//         const database = firebase.database();
+
+//         // Function to handle form submission
+//         function handleSubmit(event) {
+//             event.preventDefault();
+//             const quoteInput = document.getElementById("quote-input").value.trim();
+
+//             if (quoteInput === "") {
+//                 return; // Do not submit empty quotes
+//             }
+
+//             // Save the user-submitted quote to the database
+//             const quotesRef = database.ref("user-quotes");
+//             quotesRef.push({
+//                 quote: quoteInput
+//             });
+
+//             // Clear the input field after submission
+//             document.getElementById("quote-input").value = "";
+//         }
+
+//         // Event listener for form submission
+//         document.getElementById("quote-form").addEventListener("submit", handleSubmit);
+
+//         // Function to display user-submitted quotes
+//         function displayQuotes(snapshot) {
+//             const userQuotesContainer = document.getElementById("user-quotes");
+//             userQuotesContainer.innerHTML = ""; // Clear previous quotes
+
+//             snapshot.forEach((childSnapshot) => {
+//                 const quoteData = childSnapshot.val();
+//                 const quote = quoteData.quote;
+
+//                 // Create a new quote element and append it to the container
+//                 const quoteElement = document.createElement("div");
+//                 quoteElement.textContent = quote;
+//                 userQuotesContainer.appendChild(quoteElement);
+//             });
+//         }
+
+//         // Realtime listener to fetch user-submitted quotes
+//         const quotesRef = database.ref("user-quotes");
+//         quotesRef.on("value", (snapshot) => {
+//             displayQuotes(snapshot);
+//         });
 
 
 /*==================== TEST ANIMATION ====================*/
@@ -281,14 +334,14 @@ firebase.initializeApp(firebaseConfig);
 // fetchAndDisplayVideos();
 
 
-// Get the image element
-const image = document.getElementById('image');
+// // Get the image element
+// const image = document.getElementById('image');
 
-// Function to toggle the morph class on the image
-function toggleMorphAnimation() {
-  image.classList.toggle('morph');
-}
+// // Function to toggle the morph class on the image
+// function toggleMorphAnimation() {
+//   image.classList.toggle('morph');
+// }
 
-// Add event listener to toggle animation on click
-image.addEventListener('click', toggleMorphAnimation);
+// // Add event listener to toggle animation on click
+// image.addEventListener('click', toggleMorphAnimation);
 //#endregion
