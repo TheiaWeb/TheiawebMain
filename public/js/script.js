@@ -282,189 +282,108 @@ window.addEventListener('resize', initializePlayer);
 
 
 //#endregion
-// //#region GET CLIENT DATA FORM
-// var db = firebase.firestore();
+//#region Front Animation Image 
 
-// document.getElementById('contactForm').addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   var surname = document.getElementById('surname').value;
-//   var name = document.getElementById('name').value;
-//   var email = document.getElementById('email').value;
-//   var phone = document.getElementById('phone').value;
-//   var company = document.getElementById('company').value;
-//   var subject = document.getElementById('subject').value;
-//   var message = document.getElementById('message').value;
+//Animation Link dans menu 
 
-//   db.collection('contacts').add({
-//     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-//     CompagnyInfos: {
-//       surname: surname,
-//       name: name,
-//       email: email,
-//       phone: phone,
-//       company: company,
-//       subject: subject,
-//       message: message,
-//     },
+// Function to add pulsating animation class on button click
+function addPulsatingAnimation(event) {
+  event.preventDefault();
+
+  // Check if the target element is an anchor tag
+  if (event.target.tagName === 'A') {
+    const link = event.target;
+
+    // Add the pulsating class to the anchor tag
+    link.classList.add('pulsate');
+
+    // Remove the pulsating class after 1 second (1000ms)
+    setTimeout(() => {
+      link.classList.remove('pulsate');
+
+      // After the animation is completed, follow the link's href
+      window.location.href = link.href;
+    }, 1000);
+  }
+}
+
+// Add click event listener to the navigation menu
+const navMenu = document.querySelector('.nav__menu');
+navMenu.addEventListener('click', addPulsatingAnimation);
+
+// Function to add the animate-border class on link hover
+function addAnimateBorder(event) {
+  // Check if the target element is an anchor tag
+  if (event.target.tagName === 'A') {
+    const link = event.target;
     
-//   })
-//   .then(function(docRef) {
-//     document.getElementById('surname').value = '';
-//     document.getElementById('name').value = '';
-//     document.getElementById('email').value = '';
-//     document.getElementById('phone').value = '';
-//     document.getElementById('company').value = '';
-//     document.getElementById('subject').value = '';
-//     document.getElementById('message').value = '';
+    // Add the animate-border class to the anchor tag on hover
+    link.classList.add('animate-border');
+  }
+}
 
-//     firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
-//       const formData = snapshot.data();
-//       if (formData && formData.saved) {
-//         console.log("Data Saved !!")
-//       }
-//     });
-//   })
-//   .catch(function(error) {
-//     console.error('Error submitting form:', error);
-//   });
-// });
-// //#endregion
-//#region TEST FEATURES 
+// Function to remove the animate-border class when the mouse leaves the link
+function removeAnimateBorder(event) {
+  // Check if the target element is an anchor tag
+  if (event.target.tagName === 'A') {
+    const link = event.target;
 
-/*
-const svgContainer = document.getElementById('animated-svg');
-const svgImage = new Image();
-svgImage.src = 'img/17.svg';
-svgContainer.appendChild(svgImage);
+    // Remove the animate-border class from the anchor tag on mouseleave
+    link.classList.remove('animate-border');
+  }
+}
 
-svgContainer.addEventListener('mousemove', handleMouseMove);
+// Add mouseenter and mouseleave event listeners to the navigation menu
+navMenu.addEventListener('mouseenter', addAnimateBorder);
+navMenu.addEventListener('mouseleave', removeAnimateBorder);
 
+//Animation Boule HomePage
+
+const animatedImg = document.getElementById('animated-svg');
+const container = document.getElementById('svg-container');
+
+// Function to update the image position based on mouse movement
 function handleMouseMove(event) {
-  const containerRect = svgContainer.getBoundingClientRect();
-  const containerCenterX = containerRect.left + containerRect.width / 2;
-  const containerCenterY = containerRect.top + containerRect.height / 2;
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
+  const containerRect = container.getBoundingClientRect();
+  const x = event.clientX - containerRect.left;
+  const y = event.clientY - containerRect.top;
+  const offsetX = (x - containerRect.width / 2) * 0.1; // Adjust the offset as needed
+  const offsetY = (y - containerRect.height / 2) * 0.1;
 
-  const angle = Math.atan2(mouseY - containerCenterY, mouseX - containerCenterX);
-  const distance = Math.sqrt(Math.pow(mouseX - containerCenterX, 2) + Math.pow(mouseY - containerCenterY, 2));
+  animatedImg.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+}
 
-  svgImage.style.transformOrigin = 'center';
-  svgImage.style.transformBox = 'fill-box';
-  svgImage.style.transform = `translate(-50%, -50%) rotate(${angle}rad)`;
-}*/
+// Event listeners for mouseenter and mouseleave
+container.addEventListener('mouseenter', () => {
+  container.addEventListener('mousemove', handleMouseMove);
+});
 
-/*==================== TEST ANIMATION ====================*/
-
-// wow = new WOW(
-//   {
-//   boxClass:     'wow',      // Class name that reveals the hidden box when user scrolls.
-//   animateClass: 'animated', // Class name that triggers the CSS animations (’animated’ by default for the animate.css library)
-//   offset:       0,          // Define the distance between the bottom of browser viewport and the top of hidden box.
-//                             // When the user scrolls and reach this distance the hidden box is revealed.
-//   mobile:       true,       // Turn on/off wow.js on mobile devices.
-//   live:         true        // consatantly check for new WOW elements on the page.
-// }
-// )
-// wow.init();
+container.addEventListener('mouseleave', () => {
+  animatedImg.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
+  container.removeEventListener('mousemove', handleMouseMove);
+});
 
 
-//===========Generateur de Citations (PAGE 404)==========//
-// const pcCitations = [
-//   "Les ordinateurs sont comme des dieux de l'Ancien Testament ; plein de règles et sans pitié.",
-//   "L'ordinateur est né pour résoudre des problèmes qui n'existaient pas auparavant.",
-//   "N'importe quel idiot peut utiliser un ordinateur. Et beaucoup le font.",
-//   "La meilleure chose à propos d'un ordinateur, c'est qu'il est prévisible ; il ne blâme jamais ses erreurs sur vous.",
-//   "L'ordinateur est un crétin.",
-// ];
+//ANIMATION BUBBLE HOME PAGE 
 
-// const iaCitations = [
-//   "L'intelligence artificielle ne fait pas le poids face à la stupidité naturelle.",
-//   "L'IA est comme une rock star qui joue une musique sans faute, mais qui détruit des chambres d'hôtel.",
-//   "L'IA est le nouvel électricité.",
-//   "La question n'est pas de savoir si l'IA dépassera l'intelligence humaine, mais quand et comment.",
-//   "L'IA n'est pas une baguette magique ; c'est un outil pour augmenter les capacités humaines.",
-// ];
+// Get all the images with the class "body__bg"
+const bodyBgImages = document.querySelectorAll('.body__bg');
 
-// const webCitations = [
-//   "Le web tel que je l'ai envisagé, nous ne l'avons pas encore vu. L'avenir est encore bien plus grand que le passé.",
-//   "La bonne nouvelle à propos des ordinateurs, c'est qu'ils font ce que vous leur dites de faire. La mauvaise nouvelle, c'est qu'ils font ce que vous leur dites de faire.",
-//   "Le web est davantage une création sociale qu'une création technique. Je l'ai conçu pour un effet social, pour aider les gens à travailler ensemble, et non comme un jouet technique.",
-//   "Internet pourrait être une étape très positive vers l'éducation, l'organisation et la participation à une société significative.",
-//   "Internet devient la place du village global de demain.",
-// ];
+// Function to add the bubble effect animation to the images and set z-index
+function addBubbleEffectAnimation(images) {
+  images.forEach((image, index) => {
+    const animationDuration = (index + 1) * 5; // Adjust the duration of each image's animation (in seconds)
 
-// function getRandomCitation(citations) {
-//   const randomIndex = Math.floor(Math.random() * citations.length);
-//   return citations[randomIndex];
-// }
+    image.style.animation = `bubbleEffectAnimation ${animationDuration}s ease-in-out infinite`;
+    image.style.zIndex = -1; // Set the z-index to ensure the image is behind all components
+  });
+}
 
-// function displayRandomCitation() {
-//   const citationElement = document.getElementById("citation");
-//   const randomCitation = getRandomCitation([...pcCitations, ...iaCitations, ...webCitations]);
-//   citationElement.textContent = randomCitation;
-// }
-
-// // Affiche une citation aléatoire lorsque la page se charge ou se rafraîchit
-// displayRandomCitation();
+// Add the bubble effect animation and set z-index to the images
+addBubbleEffectAnimation(bodyBgImages);
 
 
-// //===========NEWSLETTER SUBSCRIPTION==========//
-//   // Handle newsletter subscription
-//   document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevent form from submitting and page refresh
 
-//     // Get the email input value
-//     var email = document.getElementById('newsletterEmail').value;
-
-//     // Save the email to the Firestore database
-//     db.collection('subscribers').add({
-//       email: email,
-//       timestamp: firebase.firestore.FieldValue.serverTimestamp()
-//     })
-//     .then(function(docRef) {
-//       console.log('Newsletter subscription added successfully!');
-//       // Reset email input field
-//       document.getElementById('newsletterEmail').value = '';
-//     })
-//     .catch(function(error) {
-//       console.error('Error adding newsletter subscription:', error);
-//     });
-//   });
-
-
-//===========TWITCH API==========//
-
-// function fetchAndDisplayVideos() {
-//   //YOUR_USER_ID == l'id du compte twitch 
-//   fetch('https://api.twitch.tv/helix/videos?user_id=YOUR_USER_ID', {
-//     headers: {
-//       // Client ID == Id a recupere via le portail de developpeur de twitch
-//       'Client-ID': 'YOUR_CLIENT_ID',
-//       // Access token == required for authentification 
-//       // Pas nescessaire dans tout les cas 
-//       'Authorization': 'Bearer YOUR_ACCESS_TOKEN' 
-//     }
-//   })
-//     .then(response => response.json())
-//     .then(data => {
-//       const videos = data.data; // Array of video objects
-//       const embedCodes = videos.map(video => `
-//         <iframe
-//           src="https://player.twitch.tv/?video=${video.id}"
-//           height="480"
-//           width="720"
-//           allowfullscreen="true">
-//         </iframe>
-//       `);
-//       const videoContainer = document.getElementById('video-container');
-//       videoContainer.innerHTML = embedCodes.join('');
-//     })
-//     .catch(error => {
-//       console.error('Error retrieving video data:', error);
-//     });
-// }
-
-// fetchAndDisplayVideos();
-
+//#endregion
+//#region TEST FEATURES 
 //#endregion
