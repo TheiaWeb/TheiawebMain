@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function showMobileCard(index) {
     mobileCards.forEach((card, i) => {
       if (i === index) {
-        card.style.display = "flex";
+        card.style.opacity = 1; // Show the card
+        card.style.display = "flex"; // Show the card
         mobileDots[i].classList.add("active");
       } else {
-        card.style.display = "none";
+        card.style.opacity = 0; // Hide the card
+        card.style.display = "none"; // Hide the card
         mobileDots[i].classList.remove("active");
       }
     });
@@ -25,6 +27,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Helper function to switch to the next card
+  function nextCard() {
+    activeMobileCard = (activeMobileCard + 1) % mobileCards.length;
+    showMobileCard(activeMobileCard);
+  }
+
+  // Helper function to switch to the previous card
+  function prevCard() {
+    activeMobileCard = (activeMobileCard - 1 + mobileCards.length) % mobileCards.length;
+    showMobileCard(activeMobileCard);
+  }
+
+  // Create a Hammer.js instance
+  const mobileCarousel = new Hammer(document.querySelector(".carrousel__mobile"));
+
+  // Detect swipe left and right
+  mobileCarousel.on("swipeleft", () => {
+    nextCard();
+  });
+
+  mobileCarousel.on("swiperight", () => {
+    prevCard();
+  });
+
   // For the web version
   const webDots = document.querySelectorAll(".carrousel__navigation-dot");
   const webCards = document.querySelectorAll(".carrousel__content-box");
@@ -35,10 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function showWebCard(index) {
     webCards.forEach((card, i) => {
       if (i === index) {
-        card.style.display = "flex";
+        card.style.opacity = 1; // Show the card
+        card.style.display = "flex"; // Show the card
         webDots[i].classList.add("active");
       } else {
-        card.style.display = "none";
+        card.style.opacity = 0; // Hide the card
+        card.style.display = "none"; // Hide the card
         webDots[i].classList.remove("active");
       }
     });
