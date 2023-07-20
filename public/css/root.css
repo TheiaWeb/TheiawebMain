@@ -909,11 +909,11 @@ footer {
     opacity: 0.8; /* Adjust the opacity value for the bubble effect */
   }
   50% {
-    transform: translate(100px, 100px) scale(1);
+    transform: translate(100px, 250px) scale(1);
     opacity: 1;
   }
   75%{
-    transform: translate(-100px, 150px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
+    transform: translate(-100px, 450px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
     opacity: 1; /* Adjust the opacity value for the bubble effect */
   }
   100%{

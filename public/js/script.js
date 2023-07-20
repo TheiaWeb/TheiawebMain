@@ -337,51 +337,80 @@ function removeAnimateBorder(event) {
 navMenu.addEventListener('mouseenter', addAnimateBorder);
 navMenu.addEventListener('mouseleave', removeAnimateBorder);
 
-//Animation Boule HomePage
+//ANIMATION BOULE ACCEUIL ET FORM
 
-const animatedImg = document.getElementById('animated-svg');
-const container = document.getElementById('svg-container');
 
 // Function to update the image position based on mouse movement
-function handleMouseMove(event) {
+function handleMouseMove(container, animatedImg, event) {
   const containerRect = container.getBoundingClientRect();
   const x = event.clientX - containerRect.left;
   const y = event.clientY - containerRect.top;
-  const offsetX = (x - containerRect.width / 2) * 0.1; // Adjust the offset as needed
-  const offsetY = (y - containerRect.height / 2) * 0.1;
+  const offsetX = -(x - containerRect.width / 3) * 0.1; // Adjust the offset as needed
+  const offsetY = (y - containerRect.height / 3) * 0.1;
 
   animatedImg.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+
+  if (animatedImg.classList.contains('special-image')) {
+    // Apply a different animation for the second image (if it has the 'special-image' class)
+    // Modify the image however you want for a special effect
+    animatedImg.style.opacity = 1 - (Math.abs(offsetX) / (containerRect.width / 3));
+  }
 }
 
-// Event listeners for mouseenter and mouseleave
-container.addEventListener('mouseenter', () => {
-  container.addEventListener('mousemove', handleMouseMove);
+// First container (assuming you already have this part of the code)
+const container1 = document.getElementById('svg-container');
+const animatedImg1 = document.getElementById('animated-svg');
+
+container1.addEventListener('mouseenter', () => {
+  container1.addEventListener('mousemove', (event) => handleMouseMove(container1, animatedImg1, event));
 });
 
-container.addEventListener('mouseleave', () => {
-  animatedImg.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
-  container.removeEventListener('mousemove', handleMouseMove);
+container1.addEventListener('mouseleave', () => {
+  animatedImg1.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
+  animatedImg1.style.opacity = 1; // Reset the opacity to its original value
+  container1.removeEventListener('mousemove', (event) => handleMouseMove(container1, animatedImg1, event));
 });
 
+// Second container (using the provided IDs)
+const container2 = document.getElementById('contact');
+const animatedImg2 = container2.querySelector('#animationHomeImage');
+
+container2.addEventListener('mouseenter', () => {
+  container2.addEventListener('mousemove', (event) => handleMouseMove(container2, animatedImg2, event));
+});
+
+container2.addEventListener('mouseleave', () => {
+  animatedImg2.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
+  animatedImg2.style.opacity = 1; // Reset the opacity to its original value
+  container2.removeEventListener('mousemove', (event) => handleMouseMove(container2, animatedImg2, event));
+});
 
 //ANIMATION BUBBLE HOME PAGE 
 
-// Get all the images with the class "body__bg"
-const bodyBgImages = document.querySelectorAll('.body__bg');
+// Get the specific image with the class "body__bg" that you want to extend the duration for
+const specificImage = document.querySelector('#animationBubbleSpecificTime');
 
 // Function to add the bubble effect animation to the images and set z-index
 function addBubbleEffectAnimation(images) {
   images.forEach((image, index) => {
-    const animationDuration = (index + 1) * 5; // Adjust the duration of each image's animation (in seconds)
+    const animationDuration = (index + 1) * 5; // Default duration for other images (in seconds)
 
     image.style.animation = `bubbleEffectAnimation ${animationDuration}s ease-in-out infinite`;
     image.style.zIndex = -1; // Set the z-index to ensure the image is behind all components
+
+    // Extend the duration for the specific image
+    if (image === specificImage) {
+      const specificDuration = 30; // Duration in seconds for the specific image
+      image.style.animationDuration = `${specificDuration}s`;
+    }
   });
 }
 
+// Get all the images with the class "body__bg"
+const bodyBgImages = document.querySelectorAll('.body__bg');
+
 // Add the bubble effect animation and set z-index to the images
 addBubbleEffectAnimation(bodyBgImages);
-
 
 
 //#endregion
