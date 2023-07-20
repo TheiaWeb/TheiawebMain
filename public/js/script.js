@@ -1,18 +1,12 @@
 //#region TOGGLE MENU
-let menuOpen = false;
-
 function toggleMenu() {
-  const menu = document.getElementById('menu');
-  const icon = document.getElementById('iconImage');
-
-  if (!menuOpen) {
-    menu.classList.add('menu-open');
-    icon.src = 'img/navbar-close.png';
-    menuOpen = true;
-  } else {
+  const menu = document.getElementById('mobileMenu'); // Update the ID here
+  const menuIcon = document.getElementById('iconImage'); 
+  if (menu.classList.contains('menu-open')) {
     menu.classList.remove('menu-open');
-    icon.src = 'img/navbar-burger.png';
-    menuOpen = false;
+  } else {
+    menu.classList.add('menu-open');
+    menuIcon.src = 'img/navbar-close.png'; // Replace with the image path for the close icon
   }
 }
 //#endregion
