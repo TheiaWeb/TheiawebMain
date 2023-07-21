@@ -29,6 +29,7 @@
     --font-medium: 500;
     --font-semi-bold: 600;
     --font-bold: 700;
+    --extra-bold: 900;
 
     /*========== Margenes Bottom ==========*/
     --mb-0-25: .25rem;
@@ -54,7 +55,7 @@
         --big-font-size: 3rem;
           --h1-font-size: 2rem;
           --h2-font-size: 1.3rem;
-          --h3-font-size: 1.25rem;
+          --h3-font-size: 1.15rem;
           --normal-font-size: 1rem;
           --small-font-size: .875rem;
           --smaller-font-size: .813rem;
@@ -68,7 +69,7 @@
       --big-font-size: 6rem;
       --h1-font-size: 3.5rem;
       --h2-font-size: 2rem;
-      --h3-font-size: 1.75rem;
+      --h3-font-size: 1.5rem;
       --normal-font-size: 1.25rem;
       --small-font-size: 1rem;
       --smaller-font-size: .9rem;
@@ -137,87 +138,29 @@ li{
   
   
 /*==================== TITLES ====================*/
-  .section__title-box,
-  .home__title-box {
-    height: 100px;
-  }
-  .section__triple,
-  .home__triple {
-    animation: fadeIn 1s forwards;
-    font-family: var(--kanit);
-    font-weight: var(--font-bold);
-    text-align: left;
-    text-transform: uppercase;
-  }
-  .home__triple {
-    font-size: var(--h1-font-size);
-  }
-  .section__triple {
-    font-size: var(--h2-font-size);
-  }
-  .home__title-main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-  }
-  .home__title-back {
-    color: var(--black);
-    transform: translate(-2px, -107px);
-  }
-  .home__title-back span {
-    color: var(--blue);
-  }
-  .section__title-main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-  }
-  .section__title-back {
-    color: var(--black);
-    transform: translate(-2px, -72px);
-  }
+.title {
+  font-family: var(--kanit);
+  color: var(--black);
+  font-weight: var(--font-bold);
+  text-shadow: 2px 2px var(--pink), 4px 4px var(--blue);
+  text-transform: uppercase;
+}
+.big-title {
+  font-size: var(--big-font-size);
+}
+.h1-title {
+  font-size: var(--h1-font-size);
+}
+.h2-title {
+  font-size: var(--h2-font-size);
+}
+.h3-title {
+  font-size: var(--h3-font-size);
+}
+.title-center {
+  text-align: center;
+}
   
- /* title size for phone */
-@media screen and (max-width: 768px) {
-  .home__title-back {
-    transform: translate(-2px, -60px);
-  }
-  .section__title-box,
-  .home__title-box {
-    height: 50px;
-  }
-  .section__title-back {
-    transform: translate(-2px, -42px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 769px) and (max-width: 914px) {
-  .home__title-back {
-    transform: translate(-2px, -180px);
-  }
-  .section__title-back {
-    transform: translate(-2px, -59px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 915px) and (max-width: 1023px) {
-  .home__title-back {
-    transform: translate(-2px, -96px);
-  }
-  .section__title-back {
-    transform: translate(-2px, -59px);
-  }
-}
-
-/* title size for tablet */
-@media screen and (min-width: 1121px) and (max-width: 1402px) {
-  .team__title-back {
-    transform: translate(-2px, -132px);
-  }
-}
-
 
 /*==================== REUSABLE CSS CLASSES ====================*/
   .section__subtitle {
@@ -280,6 +223,7 @@ li{
     grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
     align-items: center;
+    justify-items: center
   }
   @media screen and (max-width: 768px) {
     .grid-2-1 { grid-template-columns: 1fr;
@@ -311,7 +255,8 @@ li{
     .grid-auto-3 {
       display: grid;
     grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
-    justify-content: center;
+    justify-content: center;  
+    justify-items: center;
     grid-gap: 15px;
     }
 
@@ -378,6 +323,9 @@ li{
     border-radius: 89px;
     margin: 10px 0;
   }
+
+
+  
   .navbar__mobile-head {
     display: flex;
     justify-content: space-between;
@@ -387,7 +335,7 @@ li{
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .navbar__mobile-logo {
+  a img.navbar__mobile-logo {
     width: 99px;
   }
   .navbar__mobile-menuIcon {
@@ -409,6 +357,7 @@ li{
     padding-top: 30%;
     z-index: 1000;
   }
+  
   .navbar__mobile-content ul {
     display: flex;
     flex-direction: column;
@@ -523,6 +472,165 @@ footer {
     text-decoration-line: underline;
   }
  
+  /*==================== CONTACT ====================*/
+
+#contact {
+  position: relative;
+}
+
+.body__bg-contact {
+  position: absolute;
+  width: 316px;
+  bottom: 42px;
+  left: -106px;
+}
+
+.body__bg-contact-2 {
+  position: absolute;
+  width: 80px;
+  top: -32px;
+  right: -13px;
+}
+
+.body__bg-contact-3 {
+  position: absolute;
+  width: 100px;
+  top: 236px;
+  left: -19px;
+}
+
+
+
+
+
+
+.form__content {
+  padding: 25px 110px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.15);
+  border-radius: 35px;
+  border: 3px solid var(--pink);
+  margin: 50px 120px;
+
+
+}
+
+.contact__category {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 25px;
+}
+
+.contact__label {
+  font-family: var(--roboto);
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  color: var(--black);
+  transition: transform 0.3s ease;
+}
+
+.contact__star {
+  color: var(--bright-pink);
+}
+
+.contact__input-small {
+  border: none;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 10px;
+  outline: none;
+  font-size: var(--small-font-size);
+  transition: border-color 0.3s ease;
+}
+
+.contact__input-small::placeholder,
+.contact__input-large::placeholder {
+  font-family: var(--roboto);
+  font-size: var(--smaller-font-size);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.contact__msg {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.contact__input-large {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: var(--small-font-size);
+  resize: none;
+}
+
+.contact__footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
+.contact__footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.contact__footer-cgucheck label,
+.contact__footer-bottom {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
+}
+
+.contact__footer-cgucheck label{
+  margin-left: 10px;
+
+}
+.contact__footer-cgucheck label a {
+  font-weight: var(--font-bold);
+  color: var(--black);
+}
+
+.contact__footer-top p {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--smaller-font-size);
+  color: var(--bright-pink)
+}
+
+.contact__footer-bottom button {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(252, 173, 231, 0.6) 14.39%, rgba(137, 255, 253, 0.6) 86.07%);
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+  font-family: var(--roboto);
+  font-weight: var(--font-medium);
+  font-size: var(--smaller-font-size);
+  color: var(--black);
+}
+
+
+
+.contact__footer-bottom button:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(137, 255, 253, 0.6) 14.39%, rgba(252, 173, 231, 0.6) 86.07%);
+  transition: 0.3s ease-in-out;
+}
+
+.contact__input-small:focus,
+.contact__input-large:focus {
+  border-color: #ff80ab;
+  
+}
+
+
   
 /*==================== MEDIA QUERIES ====================*/
 
@@ -565,6 +673,113 @@ footer {
     padding: 5% 8%;
   }
 }
+
+
+
+@media only screen and (max-width: 1280px) {
+  .contact__img {
+    display: none;
+  }
+  .form__content {
+    padding: 25px 10%;
+    margin: 50px 0px;
+  } 
+}
+
+@media only screen and (min-width: 1280px) {
+  #contact img.contact__img {
+    max-width: 381px;
+    position: absolute;
+    right: 20px;
+    top: 420px;
+  }
+}
+
+@media only screen and (min-width: 1530px) {
+  #contact {
+    position: relative;
+  }
+  #contact img.contact__img {
+    max-width: 500px;
+    position: absolute;
+    right: 0;
+    top: 362px;
+  }
+}
+
+
+/*========== Modal Contact Form =========*/
+  
+  
+
+  
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: none;
+}
+
+.toast .toast-content {
+  display: flex;
+  align-items: center;
+}
+
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 35px;
+  background-color: var(--pink);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  font-family: var(--roboto);
+}
+
+ /* Additional CSS styles for the popup */
+ .modal-active {
+  display: block; /* Make the popup visible */
+}
+
+.message .text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.message .text.text-1 {
+  font-weight: 600;
+  color: #333;
+}
+
+.toast .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.toast .close:hover {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
 
 
 /*=============== POPIN RGPD ==============*/
@@ -636,3 +851,82 @@ footer {
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
+
+
+
+/*==========ANIMATION=========*/
+/* Animation Menu */
+.pulsate {
+  animation: pulsate 1s ease infinite;
+}
+
+/* Define the keyframes for the pulsating animation */
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Add the class for the border animation on hover */
+.nav__menu li a.animate-border {
+  transition: border 0.3s ease-in-out;
+}
+
+/* Animation for the border on hover */
+.nav__menu li a.animate-border:hover {
+  border: 2px solid black; /* Customize the border style as desired */
+}
+
+/* Animation Bubble effect on background */
+.animation-container {
+  position: relative;
+  width: 200px; /* Adjust the size as needed */
+  height: 200px;
+  overflow: hidden; /* Ensure the image doesn't overflow outside the container */
+}
+
+.animated-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease; /* Smooth transition for the animation */
+}
+
+/* Apply a subtle shadow effect on mouseover for a more pronounced effect */
+.animated-img:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bubbleEffectAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-100px, 50px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
+    opacity: 0.8; /* Adjust the opacity value for the bubble effect */
+  }
+  50% {
+    transform: translate(100px, 250px) scale(1);
+    opacity: 1;
+  }
+  75%{
+    transform: translate(-100px, 450px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
+    opacity: 1; /* Adjust the opacity value for the bubble effect */
+  }
+  100%{
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+

@@ -112,7 +112,27 @@
     right: 100px;
 }*/
 
-
+#quote {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#author {
+    font-size: 16px;
+    font-style: italic;
+}
+#new-quote-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+}
 
 
 

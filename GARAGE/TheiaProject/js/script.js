@@ -1,5 +1,4 @@
 //#region /*==================== TOGGLE MENU ====================*/
-
 let menuOpen = false;
 
 function toggleMenu() {
@@ -112,7 +111,115 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //#endregion
 //#region REGION TEST
+
+const carousel = document.querySelector(".carousel");
+const cards = document.querySelectorAll(".card");
+const navigationDotsContainer = document.querySelector(".navigation-dots");
+
+let cardIndex = 0;
+
+function updateActiveDot() {
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active-dot", index === cardIndex);
+  });
+}
+
+function hideAllCardsExceptSelected() {
+  cards.forEach((card, index) => {
+    card.classList.toggle("active-card", index === cardIndex);
+  });
+}
+
+function navigateToCard(index) {
+  cardIndex = index;
+  updateActiveDot();
+  hideAllCardsExceptSelected();
+  const offset = carousel.clientWidth * cardIndex;
+  carousel.scrollLeft = offset;
+}
+
+function handleDotClick(event) {
+  const index = parseInt(event.target.dataset.index);
+  navigateToCard(index);
+}
+
+function createNavigationDots() {
+  for (let i = 0; i < cards.length; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.dataset.index = i;
+    dot.addEventListener("click", handleDotClick);
+    navigationDotsContainer.appendChild(dot);
+  }
+  updateActiveDot();
+}
+
+carousel.addEventListener("scroll", () => {
+  const cardWidth = carousel.clientWidth;
+  cardIndex = Math.round(carousel.scrollLeft / cardWidth);
+  updateActiveDot();
+});
+
+createNavigationDots();
+hideAllCardsExceptSelected();
+
+
+// firebase.initializeApp(firebaseConfig);
+
+//         // Reference to the Firebase Realtime Database
+//         const database = firebase.database();
+
+//         // Function to handle form submission
+//         function handleSubmit(event) {
+//             event.preventDefault();
+//             const quoteInput = document.getElementById("quote-input").value.trim();
+
+//             if (quoteInput === "") {
+//                 return; // Do not submit empty quotes
+//             }
+
+//             // Save the user-submitted quote to the database
+//             const quotesRef = database.ref("user-quotes");
+//             quotesRef.push({
+//                 quote: quoteInput
+//             });
+
+//             // Clear the input field after submission
+//             document.getElementById("quote-input").value = "";
+//         }
+
+//         // Event listener for form submission
+//         document.getElementById("quote-form").addEventListener("submit", handleSubmit);
+
+//         // Function to display user-submitted quotes
+//         function displayQuotes(snapshot) {
+//             const userQuotesContainer = document.getElementById("user-quotes");
+//             userQuotesContainer.innerHTML = ""; // Clear previous quotes
+
+//             snapshot.forEach((childSnapshot) => {
+//                 const quoteData = childSnapshot.val();
+//                 const quote = quoteData.quote;
+
+//                 // Create a new quote element and append it to the container
+//                 const quoteElement = document.createElement("div");
+//                 quoteElement.textContent = quote;
+//                 userQuotesContainer.appendChild(quoteElement);
+//             });
+//         }
+
+//         // Realtime listener to fetch user-submitted quotes
+//         const quotesRef = database.ref("user-quotes");
+//         quotesRef.on("value", (snapshot) => {
+//             displayQuotes(snapshot);
+//         });
+
+
 /*==================== TEST ANIMATION ====================*/
+
+
+// Define variables
+
 
 // wow = new WOW(
 //   {
@@ -227,14 +334,14 @@ document.addEventListener('DOMContentLoaded', function () {
 // fetchAndDisplayVideos();
 
 
-// Get the image element
-const image = document.getElementById('image');
+// // Get the image element
+// const image = document.getElementById('image');
 
-// Function to toggle the morph class on the image
-function toggleMorphAnimation() {
-  image.classList.toggle('morph');
-}
+// // Function to toggle the morph class on the image
+// function toggleMorphAnimation() {
+//   image.classList.toggle('morph');
+// }
 
-// Add event listener to toggle animation on click
-image.addEventListener('click', toggleMorphAnimation);
+// // Add event listener to toggle animation on click
+// image.addEventListener('click', toggleMorphAnimation);
 //#endregion

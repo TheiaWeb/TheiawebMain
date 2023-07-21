@@ -71,8 +71,18 @@
   </section>
 
   <h1>Citations aléatoires</h1>
-  <p id="citation"></p>
-
+ <div id="quote-container">
+        <div id="quote">Loading...</div>
+        <div id="author"></div>
+        <div id="local-storage-info"></div>
+    </div>
+    <form id="quote-form">
+      <textarea id="quote-input" placeholder="Share your message or quote..."></textarea>
+      <button type="submit">Submit</button>
+  </form>
+  <div id="user-quotes">
+      <!-- Display user-submitted quotes here -->
+  </div>
 
 
 
@@ -128,10 +138,66 @@
 
       </div>
     </div>
-  </footer>
+  </footer>    
+<script src="js/404.js"></script>
+<script>
 
+const firebaseConfig = {
+    apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
+    authDomain: "formtheia.firebaseapp.com",
+    databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "formtheia",
+    storageBucket: "formtheia.appspot.com",
+    messagingSenderId: "335132907653",
+    appId: "1:335132907653:web:d4620962ca0a24131571ec",
+    measurementId: "G-5F4K9SXY34"
+  };
+  
+  firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
+// Reference to the Firebase Realtime Database
+function handleSubmit(event) {
+            event.preventDefault();
+            const quoteInput = document.getElementById("quote-input").value.trim();
 
+            if (quoteInput === "") {
+                return; // Do not submit empty quotes
+            }
+
+            // Save the user-submitted quote to Firestore
+            db.collection("user-quotes").add({
+                quote: quoteInput,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            // Clear the input field after submission
+            document.getElementById("quote-input").value = "";
+        }
+
+        // Event listener for form submission
+        document.getElementById("quote-form").addEventListener("submit", handleSubmit);
+
+        // Function to display user-submitted quotes
+        function displayQuotes(snapshot) {
+            const userQuotesContainer = document.getElementById("user-quotes");
+            userQuotesContainer.innerHTML = ""; // Clear previous quotes
+
+            snapshot.forEach((doc) => {
+                const quoteData = doc.data();
+                const quote = quoteData.quote;
+
+                // Create a new quote element and append it to the container
+                const quoteElement = document.createElement("div");
+                quoteElement.textContent = quote;
+                userQuotesContainer.appendChild(quoteElement);
+            });
+        }
+
+        // Realtime listener to fetch user-submitted quotes
+        db.collection("user-quotes").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+            displayQuotes(snapshot);
+        });</script>
 </body>
 
 </html>

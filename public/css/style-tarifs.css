@@ -1,6 +1,4 @@
 
-/*==================== PAGE TITLE ====================*/
-
 .page__title {
     display: flex;
     flex-direction: column;
@@ -10,31 +8,6 @@
     color: var(--black);
 }
 
-.page__tile-box {
-    height: 100px;
-}
-
-.title__triple {
-    font-size: var(--h2-font-size);
-    font-family: var(--kanit);
-    font-weight: var(--font-bold);
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.refonte-title__main,
-.title__main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-}
-
-.refonte-title__back,
-.title__back {
-    color: var(--black);
-    transform: translate(-2px, -72px);
-
-}
 
 .page__title-text {
     font-size: var(--normal-font-size);
@@ -67,25 +40,7 @@
     font-weight: var(--font-regular);
     text-decoration: line-through;
 }
-.card-titlebox {
-    height: 20px;
-    margin-left: 10px;
-}
-.card-title {
-    font-size: var(--normal-font-size);
-    font-family: var(--kanit);
-    font-weight: var(--font-bold);
-    text-transform: uppercase;
-}
-.card-title-main {
-    color: var(--pink);
-    text-shadow: 1px 0 var(--blue), -1px 0 var(--blue), 0 1px var(--blue), 0 -1px var(--blue),
-    1px 1px var(--blue), -1px -1px var(--blue), 1px -1px var(--blue), -1px 1px var(--blue);
-}
-.card-title-back {
-    color: var(--black);
-    transform: translate(-2px, -37px);
-}
+
 .card-text {
     text-align: justify;
     color: var(--black);
@@ -233,41 +188,11 @@ cursor: pointer;
     width: 70%;
 }
 
-/*================== Screen size spe title ==================*/
-@media screen and (max-width: 316px) {
-    .title__back {
-        transform: translate(-2px, -74px);
-    }
-}
-@media screen and (min-width: 317px) and (max-width: 768px) {
-    .title__back {
-        transform: translate(-2px, -43px);
-    }    
-}
-@media screen and (max-width: 305px) {
-    .refonte-title__back {
-        transform: translate(-2px, -74px);
-    }
-}
-
-
-@media screen and (min-width: 306px) and (max-width: 768px) {
-    .refonte-title__back {
-        transform: translate(-2px, -43px);
-    }    
-}
-
 
 /*================== Screen size for phone=================== */
 @media screen and (max-width: 768px) {
     .package__card {
         padding: 40px 30px 15px 30px;
-    }
-    .card-titlebox {
-        height: 20px;
-    }
-    .card-title-back {
-        transform: translate(-2px, -25px);
     }
     .card-img {
         width: 70%;
@@ -289,21 +214,8 @@ cursor: pointer;
     }
 }
 
-@media screen and (max-width: 315px) {
-    .métamorphose-title-back {
-        transform: translate(-2px, -49px);
-    }
-}
-
 /*================== Screen size for tablet ==================*/
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .refonte-title__back,
-    .title__back {
-        transform: translate(-2px, -61px);
-    }
-    .card-title-back {
-        transform: translate(-2px, -31px);
-    }
     .card-img {
         width: 50%;
     }

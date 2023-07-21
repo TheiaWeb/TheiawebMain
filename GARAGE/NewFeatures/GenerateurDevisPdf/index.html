@@ -1,37 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formulaire de creation de devis</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+  <title>Form</title>
 </head>
 <body>
-  <h1>Formulaire de creation de devis</h1>
-  <form id="generationDevis">
-    <h2>Qui etes vous ?</h2><br>
-    <label for="name">name</label><br>
-    <input type="text" id="name" name="name" required><br>
+  <h1>Form</h1>
+  <label>
+    <input type="radio" name="purchaseType" value="oneTime"> One Time Purchase
+  </label>
+  <label>
+    <input type="radio" name="purchaseType" value="threeTimes"> Three Times Purchase
+  </label>
 
-    <label for="email">Adresse e-mail :</label><br>
-    <input type="email" id="email" name="email" required><br>
-    <label for="message"><h2>Quel est votre projet ?</h2></label><br>
-    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-    <label><h2>De quoi avez vous besoin ?</h2></label><br>
-    <label for="oneTimePurchaseRadio">One Time Purchase</label>    
-    <input type="radio" id="oneTimePurchaseRadio" name="purchaseType" value="oneTime"><br><br>
+  <div id="formContainer"></div>
 
-    <label for="threeTimesPurchaseRadio">Three Times Purchase</label>
-    <input type="radio" id="threeTimesPurchaseRadio" name="purchaseType" value="threeTimes">
-
-    <div id="servicesList"></div><br>
-
-    <button type="submit">Générer le devis</button>
-  </form>
-
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
-  <SCript src="generate_pdf.js"></SCript>
+  <script src="script.js"></script>
 </body>
 </html>

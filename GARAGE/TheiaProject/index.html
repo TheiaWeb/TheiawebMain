@@ -2,6 +2,9 @@
 <html lang="fr">
 
 <head>
+
+
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -383,6 +386,100 @@
   </script>
   
 
+
+
+  <div id="google-reviews-container">
+    <!-- Les avis seront affichés ici -->
+</div>
+<script>
+  // Remplacez 'VOTRE_CLE_API' par votre clé API Google Places
+  const apiKey = 'AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g';
+  const placeId = 'RandomLieuDansLurlDeLaPageGoogleMaps'; // Remplacez par l'ID du lieu de votre agence
+
+  // Fonction pour charger les avis depuis l'API Google Places
+  function loadGoogleReviews() {
+      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
+
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              const reviews = data.result.reviews;
+
+              // Afficher les avis dans le conteneur
+              const reviewsContainer = document.getElementById('google-reviews-container');
+              reviews.forEach(review => {
+                  const reviewText = review.text;
+                  const reviewAuthor = review.author_name;
+                  const reviewRating = review.rating;
+
+                  const reviewElement = document.createElement('div');
+                  reviewElement.innerHTML = `
+                      <p><strong>${reviewAuthor}</strong></p>
+                      <p>Note : ${reviewRating} étoiles</p>
+                      <p>${reviewText}</p>
+                      <hr>
+                  `;
+
+                  reviewsContainer.appendChild(reviewElement);
+              });
+          })
+          .catch(error => {
+              console.error('Erreur lors du chargement des avis', error);
+          });
+  }
+
+  // Charger les avis lorsque la page a fini de se charger
+  document.addEventListener('DOMContentLoaded', loadGoogleReviews);
+</script>
+
+
+
+
+
+<div class="carousel-container">
+  <div class="carousel">
+
+
+    <div class="card">
+      <h4 class="carrousel__mobile__content-name">VINCENT Charles</h4>
+      <p class="carrousel__mobile__content-job">DEVELOPPEUR - Backend </p>
+      <p class="carrousel__mobile__content-description">Avec sa connaissance approfondie des bases de données et des systèmes serveurs, Vincent assure la stabilité et la performance de votre infrastructure web, garantissant que tout fonctionne comme sur des roulettes et que vos utilisateurs profitent d'une expérience sans faille.</p>
+      <div class="carrousel__mobile__content-right">
+      <a  class="carrousel__mobile__rs carrousel__mobile__rs-one" href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+      <img src="../../public/img/carrousel__vincent-profil.png" alt="" class="carrousel__mobile-img">
+    </div>
+
+    <div class="card">
+      <h4 class="carrousel__mobile__content-name">Pauline Mila-Alonso</h4>
+      <p class="carrousel__mobile__content-job">DEVELOPPEUR - Backend </p>
+      <p class="carrousel__mobile__content-description">Avec sa connaissance approfondie des bases de données et des systèmes serveurs, Vincent assure la stabilité et la performance de votre infrastructure web, garantissant que tout fonctionne comme sur des roulettes et que vos utilisateurs profitent d'une expérience sans faille.</p>
+      <div class="carrousel__mobile__content-right">
+        <a  class="carrousel__mobile__rs carrousel__mobile__rs-one" href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="carrousel__mobile__rs carrousel__mobile__rs-two" href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
+      </div>
+        <img src="../../public/img/carrousel__vincent-profil.png" alt="" class="carrousel__mobile-img">
+    </div>
+
+    <div class="card">
+      <h4 class="carrousel__mobile__content-name">Maxime Taunais</h4>
+      <p class="carrousel__mobile__content-job">DEVELOPPEUR - Backend </p>
+      <p class="carrousel__mobile__content-description">Avec sa connaissance approfondie des bases de données et des systèmes serveurs, Vincent assure la stabilité et la performance de votre infrastructure web, garantissant que tout fonctionne comme sur des roulettes et que vos utilisateurs profitent d'une expérience sans faille.</p>
+      <div class="carrousel__mobile__content-right">
+      <a  class="carrousel__mobile__rs carrousel__mobile__rs-one" href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <img src="../../public/img/carrousel__maxime-profil.png" alt="" class="carrousel__mobile-img">
+    </div>
+
+    <!-- Add more worker cards as needed -->
+  </div>
+  <div class="navigation-dots"></div>
+</div>
+
+
+
+
+
   <footer id="footer" class="section">
     <div class="grid-trio">
       <div class="footer__column">
@@ -469,6 +566,14 @@
 <!-- Add a placeholder for the Twitch embed -->
 
 
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+
+
+
+
   <!-- 
     
     HTML FORM FOR NEWSLETTER SUBSCRIPTION + MODAL VALIDATION
@@ -495,7 +600,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
-  <script>
+  <!-- <script>
     var scene = document.getElementById('scene');
     var parallaxLayers = document.querySelectorAll('.parallax-layer');
   
@@ -529,7 +634,7 @@
     parallaxLayers.forEach(function(layer) {
       layer.style.position = 'absolute';
     });
-  </script>
+  </script> -->
 
 
 </body>
