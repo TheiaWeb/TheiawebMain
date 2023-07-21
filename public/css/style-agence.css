@@ -475,14 +475,23 @@ position: relative;
 .grid-agence {
   justify-items: center
 }
+.twitchStatus{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightblue;
+}
 .twitch__img {
   max-width: 500px;
 }
 
-.twitchStatus{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.viewersAndChatContainer {
+  display: flex; /* Use flexbox to align the elements horizontally */
+  justify-content: flex-end;
+}
+
+.viewersInfos{
+  background-color: white;
 }
 
 #API_twitch {
@@ -492,12 +501,93 @@ position: relative;
 
 #nextStreamInfo {
   position: absolute;
-  top: 40%;
   background-color: rgba(0, 0, 0, 0.7); /* Set a background color for visibility */
   color: white; /* Set text color */
   padding: 10px; /* Add padding for better readability */
 }
 
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+}
+
+/* Card buttons container */
+.cardButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Individual card button */
+.cardButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20em; /* Adjust the width as per your requirement */
+  margin-bottom: 20px;
+  border-radius: 5px; /* Optional: Add rounded corners to the card */
+  transition: background-color 0.3s; /* Add a smooth transition on background change */
+}
+
+.cardButton:hover {
+  background-color: black; /* Change the background color on hover */
+}
+
+.cardButton img {
+  max-width: 100%;
+  height: auto;
+  background-color: var(--pink); /* Set the background color for the image */
+  border-radius: 5px 0 0 5px; /* Optional: Add rounded corners to the left side of the image */
+  padding: 10px; /* Optional: Add padding around the image */
+}
+.cardButton:hover img {
+  background-color: white; /* Set the background color for the image */
+padding: 1em;
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.cardContent h3 {
+  margin: 0;
+  font-size: 18px;
+  color: black; /* Set the initial text color */
+  transition: color 0.3s; /* Add a smooth transition on text color change */
+}
+
+.cardContent p {
+  margin: 5px 0;
+  color: black; /* Set the initial text color */
+  transition: color 0.3s; /* Add a smooth transition on text color change */
+}
+
+.cardButton:hover .cardContent h3,
+.cardButton:hover .cardContent p {
+  color: white; /* Change the text color to white on hover */
+}
+
+.cardImage {
+  width: 100px; /* Set the desired width */
+  height: 75px; /* Set the desired height */
+}
+
+.viewersInfos, .infoContainer {
+  display: flex; /* Display the icon and text horizontally */
+  align-items: center; /* Vertically center the items */
+  gap: 8px; /* Add some spacing between the icon and text */
+  justify-content: center;
+}
+.infoContainer i {
+  font-size: 36px; /* Adjust the icon size to make it bigger */
+}
 
 @media only screen and (max-width: 768px) {
  .accompagnement__cards {
