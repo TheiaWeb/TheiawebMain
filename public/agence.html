@@ -502,41 +502,77 @@
 
       <div id="API_twitch">
         <div class="twitchStatus">
-           <!-- Titre live  -->
-        <div id="liveInfo">
-          <div class="infoContainer">
-            <i class="fas fa-play-circle"></i> <!-- Add your player icon here -->
-            <h2 id="streamTitle">Stream Title</h2>
+          <!-- Titre live  -->
+          <div id="liveInfo">
+            <div class="infoContainer">
+              <i class="fas fa-play-circle"></i> <!-- Add your player icon here -->
+              <h2 id="streamTitle">Stream Title</h2>
+            </div>
+          </div>
+        
+          <!-- Display the subscriber count and Twitch chat in a common container -->
+            <!-- Viewers count -->
+            <div class="viewersInfos" >
+              <div class="infoContainer">            
+                <i class="fas fa-user"></i> <!-- Add your user icon here -->
+                <p id="viewersCount">Viewers: 0</p> 
+              </div>
+            </div>
+        
+        
+          <!-- Next scheduled streams -->
+          <div id="nextStreamInfo" class="centered">
+            <i class="fas fa-calendar"></i> <!-- Replace this with your offline status icon -->
+            <h2 id="nextStreamTitle">Next Scheduled Stream</h2>
+            <p id="nextStreamDate">No scheduled streams so Date: Not available</p>
           </div>
         </div>
-        <!-- Live status -->
-        <div id="liveStatus">
-          <i class="fas fa-circle"></i> <!-- Replace this with your offline status icon -->
-          <p>Offline Status Message</p> <!-- Add your offline status message here -->
-        </div>
-      <!-- Next scheduled streams -->
-        <div id="nextStreamInfo">
-          <i class="fas fa-calendar"></i> <!-- Replace this with your offline status icon -->
-          <h2 id="nextStreamTitle">Next Scheduled Stream</h2>
-          <p id="nextStreamDate">No scheduled streams so Date: Not available</p>
-        </div>
-       
-        <!-- Display the subscriber count on the left above the player and chat -->
-          <div class="viewersInfos">
-          <div class="infoContainer">            
-            <i class="fas fa-user"></i> <!-- Add your user icon here -->
-            <p id="viewersCount">Viewers: 0</p>
-          </div>
-        </div>
-      </div>
-      <!-- Player twitch + chat + abonnées -->
+        
+        <!-- Player twitch + chat + abonnées -->
         <div id="subscriberPlayerAndChatContainer">
           <div id="twitch-embed"></div>
-          <div id="twitch-chat"></div>
-          <span id="subscriberCount">Loading...</span>
-        </div>      
+          <!-- The Twitch chat is already inside the viewersAndChatContainer -->
+        </div>
+        
+   
+  <div class="cardButtonsContainer">
+     <!-- Card 1 -->
+      <a href="https://www.twitch.tv/theiaweb" class="cardButton">
+      <img class="cardImage" src="img\twitch__logo.png" alt="Card Image 1">
+      <div class="cardContent">
+        <h3>SUBSCRIBE</h3>
+        <p>Abonne-toi et obtiens des avantages uniques !</p>
       </div>
-    
+      </a>
+
+    <!-- Card 2 -->
+    <a href="https://www.twitch.tv/bits" class="cardButton">
+      <img class="cardImage" src="img\twitch__bits.png" alt="Card Image 1">
+      <div class="cardContent">
+        <h3>BITS & BADGES</h3>
+        <p>Abonne-toi et obtiens des avantages uniques !</p>
+      </div>
+      </a>
+
+    <!-- Card 3 -->
+    <a href="https://www.twitch.tv/theiaweb/videos" class="cardButton">
+      <img class="cardImage" src="img\twitch__replay.png" alt="Card Image 1">
+      <div class="cardContent">
+        <h3>REPLAY & VIDEOS</h3>
+        <p>Des replays et vidéos unique pour en apprendre plus sur nous !</p>
+      </div>
+      </a>
+
+    <!-- Card 4 -->
+    <a href="https://theiaweb.fr/index.html" class="cardButton">
+      <img class="cardImage" src="img\logo-meta.png" alt="Card Image 1">
+      <div class="cardContent">
+        <h3>AGENCY</h3>
+        <p>Venez decouvrir notre agence de developpement web !</p>
+      </div>
+    </a>
+  </div>
+</div>  
     </section>
 
     <!-- {
@@ -713,6 +749,7 @@
 <script src="js/caroussel.js"></script>
   <script src="js/script.js" defer></script>
   <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
 </body>
 
 </html>
