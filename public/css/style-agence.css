@@ -485,14 +485,7 @@ position: relative;
   max-width: 500px;
 }
 
-.viewersAndChatContainer {
-  display: flex; /* Use flexbox to align the elements horizontally */
-  justify-content: flex-end;
-}
 
-.viewersInfos{
-  background-color: white;
-}
 
 #API_twitch {
   margin-top: 5em;
@@ -532,6 +525,8 @@ position: relative;
   margin-bottom: 20px;
   border-radius: 5px; /* Optional: Add rounded corners to the card */
   transition: background-color 0.3s; /* Add a smooth transition on background change */
+  padding: 1em;
+
 }
 
 .cardButton:hover {
@@ -539,15 +534,14 @@ position: relative;
 }
 
 .cardButton img {
-  max-width: 100%;
-  height: auto;
   background-color: var(--pink); /* Set the background color for the image */
-  border-radius: 5px 0 0 5px; /* Optional: Add rounded corners to the left side of the image */
+  border-radius: 5px; /* Optional: Add rounded corners to the left side of the image */
   padding: 10px; /* Optional: Add padding around the image */
+  border-radius: 5px;
 }
 .cardButton:hover img {
   background-color: white; /* Set the background color for the image */
-padding: 1em;
+  padding: 1em;
 }
 .cardContent {
   display: flex;
@@ -576,7 +570,7 @@ padding: 1em;
 
 .cardImage {
   width: 100px; /* Set the desired width */
-  height: 75px; /* Set the desired height */
+  height: 80px; /* Set the desired height */
 }
 
 .viewersInfos, .infoContainer {
@@ -585,6 +579,16 @@ padding: 1em;
   gap: 8px; /* Add some spacing between the icon and text */
   justify-content: center;
 }
+
+.viewersInfos{
+  background-color: white;
+}
+
+.stream-chat-header {
+  /* Add your styles for the source div here */
+  width: auto; /* We want the source div to take its natural width */
+}
+
 .infoContainer i {
   font-size: 36px; /* Adjust the icon size to make it bigger */
 }
