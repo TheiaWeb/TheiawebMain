@@ -3,22 +3,22 @@
 
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C16RVCG990"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C16RVCG990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-C16RVCG990');
-</script>
+    gtag('config', 'G-C16RVCG990');
+  </script>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theia Web | L'Agence Web 3.0</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Notre Agence Web - Theia Web | L'Agence Web 3.0</title>
   <link rel="icon" href="img/logo-meta.png" type="img/icon type">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-agence.css">
   <link rel="stylesheet" href="css/root.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,7 @@
     href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
   <script src="https://kit.fontawesome.com/746151b356.js" crossorigin="anonymous"></script>
 
 </head>
@@ -35,351 +36,412 @@
 <body>
 
 
- <!--================NAVBAR=================-->
+  <!--================NAVBAR=================-->
 
- <nav class="navbar__pc">
-  <div class="nav__content">
-    <a href="index.html"><img class="nav__content-logo" src="img/logo.png" alt=""></a>
-    <ul class="nav__menu">
-      <li><a id="menu" href="index.html#expertises">Expertises</a></li>
-      <li><a href="tarifs.html">Tarifs</a></li>
-      <li><a href="agence.html">L'agence</a></li>
-      <li class="nav__menu-btn"><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav class="navbar__pc">
+    <div class="nav__content">
+      <a href="index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
+      <ul class="nav__menu">
+        <li><a href="#">l'équipe</a></li>
+        <li><a href="#">services</a></li>
+        <li><a href="#">méthode</a></li>
+        <li><a href="#">twitch</a></li>
+        <li class="nav__menu-btn"><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="navbar__mobile">
+    <div class="navbar__mobile-head section">
 
-<div class="navbar__mobile">
-  <div class="navbar__mobile-head section">
-    <a href="index.html"><img class="navbar__mobile-logo" src="img/logo.png" alt=""></a>
-    <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt=""
-      onclick="toggleMenu()">
+      <img class="navbar__mobile-logo" src="img/logo.png" alt="">
+      <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt=""
+        id="menuIcon" onclick="toggleMenu()">
+    </div>
+
+    <div class="navbar__mobile-content" id="menu">
+      <ul>
+        <li><a href="index.html#expertises">Expertises</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="agence.html">L'agence</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+    </div>
+
   </div>
-  <div class="navbar__mobile-content" id="mobileMenu">
-    <ul>
-      <li><a href="index.html#expertises">Expertises</a></li>
-      <li><a href="tarifs.html">Tarifs</a></li>
-      <li><a href="agence.html">L'agence</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </div>
-</div>
+
 
 <!--================CONTENT=================-->
+<header>
+  <div class="header__parallax header__bg">
+    <h1 class="title h1-title title-center">Nous rendons le web</h1>
+    <p class="header__title-blue"><span class="header__title-blue-plus">+</span> Accessible</p>
+  </div>
+</header>
 
-<!--==Header==-->
+  <div class="content">
 
+    <!--==Accompagnement==-->
 
-  <header class="header" id="header">
-    <section id="home" class=" section grid-2-1">
-      <div class="home__content-left">
-        
+  <section class="section accompagnement">
+    <h2 class="title h2-title title-center">pour mieux vous accompagner</h2>
 
-          <h1 class="title h1-title home__title">AGENCE WEB <span>3.0</span></h1>
-        <p class="section__text"><b>Theia Web</b>, le cabinet de conseil digital rapide dédié à l'excellence en ligne.
-          Imaginez un monde où votre présence sur le web est puissante, captivante et pleinement exploitée pour
-          atteindre vos objectifs commerciaux.
-          Chez <b>Theia Web</b> nous nous engageons à créer le site web qui les atteindra.</p>
-
-        <div class="home__cta">
-          <button class="btn__pink"><a href="#expertises">NOS EXPERTISES</a></button>
-          <button class="btn__white"><a href="#contact">NOUS CONTACTER</a></button>
-        </div>
-      </div>
-      <div class="wow home__content-right svg-container"  id="svg-container">
-          <img id="animated-svg" src="img/big-elipse.png" alt="">
-      </div>
-    </section>
-  </header>
-
-<!--==Team==-->
-
-
-  <section id="team" class="wow section grid-base" data-wow-offset="1">
-
-    <img src="img/body-bg-contact.png" class="body__bg-team body__bg" alt="" id="animationBubbleSpecificTime">
-
-
-    <div class="team__content-left wow animate__animated animate__backInLeft ">
-      <img class="team__content-left-bg" src="img/team-fingerprint.png" alt="">
-      <div class="team__content-left-card team-po">
-        <p>Frontend</p>
-        <h4>Pauline</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-        </div>
-        <div class="team__rs team__rs-two">
-          <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
-
-        </div>
-    </div>
-    <div class="team__content-left-card team-vinc">
-        <p>Backend</p>
-        <h4>Vincent</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-        </div>
-    </div>
-    <div class="team__content-left-card team-max">
-        <p>Communication</p>
-        <h4>Maxime</h4>
-        <div class="team__rs team__rs-one">
-          <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-        </div>
-    </div>
-
-</div>
-
-
-    <div class="team__content-right wow animate__animated animate__fadeIn">
-        <h2 class="title h2-title">POURQUOI NOUS CHOISIR ?</h2>
-      
-      <p class="section__text">Chez <b>Theia Web</b>, nous croyons fermement que la création d’un site web est un vrai
-        plus qui va booster votre entreprise. Nous sommes là pour vous aider à naviguer dans les méandres du monde
-        digital, en vous fournissant des conseils stratégiques et des solutions personnalisées pour répondre à vos
-        besoins spécifiques.</p>
-      <!--<div>
-            <button class="btn__pink"><a href="">Nos réalisations</a></button>
-        </div>-->
-    </div>
-    <div class="team__content-mobile">
-      <div class="team__content-left-card team-po">
-          <p>Frontend</p>
-          <h4>Pauline</h4>
-          <div class="team__rs team__rs-one">
-            <a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-          </div>
-          <div class="team__rs team__rs-two">
-            <a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
-
-          </div>
-      </div>
-      <div class="team__content-left-card team-vinc">
-          <p>Backend</p>
-          <h4>Vincent</h4>
-          <div class="team__rs team__rs-one">
-            <a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-          </div>
-      </div>
-      <div class="team__content-left-card team-max">
-          <p>Communication</p>
-          <h4>Maxime</h4>
-          <div class="team__rs team__rs-one">
-            <a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-
-          </div>
-      </div>
-
-    </div>
-
-  </section>
-
-<!--==Expertises==-->
-
-
-  <section id="expertises" class="section">
-    <div class="expertises__content wow animate__animated animate__fadeIn">
-        <h2 class="title h2-title">Nos Expertises</h2>
-      <h3 class="section__subtitle">Vous souhaitez booster la croissance de votre entreprise ? La solution se trouve ici
-      </h3>
-      <p class="section__text">Que vous souhaitiez développer une présence en ligne percutante ou optimiser votre site
-        web actuel pour une meilleure visibilité, notre équipe est prête à relever tous les défis. Nous sommes
-        passionnés par la réussite de nos clients et nous nous engageons à les accompagner tout au long de leur
-        trensition numérique, en leur offrant un soutien constant et des conseils avisés.</p>
-    </div>
-    <div class="expertises__carrousel grid-expertises animate__animated animate__fadeInUp" data-wow-offset="3">
-      <div class="expertises__carrousel-card">
-        <div class="expertises__cards card-one">
-          <h4>Design UX/UI</h4>
-          <div class="expertises__carrousel-card-btn">
-            <span class="tabs__toggle is-active">Voir Plus</span>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="expertises__carrousel-card">
-        <div class="expertises__cards card-two">
-          <h4>Développement</h4>
-          <div class="expertises__carrousel-card-btn">
-            <span class="tabs__toggle is-active">Voir Plus</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="expertises__carrousel-card">
-        <div class="expertises__cards card-three">
-          <h4>Communication</h4>
-          <div class="expertises__carrousel-card-btn">
-            <span class="tabs__toggle is-active">Voir Plus</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="expertises__carrousel-card">
-        <div class="expertises__cards card-four">
-          <h4>Branding</h4>
-          <div class="expertises__carrousel-card-btn">
-            <span class="tabs__toggle is-active">Voir Plus</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="tabs__content ">
-      <div class="tabs__content-head">
-        <h5 class="tabs__content-title">Design UX/UI</h5>
-        <hr class="tabs__content-separation">
-      </div>
-      <div class="tabs__content-content">
-        <p>Chez ThéiaWeb, notre expertise en matière d'UX/UI (Expérience Utilisateur /Interface Utilisateur) est l'un de
-          nos principaux atouts. </p>
-        <p>Nous comprenons que la conception d'une expérience utilisateur dynamique est essentielle pour capter
-          l'attention des utilisateurs, les engager et les convertir en clients fidèles.</p>
-      </div>
-    </div>
-
-    <div class="tabs__content" id="#devweb">
-      <div class="tabs__content-head">
-        <h5 class="tabs__content-title">Developpement Web</h5>
-        <hr class="tabs__content-separation">
-      </div>
-      <div class="tabs__content-content">
-        <p>Chez ThéiaWeb, notre expertise en développement web est au cœur de notre activité. </p>
-        <p>Nous maîtrisons les technologies avancées et nous nous tenons constamment à jour des dernières tendances et
-          pratiques en matière de développement. </p>
-      </div>
-    </div>
-
-    <div class="tabs__content" id="#communication">
-      <div class="tabs__content-head">
-        <h5 class="tabs__content-title">Communication</h5>
-        <hr class="tabs__content-separation">
-      </div>
-      <div class="tabs__content-content">
-        <p>Chez ThéiaWeb, nous comprenons l'importance de la communication efficace dans le monde numérique en constante
-          évolution. </p>
-        <p>Nous mettons en avant notre expertise en communication pour aider nos clients à atteindre leurs objectifs
-          commerciaux et à se démarquer sur le web. </p>
-      </div>
-    </div>
-
-    <div class="tabs__content" id="#branding">
-      <div class="tabs__content-head">
-        <h5 class="tabs__content-title">Branding</h5>
-        <hr class="tabs__content-separation">
-      </div>
-      <div class="tabs__content-content">
-        <p>Chez ThéiaWeb, nous sommes fiers de notre expertise en branding et de notre capacité à aider nos clients à
-          construire des marques fortes et mémorables. </p>
-        <p>Nous comprenons que le branding va au-delà de la simple création d'un logo. </p>
-      </div>
-    </div>
-  </section>
-
-<!--==Roadmap==-->
-
-  <!--<section id="roadmap" class="section">
-    <div class="section-titlebox"> 
-        <p class="section__title-back back-last">ROADMAP</p>
-        <p class="section__title-back back-middle">ROADMAP</p>
-        <h2 class="section__title">ROADMAP</h2>
-    </div>
-</section>-->
-
-<!--==Contact==-->
-
-
-  <section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
-    <div class="contact__header">
-        <h2 class="title h2-title title-center">Nous contacter</h2>
-
-
-
-      <p class="section__text">
-        Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
-        <br><br>N'hésitez pas à nous contacter via le formulaire ci-dessous ou à utiliser nos coordonnées pour nous joindre directement. Nous sommes impatients de travailler avec vous pour concrétiser vos ambitions numériques.</p>
-    </div>
-    <img src="img/contact-elipse.png" class="contact__img" alt="" id="animationHomeImage">
-    <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
-    <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
-    <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
-
-
-    <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
-      <div class="form__content">
-        <div class="grid-1-1">
-          <div class="contact__category">
-            <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
-          </div>
-          <div class="contact__category">
-            <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
-          </div>
-        </div>
-        <div class="grid-1-1">
-          <div class="contact__category">
-            <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr" required>
-          </div>
-          <div class="contact__category">
-            <label class="contact__label" for="phone">Téléphone</label>
-            <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
-          </div>
-        </div>
-        <div class="grid-1-1">
-          <div class="contact__category">
-            <label class="contact__label" for="company">Société</label>
-            <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
-          </div>
-          <div class="contact__category">
-            <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
-            <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message" required>
-          </div>
-        </div>
-        <div class="contact__msg">
-          <label class="contact__label" for="message">Expliquez nous votre projet <span class="contact__star">&#42;</span></label>
-          <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..." required></textarea>
-        </div>
-        <div class="contact__footer-top">
-          <div class="contact__footer-cgucheck">
-            <input type="checkbox" id="cgu-check" name="cgu" required>
-            <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
-          </div>
-          <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
-        </div>
-        <div class="contact__footer-bottom">
-          <button class="green_btn" type="submit">Envoyer le Message</button>
-          <p class="contact__footer-btn-under">Réponse sous 48h</p>
-        </div>
-      </div>
-    </form>
-
-    <div class="popupFORM">
-      <div class="toast" id="popupFORM">
-        <div class="toast-content">
-          <i class="fas fa-solid fa-check check"></i>
-          <div class="message">
-            <span class="text text-1">Succès</span>
-            <span class="text text-2">Votre message a bien été envoyé !</span>
-          </div>
-        </div>
-        <i class="fa-solid fa-xmark close" id = "closeButton"></i>
-      </div>
-    </div>
   
-  </section>
+    <p class="accompagnement__text">Theia web est ainsi fondée sur la base d'un constat simple :</p>
+    <div class="accompagnement__quotation-box">
+      <img src="img/quotationmark-left.png" alt="" class="accompagnement__quotation-img">
+      <p class="accompagnement__text">La technologie avance à pas de géant.<br>
+        Avoir un site web en  est devenu une nécessité pour rivaliser avec la concurence 
+        et ce quelque soit la taille de votre entreprise.<br>
+        <br>
+        Mais un problème persiste !</p>
+        <img src="img/quotationmark-right.png" alt="" class="accompagnement__quotation-img">
+      </div>
+      <div class="accompagnement__explanation-wrapper">
+        <div class="accompagnement__explanation-box">
+          <p class="accompagnement__explanation">Survoller pour comprendre le problème</p>
+        </div>
+        <img src="img/body-bg-contact.png" alt="" class="body-bg-2">
+
+        <img src="img/body-bg-contact.png" alt="" class="body-bg-3">
+      </div>
+
+      <p class="accompagnement__text">Et ce pour plusieurs raisons </p>
+      <div class="accompagnement__cards-listing grid-auto-3">
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°1</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>Le manque de connaissances préalables</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°2</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>Le vocabulaire technique complexe</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°3</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>La rapidité d'évolution des technologique</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°4</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>La complexité des langages de programmation</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°5</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>Les problèmes liés au dépannage</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°6</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>La sécurité informatique.<br>Oui, oui la sécurité.</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°7</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>La compréhension du matériel informatique</p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°8</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>Les systèmes d'exploitation...<br>
+
+              Non sans déconner c'est quoi ça ???
+              <br><br>
+              Bonne question mdrrrrrr warning warning windows pas le meme dev que safari
+            </p>
+          </div>
+        </div>
+        <div class="accompagnement__cards">
+          <div class="accompagnement__card accompagnement__card-front">
+            <p>N°9</p>
+          </div>
+          <div class="accompagnement__card accompagnement__card-back">
+            <p>Enfin, la diversité des domaines de l'informatique</p>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+      <img src="img/body-bg-contact.png" alt="" class="body-bg-1">
+      <img src="img/body-bg-contact.png" alt="" class="body-bg-4">
+
+
+    </section>
+
+
+    <!--==Team==-->
+
+  <section class="section team">
+      <h2 class="title h2-title title-center">Une équipe pour vous aider</h2>
+    <p class="solutions__text">Nous avons acquis une expertise approfondie dans le domaine du développement web en faisant nos armes dans le milieu du gaming. 
+<br><br>
+      Chez Theia web nous nous démarquons par une approche du web <b>simplifiée sans complexité !</b><br> 
+      Avec nous <b>vous allez aprendre mais surtout comprendre !</b></p>
+
+      <div class="team__row">
+        <div class="team-member-area team__card-maxime">
+          <div class="team-member">
+            <div class="team-member-img">
+              <img src="img/team-card-maxime.png" alt="" >
+            </div>
+
+            <div class="team-content">
+              <div class="team-detail">
+                <h3>Maxime Taunais</h3>
+                <p>CEO & Manager</p>
+              </div>
+              <hr class="team-content-hr"> 
+              <p class="team__inner-text">CEO dynamique et visionnaire. Avec son esprit stratégique et son expertise en gestion, Maxime est le capitaine de notre navire numérique, prêt à vous guider vers de nouveaux horizons en ligne.</p>
+              <div class="team__social-icons">
+                <ul>
+                  <li><a href="https://www.linkedin.com/in/maxime-taunais-%F0%9F%8C%8A-646309209/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="team-member-area team__card-pauline">
+          <div class="team-member">
+            <div class="team-member-img">
+              <img src="img/team-card-pauline.png" alt="" >
+            </div>
+
+            <div class="team-content">
+              <div class="team-detail">
+                <h3>Pauline Mila-Alonso</h3>
+                <p>Développeuse Frontend</p>
+              </div>
+              <hr class="team-content-hr"> 
+              <p class="team__inner-text">Pauline est la magicienne qui donnera vie à vos idées, créant des interfaces utilisateur à couper le souffle et des sites web captivants qui laisseront une impression durable sur vos visiteurs.</p>
+              <div class="team__social-icons">
+                <ul>
+                  <li><a href="https://www.linkedin.com/in/pauline-mila-alonso/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                  <li><a href="https://pauline-milaalonso.fr/" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a></li>
+                  <li><a href="https://github.com/Milhaal" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="team-member-area team__card-vincent">
+          <div class="team-member">
+            <div class="team-member-img">
+              <img src="img/team-card-vincent.png" alt="" >
+            </div>
+
+            <div class="team-content">
+              <div class="team-detail">
+                <h3>Vincent Charles</h3>
+                <p>Développer Backend</p>
+              </div>
+              <hr class="team-content-hr"> 
+              <p class="team__inner-text">Vincent assure la stabilité et la performance de votre infrastructure web, garantissant que tout fonctionne comme sur des roulettes et que vos utilisateurs profitent d'une expérience sans faille.</p>
+              <div class="team__social-icons">
+                <ul>
+                  <li><a href="https://www.linkedin.com/in/charles-vincent123/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                  <li><a href="https://github.com/Haxxxxxx" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <!--==Twitch==-->
+
+  <section class="section agence-twitch" id="twitch">
+    
+        <h2 class="title h2-title title-center">on s'invite dans vos ecrans</h2>
+
+      <div class="grid-1-1 grid-agence">
+        <p class="solutions__text">Avec l'arrivée du streaming, on va venir travailler chez vous depuis chez nous ! On
+          vous explique tout.
+          <br><br>
+          Chez Thei web nous croyons fermement qu'une communication simple et comprehensible permet de favoriser l'accès
+          à la connaissance relative au web.
+          <br><br>
+          Pour ça, nous utilisons les pateformes de streaming pour que vous puissiez échanger en direct avec nous avin
+          de comprendre notre travail.
+        </p>
+        <img src="img/twitch__img.png" alt="" class="twitch__img">
+      </div>
+
+      <div id="API_twitch">
+        <div class="twitchStatus">
+           <!-- Titre live  -->
+        <div id="liveInfo">
+          <div class="infoContainer">
+            <i class="fas fa-play-circle"></i> <!-- Add your player icon here -->
+            <h2 id="streamTitle">Stream Title</h2>
+          </div>
+        </div>
+        <!-- Live status -->
+        <div id="liveStatus">
+          <i class="fas fa-circle"></i> <!-- Replace this with your offline status icon -->
+          <p>Offline Status Message</p> <!-- Add your offline status message here -->
+        </div>
+      <!-- Next scheduled streams -->
+        <div id="nextStreamInfo">
+          <i class="fas fa-calendar"></i> <!-- Replace this with your offline status icon -->
+          <h2 id="nextStreamTitle">Next Scheduled Stream</h2>
+          <p id="nextStreamDate">No scheduled streams so Date: Not available</p>
+        </div>
+       
+        <!-- Display the subscriber count on the left above the player and chat -->
+          <div class="viewersInfos">
+          <div class="infoContainer">            
+            <i class="fas fa-user"></i> <!-- Add your user icon here -->
+            <p id="viewersCount">Viewers: 0</p>
+          </div>
+        </div>
+      </div>
+      <!-- Player twitch + chat + abonnées -->
+        <div id="subscriberPlayerAndChatContainer">
+          <div id="twitch-embed"></div>
+          <div id="twitch-chat"></div>
+          <span id="subscriberCount">Loading...</span>
+        </div>      
+      </div>
+    
+    </section>
+
+    <!-- {
+    "access_token": "8rg8hftxr0k1y6pnk1zjf3vznd8f3d",
+    "expires_in": 4715889,
+    "token_type": "bearer"
+} -->
+
+    <!--==Contact==-->
+
+
+<section id="contact" class="section wow animate__animated animate__fadeInUp" data-wow-offset="1">
+  <div class="contact__header">
+      <h2 class="title h2-title title-center">Nous contacter</h2>
+
+
+
+        <p class="section__text">
+          Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe
+          passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
+          <br><br>N'hésitez pas à nous contacter via le formulaire ci-dessous ou à utiliser nos coordonnées pour nous
+          joindre directement. Nous sommes impatients de travailler avec vous pour concrétiser vos ambitions numériques.
+        </p>
+      </div>
+      <img src="img/contact-elipse.png" class="contact__img" alt="">
+      <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
+      <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
+      <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
+
+
+      <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
+        <div class="form__content">
+          <div class="grid-1-1">
+            <div class="contact__category">
+              <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
+              <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
+            </div>
+            <div class="contact__category">
+              <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
+              <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
+            </div>
+          </div>
+          <div class="grid-1-1">
+            <div class="contact__category">
+              <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
+              <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr"
+                required>
+            </div>
+            <div class="contact__category">
+              <label class="contact__label" for="phone">Téléphone</label>
+              <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
+            </div>
+          </div>
+          <div class="grid-1-1">
+            <div class="contact__category">
+              <label class="contact__label" for="company">Société</label>
+              <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
+            </div>
+            <div class="contact__category">
+              <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
+              <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message"
+                required>
+            </div>
+          </div>
+          <div class="contact__msg">
+            <label class="contact__label" for="message">Expliquez nous votre projet <span
+                class="contact__star">&#42;</span></label>
+            <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..."
+              required></textarea>
+          </div>
+          <div class="contact__footer-top">
+            <div class="contact__footer-cgucheck">
+              <input type="checkbox" id="cgu-check" name="cgu" required>
+              <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales
+                    d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
+            </div>
+            <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
+          </div>
+          <div class="contact__footer-bottom">
+            <button class="green_btn" type="submit">Envoyer le Message</button>
+            <p class="contact__footer-btn-under">Réponse sous 48h</p>
+          </div>
+        </div>
+      </form>
+
+      <div class="popupFORM">
+        <div class="toast" id="popupFORM">
+          <div class="toast-content">
+            <i class="fas fa-solid fa-check check"></i>
+            <div class="message">
+              <span class="text text-1">Succès</span>
+              <span class="text text-2">Votre message a bien été envoyé !</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-xmark close" id="closeButton"></i>
+        </div>
+      </div>
+
+    </section>
+
+
+  </div>
+
 
   <!--================ FOOTER =================-->
 
@@ -394,18 +456,20 @@
         <a href="tel:0650455667">
           <div class="footer__contact-phone">
             <img src="img/footer-phone.png" alt="">
-           <p>06 50 45 56 67</p>
+            <p>06 50 45 56 67</p>
           </div>
         </a>
-        
+
         <p>email@theiaweb.fr</p>
         <p class="footer__button"><a href="index.html#contact">Demander un devis</a></p>
         <div class="footer__links-rs">
-          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i
+              class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/theia_web/" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
           <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
           <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
-          <a href="https://www.youtube.com/channel/UCfcGY1-QuEB-cvku0epS7lw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.youtube.com/channel/UCfcGY1-QuEB-cvku0epS7lw" target="_blank"><i
+              class="fa-brands fa-youtube"></i></a>
 
         </div>
       </div>
@@ -414,7 +478,7 @@
           <h4 class="footer__column-title">Informations</h4>
           <hr class="footer__separation">
         </div>
-      <a href="index.html"> <img class="footer__logo" src="img/footer-logo.png" alt=""></a> 
+        <a href="index.html"> <img class="footer__logo" src="img/footer-logo.png" alt=""></a>
         <p class="footer__infos">L'agence est ouverte du Lundi au Vendredi
           de 9H00 à 12H00 et de 14H00 à 18H00</p>
       </div>
@@ -438,110 +502,19 @@
     </div>
   </footer>
 
-    <!--================ TOP BTN =================-->
+
+
+
+  <!--================ TOP BTN =================-->
 
   <div class="" id="myBtn">
     <button class="btn-top" onclick="topFunction()" title="Go to top">
       <i class="fa-solid fa-arrow-up"></i>
   </div>
 
-
-  <!--ZONE DE TEST-->
-  <!-- API TWITCH  -->
-  <!-- <div id="video-container"></div> -->
-
-
-  <div id="popupRGPD" >
-    <div class="popupRGPD__content">
-      <h2>Consentement RGPD</h2>
-      <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous
-        acceptez notre <span><a href="legal/politique-confidentialité.html" target="_blank">politique de confidentialité</a></span>.</p>
-      <button id="acceptButton" class="btn__rgpd">J'accepte</button>
-    </div>
-  </div>
-
-  <!-- 
-    
-    HTML FORM FOR NEWSLETTER SUBSCRIPTION + MODAL VALIDATION
-    
-  <form id="newsletterForm">
-  <input type="email" id="emailInput" placeholder="Enter your email" required>
-  <button type="submit">Subscribe</button>
-</form>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close"><img src="img/navbar-close.png" alt=""></span>
-      <p id="modalText">Message envoyé</p>
-    </div>
-  </div> 
-
--->
-  <script src="js/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script>
-//#region FIREBASE CONFIG + GET CLIENT DATA DO NOT MOVE
-  var firebase = window.firebase;
-  var firestore = window.firebase.firestore;
-  const firebaseConfig = {
-  apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-  authDomain: "formtheia.firebaseapp.com",
-  databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "formtheia",
-  storageBucket: "formtheia.appspot.com",
-  messagingSenderId: "335132907653",
-  appId: "1:335132907653:web:d4620962ca0a24131571ec",
-  measurementId: "G-5F4K9SXY34"
-};
-  firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
-
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  var surname = document.getElementById('surname').value;
-  var name = document.getElementById('name').value;
-  var email = document.getElementById('email').value;
-  var phone = document.getElementById('phone').value;
-  var company = document.getElementById('company').value;
-  var subject = document.getElementById('subject').value;
-  var message = document.getElementById('message').value;
-
-  db.collection('contacts').add({
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    CompagnyInfos: {
-      surname: surname,
-      name: name,
-      email: email,
-      phone: phone,
-      company: company,
-      subject: subject,
-      message: message,
-    },
-  })
-  .then(function(docRef) {
-    document.getElementById('surname').value = '';
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('company').value = '';
-    document.getElementById('subject').value = '';
-    document.getElementById('message').value = '';
-
-    firebase.firestore().collection('contacts').doc(docRef.id).onSnapshot(function(snapshot) {
-      const formData = snapshot.data();
-      if (formData && formData.saved) {
-        console.log("Data Saved !!")
-      }
-    });
-  })
-  .catch(function(error) {
-    console.error('Error submitting form:', error);
-  });
-});
-//#endregion
-</script>  
-
+<script src="js/caroussel.js"></script>
+  <script src="js/script.js" defer></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </body>
 
 </html>
