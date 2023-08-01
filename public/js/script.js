@@ -1,31 +1,60 @@
 //#region TOGGLE MENU
 function toggleMenu() {
-  const menu = document.getElementById('mobileMenu'); // Update the ID here
-  const menuIcon = document.getElementById('iconImage'); 
+  const menu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  const burgerIconSrc = 'img/navbar-burger.png';
+  const closeIconSrc = 'img/navbar-close.png';
+
   if (menu.classList.contains('menu-open')) {
     menu.classList.remove('menu-open');
+    menuIcon.src = burgerIconSrc;
   } else {
     menu.classList.add('menu-open');
-    menuIcon.src = 'img/navbar-close.png'; // Replace with the image path for the close icon
+    menuIcon.src = closeIconSrc;
   }
 }
 //#endregion
-//#region TOGGLE TABS
-const tabsPortfolio = document.querySelectorAll('.tabs__toggle');
-const contents = document.querySelectorAll('.tabs__content');
+//#region TOGGLE MENU
+ // Lorsque la page est chargée
+document.addEventListener("DOMContentLoaded", () => {
+  const cardButtons = document.querySelectorAll(".expertise__card-panel-btn");
+  const popups = document.querySelectorAll(".popup-expertise");
 
-tabsPortfolio.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    contents.forEach((content) => {
-      content.classList.remove('is-active');
+  // Fonction pour afficher la pop-up avec un contenu spécifique
+  function showPopup(index) {
+    popups[index].style.display = "block";
+  }
+
+  // Fonction pour fermer la pop-up
+  function closePopup(index) {
+    popups[index].style.display = "none";
+  }
+
+  // Ajouter un gestionnaire d'événements pour chaque bouton "En savoir plus"
+  cardButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      showPopup(index);
     });
-    tabsPortfolio.forEach((tab) => {
-      tab.classList.remove('is-active');
+  });
+
+  // Ajouter un gestionnaire d'événements pour chaque bouton de fermeture de la pop-up
+  const popupCloseButtons = document.querySelectorAll(".popup-expertise-close");
+  popupCloseButtons.forEach((closeButton, index) => {
+    closeButton.addEventListener("click", () => {
+      closePopup(index);
     });
-    contents[index].classList.add('is-active');
-    tabsPortfolio[index].classList.add('is-active');
+  });
+
+  // Ajouter un gestionnaire d'événements pour écouter les clics en dehors de la pop-up
+  window.addEventListener("click", (event) => {
+    popups.forEach((popup, index) => {
+      if (event.target === popup) {
+        closePopup(index);
+      }
+    });
   });
 });
+
 //#endregion
 //#region TOGGLE TABS PRICE
 const tabsPrice = document.querySelectorAll('.freehand__price__toggle');

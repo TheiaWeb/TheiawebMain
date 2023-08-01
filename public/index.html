@@ -52,24 +52,20 @@
   </nav>
   <div class="navbar__mobile">
     <div class="navbar__mobile-head section">
-
       <img class="navbar__mobile-logo" src="img/logo.png" alt="">
-      <img class="navbar__mobile-menuIcon" id="iconImage" src="img/navbar-burger.png" width="24px" height="21px" alt=""
-        id="menuIcon" onclick="toggleMenu()">
+      <img class="navbar__mobile-menuIcon" id="menuIcon" src="img/navbar-burger.png" width="24px" height="21px" alt="" onclick="toggleMenu()">
     </div>
-
-    <div class="navbar__mobile-content" id="menu">
+  
+    <div class="navbar__mobile-content" id="mobileMenu">
       <ul>
         <li><a href="index.html#expertises">Expertises</a></li>
         <li><a href="tarifs.html">Tarifs</a></li>
         <li><a href="agence.html">L'agence</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
-
     </div>
-
   </div>
-
+  
 
 <!--================CONTENT=================-->
 <header>
@@ -286,7 +282,54 @@
     <h2 class="title h2-title title-center">Notre expertise </h2>
   <p class="solutions__text">TheiaWeb se distingue par son expertise en création de sites web sur mesure, alliant esthétique et performances avancées. Notre équipe assure un design attractif et une expérience utilisateur optimale pour aider les entreprises à se démarquer dans le monde numérique.</p>
 
+<div class="expertise__row">
+  <div class="expertise__card expertise__card-creation">
+    <img src="img/expertise-1.png" alt="">
+    <div class="expertise__card-panel">
+      <p class="expertise__card-panel-title">CRéATION DE SITE WEB</p>
+      <button class="expertise__card-panel-btn">En savoir plus <i class="fa-solid fa-arrow-right-long"></i></button>    </div>
+  </div>
+   <!-- Pop-up 1 -->
+   <div class="popup-expertise">
+    <div class="popup-expertise-content">
+        <h2>CRéATION DE SITE WEB</h2>
+        <p>TheiaWeb excelle dans la création de sites web sur mesure. Nous adoptons une approche personnalisée en fonction de vos besoins spécifiques. Nous comprenons que chaque entreprise est unique, avec sa propre identité, ses objectifs et son public cible. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour comprendre leurs besoins et leurs aspirations.</p>
 
+      <span class="popup-expertise-close">&times;</span>
+    </div>
+  </div>
+
+  <div class="expertise__card expertise__card-refonte">
+    <img src="img/expertise-2.png" alt="">
+    <div class="expertise__card-panel">
+      <p class="expertise__card-panel-title">REFONTE DE SITE WEB</p>
+      <button class="expertise__card-panel-btn">En savoir plus <i class="fa-solid fa-arrow-right-long"></i></button>    </div>
+  </div>
+   <!-- Pop-up 2 -->
+   <div class="popup-expertise">
+    <div class="popup-expertise-content">
+      <h2>REFONTE DE SITE WEB</h2>
+      <p>L'expertise de TheiaWeb en matière de communication digitale est une force motrice pour aider les entreprises à réussir en ligne. Notre équipe met l'accent sur la création de stratégies de communication personnalisées pour chaque client, en utilisant des canaux numériques tels que les médias sociaux, l'e-mail marketing, les campagnes publicitaires en ligne et bien plus encore.</p>
+      <span class="popup-expertise-close">&times;</span>
+    </div>
+  </div>
+
+  <div class="expertise__card expertise__card-communication">
+    <img src="img/expertise-3.png" alt="">
+    <div class="expertise__card-panel">
+      <p class="expertise__card-panel-title">COMMUNICATION DIGITALE</p>
+      <button class="expertise__card-panel-btn">En savoir plus <i class="fa-solid fa-arrow-right-long"></i></button>    </div>
+  </div>
+   <!-- Pop-up 3 -->
+   <div class="popup-expertise">
+    <div class="popup-expertise-content">
+      <h2>COMMUNICATION DIGITALE</h2>
+      <p>Lors d'une refonte de site web, nous prenons en compte les aspects essentiels tels que l'esthétique, l'expérience utilisateur, la compatibilité mobile et l'optimisation pour les moteurs de recherche. Nous analysons minutieusement la structure et le contenu du site actuel pour identifier les améliorations nécessaires.</p>
+      <span class="popup-expertise-close">&times;</span>
+    </div>
+  </div>
+
+</div>
 
   </section>
 
@@ -574,6 +617,7 @@
   </div>
 
 <script src="js/caroussel.js"></script>
+
   <script src="js/script.js" defer></script>
   <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </body>
