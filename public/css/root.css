@@ -75,7 +75,7 @@
   /* Font size for tablet */
   @media screen and (min-width: 769px) and (max-width: 1023px) {
     :root {
-      --big-font-size: 6rem;
+      --big-font-size: 4.5rem;
       --h1-font-size: 3.5rem;
       --h2-font-size: 2rem;
       --h3-font-size: 1.5rem;
@@ -91,7 +91,7 @@
     
     :root {
      /*========== Font Size ==========*/
-          --big-font-size: 8rem;
+          --big-font-size: 5.5rem;
           --h1-font-size: 4rem;
           --h2-font-size: 2.5rem;
           --h3-font-size: 2rem;
@@ -182,8 +182,8 @@ li{
   .section__text {
     font-family: var(--roboto);
     font-weight: var(--font-regular);
-    font-size: var(--normal-font-size);
-    text-align: justify;
+    font-size: var(--small-font-size);
+    text-align: center;
   }  
   .btn__pink{
     border: 2px solid var(--pink);
@@ -242,7 +242,7 @@ li{
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 20px;
     align-items: center;
   }
   @media screen and (max-width: 768px) {
@@ -269,9 +269,9 @@ li{
     grid-gap: 15px;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1000px) {
       .grid-auto-3 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
 
     }
@@ -691,6 +691,7 @@ footer {
 
 
 @media only screen and (max-width: 1280px) {
+  .body__bg,
   .contact__img {
     display: none;
   }
