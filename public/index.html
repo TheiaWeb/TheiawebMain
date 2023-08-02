@@ -28,7 +28,6 @@
     href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
   <script src="https://kit.fontawesome.com/746151b356.js" crossorigin="anonymous"></script>
 
 </head>
@@ -432,48 +431,70 @@
 
       <div id="API_twitch">
         <div class="twitchStatus">
-           <!-- Titre live  -->
-        <div id="liveInfo">
-          <div class="infoContainer">
-            <i class="fas fa-play-circle"></i> <!-- Add your player icon here -->
-            <h2 id="streamTitle">Stream Title</h2>
+          <div class="liveInfo">
+              <i class="fas fa-play-circle"></i>
+              <span id="streamTitle"></span>
           </div>
+
+          <div class="viewersInfos">
+            <i class="fas fa-user"></i> 
+            <span id="subscriberCount"></span>
         </div>
-        <!-- Live status -->
-        <div id="liveStatus">
-          <i class="fas fa-circle"></i> <!-- Replace this with your offline status icon -->
-          <p>Offline Status Message</p> <!-- Add your offline status message here -->
-        </div>
-      <!-- Next scheduled streams -->
-        <div id="nextStreamInfo">
-          <i class="fas fa-calendar"></i> <!-- Replace this with your offline status icon -->
+
+        <!-- <div id="nextStreamInfo">
+          <i class="fas fa-calendar"></i> 
           <h2 id="nextStreamTitle">Next Scheduled Stream</h2>
           <p id="nextStreamDate">No scheduled streams so Date: Not available</p>
-        </div>
-       
-        <!-- Display the subscriber count on the left above the player and chat -->
-          <div class="viewersInfos">
-          <div class="infoContainer">            
-            <i class="fas fa-user"></i> <!-- Add your user icon here -->
-            <p id="viewersCount">Viewers: 0</p>
-          </div>
-        </div>
+        </div> -->
+                
       </div>
       <!-- Player twitch + chat + abonnées -->
         <div id="subscriberPlayerAndChatContainer">
           <div id="twitch-embed"></div>
-          <div id="twitch-chat"></div>
-          <span id="subscriberCount">Loading...</span>
+          <div id="twitchChatSize"></div>
         </div>      
       </div>
-    
-    </section>
+      <div class="twitch_buttons">
+        <a href="https://www.twitch.tv/theiaweb" target="_blank">
+          <div class="button-container">
+            <img src="img\twitch.svg" alt="">
+            <div class="text-container">
+              <h3>Direct live</h3>
+              <p>Rejoins nous pour échanger directement avec l’équipe !</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.twitch.tv/theiaweb" target="_blank">
+          <div class="button-container">
+            <img src="img\abonne.svg" alt="">
+            <div class="text-container">
+              <h3>S'Abonner</h3>
+              <p>Abonne toi et obtiens plein d‘avantages !</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.twitch.tv/theiaweb/videos" target="_blank">
+          <div class="button-container">
+            <img src="img\pc.svg" alt="">
+            <div class="text-container">
+              <h3>Replay Live</h3>
+              <p>Accède aux rediffusions instantanées des lives !</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.twitch.tv/theiaweb/schedule" target="_blank">
+          <div class="button-container">
+            <img src="img\calendrier.svg" alt="">
+            <div class="text-container">
+              <h3>Programme</h3>
+              <p>Check le planning pour ne rien rater de nos Lives !</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      
 
-    <!-- {
-    "access_token": "8rg8hftxr0k1y6pnk1zjf3vznd8f3d",
-    "expires_in": 4715889,
-    "token_type": "bearer"
-} -->
+    </section>
 
     <!--==Contact==-->
 
@@ -664,7 +685,6 @@
       <i class="fa-solid fa-arrow-up"></i>
   </div>
 
-<script src="js/caroussel.js"></script>
 
   <script src="js/script.js" defer></script>
   <script src="https://embed.twitch.tv/embed/v1.js"></script>

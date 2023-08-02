@@ -718,23 +718,77 @@ align-items: flex-start;
   text-align: left;
 }
 
-
-.twitchStatus{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 #API_twitch {
   margin-top: 5em;
   position: relative; /* Make the parent container position relative */
 }
 
-#nextStreamInfo {
-  position: absolute;
-  top: 40%;
-  background-color: rgba(0, 0, 0, 0.7); /* Set a background color for visibility */
-  color: white; /* Set text color */
-  padding: 10px; /* Add padding for better readability */
+.twitchStatus{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  background-color: var(--blue);
+  border-radius: 2em 2em 0 0;
+}
+
+.liveInfo{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.liveInfo i {
+  margin: 0 5em 0 2em;
+}
+.viewersInfos{
+ width: 340px;
+ background-color: #171717;
+ color:#FCFDF2;
+ padding: 1rem;
+ border-radius: 0 2em 0 0;
+}
+.viewersInfos i {
+  margin: 0 2em 0 -2em ;
+}
+
+.twitch_buttons {
+  display: flex;
+}
+
+.twitch_buttons a {
+  color:#171717;
+  display: flex;
+  align-items: stretch;
+  border: none;
+  margin: 1em;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.button-container img {
+  background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
+  border-radius: 25% 0% 0% 25%;
+  padding: 1rem;
+  max-width: 100px; /* Adjust the image size as needed */
+}
+
+.text-container {
+  text-align:left;
+  margin: 10px;
+  background-color: #FCFDF2;
+}
+
+.text-container h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.text-container p {
+  margin: 0;
+  font-size: 14px;
 }
 
