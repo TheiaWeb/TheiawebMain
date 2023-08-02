@@ -706,7 +706,9 @@ align-items: flex-start;
 .twitch__img {
   width: 80%;
 }
-
+.agence-twitch h2 {
+  margin: 50px;
+}
 .twitch__text {
   color: var(--black);
   text-align: justify;
