@@ -23,8 +23,7 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer">  <link
     href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -90,7 +89,7 @@
 
     <!--==Accompagnement==-->
 
-  <section class="section accompagnement" id="accompagnement">
+  <section class="section accompagnement wow animate__animated animate__fadeInUp" id="accompagnement">
     <h2 class="title h2-title title-center">pour mieux vous accompagner</h2>
 
   
@@ -212,7 +211,7 @@
 
     <!--==Team==-->
 
-  <section class="section team" id="team">
+  <section class="section team wow animate__animated animate__fadeInUp" id="team" >
       <h2 class="title h2-title title-center">Une équipe pour vous aider</h2>
     <p class="solutions__text">Nous avons acquis une expertise approfondie dans le domaine du développement web en faisant nos armes dans le milieu du gaming. 
 <br><br>
@@ -294,9 +293,9 @@
     </section>
 
    <!--==Expertise==-->
-   <section class="section" id="services">
+   <section class="section wow animate__animated animate__fadeInUp" id="services">
     <h2 class="title h2-title title-center">Notre expertise </h2>
-  <p class="solutions__text">TheiaWeb se distingue par son expertise en création de sites web sur mesure, alliant esthétique et performances avancées. Notre équipe assure un design attractif et une expérience utilisateur optimale pour aider les entreprises à se démarquer dans le monde numérique.</p>
+    <p class="solutions__text">TheiaWeb se distingue par son expertise en création de sites web sur mesure, alliant esthétique et performances avancées. Notre équipe assure un design attractif et une expérience utilisateur optimale pour aider les entreprises à se démarquer dans le monde numérique.</p>
 
 <div class="expertise__row">
   <div class="expertise__card expertise__card-creation">
@@ -350,7 +349,7 @@
   </section>
 
     <!--==Roadmap==-->
-    <section class="section" id="methode">
+    <section class="section wow animate__animated animate__fadeInUp" id="methode">
       <h2 class="title h2-title title-center">Notre méthode</h2>
     <p class="solutions__text">Simple, rapide et efficace</p>
 
@@ -408,7 +407,7 @@
 
     <!--==Twitch==-->
 
-  <section class="section agence-twitch" id="twitch">
+  <section class="section agence-twitch wow animate__animated animate__fadeInUp" id="twitch">
     
         <h2 class="title h2-title title-center">on s'invite <span class="linear-title">dans vos ecrans</span></h2>
 
@@ -595,7 +594,7 @@
   <!--================ FOOTER =================-->
 
 
-  <footer id="footer" class="section">
+  <footer id="footer wow animate__animated animate__fadeInUp" class="section">
 
     <div class="footer__left">
       <div class="footer__left-1">
@@ -777,6 +776,10 @@
 
   <script src="js/script.js" defer></script>
   <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    new WOW().init()
+  </script>
 </body>
 
 </html>
