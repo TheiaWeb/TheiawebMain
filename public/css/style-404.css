@@ -1,56 +1,26 @@
-
-/** {
-    box-shadow: 0 0 0 3px red inset;
-    
-}*/
+.error__title {
+    font-family: var(--lato);
+    color: var(--black);
+    font-weight: 800;
+    text-shadow: -7px -6px var(--pink), 8px 5px var(--blue);
+    text-transform: uppercase;
+    font-size: 300px;
+}
 
 .content {
-    position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center
 }
 
 .content__layout {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 0 200px;
-
+    justify-content: center
 }
-
-.content__title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.content__layout img {
+    width: 350px;
 }
-
-.layout__title {
-    font-size: 320px;
-    font-family: var(--lato);
-    font-weight: 800;
-    position: relative;
-}
-.front__title,
-.mid__title {
-    position: absolute;
-}
-
-.mid__title {
-    color: var(--black);
-    right: 0px;
-    bottom: 0px;
-}
-
-.back__title {
-    color: var(--blue);
-    transform: translate(7px, 7px)
-}
-
-.front__title {
-    color: var(--pink);
-    right: 7px;
-    bottom: 7px;
-}
-
 .content__subtitle {
     font-family: var(--kanit);
     font-size: 50px;
@@ -60,32 +30,31 @@
     text-align: center;
 }
 
-.content__layout .button {
+.button {
     padding: 12px 28px;
     border: 2px solid var(--pink);
     border-radius: 40px;
     background: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);    color: var(--white);
     font-weight: 700;
     font-family: var(--lato);
-    font-size: 28px;
+    font-size: var(--normal-font-size);
     text-shadow:  0px 1.6px 3.2px rgba(0, 0, 0, 0.25);
     margin-top: 15px;
     margin-bottom: 50px;
     text-transform: uppercase;
+    width: fit-content;
+    
 }
 
 .content__citation {
     font-family: var(--roboto);
     font-weight: 400;
-    font-size: 36px;
+    font-size: var(--normal-font-size);
     color: var(--black);
     display: flex;
     align-items: center;
     text-align: center;
-    line-height: 42px;
     margin-bottom: 100px;
-
-
 }
 /*
 .easter-egg {
@@ -96,7 +65,22 @@
     right: 100px;
 }*/
 
-
+@media screen and (min-width: 460px) and (max-width: 900px) {
+    .error__title {
+        font-size: 150px;
+    }
+    .content__layout img {
+        width: 175px;
+    }
+}
+@media screen and (max-width: 459px) {
+    .error__title {
+        font-size: 90px;
+    }
+    .content__layout img {
+        width: 130px;
+    }
+}
 
 
 
