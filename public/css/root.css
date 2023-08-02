@@ -215,7 +215,7 @@ li{
   
 /*==================== LAYOUT ====================*/
   .section {
-    padding: 5% 13%;
+    padding: 5% 10%;
   }
   .grid-base {
     display: grid;
@@ -336,7 +336,11 @@ li{
   }
 
 
-  
+  .navbar__mobile {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
   .navbar__mobile-head {
     display: flex;
     justify-content: space-between;
@@ -394,96 +398,166 @@ li{
 footer {
     background: linear-gradient(180deg, #FCFDF2 0%, rgba(252, 173, 231, 0.4) 100%);
     box-shadow: 0px 9px 15px 0px #d57abe;
+    display: flex;
+    justify-content: space-between
   }
-  .footer__column-title {
-    font-family: var(--lato);
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-bold);
-    color: var(--black);
+
+  .footer__middle {
+    display: flex;
+    gap: 25%;
+    justify-content: space-between
   }
-  .footer__separation {
-    width: 80px;
-    border: 3px solid var(--blue);
-    margin: auto;
-    margin-top: 10px;
+  .footer__right {
+    width: 40%;
   }
-  .footer__column {
+
+footer h5 {
+  font-family: var(--montserrat);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-bold);
+  color: var(--black);
+  margin-bottom: 25px;
+}
+footer p,
+.footer__links a,
+.footer__newsletter p a {
+  font-family: var(--roboto);
+  font-weight: var(--font-regular);
+  font-size: var(--footer-font-size);
+  color: var(--black);
+}
+.footer__links {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
+}
+.footer__links a {
+  text-transform: capitalize;
+}
+.footer__left img  {
+  width: 55%;
+}
+.footer__logo {
+  display: flex;
+}
+.footer__logo ul {
+  display: flex;
   align-items: center;
-  }
-  .footer__contact-phone {
-    display: flex;
-    gap: 20px;
-    border: 2px solid var(--black);
-    padding: 10px 20px;
-    border-radius: 8px;
-    align-items: center;
-  }
-  .footer__contact-phone img {
-    max-width: 27px;
-  }
-  footer p {
-    font-family: var(--roboto);
-    font-weight: var(--font-bold);
-    font-size: var(--smaller-font-size);
-    color: var(--black);
-    line-height: 23px;
-  }
-  .footer__button {
-    padding: 10px 20px;
-    background-color: rgb(137, 255, 253, 0.8);
-    border-radius: 8px;
-    text-transform: capitalize;
-    border: 1px solid var(--blue);
-  }
-  .footer__button:hover {
-    cursor: pointer;
-    background-color: var(--blue);
-    transition: 0.3s ease-in-out;
-  }
-  .footer__button a {
-    color: var(--black);
-  }
-  .footer__links-rs {
-    display: flex;
-    gap: 20px;
-  }
-  .footer__links-rs a i {
-    color: var(--black);
-    font-size: 20px;
-  }
-  .footer__links-rs a i:hover,
-  .footer__links-rs a i:focus {
-    color: var(--pink);
-    transition: 0.3s ease-in-out;
-  }
-  .footer__logo {
-    max-width: 160px;
-  }
-  .footer__infos {
-    text-align: center;
-  }
-  .footer__down {
-    padding-top: 60px;
-    text-align: center;
+  justify-content: center;
+  margin-top: 10px;
+    gap: 10px;
+}
+.footer__logo ul li {
+  list-style: none;
+}
+.footer__logo ul li a {
+  font-size: 20px;
+  color: var(--pink);
+  border-radius: 50px;
+  background: var(--white, #FCFDF2);
+  box-shadow: 0.30000001192092896px 0.30000001192092896px 1px 0px rgba(249, 249, 249, 0.20) inset, -0.30000001192092896px -0.30000001192092896px 1px 0px rgba(12, 12, 12, 0.30) inset;
+}
+
+.footer__logo ul li a i {
+  background: -webkit-linear-gradient(323deg, #FCADE7 0%, #89FFFD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 8px 10px;
+
+}
+.footer__logo ul li a:hover {
+  color: var(--black);
+}
+.footer__newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+.footer__newsletter form {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 15px;
+  border: 1px solid rgba(23, 23, 23, 0.80);
+  padding: 5px 20px;
+  justify-content: space-between;
+}
+.footer__newsletter form input,
+.footer__newsletter form button {
+  border: none;
+  background-color: transparent
+}
+.footer__newsletter form button i {
+  color: var(--black-0-6);
+}
+.footer__newsletter form button :hover {
+  cursor: pointer;
+  color: var(--pink);
+}
+.footer__newsletter form input:focus {
+  outline: none;
+}
+
+.footer__newsletter .modal {
+  display: none;
+}
+
+.footer__newsletter p a {
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1024px) {
+  footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
-  .footer__down a,
-  .footer__down span {
-   font-family: var(--roboto); 
-   font-weight: var(--font-regular);
-   font-size: var(--footer-font-size);
-    text-transform: capitalize;
-    color: var(--black);
+  .footer__right-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .footer__down a {
-    text-decoration-line: underline;
+  .footer__left-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
- 
-  /*==================== CONTACT ====================*/
+  footer p,
+  .footer__links a,
+  .footer__newsletter p a {
+    text-align: center;
+  }
+  .footer__right-1,
+  .footer__left-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__middle {
+    margin: 0 5%;
+    gap: 25%;
+  }
+
+  
+
+}
+@media only screen and (max-width: 568px) {
+
+  .footer__left,
+  .footer__right  {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+  }
+
+}
+
+   /*==================== CONTACT ====================*/
 
 #contact {
   position: relative;
@@ -509,12 +583,6 @@ footer {
   top: 236px;
   left: -19px;
 }
-
-
-
-
-
-
 .form__content {
   padding: 25px 110px;
   background: #FFFFFF;
@@ -522,17 +590,13 @@ footer {
   border-radius: 35px;
   border: 3px solid var(--pink);
   margin: 50px 120px;
-
-
 }
-
 .contact__category {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-top: 25px;
 }
-
 .contact__label {
   font-family: var(--roboto);
   font-weight: var(--font-bold);
@@ -866,80 +930,6 @@ footer {
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
-
-
-
-/*==========ANIMATION=========*/
-/* Animation Menu */
-.pulsate {
-  animation: pulsate 1s ease infinite;
-}
-
-/* Define the keyframes for the pulsating animation */
-@keyframes pulsate {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Add the class for the border animation on hover */
-.nav__menu li a.animate-border {
-  transition: border 0.3s ease-in-out;
-}
-
-/* Animation for the border on hover */
-.nav__menu li a.animate-border:hover {
-  border: 2px solid black; /* Customize the border style as desired */
-}
-
-/* Animation Bubble effect on background */
-.animation-container {
-  position: relative;
-  width: 200px; /* Adjust the size as needed */
-  height: 200px;
-  overflow: hidden; /* Ensure the image doesn't overflow outside the container */
-}
-
-.animated-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 0.3s ease; /* Smooth transition for the animation */
-}
-
-/* Apply a subtle shadow effect on mouseover for a more pronounced effect */
-.animated-img:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes bubbleEffectAnimation {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  25% {
-    transform: translate(-100px, 50px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
-    opacity: 0.8; /* Adjust the opacity value for the bubble effect */
-  }
-  50% {
-    transform: translate(100px, 250px) scale(1);
-    opacity: 1;
-  }
-  75%{
-    transform: translate(-100px, 450px) scale(1.1); /* Adjust the values for the horizontal and vertical translations, as well as the scale */
-    opacity: 1; /* Adjust the opacity value for the bubble effect */
-  }
-  100%{
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-}
 
 
 

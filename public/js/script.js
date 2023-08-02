@@ -14,7 +14,8 @@ function toggleMenu() {
   }
 }
 //#endregion
-//#region TOGGLE MENU
+
+//#region Expertise Card popup
  // Lorsque la page est chargée
 document.addEventListener("DOMContentLoaded", () => {
   const cardButtons = document.querySelectorAll(".expertise__card-panel-btn");
@@ -56,44 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //#endregion
-//#region TOGGLE TABS PRICE
-const tabsPrice = document.querySelectorAll('.freehand__price__toggle');
-const package = document.querySelectorAll('.freehand__price__content');
 
-tabsPrice.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    package.forEach((content) => {
-      content.classList.remove('is-active');
-    });
-    tabsPrice.forEach((tab) => {
-      tab.classList.remove('is-active');
-      tab.classList.remove('price__banner-active');
-    });
-    package[index].classList.add('is-active');
-    tabsPrice[index].classList.add('is-active');
-    tabsPrice[index].classList.add('price__banner-active');
-  });
-});
-//#endregion
-//#region TOGGLE TABS PRICE
-const freehandTabsPrice = document.querySelectorAll('.price__toggle');
-const freehandPackage = document.querySelectorAll('.price__content');
-
-freehandTabsPrice.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    freehandPackage.forEach((content) => {
-      content.classList.remove('is-active');
-    });
-    freehandTabsPrice.forEach((tab) => {
-      tab.classList.remove('is-active');
-      tab.classList.remove('price__banner-active');
-    });
-    freehandPackage[index].classList.add('is-active');
-    freehandTabsPrice[index].classList.add('is-active');
-    freehandTabsPrice[index].classList.add('price__banner-active');
-  });
-});
-//#endregion
 //#region GO TOP BTN 
 const mybutton = document.getElementById('myBtn');
 
@@ -155,6 +119,7 @@ var form = document.getElementById('contactForm');
       popup.classList.remove('modal-active');
     }
 //#endregion
+
 //#region PopUp RGPD
 document.addEventListener('DOMContentLoaded', function() {
   const rgpdPopup = document.getElementById('popupRGPD');
@@ -184,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 //#endregion
+
 //#region Player Twitch
 const clientId = 'o5x6ltrt4jwhb6ybxm0kkpjcip5mk4';
 const accessToken = '8rg8hftxr0k1y6pnk1zjf3vznd8f3d';
@@ -305,140 +271,4 @@ window.addEventListener('resize', initializePlayer);
 
 
 //#endregion
-//#region Front Animation Image 
 
-//Animation Link dans menu 
-
-// Function to add pulsating animation class on button click
-function addPulsatingAnimation(event) {
-  event.preventDefault();
-
-  // Check if the target element is an anchor tag
-  if (event.target.tagName === 'A') {
-    const link = event.target;
-
-    // Add the pulsating class to the anchor tag
-    link.classList.add('pulsate');
-
-    // Remove the pulsating class after 1 second (1000ms)
-    setTimeout(() => {
-      link.classList.remove('pulsate');
-
-      // After the animation is completed, follow the link's href
-      window.location.href = link.href;
-    }, 1000);
-  }
-}
-
-// Add click event listener to the navigation menu
-const navMenu = document.querySelector('.nav__menu');
-navMenu.addEventListener('click', addPulsatingAnimation);
-
-// Function to add the animate-border class on link hover
-function addAnimateBorder(event) {
-  // Check if the target element is an anchor tag
-  if (event.target.tagName === 'A') {
-    const link = event.target;
-    
-    // Add the animate-border class to the anchor tag on hover
-    link.classList.add('animate-border');
-  }
-}
-
-// Function to remove the animate-border class when the mouse leaves the link
-function removeAnimateBorder(event) {
-  // Check if the target element is an anchor tag
-  if (event.target.tagName === 'A') {
-    const link = event.target;
-
-    // Remove the animate-border class from the anchor tag on mouseleave
-    link.classList.remove('animate-border');
-  }
-}
-
-// Add mouseenter and mouseleave event listeners to the navigation menu
-navMenu.addEventListener('mouseenter', addAnimateBorder);
-navMenu.addEventListener('mouseleave', removeAnimateBorder);
-
-//ANIMATION BOULE ACCEUIL ET FORM
-
-
-// Function to update the image position based on mouse movement
-function handleMouseMove(container, animatedImg, event) {
-  const containerRect = container.getBoundingClientRect();
-  const x = event.clientX - containerRect.left;
-  const y = event.clientY - containerRect.top;
-  const offsetX = -(x - containerRect.width / 3) * 0.1; // Adjust the offset as needed
-  const offsetY = (y - containerRect.height / 3) * 0.1;
-
-  animatedImg.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-
-  if (animatedImg.classList.contains('special-image')) {
-    // Apply a different animation for the second image (if it has the 'special-image' class)
-    // Modify the image however you want for a special effect
-    animatedImg.style.opacity = 1 - (Math.abs(offsetX) / (containerRect.width / 3));
-  }
-}
-
-// First container (assuming you already have this part of the code)
-const container1 = document.getElementById('svg-container');
-const animatedImg1 = document.getElementById('animated-svg');
-
-container1.addEventListener('mouseenter', () => {
-  container1.addEventListener('mousemove', (event) => handleMouseMove(container1, animatedImg1, event));
-});
-
-container1.addEventListener('mouseleave', () => {
-  animatedImg1.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
-  animatedImg1.style.opacity = 1; // Reset the opacity to its original value
-  container1.removeEventListener('mousemove', (event) => handleMouseMove(container1, animatedImg1, event));
-});
-
-// Second container (using the provided IDs)
-const container2 = document.getElementById('contact');
-const animatedImg2 = container2.querySelector('#animationHomeImage');
-
-container2.addEventListener('mouseenter', () => {
-  container2.addEventListener('mousemove', (event) => handleMouseMove(container2, animatedImg2, event));
-});
-
-container2.addEventListener('mouseleave', () => {
-  animatedImg2.style.transform = 'translate(0, 0)'; // Reset the position on mouseleave
-  animatedImg2.style.opacity = 1; // Reset the opacity to its original value
-  container2.removeEventListener('mousemove', (event) => handleMouseMove(container2, animatedImg2, event));
-});
-
-//ANIMATION BUBBLE HOME PAGE 
-
-// Get the specific image with the class "body__bg" that you want to extend the duration for
-const specificImage = document.querySelector('#animationBubbleSpecificTime');
-
-// Function to add the bubble effect animation to the images and set z-index
-function addBubbleEffectAnimation(images) {
-  images.forEach((image, index) => {
-    const animationDuration = (index + 1) * 5; // Default duration for other images (in seconds)
-
-    image.style.animation = `bubbleEffectAnimation ${animationDuration}s ease-in-out infinite`;
-    image.style.zIndex = -1; // Set the z-index to ensure the image is behind all components
-
-    // Extend the duration for the specific image
-    if (image === specificImage) {
-      const specificDuration = 30; // Duration in seconds for the specific image
-      image.style.animationDuration = `${specificDuration}s`;
-    }
-  });
-}
-
-// Get all the images with the class "body__bg"
-const bodyBgImages = document.querySelectorAll('.body__bg');
-
-// Add the bubble effect animation and set z-index to the images
-addBubbleEffectAnimation(bodyBgImages);
-
-
-//#endregion
-//#region TEST FEATURES 
-
- // Get all the dots and cards
-
-//#endregion
