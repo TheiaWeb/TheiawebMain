@@ -46,15 +46,19 @@
 }
 /*========== z index ==========*/
     .z-1 {
+      position: relative;
       z-index: 1;
     }
     .z-2 {
+      position: relative;
       z-index: 2;
     }
     .z-3 {
+      position: relative;
       z-index: 3;
     }
     .z-4 {
+      position: relative;
       z-index: 4;
     }
   
@@ -172,72 +176,22 @@ li{
   
 
 /*==================== REUSABLE CSS CLASSES ====================*/
-  .section__subtitle {
-    font-family: var(--lato);
-    font-weight: var(--font-regular);
-    color: var(--black);
-    font-size: var(--h3-font-size);
-    margin-bottom: 15px;
-  }
+
   .section__text {
     font-family: var(--roboto);
     font-weight: var(--font-regular);
     font-size: var(--small-font-size);
     text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }  
-  .btn__pink{
-    border: 2px solid var(--pink);
-    background-color: rgba(252, 173, 231, 0.4);
-    border-radius: 89px;
-    padding: 20px 40px; 
-  }
-  .btn__pink a,
-  .btn__white a {
-    color:var(--pink);
-    font-size: var(--smaller-font-size);
-    font-family: var(--roboto);
-    font-weight: var(--font-bold);
-    text-transform: uppercase;
-  }
-  .btn__white{
-    border: 2px solid var(--pink);
-    background-color: var(--white);
-    border-radius: 89px;
-    padding: 20px 40px;  
-  }
-  .btn__pink:hover,
-  .btn__white:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-  }
-
   
 /*==================== LAYOUT ====================*/
   .section {
     padding: 5% 13%;
   }
-  .grid-base {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  @media screen and (max-width: 768px) {
-    .grid-base { grid-template-columns: 1fr;
-    }
-  }
-  .grid-2-1 {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    justify-items: center
-  }
-  @media screen and (max-width: 768px) {
-    .grid-2-1 { grid-template-columns: 1fr;
-    }
-  }
+
   .grid-1-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -249,46 +203,7 @@ li{
     .grid-1-1 { grid-template-columns: 1fr;
     }
   }
-  .grid-trio {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
-  }
-  @media screen and (max-width: 768px) {
-    .grid-trio { grid-template-columns: 1fr;
-    }
-  }
-  
 
-    /*Utiliser dans la page tarif*/
-    .grid-auto-3 {
-      display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(335px, max-content));
-    justify-content: center;  
-    justify-items: center;
-    grid-gap: 15px;
-    }
-
-    @media screen and (max-width: 1000px) {
-      .grid-auto-3 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      }
-
-    }
-
-
-    .grid-1-2 {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    @media screen and (max-width: 768px) {
-      .grid-1-2 { 
-        grid-template-columns: 1fr;
-      }
-    }
-  
   
 /*====================NAVBAR====================*/
   nav {
