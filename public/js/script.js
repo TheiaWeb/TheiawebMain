@@ -78,6 +78,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 //#endregion
+
 //#region PopUp CONTACT FORM
 var form = document.getElementById('contactForm');
 
@@ -121,31 +122,110 @@ var form = document.getElementById('contactForm');
 //#endregion
 
 //#region PopUp RGPD
-document.addEventListener('DOMContentLoaded', function() {
-  const rgpdPopup = document.getElementById('popupRGPD');
-  const acceptButton = document.getElementById('acceptButton');
 
-  acceptButton.addEventListener('click', function() {
-    hidePopup(rgpdPopup);
-    localStorage.setItem('consentGiven', true);
-  });
+// Get the popup element and buttons
+const popup = document.getElementById("popupRGPD");
+const acceptButton = document.getElementById("acceptButton");
+const refuseButton = document.getElementById("refuseButton");
+var database = firebase.database();
+const preferencieslink = document.getElementById("popupRGPD__content-link");
+const preferencies = document.getElementById("pref-rgpd");
 
-  const consentGiven = localStorage.getItem('consentGiven');
+const preferenciesBackBtn = document.getElementById("pref__content-btn-return");
 
-  if (consentGiven) {
-    hidePopup(rgpdPopup);
-  } else {
-    showPopup(rgpdPopup);
-    centerPopup(rgpdPopup);
-  }
-  
-  function showPopup(popup) {
-    popup.style.display = 'block';
-  }
+// Check if user has already accepted or refused cookies before
+const cookieConsent = localStorage.getItem("cookieConsent");
 
-  function hidePopup(popup) {
-    popup.style.display = 'none';
-  }
+// If the user hasn't made a choice yet, show the popup
+if (!cookieConsent) {
+  popup.style.display = "flex";
+}
+
+// Function to handle cookie consent
+function handleCookieConsent(consent) {
+  // Set the consent in localStorage
+  localStorage.setItem("cookieConsent", consent);
+  // Hide the popup
+  popup.style.display = "flex";
+}
+
+// Event listener for accepting cookies
+acceptButton.addEventListener("click", () => {
+  handleCookieConsent("accepted");
+  popup.style.display = "none"
+});
+
+// Event listener for refusing cookies
+refuseButton.addEventListener("click", () => {
+  handleCookieConsent("refused");
+  alert("Please Accept the nescessaries cookies to continue")
+});
+
+// Event listener for showing the preferencies 
+preferencieslink.addEventListener("click", () =>{
+  preferencies.style.display = "flex";
+});
+
+preferenciesBackBtn.addEventListener("click", () =>{
+  preferencies.style.display = "none";
+});
+
+//#region Saving USER Data acceptation
+
+// Get references to the switch elements
+var necessarySwitch = document.querySelector('#necessary-switch');
+var statisticSwitch = document.querySelector('#statistic-switch');
+var preferencesSwitch = document.querySelector('#preferences-switch');
+var marketingSwitch = document.querySelector('#marketing-switch');
+
+// Add event listeners to each switch
+necessarySwitch.addEventListener('change', function () {
+  database.ref('settings/necessary').set(necessarySwitch.checked);
+});
+
+statisticSwitch.addEventListener('change', function () {
+  database.ref('settings/statistic').set(statisticSwitch.checked);
+});
+
+preferencesSwitch.addEventListener('change', function () {
+  database.ref('settings/preferences').set(preferencesSwitch.checked);
+});
+
+marketingSwitch.addEventListener('change', function () {
+  database.ref('settings/marketing').set(marketingSwitch.checked);
+});
+
+var acceptButtonMultiple = document.querySelector('.pref__content-btn-accept');
+acceptButtonMultiple.addEventListener('click', function () {
+    // Get the states of the switches   
+    var necessaryState = necessarySwitch.checked;
+    var statisticState = statisticSwitch.checked;
+    var preferencesState = preferencesSwitch.checked;
+    var marketingState = marketingSwitch.checked;
+    // Save the data to Firestore
+// Get the current timestamp
+var now = new Date();
+var timestamp = now.toISOString(); // Convert to ISO string format
+
+// Save the data to Firestore
+var docName = "preferences_" + timestamp;
+firestore.collection("user_preferences").doc(docName).set({
+  necessary: necessaryState,
+  statistic: statisticState,
+  preferences: preferencesState,
+  marketing: marketingState,
+  timestamp: timestamp
+})
+.then(function() {
+  console.log("Document successfully written!");
+  alert('Preferences saved to Firestore!');
+})
+.catch(function(error) {
+  console.error("Error writing document: ", error);
+  alert('An error occurred while saving preferences.');
+});
+preferencies.style.display = "none";
+popup.style.display = "none";
 
 });
 //#endregion

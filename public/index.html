@@ -702,24 +702,23 @@
 
 
   <!--================ POPUP RGPD =================-->
-<!--<div class="popup-rgpd" id="popupRGPD">
+<div class="popup-rgpd" id="popupRGPD">
   <div class="popupRGPD__content">
     <div class="popup__rgpd-top">
       <img src="img/rgpd_img.png" alt="">
       <h2>Notre site utilise des cookies</h2>
       <p>Nous utilisons des cookies et des technologies similaires pour personnaliser le contenu, adapter et mesurer les publicités et offrir une meilleure expérience. En cliquant sur OK ou en activant une option dans les préférences en matière de cookies, vous acceptez cette pratique, telle qu'elle est décrite dans notre <span><a href="legal/politique-confidentialité.html" target="_blank">politique de confidentialité</a></span>.</p>
-      <a href="" class="popupRGPD__content-link">Préférences en matière de cookies</a>
-
+      <a href="#" id="popupRGPD__content-link" class="popupRGPD__content-link">Préférences en matière de cookies</a>
     </div>
       <div class="popup__rgpd-bottom">
-        <div id="" class="popup__rgpd-bottom-left">REFUSER</div>
+        <div id="refuseButton" class="popup__rgpd-bottom-left">REFUSER</div>
         <div id="acceptButton" class="popup__rgpd-bottom-right">ACCEPTER</div>
 
       </div>
     </div>
-</div>-->
+</div>
 
-<!--<div class="pref-rgpd">
+<div class="pref-rgpd" id ="pref-rgpd">
   <div class="pref__content">
     <div class="pref__content-top">
       <img src="img/rgpd_img.png" alt="">
@@ -738,8 +737,8 @@
           <h3>Nécessaire</h3>
             <div class="pref__content-bottom-swicth-box">
               <p>Les cookies nécessaires permettent de rendre un site web utilisable en assurant des fonctions de base telles que la navigation sur les pages et l'accès à des parties sécurisées du site web. Le site web ne peut pas fonctionner correctement sans ces cookies.</p>
-              <label class="switch">
-                <input type="checkbox">
+              <label class="switch" >
+                <input type="checkbox" id="necessary-switch">
                 <span class="slider round"></span>
               </label>
             </div>
@@ -750,7 +749,7 @@
             <div class="pref__content-bottom-swicth-box">
               <p>Les cookies statistiques aident les propriétaires de sites web à comprendre comment les visiteurs interagissent avec les sites web en collectant et en rapportant des informations de manière anonyme.</p>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="statistic-switch">
                 <span class="slider round"></span>
               </label>
             </div>
@@ -761,7 +760,7 @@
             <div class="pref__content-bottom-swicth-box">
               <p>Les cookies de préférence permettent au site web de se souvenir d'informations qui modifient le comportement ou l'apparence du site web, comme votre langue préférée ou la région dans laquelle vous vous trouvez.</p>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="preferences-switch">
                 <span class="slider round"></span>
               </label>
             </div>
@@ -772,19 +771,19 @@
             <div class="pref__content-bottom-swicth-box">
               <p>Les cookies marketing sont utilisés pour suivre les visiteurs à travers les sites web. L'objectif est d'afficher des publicités pertinentes et attrayantes pour l'utilisateur individuel et donc plus intéressantes pour les éditeurs et les annonceurs tiers.</p>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="marketing-switch">
                 <span class="slider round"></span>
               </label>
             </div>
         </div>
       </div>
       <div class="pref__content-btn">
-        <button class="pref__content-btn-return">Retour</button>
+        <button id ="pref__content-btn-return" class="pref__content-btn-return">Retour</button>
         <button class="pref__content-btn-accept">Autoriser la sélection</button>
 
       </div>
     </div>
-</div>-->
+</div>
   
 
 
@@ -794,6 +793,10 @@
   <script type="text/javascript">
     new WOW().init()
   </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="js/firebaseconfig.js"></script>
 </body>
 
 </html>
