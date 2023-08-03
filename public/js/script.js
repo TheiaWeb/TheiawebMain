@@ -223,7 +223,7 @@ acceptButtonMultiple.addEventListener('click', function () {
     // Save the data to Firestore
 // Get the current timestamp
 var now = new Date();
-var timestamp = now.toISOString(); // Convert to ISO string format
+var timestamp = now.toString();
 
 // Save the data to Firestore
 var docName = "preferences_" + timestamp;
@@ -405,29 +405,29 @@ newsletterForm.addEventListener("submit", (event) => {
        
       emailInput.value = ""; // Clear the input after successful submission
       // Redirect the user to their Gmail inbox
-      const emailServiceURL = getEmailServiceURL(email);
-      if (emailServiceURL) {
-        window.open(emailServiceURL, "_blank");
-      } else {
-        console.error("Unsupported email service or unable to get URL.");
-      }
+      // const emailServiceURL = getEmailServiceURL(email);
+      // if (emailServiceURL) {
+      //   window.open(emailServiceURL, "_blank");
+      // } else {
+      //   console.error("Unsupported email service or unable to get URL.");
+      // }
     })
     .catch((error) => {
       console.error("Error saving email:", error);
     });
 });
 
-function getEmailServiceURL(email) {
-  // Logic to determine the email service and return the appropriate URL
-  // For example, you can check if the email domain contains "gmail.com" for Gmail users:
-  if (email.includes("@gmail.com")) {
-    return "https://mail.google.com/mail/u/0/#inbox";
-  }
+// function getEmailServiceURL(email) {
+//   // Logic to determine the email service and return the appropriate URL
+//   // For example, you can check if the email domain contains "gmail.com" for Gmail users:
+//   if (email.includes("@gmail.com")) {
+//     return "https://mail.google.com/mail/u/0/#inbox";
+//   }
 
-  // Add more cases for other email services if needed.
+//   // Add more cases for other email services if needed.
 
-  // Return null for unsupported email services.
-  return null;
-}
+//   // Return null for unsupported email services.
+//   return null;
+// }
 
 //#endregion
