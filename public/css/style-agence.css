@@ -627,7 +627,23 @@ padding: 70px 0 10px 0;
   margin-top: 20px;
 }
 
-
+/* Styles for the newsletter modal */
+.newsletterModal {
+  right: 2em;
+  position: absolute;
+  max-width: 7em;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.5s ease;
+}
+#newsletterModal.active {
+  opacity: 1;
+}
 
 /*==================== METHODE ====================*/
 .methode__card-row {
