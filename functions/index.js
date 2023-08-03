@@ -2,10 +2,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
-const puppeteer = require('puppeteer');
 const cors = require('cors')({ origin: true });
-const { Storage } = require('@google-cloud/storage');
-const storage = new Storage();
 admin.initializeApp();
 
 const firebaseConfig = {
@@ -27,7 +24,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 //#endregion
-//#region SEND EMAIL TO USER && ADMIN
+//#region SEND EMAIL TO USER && ADMIN ON CONTACT FORM 
+// ALSO SEND CONFIRMATION EMAIL FORM NEWSLETTER
 // Function to send emails
 exports.sendEmail = functions.firestore
   .document('contacts/{contactId}')
@@ -71,6 +69,35 @@ exports.sendEmail = functions.firestore
       return null;
     }
   });
+
+  exports.subscribeToNewsletter = functions.database.ref('newsletterEmails/{emailId}')
+  .onCreate(async (snapshot, context) => {
+    const data = snapshot.val(); // Use snapshot.val() instead of snapshot.data()
+
+    try {
+      // Send confirmation email to the user
+      const confirmationMessage = {
+        from: 'theiaweb.contact@gmail.com', // Replace with your email address
+        to: data.email,
+        subject: 'Confirm Your Newsletter Subscription',
+        text: `Dear ${data.customKey},\n\nThank you for subscribing to our newsletter! Please click the link below to confirm your subscription:\n\nhttps://yourwebsite.com/confirmSubscription?email=${data.email}&token=${data.confirmationToken}\n\nIf you didn't request this subscription, please ignore this email.\n\nBest regards,\nYour Company`,
+        html: `<p>Dear ${data.customKey},</p>
+          <p>Thank you for subscribing to our newsletter! Please click the link below to confirm your subscription:</p>
+          <p>If you didn't request this subscription, please ignore this email.</p>
+          <p>Best regards,<br>Your Company</p>`,
+      };
+
+      await transporter.sendMail(confirmationMessage);
+
+      // Update Realtime Database to indicate the confirmation email was sent
+      return snapshot.ref.update({ confirmationEmailSent: true });
+    } catch (error) {
+      console.error('Error sending confirmation email:', error);
+      return null;
+    }
+  });
+
+
 //#endregion
 //#region SAVE DATA TO FIRESTORE 
 // Function to save form data to Firestore
@@ -103,250 +130,9 @@ exports.saveFormData = functions.https.onRequest(async (req, res) => {
     res.status(500).send('An error occurred while saving the form data.');
   }
 });
+
+
+
 //#endregion
 //#region GENERATEUR DE DEVIS
-//#endregion
-//#region TESTS
-
-// exports.generatePDF = functions.https.onRequest(async (req, res) => {
-//   const { clientName, address, email, phone } = req.body;
-
-//   // Create a new browser instance
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-
-//   // Generate the PDF content
-//   const pdfContent = `
-//     <h1>Client Details</h1>
-//     <p>Client Name: ${clientName}</p>
-//     <p>Address: ${address}</p>
-//     <p>Email: ${email}</p>
-//     <p>Phone: ${phone}</p>
-//     <!-- Add additional data from the services -->
-
-//     <!-- Add your custom content here -->
-//   `;
-
-//   // Set the content of the page
-//   await page.setContent(pdfContent, { waitUntil: 'networkidle0' });
-
-//   // Generate the PDF
-//   const pdfBuffer = await page.pdf({ format: 'A4' });
-
-//   // Generate a unique filename for the PDF
-//   const filename = `${Date.now()}.pdf`;
-
-//   // Save the PDF to Firebase storage
-//   const bucket = storage.bucket(); // Add your bucket name here
-//   const file = bucket.file(filename);
-//   await file.save(pdfBuffer, { contentType: 'application/pdf' });
-
-//   // Generate a signed URL for the PDF file
-//   const signedUrl = await file.getSignedUrl({
-//     action: 'read',
-//     expires: '03-09-2023', // Set an expiration date for the URL
-//   });
-
-//   // Close the browser
-//   await browser.close();
-
-//   // Send the signed URL back to the client
-//   res.send({ pdfUrl: signedUrl });
-// });
-
-// // Replace with your Firebase project's config object
-// var firebaseConfig = {
-//   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
-//   authDomain: "formtheia.firebaseapp.com",
-//   databaseURL: "https://formtheia-default-rtdb.europe-west1.firebasedatabase.app",
-//   projectId: "formtheia",
-//   storageBucket: "formtheia.appspot.com",
-//   messagingSenderId: "335132907653",
-//   appId: "1:335132907653:web:2dfef81a7293c2551571ec"
-// };
-
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-
-// // Get a reference to the Firestore database
-// var db = firebase.firestore();
-// var ContactFormItem = Document.getElementById('contactForm').getElementByClassName('contact__category'),
-
-// // SUBMIT FORM USER + ADMIN 
-
-// // Handle form submission
-// document.getElementById('contactForm').addEventListener('submit', function (event) {
-//   event.preventDefault(); // Prevent form from submitting and page refresh
-
-//   // Get form values
-//   var surname = ContactFormItem.getElementById('surname');
-//   var name = ContactFormItem.getElementById('name');
-//   var email = ContactFormItem.getElementById('email');
-//   var phone = ContactFormItem.getElementById('phone');
-//   var company = ContactFormItem.getElementById('company');
-//   var subject = ContactFormItem.getElementById('subject');
-//   var message = ContactFormItem.getElementById('message');
-//   // Save form data to Firestore
-//   db.collection('contacts').add({
-//     surname: surname,
-//     name: name,
-//     email: email,
-//     phone: phone,
-//     company: company,
-//     subject: subject,
-//     message: message,
-//     timestamp: firebase.firestore.FieldValue.serverTimestamp()
-//   })
-//     .then(function (docRef) {
-//       console.log('Form submitted successfully!');
-//       // Reset form fields
-//       document.getElementById('surname').value = '';
-//       document.getElementById('name').value = '';
-//       document.getElementById('email').value = '';
-//       document.getElementById('phone').value = '';
-//       document.getElementById('company').value = '';
-//       document.getElementById('subject').value = '';
-//       document.getElementById('message').value = '';
-//     })
-//     .catch(function (error) {
-//       console.error('Error submitting form:', error);
-//     });
-// });
-
-
-// const { initializeApp } = require('firebase-admin/app');
-// const { getFirestore, FieldValue } = require('firebase-admin/firestore');
-// const functions = require('firebase-functions');
-// const nodemailer = require('nodemailer');
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const admin = require('firebase-admin');
-
-// initializeApp({
-// });
-
-// const transporter = nodemailer.createTransport({
-//   service: 'Gmail',
-//   auth: {
-//     user: 'theiaweb.contact@gmail.com',
-//     pass: 'ggiffkbxrjlofqmi'
-//   }
-// });
-
-// const db = getFirestore();
-// const app = express();
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
-// app.post('/sendEmailAndSaveToFirestore', async (req, res) => {
-//   try {
-//     const { name, surname, email, phone, company, subject, message } = req.body;
-
-//     const data = {
-//       name, 
-//       surname,
-//       email,
-//       phone,
-//       company,
-//       subject,
-//       message,
-//       timestamp: admin.firestore.FieldValue.serverTimestamp()
-//     };
-
-//     const collectionRef = db.collection('ContactData');
-//     await collectionRef.add(data);
-//     console.log('Added document to collection "ContactData":', data);
-
-//     // Return a success response
-//     res.status(200).send('Data saved successfully');
-//   } catch (error) {
-//     console.error('Error saving data:', error);
-//     // Return an error response
-//     res.status(500).send('An error occurred while saving data');
-//   }
-// });
-
-// exports.api = functions.https.onRequest(app);
-
-
-// const functions = require('firebase-functions');
-// const nodemailer = require('nodemailer');
-// const admin = require('firebase-admin');
-
-// admin.initializeApp();
-// const transporter = nodemailer.createTransport({
-//   service: 'Gmail',
-//   auth: {
-//     user: 'theiaweb.contact@gmail.com',
-//     pass: 'cwsmnseyqepnqplf'
-//   }
-// });
-
-// // Firebase Function to handle form submission
-// exports.sendEmailAndSaveToFirestore = functions.https.onRequest(async (req, res) => {
-//   try {
-//     // Extract form data from the request body
-//     const {
-//       surname,
-//       name,
-//       email,
-//       phone,
-//       company,
-//       subject,
-//       message,
-//       cgu
-//     } = req.body;
-
-//     // Save form data to Firestore
-//     const formData = {
-//       surname,
-//       name,
-//       email,
-//       phone,
-//       company,
-//       subject,
-//       message,
-//       cgu,
-//       timestamp: admin.firestore.FieldValue.serverTimestamp()
-//     };
-
-//     const firestore = admin.firestore();
-//     const formSnapshot = await firestore.collection('formSubmissions').add(formData);
-//     console.log('Form data saved to Firestore:', formSnapshot.id);
-
-//     // Send email to the user
-//     const userMailOptions = {
-//       from: 'theiaweb.contact@gmail.com',
-//       to: email,
-//       subject: 'Merci pour votre prise de contact',
-//       text: `Chèr(e) ${name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
-//       html: `<p>Chèr(e) ${name},</p>
-//         <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
-//         <p>Cordialement,<br>Theia Web</p>`
-//     };
-
-//     // Send email to the admin
-//     const adminMailOptions = {
-//       from: 'theiaweb.contact@gmail.com',
-//       to: 'theiaweb.contact@gmail.com',
-//       subject: 'Info client',
-//       text: `Info \n\n Nom du client : ${surname} ${name},\n\n Email : ${email}\n\n Téléphone : ${phone}\n\n Compagny/Entreprise du client : ${company} \n\n Sujet du message : ${subject} \n\n Contenu du message envoyé : ${message}`,
-//       html: `<p> Info <br><br> Nom du client : ${surname} ${name},<br><br>Email : ${email}<br><br>Téléphone : ${phone}<br><br> Compagny/Entreprise du client : ${company} <br><br> Sujet du message : ${subject} <br><br> Contenu du message envoyé : ${message}</p>`
-//     };
-
-//     // Send emails asynchronously
-//     await Promise.all([
-//       transporter.sendMail(userMailOptions),
-//       transporter.sendMail(adminMailOptions)
-//     ]);
-
-//     // Send a response indicating success
-//     res.status(200).send('Emails sent and data saved successfully');
-//   } catch (error) {
-//     console.error('Error sending emails and saving data:', error);
-//     // Send a response indicating failure
-//     res.status(500).send('Error sending emails and saving data');
-//   }
-// });
 //#endregion
