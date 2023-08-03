@@ -149,11 +149,42 @@ function handleCookieConsent(consent) {
   popup.style.display = "flex";
 }
 
-// Event listener for accepting cookies
+
 acceptButton.addEventListener("click", () => {
+  // Set all preferences to true
+  var necessaryState = true;
+  var statisticState = true;
+  var preferencesState = true;
+  var marketingState = true;
+
+  // Save the data to Firestore
+  var now = new Date();
+  var timestamp = now.toString(); // Convert to ISO string format
+
+  var docName = "preferences_" + timestamp;
+  firestore
+    .collection("user_preferences")
+    .doc(docName)
+    .set({
+      necessary: necessaryState,
+      statistic: statisticState,
+      preferences: preferencesState,
+      marketing: marketingState,
+      timestamp: timestamp,
+    })
+    .then(function () {
+      console.log("Document successfully written!");
+      alert("Preferences saved to Firestore!");
+    })
+    .catch(function (error) {
+      console.error("Error writing document: ", error);
+      alert("An error occurred while saving preferences.");
+    });
+
   handleCookieConsent("accepted");
-  popup.style.display = "none"
+  popup.style.display = "none";
 });
+
 
 // Event listener for refusing cookies
 refuseButton.addEventListener("click", () => {
