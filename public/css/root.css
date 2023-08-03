@@ -921,7 +921,8 @@ text-decoration-line: underline;
     font-size: var(--normal-font-size);
     font-weight: var(--font-semi-bold);
   }
-  .pref__content-txt p {
+  .pref__content-txt p,
+  .cookieModal-content {
     color: var(--black);
   font-family: var(--roboto);
   font-size: var(--smaller-font-size);
@@ -980,7 +981,8 @@ text-decoration-line: underline;
     font-size: var(--small-font-size);
     font-weight: var(--font-semi-bold);
   }
-  .pref__content-btn-accept {
+  .pref__content-btn-accept,
+  .cookieModal-accept {
     border-radius: 10px;
     border: 2px solid var(--pink);
     background-color: var(--pink);
@@ -990,6 +992,14 @@ text-decoration-line: underline;
     font-size: var(--small-font-size);
     font-weight: var(--font-semi-bold);
   }
+.pref__content-btn-return:hover,
+.pref__content-btn-accept:hover,
+.cookieModal-accept:hover,
+.popup__rgpd-bottom-left:hover,
+.popup__rgpd-bottom-right:hover {
+  cursor: pointer;
+}
+  
 
 
 
@@ -1065,6 +1075,59 @@ input:checked + .slider:before {
   background-color: var(--pink); /* Couleur du pouce au survol */
 }
 
+
+/* Modal styles */
+.cookieModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+}
+
+.cookieModal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cookieModal h2 {
+  color: var(--black);
+    font-family: var(--montserrat);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi-bold);
+}
+
+.cookieModal-actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+
+/* Styles for the newsletter modal */
+.newsletterModal {
+  right: 2em;
+  position: absolute;
+  max-width: 7em;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.5s ease;
+}
+#newsletterModal.active {
+  opacity: 1;
+}
   
 /*==================== TOP BTN ======================*/
   #myBtn {
