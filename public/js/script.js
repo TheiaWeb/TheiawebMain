@@ -177,25 +177,8 @@ var necessarySwitch = document.querySelector('#necessary-switch');
 var statisticSwitch = document.querySelector('#statistic-switch');
 var preferencesSwitch = document.querySelector('#preferences-switch');
 var marketingSwitch = document.querySelector('#marketing-switch');
-
-// Add event listeners to each switch
-necessarySwitch.addEventListener('change', function () {
-  database.ref('settings/necessary').set(necessarySwitch.checked);
-});
-
-statisticSwitch.addEventListener('change', function () {
-  database.ref('settings/statistic').set(statisticSwitch.checked);
-});
-
-preferencesSwitch.addEventListener('change', function () {
-  database.ref('settings/preferences').set(preferencesSwitch.checked);
-});
-
-marketingSwitch.addEventListener('change', function () {
-  database.ref('settings/marketing').set(marketingSwitch.checked);
-});
-
 var acceptButtonMultiple = document.querySelector('.pref__content-btn-accept');
+
 acceptButtonMultiple.addEventListener('click', function () {
     // Get the states of the switches   
     var necessaryState = necessarySwitch.checked;
@@ -228,6 +211,7 @@ preferencies.style.display = "none";
 popup.style.display = "none";
 
 });
+//#endregion
 //#endregion
 
 //#region Player Twitch
@@ -353,3 +337,29 @@ window.addEventListener('resize', initializePlayer);
 
 //#endregion
 
+//#region Newsletter 
+const newsletterForm = document.getElementById("newsletterForm");
+  const emailInput = document.getElementById("emailInput");
+
+  newsletterForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent the form from submitting traditionally
+  
+    const email = emailInput.value;
+  
+    // Generate the custom key based on the date and the first letter of the email
+    const date = new Date().toISOString().slice(0, 10); // Format date as 'YYYY-MM-DD'
+    const firstLetter = email.charAt(0).toLowerCase();
+    const sanitizedEmail = email.replace(/[.$#\[\]@]/g, ''); // Remove or replace special characters
+    const customKey = `${date}_${firstLetter}_${sanitizedEmail}`;
+  
+    // Save the email to Firebase with the custom key
+    database.ref("newsletterEmails").child(customKey).set({ email: email })
+      .then(() => {
+        alert("Email saved successfully!");
+        emailInput.value = ""; // Clear the input after successful submission
+      })
+      .catch((error) => {
+        console.error("Error saving email:", error);
+      });
+  });
+  //#endregion
