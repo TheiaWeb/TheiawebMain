@@ -1,36 +1,67 @@
+/* Styles généraux */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  #products-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .product-card {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .product-card h2 {
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-  
-  .product-card p {
-    margin: 0;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar li:last-child {
+  margin-right: 0;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.main {
+  padding: 20px;
+}
+
+/* Styles spécifiques pour les sections */
+.promotion,
+.best-sellers,
+.new-products {
+  padding: 20px;
+}
+
+/* Styles spécifiques pour le formulaire de recherche */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* Styles pour le footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
