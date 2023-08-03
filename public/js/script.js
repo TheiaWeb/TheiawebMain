@@ -87,8 +87,6 @@ var form = document.getElementById('contactForm');
       // Prevent the default form submission behavior
       event.preventDefault();
 
-      // Perform your form submission logic here, such as sending the data to the server
-
       // Display the popup
       showPopup();
     });
@@ -130,24 +128,37 @@ const refuseButton = document.getElementById("refuseButton");
 var database = firebase.database();
 const preferencieslink = document.getElementById("popupRGPD__content-link");
 const preferencies = document.getElementById("pref-rgpd");
-
 const preferenciesBackBtn = document.getElementById("pref__content-btn-return");
+
+const cookieModal = document.getElementById("cookieModal");
+const modalAcceptButton = document.getElementById("modalAcceptButton");
 
 // Check if user has already accepted or refused cookies before
 const cookieConsent = localStorage.getItem("cookieConsent");
 
-// If the user hasn't made a choice yet, show the popup
+
 if (!cookieConsent) {
-  popup.style.display = "flex";
+  cookieModal.style.display = "block";
 }
 
 // Function to handle cookie consent
 function handleCookieConsent(consent) {
   // Set the consent in localStorage
   localStorage.setItem("cookieConsent", consent);
-  // Hide the popup
-  popup.style.display = "flex";
+  // Hide the modal
+  cookieModal.style.display = "none";
 }
+
+// Event listener for accepting cookies from the modal
+modalAcceptButton.addEventListener("click", () => {
+  handleCookieConsent("accepted");
+  cookieModal.style.display = "none"; // Hide the modal after accepting
+});
+
+// Event listener for refusing cookies
+refuseButton.addEventListener("click", () => {  
+    cookieModal.style.display = "block";  
+});
 
 
 acceptButton.addEventListener("click", () => {
@@ -174,22 +185,15 @@ acceptButton.addEventListener("click", () => {
     })
     .then(function () {
       console.log("Document successfully written!");
-      alert("Preferences saved to Firestore!");
+      console.log("Preferences saved to Firestore!");
     })
     .catch(function (error) {
       console.error("Error writing document: ", error);
-      alert("An error occurred while saving preferences.");
+      console.log("An error occurred while saving preferences.");
     });
 
   handleCookieConsent("accepted");
   popup.style.display = "none";
-});
-
-
-// Event listener for refusing cookies
-refuseButton.addEventListener("click", () => {
-  handleCookieConsent("refused");
-  alert("Please Accept the nescessaries cookies to continue")
 });
 
 // Event listener for showing the preferencies 
@@ -232,11 +236,11 @@ firestore.collection("user_preferences").doc(docName).set({
 })
 .then(function() {
   console.log("Document successfully written!");
-  alert('Preferences saved to Firestore!');
+  console.log('Preferences saved to Firestore!');
 })
 .catch(function(error) {
   console.error("Error writing document: ", error);
-  alert('An error occurred while saving preferences.');
+  console.log('An error occurred while saving preferences.');
 });
 preferencies.style.display = "none";
 popup.style.display = "none";
@@ -386,7 +390,7 @@ const newsletterForm = document.getElementById("newsletterForm");
     // Save the email to Firebase with the custom key
     database.ref("newsletterEmails").child(customKey).set({ email: email })
       .then(() => {
-        alert("Email saved successfully!");
+        console.log("Email saved successfully!");
         emailInput.value = ""; // Clear the input after successful submission
       })
       .catch((error) => {
