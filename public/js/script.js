@@ -344,7 +344,7 @@ function fetchLiveStreamInfo() {
 
     } else {
       // Stream is offline, display default information
-      document.getElementById('streamTitle').textContent = 'Offline';
+      document.getElementById('streamTitle').textContent = 'Hors Ligne Revenez demain !';
     }
   })
   .catch(error => {
@@ -371,7 +371,7 @@ window.onload = function () {
 
       }
       else{
-        document.getElementById('subscriberCount').innerText = subscriberCount + " : Rip aucun abonnés ";
+        document.getElementById('subscriberCount').innerText = subscriberCount;
       }
     })
     .catch(error => {
@@ -402,7 +402,7 @@ newsletterForm.addEventListener("submit", (event) => {
     .then((data) => {
       if (data.exists) {
         // The email already exists in the database
-        newsletterModal.textContent = "You are already subscribed to our newsletter!";
+        newsletterModal.textContent = "Vous êtes déjà inscrits a notre newsletter !";
         newsletterModal.classList.add("active");
         setTimeout(() => {
           newsletterModal.classList.remove("active");
