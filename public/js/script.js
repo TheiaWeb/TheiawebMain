@@ -137,9 +137,9 @@ const modalAcceptButton = document.getElementById("modalAcceptButton");
 const cookieConsent = localStorage.getItem("cookieConsent");
 
 
-if (!cookieConsent) {
-  cookieModal.style.display = "block";
-}
+// if (!cookieConsent) {
+//   cookieModal.style.display = "block";
+// }
 
 // Function to handle cookie consent
 function handleCookieConsent(consent) {
@@ -268,21 +268,34 @@ function initializePlayer() {
   }
 
   var containerWidth = document.getElementById('twitch-embed').offsetWidth;
-  var newHeight = (playerHeight / playerWidth) * containerWidth;
 
-  // // Fetch next scheduled stream information from the Twitch API
-  // fetchNextScheduledStream();
+  // Determine if it's a mobile device
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // Set the layout property based on the device type
+  var layoutType = isMobile ? "video" : "video-with-chat";
+
+  // Define aspect ratios for mobile and non-mobile
+  var mobileAspectRatio = 16 / 9;
+  var desktopAspectRatio = playerWidth / playerHeight;
+
+  // Calculate the height based on the aspect ratio and container width
+  var newHeight = isMobile ? containerWidth / mobileAspectRatio : (playerHeight / playerWidth) * containerWidth;
 
   // Create a new Twitch player instance
   twitchPlayer = new Twitch.Embed("twitch-embed", {
     width: containerWidth,
     height: newHeight,
     channel: "theiaweb",
-    layout: "video-with-chat"
+    layout: layoutType
   });
 
   // Fetch live stream information from the Twitch API
   fetchLiveStreamInfo();
+
+  // Toggle the visibility of the viewersInfos div based on the device type
+  var viewersInfosDiv = document.getElementById('viewersInfos');
+  viewersInfosDiv.style.display = isMobile ? "none" : "flex";
 }
 
 
