@@ -499,13 +499,10 @@ footer p,
   top: 236px;
   left: -19px;
 }
+.contact__box {
+  display: flex;
+}
 .form__content {
-  padding: 25px 110px;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 71px rgba(0, 0, 0, 0.15);
-  border-radius: 35px;
-  border: 3px solid var(--pink);
-  margin: 50px 120px;
 }
 .contact__category {
   display: flex;
@@ -549,8 +546,8 @@ footer p,
 }
 
 .contact__input-large {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border: none;
+  border-bottom: 1px solid var(--black);
   padding: 10px 14px;
   font-size: var(--small-font-size);
   resize: none;
@@ -558,6 +555,7 @@ footer p,
 
 .contact__footer-top {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -620,6 +618,25 @@ footer p,
   border-color: #ff80ab;
   
 }
+
+/*checkbox rounded*/
+.checkbox-round {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: gray;
+}
+
 
 
   

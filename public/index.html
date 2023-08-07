@@ -509,45 +509,113 @@
           passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
         </p>
       </div>
-      <img src="img/contact-elipse.png" class="contact__img" alt="">
       <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
       <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
       <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
 
 
-      <form id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
+     
+
+      <div class="popupFORM">
+        <div class="toast" id="popupFORM">
+          <div class="toast-content">
+            <i class="fas fa-solid fa-check check"></i>
+            <div class="message">
+              <span class="text text-1">Succès</span>
+              <span class="text text-2">Votre message a bien été envoyé !</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-xmark close" id="closeButton"></i>
+        </div>
+      </div>
+
+
+      <div  class="contact__box">
+        <div class="contact__box-left">
+          <h2>Informations</h2>
+          <p>Remplissez le formulaire et notre équipe vous répondra dans les 48 heures.</p>
+          <div class="contact__information">
+            <img src="img/contact-location-img.png" alt="" class="contact__information-img">
+            <p class="contact__information-text">Lyon, France</p>
+          </div>
+          <div class="contact__information">
+            <img src="img/contact-email-img.png" alt="" class="contact__information-img">
+            <p class="contact__information-text">theiaweb.contact@gmail.com</p>
+          </div>
+          <img src="img/contact__info-img.png" alt="">
+
+        </div>
+         <form class="contact__box-right" id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
         <div class="form__content">
           <div class="grid-1-1">
             <div class="contact__category">
               <label class="contact__label" for="surname">Nom <span class="contact__star">&#42;</span></label>
-              <input class="contact__input-small" type="text" id="surname" name="name" placeholder="Dupuis" required>
+              <input class="contact__input-small" type="text" id="surname" name="name" placeholder="" required>
             </div>
             <div class="contact__category">
               <label class="contact__label" for="name">Prénom <span class="contact__star">&#42;</span></label>
-              <input class="contact__input-small" type="text" id="name" name="name" placeholder="Jean" required>
+              <input class="contact__input-small" type="text" id="name" name="name" placeholder="" required>
             </div>
           </div>
           <div class="grid-1-1">
             <div class="contact__category">
               <label class="contact__label" for="email">Mail <span class="contact__star">&#42;</span></label>
-              <input class="contact__input-small" type="email" id="email" name="email" placeholder="email@exemple.fr"
+              <input class="contact__input-small" type="email" id="email" name="email" placeholder=""
                 required>
             </div>
             <div class="contact__category">
               <label class="contact__label" for="phone">Téléphone</label>
-              <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="0122334455" required>
+              <input class="contact__input-small" type="text" id="phone" name="phone" placeholder="" required>
             </div>
           </div>
-          <div class="grid-1-1">
-            <div class="contact__category">
-              <label class="contact__label" for="company">Société</label>
-              <input class="contact__input-small" type="text" id="company" name="company" placeholder="Tesla">
+          <div class="contact__choose-services">
+            <p>De quels services avez-vous besoin ?</p>
+            <div class="contact__choose-services-box">
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Design UX/UI</p>
+              </div>
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Création Web</p>
+              </div>
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Référencement naturel</p>
+              </div>
+              
+              
             </div>
-            <div class="contact__category">
-              <label class="contact__label" for="subject">Sujet <span class="contact__star">&#42;</span></label>
-              <input class="contact__input-small" type="text" id="subject" name="subject" placeholder="Sujet du message"
-                required>
+            <div class="contact__choose-services-box">
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Analyses & Data</p>
+              </div>
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Branding</p>
+              </div>
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Maintenance Web</p>
+              </div>
+              
+              
             </div>
+            <div class="contact__choose-services-box">
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Communication digitale</p>
+              </div>
+              <div class="contact__choose-services-check">
+                <input type="checkbox" class="checkbox-round" />
+                <p class="contact__choose-services-label">Autre</p>
+              </div>
+            
+              
+              
+            </div>
+
           </div>
           <div class="contact__msg">
             <label class="contact__label" for="message">Expliquez nous votre projet <span
@@ -561,26 +629,18 @@
               <label for="cgu-check">J'accepte les <span><a href="legal\cgu.html">Conditions Générales
                     d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
             </div>
-            <p class="contact__footer-star-txt"><span class="contact__star">&#42;</span> Champs obligatoires</p>
+            <div class="contact__footer-cgucheck">
+              <input type="checkbox" id="cgu-check" name="cgu" required>
+              <label for="cgu-check">Je souhaite recevoir la <b>newsletter</b> de Theia Web</label>
+            </div>
           </div>
           <div class="contact__footer-bottom">
             <button class="green_btn" type="submit">Envoyer le Message</button>
-            <p class="contact__footer-btn-under">Réponse sous 48h</p>
           </div>
         </div>
       </form>
+     
 
-      <div class="popupFORM">
-        <div class="toast" id="popupFORM">
-          <div class="toast-content">
-            <i class="fas fa-solid fa-check check"></i>
-            <div class="message">
-              <span class="text text-1">Succès</span>
-              <span class="text text-2">Votre message a bien été envoyé !</span>
-            </div>
-          </div>
-          <i class="fa-solid fa-xmark close" id="closeButton"></i>
-        </div>
       </div>
 
     </section>
