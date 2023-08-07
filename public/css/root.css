@@ -9,7 +9,8 @@
     --montserrat:'Montserrat', sans-serif;
 
     /*========== Color theme ==========*/
-    --white: #FCFDF2;
+    --white: #FFF;
+    --bg-color: #F8F7FC;
     --grey : #8E8E8E;
     --black: #171717;
     --black-0-6: rgb(23, 23, 23, 0.6);
@@ -18,7 +19,7 @@
     --blue-0-8: rgba(137, 255, 253, 0.8);
     --pink: #FCADE7;
     --pink-0-4: rgba(252, 173, 231, 0.4);
-    --purple: #6F2BAE;
+    --purple: #9848FF;
     --pink-blue-gradient: linear-gradient(135deg, #FCADE7 14.39%, #89FFFD 86.07%);
     --input-color:rgba(0, 0, 0, 0.6);
     --container-color: #fff; 
@@ -96,7 +97,7 @@
     :root {
      /*========== Font Size ==========*/
           --big-font-size: 5.5rem;
-          --h1-font-size: 4rem;
+          --h1-font-size: 2rem;
           --h2-font-size: 2.5rem;
           --h3-font-size: 2rem;
           --normal-font-size: 1.5rem;
@@ -152,11 +153,10 @@ li{
   
 /*==================== TITLES ====================*/
 .title {
-  font-family: var(--kanit);
+  font-family: var(--montserrat);
   color: var(--black);
   font-weight: var(--font-bold);
-  text-shadow: 2px 2px var(--pink), 4px 4px var(--blue);
-  text-transform: uppercase;
+  text-shadow: 1px 1px var(--pink), 2px 2px var(--blue);
 }
 .big-title {
   font-size: var(--big-font-size);
@@ -180,8 +180,9 @@ li{
   .section__text {
     font-family: var(--roboto);
     font-weight: var(--font-regular);
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     text-align: center;
+    line-height: 150%;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -634,7 +635,7 @@ footer p,
 }
 
 .checkbox-round:checked {
-  background-color: gray;
+  background-color: var(--purple);
 }
 
 

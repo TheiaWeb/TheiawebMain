@@ -7,12 +7,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 4px 6px 0px rgb(252 173 231 / 41%);
     position: relative;
   }
-
-
-
   .header__title-blue {
     background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
     -webkit-background-clip: text;
@@ -50,218 +46,56 @@
 
 
   
-/*==================== ACCOMPAGNEMENT ====================*/
+/*==================== AGENCE ====================*/
 
-.accompagnement {
+.agence {
 position: relative;
+display: flex;
+flex-direction: column;
+gap: 30px;
 }
 .accompagnement h2 {
   padding-top: 30px;
 }
-
-.accompagnement__text {
-  font-family: var(--roboto);
-  font-size: var(--small-font-size);
-  color: var(--black);
-  text-align: center;
-}
-
-.accompagnement__quotation-box {
-  display: flex;
-  gap: 5%;
-  margin: 40px 0;
-}
-
-.accompagnement__quotation-img {
-  width: 50px;
-  height: 40px;
-}
-
-.accompagnement__explanation-wrapper {
-  position: relative;
-}
-
-.accompagnement__explanation-box {
-  padding: 5% 10%;
-  width: 80%;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12.012px;
-  border: 1.602px dashed var(--black, #171717);
-  background: var(--white, #FCFDF2);
-  box-shadow: 0px 0px 3.2031943798065186px 0px rgba(0, 0, 0, 0.25);
-  z-index: 100;
-  margin-bottom: 20px;
-
-
-}
-
-.accompagnement__explanation {
-  background: -webkit-linear-gradient(299deg, #FCADE7 0%, #89FFFD 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-family: var(--kanit);
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-bold);
-}
-
 .body-bg-1 {
   position: absolute;
   width: 36px;
   top: 130px;
   left: 163px;
 }
-
-.body-bg-2 {
-  position: absolute;
-  width: 67px;
-  top: -27px;
-  right: 93px;
-  z-index: -1;
-}
-
-.body-bg-3 {
-  position: absolute;
-  width: 197px;
-  top: 58px;
-  left: 26px;
-  z-index: -1;
-
-}
-
 .body-bg-4 {
   position: absolute;
   width: 36px;
   bottom: 311px;
   left: 215px;
 }
-.accompagnement__cards-listing-big-row {
-  display: flex;
-  gap: 20px;
-  justify-content: center
-
-}
-.accompagnement__cards-listing-small-row {
-  display: flex;
-  gap: 20px;
-  justify-content: center
-}
-.accompagnement__cards {
-  width: 220px;
-  height: 150px;
-}
-.accompagnement__cards-listing {
-  margin: 40px 5%;
+.agence__separation {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.accompagnement__card {
-  position: relative;
-  display: flex;
-  width: 220px;
-  height: 150px;
-  padding: 8.235px;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  border-radius: 25px;
-  box-shadow: 0px 3.2941176891326904px 8.235294342041016px 0px rgba(0, 0, 0, 0.25);
-  transition: z-index 0.3s ease-in-out;
+  gap: 30px;
 }
-.accompagnement__card-front {
-  background: var(--linear-pink, linear-gradient(135deg, #FCADE7 0%, #89FFFD 100%));
-  color: var(--white);
-  font-family: var(--roboto);
-  font-size: var(--h1-font-size);
-  font-weight: var(--extra-bold);
-  position: absolute;
+.agence__separation-one {
+  width: 38px;
 }
-  
-.accompagnement__card-back {
-  background: var(--white);
-  color: var(--black);
-  text-align: center;
-  font-family: var(--roboto);
-  font-size: var(--small-font-size);
-  font-weight: var(--font-regular);
-  border: 4px solid var(--pink);
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-  
+.agence__separation-two {
+  width: 23px;
 }
-
-.accompagnement__cards:hover .accompagnement__card-back {
-  opacity: 1;
-  z-index: 1;
-  transition: 0.5s ease-in-out;
-
+.agence__separation-three {
+  width: 13px;
 }
 
 @media only screen and (max-width: 768px) {
   .accompagnement h2 {
-padding: 70px 0 10px 0;
-  }
-  .accompagnement__cards {
-    width: 180px;
-    height: 100px;
+    padding: 70px 0 10px 0;
   }
 
-  .accompagnement__card {
-    width: 180px;
-    height: 100px;
-  }
-  .body-bg-2,
-  .body-bg-3 {
-    display: none;
-  }
-}
-@media only screen and (max-width: 529px) {
-  .accompagnement__cards-listing-big-row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-  
-  }
-  .accompagnement__cards-listing-small-row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-}
-
-@media only screen and (min-width: 530px) and (max-width: 1100px) {
-  .accompagnement__cards-listing-big-row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-  
-  }
-  .accompagnement__cards-listing-small-row {
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-  }
 }
 
 
 /*==================== SOLUTIONS ====================*/
-.solutions__text {
-  color: var(--black);
-  text-align: justify;
-  font-family: var(--roboto);
-  font-size: var(--small-font-size);
-  font-weight: var(--font-regular);
-  text-align: center;
+.team {
+  background-color: var(--bg-color);
 }
 .team__row {
   display: flex;
@@ -449,153 +283,9 @@ padding: 70px 0 10px 0;
 }
 
 /*==================== EXPERTISES ====================*/
-.expertise__row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  align-self: stretch;
-  margin-top: 20px;
-  gap: 20px;
+.expertise {
+  background-color: var(--bg-color);
 }
-.expertise__card {
-  border-radius: 8px;
-
-}
-.expertise__card img {
-  z-index: 1;
-  position: relative;
-  width: 100%;
-
-}
-
-.expertise__card-panel {
-  display: flex;
-  padding: 16px;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  border-radius: 8px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 100%), linear-gradient(135deg, #FCADE7 0%, #89FFFD 100%);
-  box-shadow: 0.30000001192092896px 0.30000001192092896px 1px 0px rgba(249, 249, 249, 0.20) inset, -0.30000001192092896px -0.30000001192092896px 1px 0px rgba(12, 12, 12, 0.30) inset;
-  margin: 0 25px;
-  margin-top: -96px;
-  z-index: 2;
-  position: relative;
-
-
-}
-.expertise__card-panel-title {
-  color: var(--black);
-  text-align: center;
-  text-transform: uppercase;
-  font-family: var(--montserrat);
-  font-size: var(--smaller-font-size);
-  font-weight: var(--font-bold);
-}
-.expertise__card-panel-btn {
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  border-radius: 15px;
-  background: #FFF;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  font-family: var(--roboto);
-  font-weight: var(--font-semi-bold);
-  color: var(--black);
-  border: none;
-}
-.expertise__card-panel-btn:hover {
-  cursor: pointer;
-}
-
-
-
-/* Style de la pop-up */
-.popup-expertise {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-}
-
-.popup-expertise-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-}
-
-.popup-expertise-content h2 {
-  font-family: var(--montserrat);
-  color: var(--black);
-  font-size: var(--normal-font-size);
-  text-transform: uppercase;
-  font-weight: var(--font-bold);
-}
-.popup-expertise-content p {
-  font-family: var(--roboto);
-  color: var(--black);
-  font-size: var(--smaller-font-size);
-  font-weight: var(--font-regular);
-}
-
-.popup-expertise-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  cursor: pointer;
-  font-size: var(--h2-font-size);
-  color: var(--pink);
-}
-
-@media only screen and (max-width: 768px) {
-  .popup-expertise-content {
-    width: 90%;
-  }
-  .expertise__row {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .expertise__row {  
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 20px 20px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "expertise__card-creation expertise__card-refonte"
-      "expertise__card-communication expertise__card-communication";
-  }
-  
-  .expertise__card-creation { grid-area: expertise__card-creation; }
-  
-  .expertise__card-refonte { grid-area: expertise__card-refonte; }
-  
-  .expertise__card-communication { grid-area: expertise__card-communication; }
-  
-}
-
-
-
 
 /*==================== METHODE ====================*/
 .methode__card-row {
