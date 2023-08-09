@@ -407,7 +407,6 @@
 
 
 <section id="contact" class="section contact wow animate__animated animate__fadeInUp" data-wow-offset="1">
-  <div class="contact__header">
       <h2 class="title h2-title title-center">Nous contacter</h2>
 
 
@@ -416,7 +415,6 @@
           Vous avez des questions ou des idées à partager ? Nous sommes impatients de vous entendre ! Notre équipe
           passionnée et expérimentée est prête à vous accompagner dans tous vos projets web.
         </p>
-      </div>
       <img src="img/body-bg-contact.png" class="body__bg-contact body__bg" alt="">
       <img src="img/body-bg-contact.png" class="body__bg-contact-2 body__bg" alt="">
       <img src="img/body-bg-contact.png" class="body__bg-contact-3 body__bg" alt="">
@@ -440,8 +438,8 @@
 
       <div  class="contact__box">
         <div class="contact__box-left">
-          <h2>Informations</h2>
-          <p>Remplissez le formulaire et notre équipe vous répondra dans les 48 heures.</p>
+          <h3>Informations</h3>
+          <p class="contact__box-left-text">Remplissez le formulaire et notre équipe vous répondra dans les 48 heures.</p>
           <div class="contact__information">
             <img src="img/contact-location-img.png" alt="" class="contact__information-img">
             <p class="contact__information-text">Lyon, France</p>
@@ -477,58 +475,52 @@
             </div>
           </div>
           <div class="contact__choose-services">
-            <p>De quels services avez-vous besoin ?</p>
-            <div class="contact__choose-services-box">
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Design UX/UI</p>
-              </div>
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Création Web</p>
-              </div>
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Référencement naturel</p>
-              </div>
-              
-              
-            </div>
-            <div class="contact__choose-services-box">
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Analyses & Data</p>
-              </div>
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Branding</p>
-              </div>
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Maintenance Web</p>
-              </div>
-              
-              
-            </div>
-            <div class="contact__choose-services-box">
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Communication digitale</p>
-              </div>
-              <div class="contact__choose-services-check">
-                <input type="checkbox" class="checkbox-round" />
-                <p class="contact__choose-services-label">Autre</p>
-              </div>
-            
-              
-              
+            <p class="contact__choose-services-title">De quels services avez-vous besoin ?</p>
+                <div class="contact__choose-services-box"><div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Référencement naturel</p>
+                </div>
+
+                <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Création Web</p>
+                </div>
+
+                  <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Design UX/UI</p>
+                </div>
+
+                <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Maintenance Web</p>
+                </div>
+
+                 <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Branding</p>
+                </div>
+
+                <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Analyses & Data</p>
+                </div>
+               
+                <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Communication digitale</p>
+                </div>
+
+                <div class="contact__choose-services-check">
+                  <input type="checkbox" class="checkbox-round" />
+                  <p class="contact__choose-services-label">Autre</p>
+                </div>              
             </div>
 
           </div>
           <div class="contact__msg">
-            <label class="contact__label" for="message">Expliquez nous votre projet <span
-                class="contact__star">&#42;</span></label>
-            <textarea class="contact__input-large" rows="4" id="message" name="message" placeholder="Message..."
+            <label class="contact__label" for="message">Message <span class="contact__star">&#42;</span></label>
+            <textarea class="contact__input-large" rows="3" id="message" name="message" placeholder="Écrivez votre message..."
               required></textarea>
           </div>
           <div class="contact__footer-top">
@@ -543,7 +535,7 @@
             </div>
           </div>
           <div class="contact__footer-bottom">
-            <button class="green_btn" type="submit">Envoyer le Message</button>
+            <button class="green_btn" type="submit">Envoyer le Message<i class="fa-solid fa-angle-right"></i></button>
           </div>
         </div>
       </form>

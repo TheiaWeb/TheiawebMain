@@ -494,8 +494,8 @@ align-items: flex-start;
 }
 
 .button-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
   border-radius: 5px;
   align-items: center;
   max-width: 250px;
