@@ -761,6 +761,102 @@ footer p,
 }
 
 
+/*==================== NEWSLETTER ====================*/
+.newsletter {
+  background: url(../img/newsletter-bg.png) no-repeat;
+  background-position-x: center;
+}
+.newsletter__box {
+  display: flex;
+  background-color: rgba(208, 173, 252, 0.8);
+  gap: 25px;
+  align-items: center;
+  border-radius: 15px;
+}
+.newsletter__box-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 30px 15px 0;
+
+}
+.newsletter__box-right h2 {
+  color: var(--black);
+  font-family: var(--montserrat);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-bold);
+}
+.newsletter__box-right p {
+  color: var(--black);
+  font-family: var(--roboto);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-thin);
+}
+.newsletter__box-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 10px;
+}
+.newsletter__box-right form input {
+  border-radius: 46.058px;
+  padding: 15px 20px;
+
+  background: var(--white);
+  border: none;
+  box-shadow: 0px 1.5352733135223389px 4.6058197021484375px 0px rgba(19, 18, 66, 0.07);
+}
+.newsletter__box-right form input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: var(--roboto);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-regular);
+  border: none;
+}
+.newsletter__box-right form input:focus {
+  outline: none;
+}
+.newsletter__box-right button {
+  border-radius: 43px;
+  background: var(--purple);
+  padding: 15px 20px;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-family: var(--roboto);
+  font-size: var(--small-font-size);
+}
+.newsletter__box-right button:hover {
+  cursor: pointer;
+}
+
+/* Styles for the newsletter modal */
+.newsletterModal {
+  opacity: 0;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+  color: var(--black);
+  font-family: var(--roboto);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-regular);
+}
+
+#newsletterModal.active {
+  opacity: 1;
+}
+
+@media screen and (max-width: 630px) {
+  .newsletter__box-left {
+    display: none;
+  }
+  .newsletter__box {
+    padding: 20px 40px;
+    text-align: center;
+  }
+}
 
   
 /*==================== MEDIA QUERIES ====================*/
@@ -1226,31 +1322,6 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 
-
-/* Styles for the newsletter modal */
-.newsletterModal {
-  right: 2em;
-  position: absolute;
-  max-width: 7em;
-  opacity: 0;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  margin: auto;
-  text-align: center;
-  padding: 20px;
-  transition: opacity 0.5s ease;
-  color: var(--black);
-  font-family: var(--roboto);
-  font-size: var(--smaller-font-size);
-  font-weight: var(--font-regular);
-}
-
-#newsletterModal.active {
-  opacity: 1;
-}
-  
 /*==================== TOP BTN ======================*/
   #myBtn {
     display: none; /* Hidden by default */
