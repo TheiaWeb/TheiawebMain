@@ -62,6 +62,10 @@
       position: relative;
       z-index: 4;
     }
+    .z-5 {
+      position: relative;
+      z-index: 5;
+    }
   
   /* Font size for phone */
   @media screen and (max-width: 768px) {
@@ -97,12 +101,12 @@
     :root {
      /*========== Font Size ==========*/
           --big-font-size: 5.5rem;
-          --h1-font-size: 2rem;
+          --h1-font-size: 32px;
           --h2-font-size: 2.5rem;
           --h3-font-size: 2rem;
-          --normal-font-size: 1.5rem;
-          --small-font-size: 1.25rem;
-          --smaller-font-size: 1rem;
+          --normal-font-size: 20px;
+          --small-font-size: 16px;
+          --smaller-font-size: 14px;
           --footer-font-size: .825rem;
     }
   }
@@ -125,12 +129,6 @@ body {
 
 html {
     scroll-behavior: smooth;
-}
-
-h1,h2 {
-    font-family: var(--kanit);
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 ul {
@@ -190,7 +188,7 @@ li{
   
 /*==================== LAYOUT ====================*/
   .section {
-    padding: 5% 13%;
+    padding: 80px 13%;
   }
 
   .grid-1-1 {
@@ -202,6 +200,9 @@ li{
   }
   @media screen and (max-width: 768px) {
     .grid-1-1 { grid-template-columns: 1fr;
+    }
+    .section__text {
+      width: 100%;
     }
   }
 
@@ -476,8 +477,9 @@ footer p,
 
    /*==================== CONTACT ====================*/
 
-#contact {
+.contact {
   position: relative;
+  background-color: var(--bg-color);
 }
 
 .body__bg-contact {
@@ -502,6 +504,20 @@ footer p,
 }
 .contact__box {
   display: flex;
+  border-radius: 50px;
+  background: #FFF;
+  filter: drop-shadow(2px 2px 7px rgba(151, 71, 255, 0.33));
+  padding: 32px;
+}
+.contact__box-left {
+  background-color: var(--purple);
+  border-radius: 30px;
+  position: relative;
+}
+.contact__box-left-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .form__content {
 }
