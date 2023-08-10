@@ -841,15 +841,6 @@ footer hr {
 
   
 .toast {
-  position: fixed;
-  bottom: 25px;
-  right: 30px;
-  border-radius: 12px;
-  background: #fff;
-  transform: translate(-50%, -50%);
-  padding: 20px 35px 20px 25px;
-  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   display: none;
 }
 
@@ -862,11 +853,10 @@ footer hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 35px;
-  min-width: 35px;
+  padding: 5px 6px;
   background-color: var(--pink);
   color: #fff;
-  font-size: 20px;
+  font-size: 10px;
   border-radius: 50%;
 }
 
@@ -883,7 +873,7 @@ footer hr {
 }
 
 .message .text {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   color: #666666;
 }
