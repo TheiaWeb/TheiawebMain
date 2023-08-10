@@ -131,6 +131,11 @@ gap: 30px;
 .expertise__card-img {
   width: 20%;
 }
+.expertise__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 .expertise__card-content h3 {
   color: #2B2E36;
   font-family: var(--montserrat);
@@ -328,7 +333,6 @@ align-items: flex-start;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
   gap: 10px;
 }
 .team__social-icons ul li {
@@ -346,7 +350,7 @@ align-items: flex-start;
   background: -webkit-linear-gradient(323deg, #FCADE7 0%, #89FFFD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 8px 10px;
+  padding: 6px 8px;
 }
 .team__social-icons ul li a:hover {
   color: var(--black);
@@ -423,6 +427,9 @@ align-items: flex-start;
 /*==================== TWITCH ====================*/
 .agence-twitch {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .twitch__elipse {
@@ -558,7 +565,8 @@ align-items: flex-start;
 @media screen and (max-width: 500px){
   .grid-4-2-1 {
   grid-template-columns: 1fr;
-  justify-items: center
+  justify-items: center;
+  gap: 10px;
 }
 }
 
