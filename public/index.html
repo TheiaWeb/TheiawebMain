@@ -451,7 +451,7 @@
           <img src="img/contact__info-img.png" alt="" class="contact__box-left-img">
 
         </div>
-         <form class="contact__box-right" id="contactForm" action="/sendEmailAndSaveToFirestore" method="POST">
+         <form class="contact__box-right" id="contactForm" method="POST">
         <div class="form__content">
           <div class="grid-1-1">
             <div class="contact__category">
@@ -477,42 +477,42 @@
           <div class="contact__choose-services">
             <p class="contact__choose-services-title">De quels services avez-vous besoin ?</p>
                 <div class="contact__choose-services-box"><div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Référencement" value="Référencement"/>
                   <p class="contact__choose-services-label">Référencement naturel</p>
                 </div>
 
                 <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Création" value="Création"/>
                   <p class="contact__choose-services-label">Création Web</p>
                 </div>
 
                   <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Design" value="Design"/>
                   <p class="contact__choose-services-label">Design UX/UI</p>
                 </div>
 
                 <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Maintenance" value="Maintenance"/>
                   <p class="contact__choose-services-label">Maintenance Web</p>
                 </div>
 
                  <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Branding" value="Branding"/>
                   <p class="contact__choose-services-label">Branding</p>
                 </div>
 
                 <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Analyses" value="Analyses"/>
                   <p class="contact__choose-services-label">Analyses & Data</p>
                 </div>
                
                 <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Communication" value="Communication"/>
                   <p class="contact__choose-services-label">Communication digitale</p>
                 </div>
 
                 <div class="contact__choose-services-check">
-                  <input type="checkbox" class="checkbox-round" />
+                  <input type="checkbox" class="checkbox-round" id="Autre" value="Référencement naturel"/>
                   <p class="contact__choose-services-label">Autre</p>
                 </div>              
             </div>
@@ -530,7 +530,7 @@
                     d'Utilisation</a></span><span class="contact__star">&#42;</span></label>
             </div>
             <div class="contact__footer-cgucheck">
-              <input type="checkbox" id="cgu-check" name="cgu" required>
+              <input type="checkbox" id="newsletter-check" name="cgu" required>
               <label for="cgu-check">Je souhaite recevoir la <b>newsletter</b> de Theia Web</label>
             </div>
           </div>
@@ -771,6 +771,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="js/firebaseconfig.js"></script>
+    <script src="js/formsubmit.js"></script>
 </body>
 
 </html>

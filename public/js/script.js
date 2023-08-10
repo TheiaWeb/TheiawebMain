@@ -119,135 +119,166 @@ var form = document.getElementById('contactForm');
     }
 //#endregion
 
-//#region PopUp RGPD
+//#region Save CONTACT FORM data firestore
+function handleFormSubmit() {
+  const form = document.getElementById('contactForm');
 
-// Get the popup element and buttons
+  form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Get input values
+      const surname = document.getElementById('surname').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+
+      // Gather selected services using checkboxes
+      const services = Array.from(document.querySelectorAll('.contact__choose-services-check input[type="checkbox"]:checked'))
+          .map(checkbox => checkbox.value);
+
+      // Get checkbox values
+      const cguAccepted = document.getElementById('cgu-check').checked;
+      const newsletterSubscribed = document.getElementById('newsletter-check').checked;
+
+      // Create data object
+      const userData = {
+        personalInfo: {
+          surname: surname,
+          name: name,
+          email: email,
+          phone: phone,
+          message: message
+      },
+      services: services,
+      preferences: {
+          cguAccepted: cguAccepted,
+          newsletterSubscribed: newsletterSubscribed
+      },
+      };
+
+      // Save data to Firestore
+      const db = firebase.firestore();
+      try {
+          await db.collection('contacts').add(userData);
+          console.log('Data saved successfully.');
+          form.reset(); // Optional: Reset the form after submission
+      } catch (error) {
+          console.error('Error saving data:', error);
+      }
+  });
+}
+
+// Call the function when the document is loaded
+document.addEventListener('DOMContentLoaded', handleFormSubmit);
+//#endregion
+
+//#region PopUp RGPD
 const popup = document.getElementById("popupRGPD");
 const acceptButton = document.getElementById("acceptButton");
 const refuseButton = document.getElementById("refuseButton");
-var database = firebase.database();
 const preferencieslink = document.getElementById("popupRGPD__content-link");
 const preferencies = document.getElementById("pref-rgpd");
 const preferenciesBackBtn = document.getElementById("pref__content-btn-return");
-
 const cookieModal = document.getElementById("cookieModal");
 const modalAcceptButton = document.getElementById("modalAcceptButton");
 
 // Check if user has already accepted or refused cookies before
 const cookieConsent = localStorage.getItem("cookieConsent");
 
-
-// if (!cookieConsent) {
-//   cookieModal.style.display = "block";
-// }
-
 // Function to handle cookie consent
 function handleCookieConsent(consent) {
-  // Set the consent in localStorage
   localStorage.setItem("cookieConsent", consent);
-  // Hide the modal
   cookieModal.style.display = "none";
 }
 
 // Event listener for accepting cookies from the modal
 modalAcceptButton.addEventListener("click", () => {
   handleCookieConsent("accepted");
-  cookieModal.style.display = "none"; // Hide the modal after accepting
+  cookieModal.style.display = "none";
 });
 
 // Event listener for refusing cookies
-refuseButton.addEventListener("click", () => {  
-    cookieModal.style.display = "block";  
+refuseButton.addEventListener("click", () => {
+  cookieModal.style.display = "block";
 });
 
+acceptButton.addEventListener("click", async () => {
+  const necessaryState = true;
+  const statisticState = true;
+  const preferencesState = true;
+  const marketingState = true;
 
-acceptButton.addEventListener("click", () => {
-  // Set all preferences to true
-  var necessaryState = true;
-  var statisticState = true;
-  var preferencesState = true;
-  var marketingState = true;
+  const now = new Date();
+  const timestamp = now.toString();
 
-  // Save the data to Firestore
-  var now = new Date();
-  var timestamp = now.toString(); // Convert to ISO string format
-
-  var docName = "preferences_" + timestamp;
-  firestore
-    .collection("user_preferences")
-    .doc(docName)
-    .set({
+  const docName = "Date:" + timestamp;
+  
+  try {
+    await firestore.collection("CGU_Acceptation").doc(docName).set({
       necessary: necessaryState,
       statistic: statisticState,
       preferences: preferencesState,
       marketing: marketingState,
       timestamp: timestamp,
-    })
-    .then(function () {
-      console.log("Document successfully written!");
-      console.log("Preferences saved to Firestore!");
-    })
-    .catch(function (error) {
-      console.error("Error writing document: ", error);
-      console.log("An error occurred while saving preferences.");
     });
+    console.log("Document successfully written!");
+    console.log("Preferences saved to Firestore!");
+  } catch (error) {
+    console.error("Error writing document: ", error);
+    console.log("An error occurred while saving preferences.");
+  }
 
   handleCookieConsent("accepted");
   popup.style.display = "none";
 });
 
-// Event listener for showing the preferencies 
-preferencieslink.addEventListener("click", () =>{
+// Event listener for showing the preferences
+preferencieslink.addEventListener("click", () => {
   preferencies.style.display = "flex";
 });
 
-preferenciesBackBtn.addEventListener("click", () =>{
+preferenciesBackBtn.addEventListener("click", () => {
   preferencies.style.display = "none";
 });
 
-//#region Saving USER Data acceptation
-
 // Get references to the switch elements
-var necessarySwitch = document.querySelector('#necessary-switch');
-var statisticSwitch = document.querySelector('#statistic-switch');
-var preferencesSwitch = document.querySelector('#preferences-switch');
-var marketingSwitch = document.querySelector('#marketing-switch');
-var acceptButtonMultiple = document.querySelector('.pref__content-btn-accept');
+const necessarySwitch = document.querySelector('#necessary-switch');
+const statisticSwitch = document.querySelector('#statistic-switch');
+const preferencesSwitch = document.querySelector('#preferences-switch');
+const marketingSwitch = document.querySelector('#marketing-switch');
+const acceptButtonMultiple = document.querySelector('.pref__content-btn-accept');
 
-acceptButtonMultiple.addEventListener('click', function () {
-    // Get the states of the switches   
-    var necessaryState = necessarySwitch.checked;
-    var statisticState = statisticSwitch.checked;
-    var preferencesState = preferencesSwitch.checked;
-    var marketingState = marketingSwitch.checked;
-    // Save the data to Firestore
-// Get the current timestamp
-var now = new Date();
-var timestamp = now.toString();
+acceptButtonMultiple.addEventListener('click', async () => {
+  const necessaryState = necessarySwitch.checked;
+  const statisticState = statisticSwitch.checked;
+  const preferencesState = preferencesSwitch.checked;
+  const marketingState = marketingSwitch.checked;
 
-// Save the data to Firestore
-var docName = "preferences_" + timestamp;
-firestore.collection("user_preferences").doc(docName).set({
-  necessary: necessaryState,
-  statistic: statisticState,
-  preferences: preferencesState,
-  marketing: marketingState,
-  timestamp: timestamp
-})
-.then(function() {
-  console.log("Document successfully written!");
-  console.log('Preferences saved to Firestore!');
-})
-.catch(function(error) {
-  console.error("Error writing document: ", error);
-  console.log('An error occurred while saving preferences.');
-});
-preferencies.style.display = "none";
-popup.style.display = "none";
+  const now = new Date();
+  const timestamp = now.toString();
+  const docName = "Date: " + timestamp;
 
+  try {
+    await firestore.collection("CGU_Acceptation").doc(docName).set({
+      necessary: necessaryState,
+      statistic: statisticState,
+      preferences: preferencesState,
+      marketing: marketingState,
+      timestamp: timestamp
+    });
+    console.log("Document successfully written!");
+    console.log('Preferences saved to Firestore!');
+  } catch (error) {
+    console.error("Error writing document: ", error);
+    console.log('An error occurred while saving preferences.');
+  }
+
+  preferencies.style.display = "none";
+  popup.style.display = "none";
 });
 //#endregion
-//#endregion
+
 
 //#region Player Twitch
 const clientId = 'o5x6ltrt4jwhb6ybxm0kkpjcip5mk4';
