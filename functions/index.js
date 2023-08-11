@@ -67,8 +67,8 @@ exports.sendEmailOnDataAdded = functions.https.onRequest((req, res) => {
     };
 
     try {
-      await transporter.sendMail(adminMailOptions);
-      await transporter.sendMail(clientMailOptions);
+      transporter.sendMail(adminMailOptions,console.log('Emails sent successfully.'));
+      transporter.sendMail(clientMailOptions,console.log('Emails sent successfully.'));
       console.log('Emails sent successfully.');
       return Promise.resolve(); // Resolve the promise to signal completion
     } catch (error) {

@@ -12,3 +12,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var firestore = firebase.firestore();
 var database = firebase.database();
+const functions = firebase.functions();
+const sendEmailOnDataAdded = functions.httpsCallable('sendEmailOnDataAdded');
