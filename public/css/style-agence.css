@@ -504,6 +504,7 @@ align-items: flex-start;
 
 .button-container {
   display: grid;
+  height: 111px;
   grid-template-columns: 0.75fr 1.25fr;
   border-radius: 5px;
   align-items: center;

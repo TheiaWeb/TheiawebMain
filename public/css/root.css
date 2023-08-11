@@ -71,7 +71,7 @@
   /* Font size for phone */
   @media screen and (max-width: 768px) {
       :root {
-        --big-font-size: 64px;
+        --big-font-size: 48px;
         --h1-font-size: 24px;
         --h2-font-size: 20px;
         --h3-font-size: 16px;
@@ -200,7 +200,9 @@ li{
     align-items: center;
   }
   @media screen and (max-width: 768px) {
-    .grid-1-1 { grid-template-columns: 1fr;
+    .grid-1-1 { 
+      grid-template-columns: 1fr;
+      gap: 0px;
     }
     .section__text {
       width: 100%;
@@ -327,6 +329,9 @@ footer {
     background: var(--bg-color);
     display: flex;
     flex-direction: column;
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+
   }
 footer a {
   color: var(--black);
@@ -379,14 +384,14 @@ footer hr {
   .footer__bot {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
   }
 }
 @media only screen and (max-width: 500px) {
   .footer__menu,
   .footer__legal {
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
     align-items: center;
   }
 }
@@ -638,7 +643,7 @@ footer hr {
   background-color: var(--white);
   border-radius: 50%;
   vertical-align: middle;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(152, 72, 255, 0.7);
   appearance: none;
   -webkit-appearance: none;
   outline: none;
@@ -658,6 +663,9 @@ footer hr {
   }
   .contact__box-left {
     padding: 20px;
+  }
+  .contact__footer-bottom {
+    align-items: center;
   }
   
 }
@@ -772,8 +780,12 @@ footer hr {
   .newsletter__box-left {
     display: none;
   }
+  .newsletter__box-right {
+    padding: 0;
+  
+  }
   .newsletter__box {
-    padding: 20px 40px;
+    padding: 25px 20px 15px 20px;
     text-align: center;
   }
 }
@@ -1253,6 +1265,11 @@ input:checked + .slider:before {
     scale: 1.2;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+  }
+  @media screen and (max-width: 768px) {
+    #myBtn {
+      right: 20px;
+    }
   }
 
 
