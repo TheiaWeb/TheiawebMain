@@ -1,0 +1,33 @@
+name: Firebase Hosting Deploy
+
+on:
+  push:
+    branches:
+      - refonte
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build  # Adjust this command based on your project setup
+
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --only hosting:testrefont  # Adjust your-channel-name
+
+      # You might want to add more steps here, like testing or notifications
