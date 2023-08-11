@@ -292,7 +292,8 @@ li{
     transition: 0.3s ease-in-out;
   }
   .navbar__mobile-content {
-   display: none;
+   opacity: 0;
+   transition: opacity 0.5s;  
     transition: left 0.3s ease;
     background: var(--white);
     position: fixed;
@@ -320,7 +321,9 @@ li{
   }
   
   .menu-open {
-    display: block;
+    opacity: 1;
+    transition: opacity 0.5s;
+
   }
 
 
