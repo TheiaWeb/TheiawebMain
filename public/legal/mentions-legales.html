@@ -25,37 +25,36 @@
 
 <body>
 
-   <!--================NAVBAR=================-->
- <nav class="navbar__pc">
-  <div class="nav__content">
-    <a href="../index.html"><img class="nav__content-logo" src=../img/logo.png alt=""></a>
-    <ul class="nav__menu">
-      <li><a href="../index.html#expertises">Expertises</a></li>
-      <li><a href="../tarifs.html">Tarifs</a></li>
-      <li><a href="../agence.html">L'agence</a></li>
-      <li class="nav__menu-btn"><a href="../index.html#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-<div class="navbar__mobile">
-  <div class="navbar__mobile-head section">
-    
-    <img class="navbar__mobile-logo" src="../img/logo.png" alt="">
-    <img class="navbar__mobile-menuIcon" id="iconImage" src="../img/navbar-burger.png" width="24px" height="21px" alt=""
-      id="menuIcon" onclick="toggleMenu()">
-  </div>
+  <!--================NAVBAR=================-->
 
-  <div class="navbar__mobile-content" id="menu">
-    <ul>
-      <li><a href="../index.html#expertises">Expertises</a></li>
-      <li><a href="../tarifs.html">Tarifs</a></li>
-      <li><a href="../agence.html">L'agence</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
-    </ul>
-
+  <nav class="navbar__pc">
+    <div class="nav__content">
+      <a href="../index.html"><img class="nav__content-logo" src=../img/logo.png alt=""></a>
+      <ul class="nav__menu">
+        <li><a href="../index.html#expertises" class="nav__menu-links">Expertises</a></li>
+        <li><a href="../index.html#accompagnement" class="nav__menu-links">Accompagnement</a></li>
+        <li><a href="../index.html#team" class="nav__menu-links">L'équipe</a></li>
+        <li><a href="../index.html#twitch" class="nav__menu-links">Live</a></li>
+        <li class="nav__menu-btn"><a href="../index.html#contact" class="nav__menu-btn-a">Nous contacter</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="navbar__mobile animate__fadeInLeft">
+    <div class="navbar__mobile-head section">
+      <img class="navbar__mobile-logo" src="../img/logo.png" alt="">
+      <img class="navbar__mobile-menuIcon" id="menuIcon" src="../img/navbar-burger.png" width="24px" height="21px" alt="" onclick="toggleMenu()">
+    </div>
+  
+    <div class="navbar__mobile-content" id="mobileMenu">
+      <ul>
+        <li><a href="../index.html#expertises" class="nav__menu-mobile-links" onclick="toggleMenu()">Expertises</a></li>
+        <li><a href="../index.html#accompagnement" class="nav__menu-mobile-links" onclick="toggleMenu()">Accompagnement</a></li>
+        <li><a href="../index.html#team" class="nav__menu-mobile-links" onclick="toggleMenu()">L'équipe</a></li>
+        <li><a href="../index.html#twitch" class="nav__menu-mobile-links" onclick="toggleMenu()">Live</a></li>
+        <li class="nav__menu-btn"><a href="../index.html#contact" class="nav__menu-btn-a" onclick="toggleMenu()">Nous contacter</a></li>
+      </ul>
+    </div>
   </div>
-
-</div>
 
 
 <!--================CONTENT=================-->
@@ -101,61 +100,41 @@
     </p>
   </section>
 
-      <!--================ FOOTER =================-->
+       <!--================ FOOTER =================-->
 
 
-      <footer id="footer" class="section">
-        <div class="grid-trio">
-          <div class="footer__column">
-            <div>
-              <h4 class="footer__column-title">Nous Contacter</h4>
-              <hr class="footer__separation">
-            </div>
-            <a href="tel:0650455667">
-              <div class="footer__contact-phone">
-                <img src="../img/footer-phone.png" alt="">
-               <p>06 50 45 56 67</p>
-              </div>
-            </a>
-            
-            <p>email@theiaweb.fr</p>
-            <p class="footer__button"><a href="../index.html#contact">Demander un devis</a></p>
-            <div class="footer__links-rs">
-              <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://www.instagram.com/theia_web/" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
+       <footer id="footer" class="section  wow animate__animated animate__fadeInUp">
+
+        <div class="footer__top">
+          <div class="footer__menu">
+            <li><a href="../index.html#expertises" class="footer__menu-links">Expertises</a></li>
+            <li><a href="../index.html#accompagnement" class="footer__menu-links">Accompagnement</a></li>
+            <li><a href="../index.html#team" class="footer__menu-links">L'équipe</a></li>
+            <li><a href="../index.html#twitch" class="footer__menu-links">Live</a></li>
+            <li><a href="../index.html#contact" class="footer__menu-links">Contact</a></li>
+    
+          </div>
+          <div class="footer__rs">
+              <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/theia_web/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
               <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-              <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
-              <a href="https://www.youtube.com/channel/UCfcGY1-QuEB-cvku0epS7lw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    
-            </div>
-          </div>
-          <div class="footer__column">
-            <div>
-              <h4 class="footer__column-title">Informations</h4>
-              <hr class="footer__separation">
-            </div>
-          <a href="../index.html"> <img class="footer__logo" src="../img/footer-logo.png" alt=""></a> 
-            <p class="footer__infos">L'agence est ouverte du Lundi au Vendredi
-              de 9H00 à 12H00 et de 14H00 à 18H00</p>
-          </div>
-          <div class="footer__column">
-            <div>
-              <h4 class="footer__column-title">Prestations</h4>
-              <hr class="footer__separation">
-            </div>
-            <p>Création de site internet</p>
-            <p>refonte de site internet</p>
-            <p>Creation de page Google</p>
+              <a href="https://www.twitch.tv/theiaweb" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+              <a href="https://www.youtube.com/@TheiaWeb" target="_blank"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
-        <div class="footer__down">
-          <a href="cgu.html">Conditions générales d'utilisation</a>
-          <div>
-            <a href="mentions-legales.html">Mention légales</a><span> et </span><a
-              href="politique-confidentialité.html">politique de confidentialité</a>
+        <hr>
+    
+        <div class="footer__bot">
+          <div class="footer__copyright">
+            <p>© 2023 All rights reserved</p>
+          </div>
+          <div class="footer__legal">
+            <li><a href="politique-confidentialité.html">Politique de confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
     
           </div>
         </div>
+    
       </footer>
     
         <!--================ TOP BTN =================-->
