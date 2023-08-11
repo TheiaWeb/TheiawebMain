@@ -107,9 +107,8 @@ exports.checkIfEmailExists = functions.https.onRequest((request, response) => {
 
     // Generate the custom key based on the date and the first letter of the email
     const date = new Date().toISOString().slice(0, 10);
-    const firstLetter = email.charAt(0).toLowerCase();
     const sanitizedEmail = email.replace(/[.$#\[\]@]/g, '');
-    const customKey = `${date}_${firstLetter}_${sanitizedEmail}`;
+    const customKey = `${date} ${sanitizedEmail}`;
 
     // Check if the email already exists in the database
     const databaseRef = admin.database().ref("newsletterEmails");

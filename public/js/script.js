@@ -279,7 +279,6 @@ acceptButtonMultiple.addEventListener('click', async () => {
 });
 //#endregion
 
-
 //#region Player Twitch
 const clientId = 'o5x6ltrt4jwhb6ybxm0kkpjcip5mk4';
 const accessToken = 'vqyqxbi9o0j34m19drzgvgzypk849w';
@@ -324,39 +323,36 @@ function initializePlayer() {
   // Fetch live stream information from the Twitch API
   fetchLiveStreamInfo();
 
-  // Toggle the visibility of the viewersInfos div based on the device type
-  var viewersInfosDiv = document.getElementById('viewersInfos');
-  viewersInfosDiv.style.display = isMobile ? "none" : "flex";
 }
 
 
-// function fetchNextScheduledStream() {
-//   fetch(`https://api.twitch.tv/helix/schedule?broadcaster_id=${nextScheduledStreamChannelId}`, {
-//     method: 'GET',
-//     headers: {
-//       'Client-ID': clientId,
-//       'Authorization': `Bearer ${accessToken}`
-//     }
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//     if (data.data && data.data.length > 0) {
-//       // Next scheduled stream is available, update the information
-//       var nextStreamTitle = data.data[0].title;
-//       nextStreamDateValue = data.data[0].scheduled_start_time; // Update the global variable
+function fetchNextScheduledStream() {
+  fetch(`https://api.twitch.tv/helix/schedule?broadcaster_id=${nextScheduledStreamChannelId}`, {
+    method: 'GET',
+    headers: {
+      'Client-ID': clientId,
+      'Authorization': `Bearer ${accessToken}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.data && data.data.length > 0) {
+      // Next scheduled stream is available, update the information
+      var nextStreamTitle = data.data[0].title;
+      nextStreamDateValue = data.data[0].scheduled_start_time; // Update the global variable
 
-//       document.getElementById('nextStreamTitle').textContent = nextStreamTitle;
-//       document.getElementById('nextStreamDate').textContent = `Aucun stream de prevu donc la Date: ${nextStreamDateValue}`;
-//       document.getElementById('nextStreamInfo').style.display = 'block';
-//     } else {
-//       // No next scheduled stream, hide the information
-//       document.getElementById('nextStreamInfo').style.display = 'block'; //A modifier une fois les streams lancer
-//     }
-//   })
-//   .catch(error => {
-//     console.error('Error fetching next scheduled stream information:', error);
-//   });
-// }
+      document.getElementById('nextStreamTitle').textContent = nextStreamTitle;
+      document.getElementById('nextStreamDate').textContent = `Aucun stream de prevu donc la Date: ${nextStreamDateValue}`;
+      document.getElementById('nextStreamInfo').style.display = 'block';
+    } else {
+      // No next scheduled stream, hide the information
+      document.getElementById('nextStreamInfo').style.display = 'block'; //A modifier une fois les streams lancer
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching next scheduled stream information:', error);
+  });
+}
 
 function fetchLiveStreamInfo() {
   fetch(`https://api.twitch.tv/helix/streams?user_login=${channelId}`, {
