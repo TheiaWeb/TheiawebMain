@@ -15,31 +15,37 @@ const firebaseConfig = {
   appId: "1:335132907653:web:d4620962ca0a24131571ec",
   measurementId: "G-5F4K9SXY34"
 };
+
 // Create a Nodemailer transporter using the Gmail SMTP server
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'theiaweb.contact@gmail.com',
-    pass: 'ggiffkbxrjlofqmi',
-  },
-});
 //#endregion
 //#region SEND EMAIL TO USER && ADMIN ON CONTACT FORM 
 // ALSO SEND CONFIRMATION EMAIL FORM NEWSLETTER
 // Function to send emails
-exports.sendEmailOnContactCreation = functions.firestore
-  .document('contacts/{contactId}')
-  .onCreate(async (snapshot, context) => {
-    const contactData = snapshot.data();
+exports.sendEmailOnDataAdded = functions.https.onRequest((req, res) => {
+  cors(req, res, async () => {
+      const data = req.body; // Access the data directly from req.body
+
+      if (!data) {
+          console.error('Contact data is missing or empty.');
+          return res.status(400).send('Contact data is missing or empty.');
+      }
+      
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'theiaweb.contact@gmail.com',
+        pass: 'ggiffkbxrjlofqmi',
+      },
+    });    
 
     const clientMailOptions = {
       from: 'theiaweb.contact@gmail.com',
-      to: contactData.email,
+      to: data.personalInfo.email,
       subject: 'Merci pour votre prise de contact',
-      text: `Chèr(e) ${contactData.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
-      html: `<p>Chèr(e) ${contactData.name},</p>
+      text: `Chèr(e) ${data.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
+      html: `<p>Chèr(e) ${data.personalInfo.name},</p>
               <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
-              <p>Vous nous avez contactés à ce(s) sujet(s):<br>${contactData.services.join('<br>')}</p>
+              <p>Vous nous avez contactés à ce(s) sujet(s):<br>${data.services.join('<br>')}</p>
               <p>Cordialement,<br>Theia Web</p>`,
     };
     
@@ -50,13 +56,13 @@ exports.sendEmailOnContactCreation = functions.firestore
       subject: 'Nouvelle prise de contact via le formulaire !',
       html: `
       <h3>Nouveau contact, nouvelle mission lets go ca !!</h3>
-      <p><strong>Name:</strong> ${contactData.name} ${contactData.surname}</p>
-      <p><strong>Email:</strong> ${contactData.email}</p>
-      <p><strong>Phone:</strong> ${contactData.phone}</p>
-      <p><strong>Services:</strong> ${contactData.services.join(', ')}</p>
-      <p><strong>Message:</strong> ${contactData.message}</p>
-      <p><strong>CGU Accepted:</strong> ${contactData.cguAccepted ? 'Yes' : 'No'}</p>
-      <p><strong>Newsletter Subscribed:</strong> ${contactData.newsletterSubscribed ? 'Yes' : 'No'}</p>
+      <p><strong>Name:</strong> ${data.personalInfo.name} ${data.personalInfo.surname}</p>
+      <p><strong>Email:</strong> ${data.personalInfo.email}</p>
+      <p><strong>Phone:</strong> ${data.personalInfo.phone}</p>
+      <p><strong>Services:</strong> ${data.services.join(', ')}</p>
+      <p><strong>Message:</strong> ${data.personalInfo.message}</p>
+      <p><strong>CGU Accepted:</strong> ${data.preferences.cguAccepted ? 'Yes' : 'No'}</p>
+      <p><strong>Newsletter Subscribed:</strong> ${data.preferences.newsletterSubscribed ? 'Yes' : 'No'}</p>
   `,
     };
 
@@ -68,7 +74,8 @@ exports.sendEmailOnContactCreation = functions.firestore
     } catch (error) {
       console.error('Error sending emails:', error);
       return Promise.reject(error); // Reject the promise on error
-    }
+    }  
+  });
 });
 
 
