@@ -269,6 +269,9 @@ align-items: flex-start;
 .team {
   background-color: var(--bg-color);
 }
+.team h2 {
+  padding-bottom: 30px;
+}
 .team__row {
   display: flex;
   align-items: center;

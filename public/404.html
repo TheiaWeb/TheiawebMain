@@ -41,15 +41,15 @@
     <div class="nav__content">
       <a href="index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
       <ul class="nav__menu">
-        <li><a href="index.html/#team">l'équipe</a></li>
-        <li><a href="index.html/#services">services</a></li>
-        <li><a href="index.html/#methode">roadmap</a></li>
-        <li><a href="index.html/#twitch">twitch</a></li>
-        <li class="nav__menu-btn"><a href="index.html/#contact">Contact</a></li>
+        <li><a href="#expertises" class="nav__menu-links">Expertises</a></li>
+        <li><a href="#accompagnement" class="nav__menu-links">Accompagnement</a></li>
+        <li><a href="#team" class="nav__menu-links">L'équipe</a></li>
+        <li><a href="#twitch" class="nav__menu-links">Live</a></li>
+        <li class="nav__menu-btn"><a href="#contact" class="nav__menu-btn-a">Nous contacter</a></li>
       </ul>
     </div>
   </nav>
-  <div class="navbar__mobile">
+  <div class="navbar__mobile animate__fadeInLeft">
     <div class="navbar__mobile-head section">
       <img class="navbar__mobile-logo" src="img/logo.png" alt="">
       <img class="navbar__mobile-menuIcon" id="menuIcon" src="img/navbar-burger.png" width="24px" height="21px" alt="" onclick="toggleMenu()">
@@ -57,11 +57,11 @@
   
     <div class="navbar__mobile-content" id="mobileMenu">
       <ul>
-        <li><a href="index.html/#team">l'équipe</a></li>
-        <li><a href="index.html/#services">services</a></li>
-        <li><a href="index.html/#methode">roadmap</a></li>
-        <li><a href="index.html/#twitch">twitch</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#expertises" class="nav__menu-mobile-links" onclick="toggleMenu()">Expertises</a></li>
+        <li><a href="#accompagnement" class="nav__menu-mobile-links" onclick="toggleMenu()">Accompagnement</a></li>
+        <li><a href="#team" class="nav__menu-mobile-links" onclick="toggleMenu()">L'équipe</a></li>
+        <li><a href="#twitch" class="nav__menu-mobile-links" onclick="toggleMenu()">Live</a></li>
+        <li class="nav__menu-btn"><a href="#contact" class="nav__menu-btn-a" onclick="toggleMenu()">Nous contacter</a></li>
       </ul>
     </div>
   </div>
@@ -103,81 +103,35 @@
   <!--================ FOOTER =================-->
 
 
-  <footer id="footer wow animate__animated animate__fadeInUp" class="section">
+  <footer id="footer" class="section  wow animate__animated animate__fadeInUp">
 
-    <div class="footer__left">
-      <div class="footer__left-1">
-        <img src="img/footer-logo.png" alt="">
-        <p>Copyright © 2023 Theia Web<br>
-          All rights reserved</p>
-          <div class="footer__logo">
-            <ul>
-              <li><a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="https://www.instagram.com/theia_web/²" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></i></a></li>
-            </ul>
-            <!--<ul>
-              <li><a href="" target="_blank"><i class="fa-brands fa-twitch"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-            </ul>-->
-          </div>
-          
+    <div class="footer__top">
+      <div class="footer__menu">
+        <li><a href="#expertises" class="footer__menu-links">Expertises</a></li>
+        <li><a href="#accompagnement" class="footer__menu-links">Accompagnement</a></li>
+        <li><a href="#team" class="footer__menu-links">L'équipe</a></li>
+        <li><a href="#twitch" class="footer__menu-links">Live</a></li>
+        <li><a href="#contact" class="footer__menu-links">Contact</a></li>
+
       </div>
-
-      
-     
+      <div class="footer__rs">
+          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/theia_web/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.twitch.tv/theiaweb" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+          <a href="https://www.youtube.com/@TheiaWeb" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
-    <div class="footer__middle">
-      <div class="footer__left-2">
-     <h5>Agence</h5>
-     <div class="footer__links">
-       <a href="#team">A propos</a>
-       <a href="#methode">Roadmap</a>
-       <a href="#contact">Nous Contacter</a>
-       <!--<a href="">Tarifs</a>
-       <a href="">Témoignages</a>-->
-     </div>
+    <hr>
 
-   </div>
-   <div class="footer__right-1">
-     <h5>Support</h5>
-     <div class="footer__links">
-       <a href="legal/mentions-legales.html">mention légales</a>
-       <a href="legal/cgu.html">Conditions générales d'utilisation</a>
-       <a href="legal/politique-confidentialité.html">politique de confidentialité</a>
-       <!--<a href="">Plan du site</a>-->
-     </div>
-   </div>
-   </div>
+    <div class="footer__bot">
+      <div class="footer__copyright">
+        <p>© 2023 All rights reserved</p>
+      </div>
+      <div class="footer__legal">
+        <li><a href="legal/politique-confidentialité.html">Politique de confidentialité</a></li>
+        <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
 
-    <div class="footer__right">
-      
-      <div class="footer__right-2">
-        <h5>Restez à jour !</h5>
-        <div class="footer__newsletter">
-                 <p>Inscrivez-vous pour recevoir toute l'actualité Pop Culture et Jeux vidéo, et des offres exclusives</p>
-        <!--HTML FORM FOR NEWSLETTER SUBSCRIPTION + MODAL VALIDATION-->
-        <form id="newsletterForm">
-          <input type="email" id="emailInput" placeholder="Votre adresse mail" required>
-          <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
-        </form>
-          <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close"><img src="img/navbar-close.png" alt=""></span>
-              <p id="modalText">Message envoyé</p>
-            </div>
-          </div> 
-
-        <p>Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans le mail. <a href="legal/politique-confidentialité.html">politique de confidentialité</a></p>
-
-        </div>
- 
       </div>
     </div>
 

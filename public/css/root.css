@@ -506,7 +506,7 @@ footer hr {
   font-weight: var(--font-regular);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
 }
 .contact__choose-services-title {
   color: var(--black);
