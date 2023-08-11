@@ -292,7 +292,7 @@ li{
     transition: 0.3s ease-in-out;
   }
   .navbar__mobile-content {
-    left: -100%;
+   display: none;
     transition: left 0.3s ease;
     background: var(--white);
     position: fixed;
@@ -320,7 +320,7 @@ li{
   }
   
   .menu-open {
-    left: 0;
+    display: block;
   }
 
 
