@@ -289,7 +289,6 @@ var playerHeight = 545; // Adjusted height to maintain 16:9 aspect ratio (16/9 =
 var twitchPlayer = null; // Variable to store the Twitch player instance
 // const nextScheduledStreamChannelId = 'next_channel_id'; // Replace with the channel ID of the channel with the next scheduled stream
 // let nextStreamDateValue = "Date: Not available";
-// Testons
 
 // Call the function on page load
 window.onload = function () {
