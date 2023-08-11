@@ -3,7 +3,7 @@ name: Firebase Hosting Deploy
 on:
   push:
     branches:
-      - refonte
+      - 'main/refonte'
 
 jobs:
   deploy:
