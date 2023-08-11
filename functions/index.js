@@ -33,15 +33,16 @@ exports.sendEmailOnContactCreation = functions.firestore
     const contactData = snapshot.data();
 
     const clientMailOptions = {
-      from: 'theiaweb.contact@gmail.com', // Sender's email
-      to: contactData.email, // Client's email from Firestore
+      from: 'theiaweb.contact@gmail.com',
+      to: contactData.email,
       subject: 'Merci pour votre prise de contact',
-      text: `Chèr(e) ${data.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
-      html: `<p>Chèr(e) ${data.name},</p>
+      text: `Chèr(e) ${contactData.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
+      html: `<p>Chèr(e) ${contactData.name},</p>
               <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
+              <p>Vous nous avez contactés à ce(s) sujet(s):<br>${contactData.services.join('<br>')}</p>
               <p>Cordialement,<br>Theia Web</p>`,
     };
-
+    
     // Admin email options
     const adminMailOptions = {
       from: 'theiaweb.contact@gmail.com',
@@ -59,16 +60,17 @@ exports.sendEmailOnContactCreation = functions.firestore
   `,
     };
 
-     try {
-            await transporter.sendMail(adminMailOptions);
-            await transporter.sendMail(clientMailOptions);
-            console.log('Emails sent successfully.');
-            return Promise.resolve(); // Resolve the promise to signal completion
-        } catch (error) {
-            console.error('Error sending emails:', error);
-            return Promise.reject(error); // Reject the promise on error
-        }
-  });
+    try {
+      await transporter.sendMail(adminMailOptions);
+      await transporter.sendMail(clientMailOptions);
+      console.log('Emails sent successfully.');
+      return Promise.resolve(); // Resolve the promise to signal completion
+    } catch (error) {
+      console.error('Error sending emails:', error);
+      return Promise.reject(error); // Reject the promise on error
+    }
+});
+
 
 // exports.subscribeToNewsletter = functions.database.ref('newsletterEmails/{emailId}')
 // .onCreate(async (snapshot, context) => {
@@ -107,9 +109,8 @@ exports.checkIfEmailExists = functions.https.onRequest((request, response) => {
 
     // Generate the custom key based on the date and the first letter of the email
     const date = new Date().toISOString().slice(0, 10);
-    const firstLetter = email.charAt(0).toLowerCase();
     const sanitizedEmail = email.replace(/[.$#\[\]@]/g, '');
-    const customKey = `${date}_${firstLetter}_${sanitizedEmail}`;
+    const customKey = `${date} ${sanitizedEmail}`;
 
     // Check if the email already exists in the database
     const databaseRef = admin.database().ref("newsletterEmails");
