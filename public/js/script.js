@@ -122,7 +122,6 @@ var form = document.getElementById('contactForm');
 //#region Save CONTACT FORM data firestore
 function handleFormSubmit() {
   const form = document.getElementById('contactForm');
-
   form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -132,7 +131,9 @@ function handleFormSubmit() {
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
       const message = document.getElementById('message').value;
-
+      const now = new Date();
+      const timestamp = now.toString();
+    
       // Gather selected services using checkboxes
       const services = Array.from(document.querySelectorAll('.contact__choose-services-check input[type="checkbox"]:checked'))
           .map(checkbox => checkbox.value);
@@ -155,6 +156,7 @@ function handleFormSubmit() {
           cguAccepted: cguAccepted,
           newsletterSubscribed: newsletterSubscribed
       },
+      timestamp: timestamp,
       };
 
       // Save data to Firestore
@@ -162,8 +164,8 @@ function handleFormSubmit() {
       try {
           await db.collection('contacts').add(userData);
           console.log('Data saved successfully.');
-          form.reset(); // Optional: Reset the form after submission
-          sendEmailOnContactCreation();
+          await sendEmailOnDataAdded();
+          form.reset(); // Optional: Reset the form after submission          
       } catch (error) {
           console.error('Error saving data:', error);
       }
@@ -172,6 +174,7 @@ function handleFormSubmit() {
 
 // Call the function when the document is loaded
 document.addEventListener('DOMContentLoaded', handleFormSubmit);
+
 //#endregion
 
 //#region PopUp RGPD
