@@ -292,8 +292,7 @@ li{
     transition: 0.3s ease-in-out;
   }
   .navbar__mobile-content {
-   opacity: 0;
-   transition: opacity 0.5s;  
+   left: -100%;
     transition: left 0.3s ease;
     background: var(--white);
     position: absolute;
@@ -321,8 +320,7 @@ li{
   }
   
   .menu-open {
-    opacity: 1;
-    transition: opacity 0.5s;
+    left: 0;
 
   }
 
