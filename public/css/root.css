@@ -324,6 +324,10 @@ li{
 
   }
 
+  a img.navbar__mobile-logo {
+    width: 99px;
+  }
+
 
 /*==================== FOOTER ====================*/
 footer {
