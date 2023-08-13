@@ -21,63 +21,62 @@ const firebaseConfig = {
 //#region SEND EMAIL TO USER && ADMIN ON CONTACT FORM 
 // ALSO SEND CONFIRMATION EMAIL FORM NEWSLETTER
 // Function to send emails
-exports.sendEmailOnDataAdded = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
-      const data = req.body; // Access the data directly from req.body
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+const mailTransport = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword,
+  },
+});
 
-      if (!data) {
-          console.error('Contact data is missing or empty.');
-          return res.status(400).send('Contact data is missing or empty.');
-      }
-      
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'theiaweb.contact@gmail.com',
-        pass: 'ggiffkbxrjlofqmi',
-      },
-    });    
+// Firebase Cloud Function triggered when new data is added to Firestore
+exports.sendEmailOnDataAdded = functions.firestore
+  .document('contacts/{contactId}')
+  .onCreate(async (snapshot, context) => {
+    const userData = snapshot.data();
+    const clientEmail = userData.personalInfo.email;
 
-    const clientMailOptions = {
-      from: 'theiaweb.contact@gmail.com',
-      to: data.personalInfo.email,
+    // Email content
+    const mailOptions = {
+      from: gmailEmail,
+      to: clientEmail,
       subject: 'Merci pour votre prise de contact',
-      text: `Chèr(e) ${data.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
-      html: `<p>Chèr(e) ${data.personalInfo.name},</p>
+      text: `Chèr(e) ${userData.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
+      html: `<p>Chèr(e) ${userData.personalInfo.name},</p>
               <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
-              <p>Vous nous avez contactés à ce(s) sujet(s):<br>${data.services.join('<br>')}</p>
+              <p>Vous nous avez contactés à ce(s) sujet(s):<br><br><strong>${userData.services.join('<br>')}</strong></p>
               <p>Cordialement,<br>Theia Web</p>`,
     };
-    
-    // Admin email options
-    const adminMailOptions = {
-      from: 'theiaweb.contact@gmail.com',
-      to: 'theiaweb.contact@gmail.com', // Admin's email
+     // Admin email options
+     const adminMailOptions = {
+      from: gmailEmail,
+      to: gmailEmail, // Admin's email
       subject: 'Nouvelle prise de contact via le formulaire !',
       html: `
       <h3>Nouveau contact, nouvelle mission lets go ca !!</h3>
-      <p><strong>Name:</strong> ${data.personalInfo.name} ${data.personalInfo.surname}</p>
-      <p><strong>Email:</strong> ${data.personalInfo.email}</p>
-      <p><strong>Phone:</strong> ${data.personalInfo.phone}</p>
-      <p><strong>Services:</strong> ${data.services.join(', ')}</p>
-      <p><strong>Message:</strong> ${data.personalInfo.message}</p>
-      <p><strong>CGU Accepted:</strong> ${data.preferences.cguAccepted ? 'Yes' : 'No'}</p>
-      <p><strong>Newsletter Subscribed:</strong> ${data.preferences.newsletterSubscribed ? 'Yes' : 'No'}</p>
+      <p><strong>Name:</strong> ${userData.personalInfo.name} ${userData.personalInfo.surname}</p>
+      <p><strong>Email:</strong> ${userData.personalInfo.email}</p>
+      <p><strong>Phone:</strong> ${userData.personalInfo.phone}</p>
+      <p><strong>Services:</strong> ${userData.services.join('<br>')}</p>
+      <p><strong>Message:</strong> ${userData.personalInfo.message}</p>
+      <p><strong>CGU Accepted:</strong> ${userData.preferences.cguAccepted ? 'Yes' : 'No'}</p>
+      <p><strong>Newsletter Subscribed:</strong> ${userData.preferences.newsletterSubscribed ? 'Yes' : 'No'}</p>
   `,
     };
 
+    // Send the email
     try {
-      transporter.sendMail(adminMailOptions,console.log('Emails sent successfully.'));
-      transporter.sendMail(clientMailOptions,console.log('Emails sent successfully.'));
-      console.log('Emails sent successfully.');
-      return Promise.resolve(); // Resolve the promise to signal completion
+      await mailTransport.sendMail(mailOptions);
+      await mailTransport.sendMail(adminMailOptions);
+      console.log('Email sent successfully.');
     } catch (error) {
-      console.error('Error sending emails:', error);
-      return Promise.reject(error); // Reject the promise on error
-    }  
-  });
-});
+      console.error('Error sending email:', error);
+    }
 
+    return null;
+  });
 
 // exports.subscribeToNewsletter = functions.database.ref('newsletterEmails/{emailId}')
 // .onCreate(async (snapshot, context) => {

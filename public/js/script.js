@@ -164,7 +164,6 @@ function handleFormSubmit() {
       try {
           await db.collection('contacts').add(userData);
           console.log('Data saved successfully.');
-          await sendEmailOnDataAdded();
           form.reset(); // Optional: Reset the form after submission          
       } catch (error) {
           console.error('Error saving data:', error);
