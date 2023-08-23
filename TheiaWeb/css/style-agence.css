@@ -405,7 +405,7 @@ align-items: flex-start;
   }
 }
 
-@media only screen and (min-width: 660px) and (max-width: 1250px) {
+/*@media only screen and (min-width: 660px) and (max-width: 1250px) {
   .team__row {  
     display: grid;
     justify-items: center;
@@ -424,7 +424,7 @@ align-items: flex-start;
   
   .team__card-vincent { grid-area: team__card-vincent; }
   
-}
+}*/
 
 
 
