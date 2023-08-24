@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-C16RVCG990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-C16RVCG990');
+  </script> -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Notre Agence Web - Theia Web | L'Agence Web 3.0</title>
+  <link rel="icon" href="img/logo-meta.png" type="img/icon type">
+  <link rel="stylesheet" href="css/root.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+</head>
+
+<body>
+
+
+  <!--================NAVBAR=================-->
+
+  <nav class="navbar__pc">
+    <div class="nav__content">
+      <a href="index.html"><img class="nav__content-logo" src=img/logo.png alt=""></a>
+      <ul class="nav__menu">
+        <li><a href="#expertises" class="nav__menu-links">Expertises</a></li>
+        <li><a href="#accompagnement" class="nav__menu-links">Accompagnement</a></li>
+        <li><a href="#team" class="nav__menu-links">L'équipe</a></li>
+        <li><a href="#twitch" class="nav__menu-links">Live</a></li>
+        <li class="nav__menu-btn"><a href="#contact" class="nav__menu-btn-a">Nous contacter</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="navbar__mobile animate__fadeInLeft">
+    <div class="navbar__mobile-head section">
+      <img class="navbar__mobile-logo" src="img/logo.png" alt="">
+      <img class="navbar__mobile-menuIcon" id="menuIcon" src="img/navbar-burger.png" width="24px" height="21px" alt="" onclick="toggleMenu()">
+    </div>
+  
+    <div class="navbar__mobile-content" id="mobileMenu">
+      <ul>
+        <li><a href="#expertises" class="nav__menu-mobile-links" onclick="toggleMenu()">Expertises</a></li>
+        <li><a href="#accompagnement" class="nav__menu-mobile-links" onclick="toggleMenu()">Accompagnement</a></li>
+        <li><a href="#team" class="nav__menu-mobile-links" onclick="toggleMenu()">L'équipe</a></li>
+        <li><a href="#twitch" class="nav__menu-mobile-links" onclick="toggleMenu()">Live</a></li>
+        <li class="nav__menu-btn"><a href="#contact" class="nav__menu-btn-a" onclick="toggleMenu()">Nous contacter</a></li>
+      </ul>
+    </div>
+  </div>
+  
+
+<!--================CONTENT=================-->
+<header>
+</header>
+
+
+
+
+  <!--================ FOOTER =================-->
+
+
+  <footer id="footer" class="section  wow animate__animated animate__fadeInUp">
+
+    <div class="footer__top">
+      <div class="footer__menu">
+        <li><a href="#expertises" class="footer__menu-links">Expertises</a></li>
+        <li><a href="#accompagnement" class="footer__menu-links">Accompagnement</a></li>
+        <li><a href="#team" class="footer__menu-links">L'équipe</a></li>
+        <li><a href="#twitch" class="footer__menu-links">Live</a></li>
+        <li><a href="#contact" class="footer__menu-links">Contact</a></li>
+
+      </div>
+      <div class="footer__rs">
+          <a href="https://www.linkedin.com/company/theia-web/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/theia_web/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/TheiaWeb" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.twitch.tv/theiaweb" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+          <a href="https://www.youtube.com/@TheiaWeb" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <hr>
+
+    <div class="footer__bot">
+      <div class="footer__copyright">
+        <p>© 2023 All rights reserved</p>
+      </div>
+      <div class="footer__legal">
+        <li><a href="legal/politique-confidentialité.html">Politique de confidentialité</a></li>
+        <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!--================ TOP BTN =================-->
+
+  <div class="" id="myBtn">
+    <button class="btn-top" onclick="topFunction()" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+  </div>
+
+
+
+  <!--================ POPUP RGPD =================-->
+<div class="popup-rgpd" id="popupRGPD">
+  <div class="popupRGPD__content">
+    <div class="popup__rgpd-top">
+      <img src="img/rgpd_img.png" alt="">
+      <h2>Notre site utilise des cookies</h2>
+      <p>Nous utilisons des cookies et des technologies similaires pour personnaliser le contenu, adapter et mesurer les publicités et offrir une meilleure expérience. En cliquant sur OK ou en activant une option dans les préférences en matière de cookies, vous acceptez cette pratique, telle qu'elle est décrite dans notre <span><a href="legal/politique-confidentialité.html" target="_blank">politique de confidentialité</a></span>.</p>
+      <a href="#" id="popupRGPD__content-link" class="popupRGPD__content-link">Préférences en matière de cookies</a>
+    </div>
+      <div class="popup__rgpd-bottom">
+        <div id="refuseButton" class="popup__rgpd-bottom-left">REFUSER</div>
+        <div id="acceptButton" class="popup__rgpd-bottom-right">ACCEPTER</div>
+
+      </div>
+    </div>
+</div>
+
+<div class="pref-rgpd" id ="pref-rgpd">
+  <div class="pref__content">
+    <div class="pref__content-top">
+      <img src="img/rgpd_img.png" alt="">
+
+      <div class="pref__content-txt">
+        <h2>Gérer les cookies</h2>
+        <p>Les cookies sont de petits textes qui peuvent être utilisés par les sites web pour rendre l'expérience de l'utilisateur plus efficace. La loi stipule que nous pouvons stocker des cookies sur votre appareil s'ils sont strictement nécessaires au fonctionnement de ce site. Pour tous les autres types de cookies, nous avons besoin de votre autorisation. Ce site utilise différents types de cookies. Certains cookies sont placés par des services tiers qui apparaissent sur nos pages. 
+            <br><br>
+          Votre autorisation s'applique aux domaines suivants :<br>
+          &#x2022; <span><a href="https://theiaweb.fr/" target="_blank">theiaweb.fr</a></span></p>
+      </div>
+
+    </div>
+      <div class="pref__content-bottom">
+        <div class="pref__content-bottom-box pref__content-bottom-box-border">
+          <h3>Nécessaire</h3>
+            <div class="pref__content-bottom-swicth-box">
+              <p>Les cookies nécessaires permettent de rendre un site web utilisable en assurant des fonctions de base telles que la navigation sur les pages et l'accès à des parties sécurisées du site web. Le site web ne peut pas fonctionner correctement sans ces cookies.</p>
+              <label class="switch" >
+                <input type="checkbox" id="necessary-switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+        </div>
+
+        <div class="pref__content-bottom-box pref__content-bottom-box-border">
+          <h3>Statistique</h3>
+            <div class="pref__content-bottom-swicth-box">
+              <p>Les cookies statistiques aident les propriétaires de sites web à comprendre comment les visiteurs interagissent avec les sites web en collectant et en rapportant des informations de manière anonyme.</p>
+              <label class="switch">
+                <input type="checkbox" id="statistic-switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+        </div>
+
+        <div class="pref__content-bottom-box pref__content-bottom-box-border">
+          <h3>Préférences</h3>
+            <div class="pref__content-bottom-swicth-box">
+              <p>Les cookies de préférence permettent au site web de se souvenir d'informations qui modifient le comportement ou l'apparence du site web, comme votre langue préférée ou la région dans laquelle vous vous trouvez.</p>
+              <label class="switch">
+                <input type="checkbox" id="preferences-switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+        </div>
+
+        <div class="pref__content-bottom-box">
+          <h3>Marketing</h3>
+            <div class="pref__content-bottom-swicth-box">
+              <p>Les cookies marketing sont utilisés pour suivre les visiteurs à travers les sites web. L'objectif est d'afficher des publicités pertinentes et attrayantes pour l'utilisateur individuel et donc plus intéressantes pour les éditeurs et les annonceurs tiers.</p>
+              <label class="switch">
+                <input type="checkbox" id="marketing-switch">
+                <span class="slider round"></span>
+              </label>
+            </div>
+        </div>
+      </div>
+      <div class="pref__content-btn">
+        <button id ="pref__content-btn-return" class="pref__content-btn-return">Retour</button>
+        <button class="pref__content-btn-accept">Autoriser la sélection</button>
+
+      </div>
+    </div>
+</div>
+  
+<div class="cookieModal" id="cookieModal">
+  <div class="cookieModal-content">
+    <h2>Acceptation des cookies</h2>
+    <p>Nous utilisons des cookies pour améliorer votre expérience. Veuillez cliquer sur "Accepter" pour continuer.</p>
+    <div class="cookieModal-actions">
+      <button class="cookieModal-accept" id="modalAcceptButton">Accepter</button>
+    </div>
+  </div>
+</div>
+
+
+   <script src="js/script.js" defer></script>
+   <script src="js/firebaseconfig.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</body>
+
+</html>
+
+  
