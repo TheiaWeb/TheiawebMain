@@ -1,9 +1,10 @@
 //#region CONSTANTES
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-const nodemailer = require('nodemailer');
-const cors = require("cors")({ origin: true });
-admin.initializeApp();
+import firebase from "firebase/compat/app";
+// Required for side-effects
+import "firebase/firestore";
+import "firebase/app";
+import "firebase/database";
+import "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
@@ -15,6 +16,12 @@ const firebaseConfig = {
   appId: "1:335132907653:web:d4620962ca0a24131571ec",
   measurementId: "G-5F4K9SXY34"
 };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+var firestore = firebase.firestore();
+var database = firebase.database();
+const functions = firebase.functions();
+const sendEmailOnDataAdded = functions.httpsCallable('sendEmailOnDataAdded');
 
 // Create a Nodemailer transporter using the Gmail SMTP server
 //#endregion
