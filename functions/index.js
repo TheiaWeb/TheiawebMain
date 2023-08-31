@@ -50,9 +50,10 @@ exports.sendEmailOnDataAdded = functions.firestore
       from: gmailEmail,
       to: clientEmail,
       subject: 'Merci pour votre prise de contact',
-      text: `Chèr(e) ${userData.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
+      text: `Chèr(e) ${userData.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nNous vous remercions pour votre démarche et sommes a votre écoute, si vous souhaitez partager plus d'informations ou revenir sur les informations que vous nous avez fournies; n'hésitez pas a nous contacter par mail a l'adresse theiaweb.contact@gmail.com, ou par téléphone au 06 35 55 14 84. \n\n Cordialement,\nTheia Web`,
       html: `<p>Chèr(e) ${userData.personalInfo.name},</p>
-              <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
+              <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les 48H suite a votre prise de contact</p>
+              <p>Nous vous remercions pour votre démarche et sommes a votre écoute, si vous souhaitez partager plus d'informations ou revenir sur les informations que vous nous avez fournies; n'hésitez pas a nous contacter par mail a l'adresse theiaweb.contact@gmail.com, ou par téléphone au 06 35 55 14 84.
               <p>Vous nous avez contactés à ce(s) sujet(s):<br><br><strong>${userData.services.join('<br>')}</strong></p>
               <p>Cordialement,<br>Theia Web</p>`,
     };

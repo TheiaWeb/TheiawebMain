@@ -8,9 +8,3 @@ const firebaseConfig = {
   appId: "1:335132907653:web:d4620962ca0a24131571ec",
   measurementId: "G-5F4K9SXY34"
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var firestore = firebase.firestore();
-var database = firebase.database();
-const functions = firebase.functions();
-const sendEmailOnDataAdded = functions.httpsCallable('sendEmailOnDataAdded');
