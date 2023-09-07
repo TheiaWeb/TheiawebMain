@@ -1,11 +1,11 @@
-//#region CONSTANTES
-import firebase from "firebase/compat/app";
-// Required for side-effects
-import "firebase/firestore";
-import "firebase/app";
-import "firebase/database";
-import "firebase/functions";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+import { getFirestore, doc, getDoc, getDocs,addDoc, collection } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
   authDomain: "formtheia.firebaseapp.com",
@@ -16,18 +16,20 @@ const firebaseConfig = {
   appId: "1:335132907653:web:d4620962ca0a24131571ec",
   measurementId: "G-5F4K9SXY34"
 };
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var firestore = firebase.firestore();
-var database = firebase.database();
-const functions = firebase.functions();
-const sendEmailOnDataAdded = functions.httpsCallable('sendEmailOnDataAdded');
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 // Create a Nodemailer transporter using the Gmail SMTP server
 //#endregion
 //#region SEND EMAIL TO USER && ADMIN ON CONTACT FORM 
 // ALSO SEND CONFIRMATION EMAIL FORM NEWSLETTER
 // Function to send emails
+//#region  Email Sending
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
 const mailTransport = nodemailer.createTransport({
@@ -85,7 +87,7 @@ exports.sendEmailOnDataAdded = functions.firestore
 
     return null;
   });
-
+//#endregion
 // exports.subscribeToNewsletter = functions.database.ref('newsletterEmails/{emailId}')
 // .onCreate(async (snapshot, context) => {
 //   const data = snapshot.val(); // Use snapshot.val() instead of snapshot.data()
@@ -117,21 +119,18 @@ exports.sendEmailOnDataAdded = functions.firestore
 //#endregion
 
 //#region  Newsletter
-exports.checkIfEmailExists = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    const email = request.query.email;
+exports.checkIfEmailExists = functions.https.onRequest(async (req, res) => {
+  cors(request, response, async () => {
+    const original = req.query.text;
 
     // Generate the custom key based on the date and the first letter of the email
     const date = new Date().toISOString().slice(0, 10);
-    const sanitizedEmail = email.replace(/[.$#\[\]@]/g, '');
+    const sanitizedEmail = original.replace(/[.$#\[\]@]/g, '');
     const customKey = `${date} ${sanitizedEmail}`;
 
     // Check if the email already exists in the database
-    const databaseRef = admin.database().ref("newsletterEmails");
-    databaseRef.child(customKey).once("value", (snapshot) => {
-      const exists = snapshot.exists();
-      response.json({ exists: exists });
-    });
-  })
+    const databaseRef = await admin.firestore().collection(db, "newsletterEmails");
+    res.json({ result: `Adresse Email: ${writeResult.id} added.` });
+  });
 });
 //#endregion
