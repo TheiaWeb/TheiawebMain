@@ -346,7 +346,6 @@
       <!-- Player twitch + chat + abonnées -->
         <div id="subscriberPlayerAndChatContainer z-4">
           <div id="twitch-embed"></div>
-          <div id="twitchChatSize"></div>
         </div>      
       
       <div class="twitch_buttons grid-4-2-1 z-4">
@@ -572,8 +571,8 @@
           
           <!--HTML FORM FOR NEWSLETTER SUBSCRIPTION + MODAL VALIDATION-->
           <form id="newsletterForm">
-            <input type="email" id="emailInput" placeholder="Entrez votre adresse mail" required>
-            <button type="submit">S'inscrire <i class="fa-solid fa-arrow-right"></i></button>
+            <input class="newsletteremailinput" type="email" id="emailInput" placeholder="Entrez votre adresse mail" required>
+            <button class="newsletteremailinput" type="submit">S'inscrire <i class="fa-solid fa-arrow-right"></i></button>
           </form>
           
           <div class="newsletterModal" id="newsletterModal">
@@ -720,29 +719,25 @@
     </div>
 </div>
   
-<div class="cookieModal" id="cookieModal">
-  <div class="cookieModal-content">
-    <h2>Acceptation des cookies</h2>
-    <p>Nous utilisons des cookies pour améliorer votre expérience. Veuillez cliquer sur "Accepter" pour continuer.</p>
-    <div class="cookieModal-actions">
-      <button class="cookieModal-accept" id="modalAcceptButton">Accepter</button>
-    </div>
-  </div>
-</div>
+
 
 
   <script src="js/script.js" defer></script>
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+  <script type="text/javascript">
+
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript">
     new WOW().init()
   </script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="js/firebaseconfig.js"></script>
+  
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-database-compat.js"></script>
+
+<script type=module src="js/firebaseconfig.js"></script>
 </body>
 
 </html>

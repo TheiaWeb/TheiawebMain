@@ -1,10 +1,11 @@
-//#region CONSTANTES
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-const nodemailer = require('nodemailer');
-const cors = require("cors")({ origin: true });
-admin.initializeApp();
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+import { getFirestore, doc, getDoc, getDocs,addDoc, collection } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
   authDomain: "formtheia.firebaseapp.com",
@@ -16,11 +17,19 @@ const firebaseConfig = {
   measurementId: "G-5F4K9SXY34"
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
 // Create a Nodemailer transporter using the Gmail SMTP server
 //#endregion
 //#region SEND EMAIL TO USER && ADMIN ON CONTACT FORM 
 // ALSO SEND CONFIRMATION EMAIL FORM NEWSLETTER
 // Function to send emails
+//#region  Email Sending
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
 const mailTransport = nodemailer.createTransport({
@@ -43,9 +52,10 @@ exports.sendEmailOnDataAdded = functions.firestore
       from: gmailEmail,
       to: clientEmail,
       subject: 'Merci pour votre prise de contact',
-      text: `Chèr(e) ${userData.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nCordialement,\nTheia Web`,
+      text: `Chèr(e) ${userData.personalInfo.name},\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.\n\nNous vous remercions pour votre démarche et sommes a votre écoute, si vous souhaitez partager plus d'informations ou revenir sur les informations que vous nous avez fournies; n'hésitez pas a nous contacter par mail a l'adresse theiaweb.contact@gmail.com, ou par téléphone au 06 35 55 14 84. \n\n Cordialement,\nTheia Web`,
       html: `<p>Chèr(e) ${userData.personalInfo.name},</p>
-              <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
+              <p>Merci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dans les 48H suite a votre prise de contact</p>
+              <p>Nous vous remercions pour votre démarche et sommes a votre écoute, si vous souhaitez partager plus d'informations ou revenir sur les informations que vous nous avez fournies; n'hésitez pas a nous contacter par mail a l'adresse theiaweb.contact@gmail.com, ou par téléphone au 06 35 55 14 84.
               <p>Vous nous avez contactés à ce(s) sujet(s):<br><br><strong>${userData.services.join('<br>')}</strong></p>
               <p>Cordialement,<br>Theia Web</p>`,
     };
@@ -77,7 +87,7 @@ exports.sendEmailOnDataAdded = functions.firestore
 
     return null;
   });
-
+//#endregion
 // exports.subscribeToNewsletter = functions.database.ref('newsletterEmails/{emailId}')
 // .onCreate(async (snapshot, context) => {
 //   const data = snapshot.val(); // Use snapshot.val() instead of snapshot.data()
@@ -109,21 +119,18 @@ exports.sendEmailOnDataAdded = functions.firestore
 //#endregion
 
 //#region  Newsletter
-exports.checkIfEmailExists = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
-    const email = request.query.email;
+exports.checkIfEmailExists = functions.https.onRequest(async (req, res) => {
+  cors(request, response, async () => {
+    const original = req.query.text;
 
     // Generate the custom key based on the date and the first letter of the email
     const date = new Date().toISOString().slice(0, 10);
-    const sanitizedEmail = email.replace(/[.$#\[\]@]/g, '');
+    const sanitizedEmail = original.replace(/[.$#\[\]@]/g, '');
     const customKey = `${date} ${sanitizedEmail}`;
 
     // Check if the email already exists in the database
-    const databaseRef = admin.database().ref("newsletterEmails");
-    databaseRef.child(customKey).once("value", (snapshot) => {
-      const exists = snapshot.exists();
-      response.json({ exists: exists });
-    });
-  })
+    const databaseRef = await admin.firestore().collection(db, "newsletterEmails");
+    res.json({ result: `Adresse Email: ${writeResult.id} added.` });
+  });
 });
 //#endregion

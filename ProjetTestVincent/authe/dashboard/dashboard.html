@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the inscription Panel ! <span id="user_displayname"></span>!</h1>
+        <h2>Please fill in the informations relative to your profile and requirement for the project(s) you want to share with us</h2>
+        <button id="logout-btn">Log Out</button>
+        <div id="profile-form">
+            <h2>Edit Profile</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your Email"><br>
+            
+            <div>
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" accept="image/*">
+            </div>
+            <div id="image-preview">
+                <img id="selected-image" src="#" alt="Image Preview" style="display: none;">
+            </div>
+            <button id="update-profile-btn">Update Profile</button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script type="module" src="dashboard.js"></script>
+    <script>
+    </script>
+</body>
+</html>
