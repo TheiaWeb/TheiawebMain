@@ -17,8 +17,14 @@
             <input type="text" id="name" placeholder="Your Name"><br>
             <label for="email">Email:</label>
             <input type="email" id="email" placeholder="Your Email"><br>
-            <label for="photo">Photo URL:</label>
-            <input type="text" id="photo" placeholder="Photo URL"><br>
+            
+            <div>
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" accept="image/*">
+            </div>
+            <div id="image-preview">
+                <img id="selected-image" src="#" alt="Image Preview" style="display: none;">
+            </div>
             <button id="update-profile-btn">Update Profile</button>
         </div>
     </div>
@@ -29,5 +35,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
     <script type="module" src="dashboard.js"></script>
+    <script>
+    </script>
 </body>
 </html>

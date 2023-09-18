@@ -98,3 +98,26 @@ function saveProfileDataToDatabase(userId, displayName, email, photoURL) {
         console.error("Error saving profile data to Firebase Realtime Database:", error);
     });
 }
+        // JavaScript code to handle image preview
+        document.getElementById("photo").addEventListener("change", function () {
+            const selectedImage = document.getElementById("selected-image");
+            const fileInput = document.getElementById("photo");
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    selectedImage.src = e.target.result;
+                    selectedImage.style.display = "block";
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                selectedImage.src = "#"; // Clear the preview if no image is selected
+                selectedImage.style.display = "none";
+            }
+        });
+        
+        function redirectToPersonalSpace() {
+            // Replace 'personal-space-url' with the actual URL or path to the user's personal space
+            const personalSpaceUrl = '../';
+            window.location.href = personalSpaceUrl; // Redirect to the personal space
+        }

@@ -73,6 +73,9 @@ registerBtn.addEventListener('click', function() {
             // Add the username to the user's profile
             return userCredential.user.updateProfile({
                 displayName: username
+            }).then(function() {
+                // Set custom claim for admins
+                return setCustomUserClaims(userCredential.user.uid, { admin: false });
             });
         })
         .then(function() {
@@ -87,7 +90,7 @@ registerBtn.addEventListener('click', function() {
 // Initialize the Google Sign-In API
 gapi.load('auth2', function() {
     gapi.auth2.init({
-        client_id: '849987501666-pvneh82hm998jb1topscj1rgbcako8n5.apps.googleusercontent.com',
+        client_id: 'Your Google Client ID',
     });
 });
 
@@ -118,11 +121,27 @@ googleLoginBtn.addEventListener('click', function() {
 
 auth.onAuthStateChanged(user => {
     if (user) {
-
-        if (!window.location.pathname.includes("dashboard")) {
-            window.location.href = "../authe/dashboard/dashboard.html";
-        }
+        // Check custom claim to determine admin status
+        user.getIdTokenResult()
+            .then(idTokenResult => {
+                const isAdmin = idTokenResult.claims.admin || false;
+                if (isAdmin) {
+                    console.log('User is an admin');
+                    window.location.href = "../authe/AdminSide/admin.html"
+                    // User is an admin
+                    // You can redirect them to the admin dashboard
+                } else {
+                    console.log('User is a regular user');
+                    window.location.href = "../authe/dashboard/dashboard.html"
+                    // User is not an admin
+                    // You can redirect them to the regular user dashboard
+                }
+            })
+            .catch(error => {
+                console.error('Error checking custom claim:', error);
+            });
     } else {
+        // User is not logged in
         if (!window.location.pathname.includes("index")) {
             window.location.href = "/index.html";
         }
