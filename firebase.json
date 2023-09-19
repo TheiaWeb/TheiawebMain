@@ -40,7 +40,7 @@
         ]
       }
     ],
-    "public": "TheiaWeb",
+    "public": "Theiaweb",
     "ignore": [
       "firebase.json",
       "**/.*",
