@@ -28,18 +28,6 @@
     "singleProjectMode": true
   },
   "hosting": {
-    "headers": [
-      {
-        "source": "/formtheia/us-central1/sendMailOverHTTP",
-        "function": "sendMailOverHTTP",
-        "headers": [
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          }
-        ]
-      }
-    ],
     "public": "Theiaweb",
     "ignore": [
       "firebase.json",
