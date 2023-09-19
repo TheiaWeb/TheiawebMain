@@ -180,35 +180,40 @@ ReturnButton.addEventListener("click", () => {
 //#endregion
 
 //#region Newsletter 
-// Firebase database writing process
+const text = document.getElementById('newsletterModal');
+const newsletterForm = document.getElementById('newsletterForm');
+newsletterForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-const EmailRef = ref(Database, 'NewsletterAbonnement/');
+  // Get the email input value
+  const emailInput = document.getElementById('emailInput');
+  const email = emailInput.value;
 
+  // Get current timestamp
+  const now = new Date();
+  const timestamp = now.toString();
 
- function writeUserData( email ,userId) {
-  const firstLetter = email.charAt(0);
-  const date = new Date().toISOString().slice(0, 10);
-  set(ref(Database, 'NewsletterAbonnement/' +date + firstLetter), {
+  // Create data object
+  const newsletterData = {
     email: email,
-  });
+    timestamp: timestamp,
+  };
 
-}
-
-// Function to handle form submission
-newsletterForm.addEventListener('submit', function (event) {
-  event.preventDefault(); // Prevent the default form submission behavior  
-  const emailInput = document.querySelector('.newsletteremailinput').value;
-     // Call the writeUserData function to save the data to the database
-  writeUserData(emailInput);
-
-  // Optionally, you can show a success message or perform other actions
-  const newsletterModal = document.getElementById('newsletterModal');
-  newsletterModal.style.opacity=1;
-  newsletterModal.innerHTML = 'Merci pour votre inscription !';
-
-  // Clear the form
-  document.getElementById('emailInput').value = '';
+  try {
+    // Save data to Firestore or perform your desired action here
+    text.style.opacity = 1;
+    
+    const docRef = await addDoc(collection(Firestore, 'newsletterSubscriptions'), newsletterData);
+    console.log('Email saved:', email);
+    newsletterForm.reset(); // Optional: Reset the form after submission
+    setTimeout(() => {
+      text.style.opacity = 0;
+    }, 3000);
+  } catch (error) {
+    console.error('Error saving email:', error);
+  }
 });
+
 
 
 //#endregion

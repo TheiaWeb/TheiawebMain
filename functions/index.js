@@ -10,7 +10,8 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const {initializeApp, getApps} = require("firebase-admin/app");
 const functions = require("firebase-functions");
-const cors = require("cors")({origin: true});
+const express = require('express');
+const cors = require('cors')({ origin: true });
 const firebaseConfig = {
   apiKey: "AIzaSyDB4BfdCWo9fHb4rC2YZl5gOgtikxQHi5g",
   authDomain: "formtheia.firebaseapp.com",
@@ -26,7 +27,7 @@ const firebaseConfig = {
 if (getApps().length === 0) {
   initializeApp(firebaseConfig);
 }
-
+const app = express();
 // Create and deploy your Firebase Functions
 // https://firebase.google.com/docs/functions/get-started
 
@@ -90,17 +91,51 @@ exports.sendEmailOnDataAdded = functions.firestore
     return null;
   });
 
-exports.checkIfEmailExists = onRequest(async (req, res) => {
-  cors(request, response, async () => {
-    const original = req.query.text;
-
-    // Generate the custom key based on the date and the first letter of the email
-    const date = new Date().toISOString().slice(0, 10);
-    const sanitizedEmail = original.replace(/[.$#\[\]@]/g, '');
-    const customKey = `${date} ${sanitizedEmail}`;
-
-    // Check if the email already exists in the database
-    const databaseRef = await admin.firestore().collection("newsletterEmails");
-    res.json({ result: `Adresse Email: ${writeResult.id} added.` });
+  exports.checkIfEmailExists = functions.https.onCall(async (data, context) => {
+    const searchString = data.searchString; // Get the search string from the client
+  
+    try {
+      const querySnapshot = await getDocs(collection(Firestore, 'newsletterSubscriptions'));
+      const results = [];
+  
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+  
+        // Check if the email field contains the search string
+        if (data.email.includes(searchString)) {
+          results.push({
+            id: doc.id,
+            ...data
+          });
+        }
+      });
+  
+      return { results };
+    } catch (error) {
+      console.error('Error searching newsletter subscriptions:', error);
+      throw new functions.https.HttpsError('internal', 'An error occurred while searching for email subscriptions.');
+    }
   });
-});
+    // app.get('/checkIfEmailExists', cors, (request, response) => {
+  //   const original = request.query.email;
+  
+  //   // Generate the custom key based on the date and the first letter of the email
+  //   const date = new Date().toISOString().slice(0, 10);
+  //   const sanitizedEmail = original.replace(/[.$#\[\]@]/g, '');
+  //   const customKey = `${date} ${sanitizedEmail}`;
+  
+  //   // Check if the email already exists in the database
+  //   const databaseRef = admin.firestore().collection("newsletterEmails");
+  
+  //   // Perform a database operation, e.g., add a document
+  //   databaseRef.add({ email: original })
+  //     .then((writeResult) => {
+  //       response.json({ result: `Adresse Email: ${writeResult.id} added.` });
+  //     })
+  //     .catch((error) => {
+  //       response.status(500).json({ error: "Internal Server Error" });
+  //     });
+  // });
+  
+  // // Export the Express app as a Cloud Function
+  // exports.checkIfEmailExists = functions.https.onRequest(app);  
