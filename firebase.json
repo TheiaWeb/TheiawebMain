@@ -28,7 +28,7 @@
     "singleProjectMode": true
   },
   "hosting": {
-    "public": "Theiaweb",
+    "public": "TheiaWeb",
     "ignore": [
       "firebase.json",
       "**/.*",
